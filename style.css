@@ -269,6 +269,34 @@ body {
     box-shadow: 0 5px 15px rgba(44, 90, 160, 0.3);
 }
 
+/* Birthday Card within Sidebar Styles */
+.sidebar .birthday-card {
+    background-color: #f8f9fa; /* Kartlar için açık arka plan */
+    border: 1px solid #dee2e6; /* Açık kenarlık */
+    transition: all 0.3s ease;
+    padding: 10px; /* Kenar çubuğu için azaltılmış dolgu */
+}
+
+.sidebar .birthday-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.sidebar .birthday-card img {
+    width: 60px; /* Kenar çubuğu için daha küçük resim */
+    height: 60px; /* Kenar çubuğu için daha küçük resim */
+    margin-bottom: 8px; /* Ayarlanmış kenar boşluğu */
+}
+
+.sidebar .birthday-card h6 {
+    font-size: 0.95rem; /* İsim için daha küçük yazı tipi */
+    margin-bottom: 2px;
+}
+
+.sidebar .birthday-card p {
+    font-size: 0.8rem; /* Departman ve tarih için daha küçük yazı tipi */
+    margin-bottom: 2px;
+}
 
 /* Responsive */
 @media (max-width: 1024px) {
@@ -300,5 +328,5 @@ body {
         font-size: 1.5rem;
     }
 
-    /* news-grid and quick-stats columns handled by Bootstrap's responsive grid classes */
+    /* news-grid ve quick-stats sütunları Bootstrap'in duyarlı ızgara sınıfları tarafından ele alınır */
 }
