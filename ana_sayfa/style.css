@@ -13,6 +13,7 @@ body {
     width: 90%;
     margin: 0 auto;
     max-width: 1200px;
+    
 }
 
 .card {
@@ -720,7 +721,6 @@ footer .container {
         height: 65px; /* Açıklama alanı kaldırıldığı için küçültüldü */
     }
 }
-}
 
 @media (max-width: 480px) {
     .logo-img {
@@ -778,8 +778,6 @@ footer .container {
         height: 55px; /* Açıklama alanı kaldırıldığı için küçültüldü */
     }
 }
-}
-
 
 /* =================================
    YENİ EKLENEN DUYURULAR BÖLÜMÜ STİLLERİ
