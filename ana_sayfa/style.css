@@ -545,7 +545,8 @@ body {
 /* Social Icons Stilleri */
 .social-icons {
     display: flex;
-    gap: 0.75rem;
+    gap: 1rem;
+     transform: translateY(-20px); /* Yukarıya taşı */
 }
 
 .social-icons a {
@@ -554,16 +555,16 @@ body {
     justify-content: center;
     width: 35px;
     height: 35px;
-    background-color: orange;
+    background-color: white;
     color: #1b3f8b;
-    border-radius: 50%;
+
     text-decoration: none;
     font-size: 16px;
     transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-    background-color: #ff8c00;
+    background-color: #d2d2d2;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
 }
@@ -589,26 +590,33 @@ footer .container {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
-    border-bottom: 1px solid orange;
-    padding-bottom: 20px;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+}
+
+.footer-logo{
+     height: 7px;
+    transform: scale(3);
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 .footer-content p {
     margin: 8px 0;
     font-size: 14px;
-    color:orange;
+    color:white;
 }
 
 .footer-content i {
     margin-right: 8px;
-    color: orange;
+   
 }
 
 .footer-bottom {
     text-align: center;
     margin-top: 15px;
     font-size: 13px;
-    color: orange;
+    color: white;
 }
 
 /* Responsive tasarım */
