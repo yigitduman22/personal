@@ -462,4 +462,40 @@ document.addEventListener('DOMContentLoaded', function() {
             renderDuyurular();
         }
     }
+
+    // --- OTOMASYON SİSTEMLERİ ETKİLEŞİM ---
+    const otomasyonButtons = document.querySelectorAll('.otomasyon-btn');
+    
+    otomasyonButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Buton tıklandığında hafif bir geri bildirim efekti
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+            
+            console.log('Otomasyon sistemi açılıyor:', this.href);
+        });
+    });
+
+    // Otomasyon kartlarına hover efekti için ek interaktivite
+    const otomasyonItems = document.querySelectorAll('.otomasyon-item');
+    
+    otomasyonItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            // Diğer kartları hafif şeffaflaştır
+            otomasyonItems.forEach(otherItem => {
+                if (otherItem !== this) {
+                    otherItem.style.opacity = '0.7';
+                }
+            });
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            // Tüm kartları normale döndür
+            otomasyonItems.forEach(otherItem => {
+                otherItem.style.opacity = '1';
+            });
+        });
+    });
 });

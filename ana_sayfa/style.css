@@ -611,174 +611,6 @@ footer .container {
     color: orange;
 }
 
-/* Responsive tasarım */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 0.75rem;
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .nav-links a {
-        justify-content: center;
-    }
-
-    .profile-container {
-        align-self: flex-end;
-        margin-top: -40px;
-    }
-
-    .content-area {
-        padding: 15px;
-    }
-
-    .gallery-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-    
-    .gallery-arrow.prev {
-        left: 10px;
-    }
-    
-    .gallery-arrow.next {
-        right: 10px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .footer-content img.logo-img {
-        margin-bottom: 10px;
-    }
-
-    .social-icons {
-        justify-content: center;
-    }
-
-    /* Mobile dropdown ayarları - 4 sütundan 2 sütuna */
-    .nav-dropdown-menu {
-        left: 0;
-        transform: translateX(0);
-        width: 100%;
-        min-width: auto;
-        max-width: none;
-    }
-
-    .nav-dropdown.active .nav-dropdown-menu {
-        transform: translateX(0) translateY(0);
-    }
-
-    .nav-dropdown-menu::before {
-        left: 20px;
-        transform: translateX(0);
-    }
-
-    .dropdown-grid {
-        grid-template-columns: repeat(2, 1fr); /* Mobile'da 2 sütun */
-        gap: 6px;
-    }
-
-    .dropdown-item {
-        min-height: 70px;
-        padding: 12px 8px !important;
-    }
-
-    .dropdown-item i {
-        font-size: 16px;
-    }
-
-    .dropdown-item span {
-        font-size: 11px;
-    }
-
-    /* Mobile'da haberler başlığı */
-    .haberler-baslik {
-        font-size: 1.5rem;
-    }
-
-    .ana-haber-baslik {
-        font-size: 1.125rem;
-    }
-
-    .ana-haber-baslik-container {
-        padding: 1.5rem 1rem 1rem;
-    }
-
-    .gallery-thumbnail {
-        width: 110px;
-        height: 65px; /* Açıklama alanı kaldırıldığı için küçültüldü */
-    }
-}
-
-@media (max-width: 480px) {
-    .logo-img {
-        transform: scale(2.5);
-    }
-
-    .footer-content p {
-        font-size: 13px;
-    }
-
-    .social-icons a {
-        font-size: 14px;
-    }
-
-    .profile-menu {
-        min-width: 250px;
-        right: -20px;
-    }
-
-    /* Küçük ekranlar için dropdown ayarları */
-    .nav-dropdown-menu {
-        min-width: 320px;
-        max-width: 350px;
-    }
-
-    .dropdown-grid {
-        grid-template-columns: repeat(2, 1fr); /* Küçük ekranlarda yine 2 sütun */
-        gap: 4px;
-    }
-
-    .dropdown-item {
-        min-height: 65px;
-        padding: 10px 6px !important;
-    }
-
-    .dropdown-item i {
-        font-size: 14px;
-    }
-
-    .dropdown-item span {
-        font-size: 10px;
-    }
-
-    /* Küçük ekranlarda haberler */
-    .haberler-baslik {
-        font-size: 1.25rem;
-    }
-
-    .ana-haber-baslik {
-        font-size: 1rem;
-    }
-
-    .gallery-thumbnail {
-        width: 100px;
-        height: 55px; /* Açıklama alanı kaldırıldığı için küçültüldü */
-    }
-}
-
 /* =================================
    YENİ EKLENEN DUYURULAR BÖLÜMÜ STİLLERİ
    ================================= */
@@ -900,4 +732,377 @@ footer .container {
     font-size: 1rem;
     font-weight: 500;
     color: #495057;
+}
+
+/* =================================
+   OTOMASYON SİSTEMLERİ STİLLERİ
+   ================================= */
+
+/* Otomasyon Başlığı */
+.otomasyon-header {
+    border-bottom: 3px solid #1b3f8b;
+    padding-bottom: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.otomasyon-baslik {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #1b3f8b;
+    margin: 0;
+}
+
+.otomasyon-baslik i {
+    color: #0d6efd;
+    margin-right: 0.5rem;
+}
+
+/* Otomasyon Grid Layout */
+.otomasyon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 0.5rem 0;
+}
+
+/* Tekil Otomasyon Item */
+.otomasyon-item {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 1px solid #e9ecef;
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.otomasyon-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1b3f8b, #0d6efd, #1b3f8b);
+    border-radius: 1rem 1rem 0 0;
+}
+
+.otomasyon-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    border-color: #0d6efd;
+}
+
+.otomasyon-item:hover::before {
+    background: linear-gradient(90deg, #ff6b35, #f7931e, #ff6b35);
+}
+
+/* Otomasyon Logo */
+.otomasyon-logo {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #1b3f8b, #0d6efd);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(27, 63, 139, 0.3);
+}
+
+.otomasyon-logo i {
+    font-size: 2rem;
+    color: white;
+}
+
+.otomasyon-item:hover .otomasyon-logo {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+}
+
+/* Otomasyon İsim */
+.otomasyon-isim {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #1b3f8b;
+    margin: 0 0 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.otomasyon-item:hover .otomasyon-isim {
+    color: #ff6b35;
+}
+
+/* Otomasyon Açıklama */
+.otomasyon-aciklama {
+    font-size: 0.95rem;
+    color: #6c757d;
+    line-height: 1.5;
+    margin: 0 0 1.5rem 0;
+    font-weight: 500;
+}
+
+/* Otomasyon Buton */
+.otomasyon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #1b3f8b, #0d6efd);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(27, 63, 139, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.otomasyon-btn:hover {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+}
+
+.otomasyon-btn i {
+    font-size: 0.8rem;
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .nav-links a {
+        justify-content: center;
+    }
+
+    .profile-container {
+        align-self: flex-end;
+        margin-top: -40px;
+    }
+
+    .content-area {
+        padding: 15px;
+    }
+
+    .gallery-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .gallery-arrow.prev {
+        left: 10px;
+    }
+    
+    .gallery-arrow.next {
+        right: 10px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-content img.logo-img {
+        margin-bottom: 10px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    /* Mobile dropdown ayarları - 4 sütundan 2 sütuna */
+    .nav-dropdown-menu {
+        left: 0;
+        transform: translateX(0);
+        width: 100%;
+        min-width: auto;
+        max-width: none;
+    }
+
+    .nav-dropdown.active .nav-dropdown-menu {
+        transform: translateX(0) translateY(0);
+    }
+
+    .nav-dropdown-menu::before {
+        left: 20px;
+        transform: translateX(0);
+    }
+
+    .dropdown-grid {
+        grid-template-columns: repeat(2, 1fr); /* Mobile'da 2 sütun */
+        gap: 6px;
+    }
+
+    .dropdown-item {
+        min-height: 70px;
+        padding: 12px 8px !important;
+    }
+
+    .dropdown-item i {
+        font-size: 16px;
+    }
+
+    .dropdown-item span {
+        font-size: 11px;
+    }
+
+    /* Mobile'da haberler başlığı */
+    .haberler-baslik {
+        font-size: 1.5rem;
+    }
+
+    .ana-haber-baslik {
+        font-size: 1.125rem;
+    }
+
+    .ana-haber-baslik-container {
+        padding: 1.5rem 1rem 1rem;
+    }
+
+    .gallery-thumbnail {
+        width: 110px;
+        height: 65px; /* Açıklama alanı kaldırıldığı için küçültüldü */
+    }
+
+    /* Mobile'da otomasyon sistemleri */
+    .otomasyon-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .otomasyon-item {
+        padding: 1.5rem 1rem;
+    }
+
+    .otomasyon-logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .otomasyon-logo i {
+        font-size: 1.75rem;
+    }
+
+    .otomasyon-isim {
+        font-size: 1.25rem;
+    }
+
+    .otomasyon-baslik {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        transform: scale(2.5);
+    }
+
+    .footer-content p {
+        font-size: 13px;
+    }
+
+    .social-icons a {
+        font-size: 14px;
+    }
+
+    .profile-menu {
+        min-width: 250px;
+        right: -20px;
+    }
+
+    /* Küçük ekranlar için dropdown ayarları */
+    .nav-dropdown-menu {
+        min-width: 320px;
+        max-width: 350px;
+    }
+
+    .dropdown-grid {
+        grid-template-columns: repeat(2, 1fr); /* Küçük ekranlarda yine 2 sütun */
+        gap: 4px;
+    }
+
+    .dropdown-item {
+        min-height: 65px;
+        padding: 10px 6px !important;
+    }
+
+    .dropdown-item i {
+        font-size: 14px;
+    }
+
+    .dropdown-item span {
+        font-size: 10px;
+    }
+
+    /* Küçük ekranlarda haberler */
+    .haberler-baslik {
+        font-size: 1.25rem;
+    }
+
+    .ana-haber-baslik {
+        font-size: 1rem;
+    }
+
+    .gallery-thumbnail {
+        width: 100px;
+        height: 55px; /* Açıklama alanı kaldırıldığı için küçültüldü */
+    }
+
+    /* Küçük ekranlarda otomasyon sistemleri */
+    .otomasyon-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .otomasyon-item {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .otomasyon-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .otomasyon-logo i {
+        font-size: 1.5rem;
+    }
+
+    .otomasyon-isim {
+        font-size: 1.125rem;
+    }
+
+    .otomasyon-aciklama {
+        font-size: 0.875rem;
+    }
+
+    .otomasyon-btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.85rem;
+    }
+
+    .otomasyon-baslik {
+        font-size: 1.25rem;
+    }
 }
