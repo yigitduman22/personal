@@ -1,65 +1,41 @@
 // Galeri fotoğrafları array'i - Başlık ve açıklamalarla
 const detayGorseller = [
     {
-        resim: "/images/8-mart-dunya-kadinlar-gunu-programi_8383.jpg",
-        baslik: "8 Mart Dünya Kadınlar Günü Programı",
-        aciklama: "Kadın personelimizin özel günü kutlandı"
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_2075.jpg",
+       
     },
     {
-        resim: "/images/24-kas-m-o-retmenler-gunu_2947.jpg",
-        baslik: "24 Kasım Öğretmenler Günü Ziyareti",
-        aciklama: "Öğretmenlerimizi unutmadık"
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_120.jpg",
+       
     },
     {
-        resim: "/images/personel-bayramla-ma-programi_5965.jpg",
-        baslik: "Personel Bayramlaşma Programı",
-        aciklama: "Geleneksel bayram buluşması"
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_2143.jpg",
+
     },
     {
-        resim: "/images/personel-ftar-program_109.jpg",
-        baslik: "Personel İftar Programı",
-        aciklama: "Ramazan birlikteliği"
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_3569.jpg",
+      
     },
     {
-        resim: "/images/personel-p-kn-k-programi_9118.jpg",
-        baslik: "Personel Piknik Programı",
-        aciklama: "Doğayla baş başa keyifli anlar"
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_3911.jpg",
+       
     },
     {
-        resim: "/images/personellerimizin-a-z-ve-di-sa-l-n-onemsiyoruz_7091.jpg",
-        baslik: "Ağız ve Diş Sağlığı Taraması",
-        aciklama: "Sağlık önceliğimiz"
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_4046.jpg",
+       
     },
     {
-        resim: "/images/pesonel-ftar-programi_3732.jpg",
-        baslik: "İkinci İftar Buluşması",
-        aciklama: "Bereketin paylaşıldığı anlar"
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_4564.jpg",
+       
     },
     {
-        resim: "/images/stajyer-donem-sonu-etk-nl_6028.jpg",
-        baslik: "Stajyer Dönem Sonu Etkinliği",
-        aciklama: "Başarılı staj dönemi sona erdi"
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_4975.jpg",
+     
     },
     {
-        resim: "/images/stajyer-f-lm-okuma-programi_3604.jpg",
-        baslik: "Stajyer Film Okuma Programı",
-        aciklama: "Kültürel gelişim etkinlikleri"
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_5429.jpg",
+      
     },
-    {
-        resim: "/images/stajyer-o-renci-oryantasyonu_2177.jpg",
-        baslik: "Stajyer Öğrenci Oryantasyonu",
-        aciklama: "Yeni dönem hazırlıkları"
-    },
-    {
-        resim: "/images/stajyer-oryantasyon-e-t-m_8697.jpg",
-        baslik: "Stajyer Oryantasyon Eğitimi",
-        aciklama: "Kapsamlı eğitim programı"
-    },
-    {
-        resim: "/images/ulusal-da-bisikleti-kupas-yar-lar_128.jpg",
-        baslik: "Ulusal Dağ Bisikleti Kupası",
-        aciklama: "Heyecan dolu yarışlar"
-    }
 ];
 
 document.addEventListener('DOMContentLoaded', function() {
