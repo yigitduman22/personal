@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             e.stopPropagation();
             
+            
             // Profil menüsünü kapat
             const profileMenu = document.getElementById('profileMenu');
             const profileBtn = document.getElementById('profileBtn');
@@ -403,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (duyurularListesi && prevButton && nextButton && sayfaBilgisi) {
         let gecerliSayfa = 1;
-        const duyuruSayisiSayfaBasi = 3;
+        const duyuruSayisiSayfaBasi = 5;
         const toplamSayfa = Math.min(5, Math.ceil(tumDuyurular.length / duyuruSayisiSayfaBasi)); // En fazla 5 sayfa olacak
 
         // Duyuruları sayfaya göre render eden fonksiyon

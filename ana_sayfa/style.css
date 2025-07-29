@@ -13,7 +13,6 @@ body {
     width: 90%;
     margin: 0 auto;
     max-width: 1200px;
-    
 }
 
 .card {
@@ -22,9 +21,9 @@ body {
 
 /* Navbar stilleri - Genişletilmiş */
 .navbar {
-    background-color: #344e75;
+    background-color: #022842;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem 0; /* Genişletildi */
+    padding: 1.5rem 0;
     position: sticky;
     top: 0;
     z-index: 999;
@@ -59,7 +58,7 @@ body {
     margin: 0;
     padding: 0;
     flex-wrap: wrap;
-    margin-left: 650px; /* Sağa doğru kaydırıldı */
+    margin-left: 650px;
 }
 
 .nav-links li {
@@ -97,6 +96,17 @@ body {
     position: relative;
 }
 
+/* Hover ile dropdown açılması */
+.nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
 /* Dropdown Toggle (Ana Buton) */
 .nav-dropdown-toggle {
     position: relative;
@@ -115,14 +125,14 @@ body {
 /* Dropdown Menu - 4 sütun için genişletildi */
 .nav-dropdown-menu {
     position: absolute;
-    top: calc(100% + 15px);
+    top: calc(100% + 50px);
     left: 50%;
     transform: translateX(-50%);
     background: white;
     border-radius: 16px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-    min-width: 520px; /* Genişlik artırıldı */
-    max-width: 580px; /* Max genişlik artırıldı */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    min-width: 650px;
+    max-width: 1000px;
     opacity: 0;
     visibility: hidden;
     transform: translateX(-50%) translateY(-10px);
@@ -139,34 +149,35 @@ body {
 
 /* Dropdown Content */
 .dropdown-content {
-    padding: 5px;
+    padding: 10px 15px;
 }
 
-/* Dropdown Grid Layout - 4 sütun */
+/* Dropdown Grid Layout - 5 sütun */
 .dropdown-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 3'ten 4'e çıkarıldı */
-    gap: 8px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
 }
 
-/* Dropdown Items - 4 sütun için optimize edildi */
+/* Dropdown Items - 5 sütun için optimize edildi */
 .dropdown-item {
     display: flex !important;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 8px;
-    padding: 14px 10px !important; /* Padding biraz azaltıldı */
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 14px 15px !important;
     text-decoration: none;
     color: #495057 !important;
     transition: all 0.3s ease;
-    font-size: 12px; /* Font size biraz küçültüldü */
+    font-size: 12px;
     font-weight: 500;
     border-radius: 12px !important;
     background: none !important;
     transform: none !important;
     text-align: center;
-    min-height: 75px; /* Yükseklik biraz azaltıldı */
-    justify-content: center;
+    min-height: 75px;
+    text-align: left;
 }
 
 .dropdown-item:hover {
@@ -177,15 +188,19 @@ body {
 }
 
 .dropdown-item i {
+    width: 18px;
+    font-size: 16px;
+    text-align: center;
+    flex-shrink: 0; 
     width: auto;
-    font-size: 16px; /* Icon boyutu biraz küçültüldü */
+    font-size: 16px;
     color: inherit;
     margin-bottom: 4px;
 }
 
 .dropdown-item span {
     font-weight: 500;
-    font-size: 20px; /* Text boyutu biraz küçültüldü */
+    font-size: 20px;
     line-height: 1.2;
 }
 
@@ -355,7 +370,6 @@ body {
 .content-area {
     padding: 5px;
     width: 100%;
-
 }
 
 /* =================================
@@ -364,7 +378,7 @@ body {
 
 /* Haberler Başlığı */
 .haberler-header {
-    border-bottom: 3px solid #1b3f8b;
+    border-bottom: 2px solid #022842;
     padding-bottom: 0.75rem;
     margin-bottom: 1.5rem;
 }
@@ -372,12 +386,12 @@ body {
 .haberler-baslik {
     font-size: 1.875rem;
     font-weight: 700;
-    color: #1b3f8b;
+    color: #022842;
     margin: 0;
 }
 
 .haberler-baslik i {
-    color: #0d6efd;
+    color: #022842;
     margin-right: 0.5rem;
 }
 
@@ -436,7 +450,7 @@ body {
     transition: all 0.3s ease;
     flex-shrink: 0;
     width: 130px;
-    height: 80px; /* Yükseklik azaltıldı */
+    height: 80px;
     overflow: hidden;
     position: relative;
     background: white;
@@ -444,13 +458,13 @@ body {
 }
 
 .gallery-thumbnail.active {
-    border-color: #0d6efd;
+    border-color: #344e75;
     box-shadow: 0 0 15px rgba(13, 110, 253, 0.3);
 }
 
 .gallery-thumbnail-image {
     width: 100%;
-    height: 100%; /* Tam yükseklik */
+    height: 100%;
     object-fit: cover;
     border-radius: 0.25rem;
     transition: transform 0.3s ease;
@@ -459,9 +473,6 @@ body {
 .gallery-thumbnail:hover .gallery-thumbnail-image {
     transform: scale(1.05);
 }
-
-/* Galeri Thumbnail Açıklama - SİLİNDİ */
-/* .gallery-thumbnail-desc stilleri kaldırıldı */
 
 /* Galeri Noktaları */
 .gallery-dot {
@@ -475,9 +486,9 @@ body {
 }
 
 .gallery-dot.active {
-    background-color: #0d6efd;
+    background-color: #344e75;
     transform: scale(1.3);
-    border-color: rgba(13, 110, 253, 0.3);
+    border-color: #344e75;
 }
 
 .gallery-dot:hover {
@@ -491,18 +502,15 @@ body {
     cursor: pointer;
 }
 
-/* Ana haber başlığı başlık geçiş efekti */
 #ana-haber-baslik {
     transition: opacity 0.5s ease;
 }
 
-/* Ana görsel container'ı */
 .main-image-container {
     position: relative;
     overflow: hidden;
 }
 
-/* Ok butonları */
 .gallery-arrow {
     position: absolute;
     top: 50%;
@@ -537,7 +545,6 @@ body {
     right: 20px;
 }
 
-/* Ana görsel container'a hover edildiğinde okları göster */
 .main-image-container:hover .gallery-arrow {
     opacity: 1;
     visibility: visible;
@@ -547,7 +554,7 @@ body {
 .social-icons {
     display: flex;
     gap: 1rem;
-     transform: translateY(-20px); /* Yukarıya taşı */
+    transform: translateY(-20px);
 }
 
 .social-icons a {
@@ -558,7 +565,6 @@ body {
     height: 35px;
     background-color: white;
     color: #1b3f8b;
-
     text-decoration: none;
     font-size: 16px;
     transition: all 0.3s ease;
@@ -567,12 +573,12 @@ body {
 .social-icons a:hover {
     background-color: #d2d2d2;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
 }
 
 /* Footer stilleri */
 footer {
-    background-color: #344e75;
+    background-color: #022842;
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
     padding: 40px 0 20px 0;
     font-family: 'Inter', sans-serif;
@@ -596,7 +602,7 @@ footer .container {
 }
 
 .footer-logo{
-     height: 7px;
+    height: 7px;
     transform: scale(3);
     margin-top: 10px;
     margin-right: 10px;
@@ -610,7 +616,6 @@ footer .container {
 
 .footer-content i {
     margin-right: 8px;
-   
 }
 
 .footer-bottom {
@@ -624,7 +629,6 @@ footer .container {
    YENİ EKLENEN DUYURULAR BÖLÜMÜ STİLLERİ
    ================================= */
 
-/* Duyurular Kartı Genel Stilleri */
 .duyurular-header {
     display: flex;
     align-items: center;
@@ -642,12 +646,11 @@ footer .container {
 .duyurular-govde {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem; /* Duyurular arası boşluk */
-    overflow-y: auto; /* Çok fazla içerik olursa diye */
-    flex-grow: 1; /* Esneyerek boşluğu doldurur */
+    gap: 1.25rem;
+    overflow-y: auto;
+    flex-grow: 1;
 }
 
-/* Tekil Duyuru Öğesi Stilleri */
 .duyuru-item {
     display: flex;
     align-items: flex-start;
@@ -660,7 +663,7 @@ footer .container {
 }
 
 .duyuru-item:hover {
-    background-color: #cecece; /* Üzerine gelince hafif arka plan */
+    background-color: #cecece;
     cursor: pointer;
 }
 
@@ -669,7 +672,7 @@ footer .container {
     height: 80px;
     object-fit: cover;
     border-radius: 0.5rem;
-    flex-shrink: 0; /* Küçülmesini engelle */
+    flex-shrink: 0;
     border: 2px solid #e9ecef;
 }
 
@@ -689,7 +692,6 @@ footer .container {
     font-size: 0.85rem;
     color: #6c757d;
     line-height: 1.5;
-    /* 2 satırdan sonrasını gizleyip ... koyma */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
@@ -707,7 +709,7 @@ footer .container {
     gap: 1rem;
     border-top: 1px solid #e9ecef;
     padding-top: 1rem;
-    flex-shrink: 0; /* Küçülmesini engelle */
+    flex-shrink: 0;
 }
 
 .pagination-arrow {
@@ -747,9 +749,8 @@ footer .container {
    OTOMASYON SİSTEMLERİ STİLLERİ
    ================================= */
 
-/* Otomasyon Başlığı */
 .otomasyon-header {
-    border-bottom: 3px solid #1b3f8b;
+    border-bottom: 3px solid #022842;
     padding-bottom: 0.75rem;
     margin-bottom: 2rem;
 }
@@ -757,16 +758,10 @@ footer .container {
 .otomasyon-baslik {
     font-size: 1.875rem;
     font-weight: 700;
-    color: #1b3f8b;
+    color: #022842;
     margin: 0;
 }
 
-.otomasyon-baslik i {
-    color: #0d6efd;
-    margin-right: 0.5rem;
-}
-
-/* Otomasyon Grid Layout */
 .otomasyon-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -774,7 +769,6 @@ footer .container {
     padding: 0.5rem 0;
 }
 
-/* Tekil Otomasyon Item */
 .otomasyon-item {
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     border: 1px solid #e9ecef;
@@ -808,17 +802,10 @@ footer .container {
     background: linear-gradient(90deg, #1b3f8b, #0d6fed, #1b3f8b);
 }
 
-/* Otomasyon Logo */
-
-
-
-
-
-/* Otomasyon İsim */
 .otomasyon-isim {
     font-size: 1.375rem;
     font-weight: 700;
-    color: #1b3f8b;
+    color: #022842;
     margin: 0 0 0.5rem 0;
     transition: color 0.3s ease;
 }
@@ -827,7 +814,6 @@ footer .container {
     color: #ff6b35;
 }
 
-/* Otomasyon Açıklama */
 .otomasyon-aciklama {
     font-size: 0.95rem;
     color: #6c757d;
@@ -836,13 +822,12 @@ footer .container {
     font-weight: 500;
 }
 
-/* Otomasyon Buton */
 .otomasyon-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    background: linear-gradient(135deg, #344e75);
     color: white;
     text-decoration: none;
     padding: 0.75rem 1.5rem;
@@ -922,7 +907,6 @@ footer .container {
         justify-content: center;
     }
 
-    /* Mobile dropdown ayarları - 4 sütundan 2 sütuna */
     .nav-dropdown-menu {
         left: 0;
         transform: translateX(0);
@@ -941,7 +925,7 @@ footer .container {
     }
 
     .dropdown-grid {
-        grid-template-columns: repeat(2, 1fr); /* Mobile'da 2 sütun */
+        grid-template-columns: repeat(2, 1fr);
         gap: 6px;
     }
 
@@ -958,7 +942,6 @@ footer .container {
         font-size: 11px;
     }
 
-    /* Mobile'da haberler başlığı */
     .haberler-baslik {
         font-size: 1.5rem;
     }
@@ -973,10 +956,9 @@ footer .container {
 
     .gallery-thumbnail {
         width: 110px;
-        height: 65px; /* Açıklama alanı kaldırıldığı için küçültüldü */
+        height: 65px;
     }
 
-    /* Mobile'da otomasyon sistemleri */
     .otomasyon-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -984,15 +966,6 @@ footer .container {
 
     .otomasyon-item {
         padding: 1.5rem 1rem;
-    }
-
-    .otomasyon-logo {
-        width: 70px;
-        height: 70px;
-    }
-
-    .otomasyon-logo i {
-        font-size: 1.75rem;
     }
 
     .otomasyon-isim {
@@ -1022,14 +995,13 @@ footer .container {
         right: -20px;
     }
 
-    /* Küçük ekranlar için dropdown ayarları */
     .nav-dropdown-menu {
         min-width: 320px;
         max-width: 350px;
     }
 
     .dropdown-grid {
-        grid-template-columns: repeat(2, 1fr); /* Küçük ekranlarda yine 2 sütun */
+        grid-template-columns: repeat(2, 1fr);
         gap: 4px;
     }
 
@@ -1046,7 +1018,6 @@ footer .container {
         font-size: 10px;
     }
 
-    /* Küçük ekranlarda haberler */
     .haberler-baslik {
         font-size: 1.25rem;
     }
@@ -1057,10 +1028,9 @@ footer .container {
 
     .gallery-thumbnail {
         width: 100px;
-        height: 55px; /* Açıklama alanı kaldırıldığı için küçültüldü */
+        height: 55px;
     }
 
-    /* Küçük ekranlarda otomasyon sistemleri */
     .otomasyon-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -1068,15 +1038,6 @@ footer .container {
 
     .otomasyon-item {
         padding: 1.25rem 0.75rem;
-    }
-
-    .otomasyon-logo {
-        width: 60px;
-        height: 60px;
-    }
-
-    .otomasyon-logo i {
-        font-size: 1.5rem;
     }
 
     .otomasyon-isim {
