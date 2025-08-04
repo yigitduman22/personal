@@ -3,279 +3,972 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gebze Belediyesi Personel Portalı</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCAbortQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Gebze Belediyesi Personel Portalı - Haber Detayı</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar Stilleri */
+        .navbar {
+            background: linear-gradient(135deg, #022842 0%, #0d4f8c 100%);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            height: 10px;
+            transform: scale(3);
+            transform-origin: left center;
+            filter: brightness(1.1);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+            margin-left: auto;
+            margin-right: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links a:hover {
+            color: #ff8c00;
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .breadcrumb-container {
+            background: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .breadcrumb {
+            background: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .breadcrumb-item a {
+            color: #022842;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb-item a:hover {
+            color: #ff8c00;
+        }
+
+        .breadcrumb-item.active {
+            color: #6c757d;
+        }
+
+        /* Ana Haber Detay Stilleri */
+        .news-detail-container {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .news-header {
+            background: linear-gradient(135deg, #022842 0%, #0d4f8c 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .news-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .news-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .news-image-container {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .news-main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-image-container:hover .news-main-image {
+            transform: scale(1.05);
+        }
+
+        .news-content {
+            padding: 3rem ;
+        }
+
+        .news-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #495057;
+            text-align: justify;
+        }
+
+        .news-gallery {
+            margin-top: 1.5rem;
+            position: relative;
+        }
+
+        .gallery-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-track {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .gallery-item {
+            min-width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .gallery-nav:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-prev {
+            left: 15px;
+        }
+
+        .gallery-next {
+            right: 15px;
+        }
+
+        .gallery-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .gallery-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #d1d5db;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-dot.active {
+            background: #ff8c00;
+            transform: scale(1.2);
+        }
+
+        .gallery-dot:hover {
+            background: #ff6b35;
+        }
+
+        .gallery-counter {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        /* Diğer Haberler Bölümü - Yeni Tasarım */
+        .other-news-container {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .other-news-header {
+            background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .other-news-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 10px solid #ff6b35;
+        }
+
+        .other-news-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .news-cards-container {
+            padding: 2rem 1rem;
+            max-height: 600px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #ff8c00 #f1f1f1;
+        }
+
+        .news-cards-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .news-cards-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .news-cards-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #ff8c00, #ff6b35);
+            border-radius: 10px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2);
+            border-color: #ff8c00;
+        }
+
+        .news-card-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover .news-card-image {
+            transform: scale(1.1);
+        }
+
+        .news-card-content {
+            padding: 1rem;
+        }
+
+        .news-card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #022842;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .news-card-excerpt {
+            font-size: 0.8rem;
+            color: #6c757d;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+
+        .news-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+
+        .read-more-btn {
+            background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 100%);
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+        }
+
+        /* Floating Action Button */
+        .floating-actions {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .fab {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .fab-primary {
+            background: linear-gradient(135deg, #022842 0%, #0d4f8c 100%);
+        }
+
+        .fab-secondary {
+            background: linear-gradient(135deg, #ff8c00 0%, #ff6b35 100%);
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #022842 0%, #0d4f8c 100%);
+            color: white;
+            padding: 3rem 0 1rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 2rem;
+        }
+
+        .footer-logo {
+            height: 7px;
+            transform: scale(3);
+            filter: brightness(1.2);
+        }
+
+        .footer-info p {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: #ff8c00;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .news-title {
+                font-size: 1.8rem;
+            }
+            
+            .news-content {
+                padding: 2rem;
+            }
+            
+            .other-news-container {
+                position: static;
+                margin-top: 2rem;
+            }
+            
+            .floating-actions {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+
+        /* Animasyonlar */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .news-card {
+            animation: slideInUp 0.6s ease forwards;
+        }
+
+        .news-card:nth-child(2) { animation-delay: 0.1s; }
+        .news-card:nth-child(3) { animation-delay: 0.2s; }
+        .news-card:nth-child(4) { animation-delay: 0.3s; }
+        .news-card:nth-child(5) { animation-delay: 0.4s; }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-top py-2">
-            <div class="container-fluid header-top-content px-4">
-                <div class="contact-info text-white-50">
-                    <i class="fas fa-phone-alt me-2"></i> 0262 641 24 00 | <i class="fas fa-envelope ms-3 me-2"></i> info@gebze.bel.tr
-                </div>
-                <div class="social-links d-flex gap-3">
-                    <a href="#" class="text-white text-decoration-none opacity-75-hover d-flex align-items-center gap-1"><i class="fab fa-facebook-f"></i> Facebook</a>
-                    <a href="#" class="text-white text-decoration-none opacity-75-hover d-flex align-items-center gap-1"><i class="fab fa-twitter"></i> Twitter</a>
-                    <a href="#" class="text-white text-decoration-none opacity-75-hover d-flex align-items-center gap-1"><i class="fab fa-instagram"></i> Instagram</a>
-                    <a href="#" class="text-white text-decoration-none opacity-75-hover d-flex align-items-center gap-1"><i class="fab fa-youtube"></i> YouTube</a>
-                </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="/images/logo(2).png" alt="Gebze Belediyesi Logosu" class="logo-img" />
             </div>
+            
+            <ul class="nav-links">
+                <li><a href="#"><i class="fas fa-home"></i> Anasayfa</a></li>
+                <li><a href="#"><i class="fas fa-gavel"></i> Mevzuatlar</a></li>
+                <li><a href="#"><i class="fas fa-graduation-cap"></i> Eğitimler</a></li>
+                <li><a href="#"><i class="fas fa-handshake"></i> Protokoller</a></li>
+                <li><a href="#"><i class="fas fa-folder-open"></i> Dökümanlar</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <div class="header-main py-4">
-            <div class="container-fluid header-content px-4 d-flex flex-column flex-lg-row align-items-center justify-content-between">
-                <div class="logo-section d-flex align-items-center gap-3 mb-3 mb-lg-0">
-                    <div class="logo bg-white rounded-3 shadow d-flex align-items-center justify-content-center text-primary fw-bold text-center">GEBZE<br>BELEDİYESİ</div>
-                    <div class="title-section text-white text-center text-lg-start">
-                        <h1 class="mb-1 fw-bold">GEBZE BELEDİYESİ</h1>
-                        <p class="mb-0 opacity-75 fs-5">PERSONEL PORTALI</p>
-                    </div>
-                </div>
-
-                <div class="user-section d-flex align-items-center gap-3 p-3 rounded-pill backdrop-blur">
-                    <div class="user-avatar bg-white text-primary rounded-circle d-flex align-items-center justify-content-center fw-bold fs-5"><i class="fas fa-user"></i></div>
-                    <div class="user-info text-white">
-                        <div><strong>Sistem Yöneticisi</strong></div>
-                        <div class="opacity-75 fs-6">Bilgi İşlem Müdürlüğü</div>
-                    </div>
-                </div>
-            </div>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i> Anasayfa</a></li>
+                    <li class="breadcrumb-item"><a href="#">Haberler</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Gebze'de Off-Road Heyecanı</li>
+                </ol>
+            </nav>
         </div>
-
-        <nav class="navigation">
-            <div class="container-fluid nav-content d-flex flex-wrap justify-content-center px-4">
-                <a href="#" class="nav-item active py-3 px-4 text-white text-decoration-none fw-medium border-bottom border-3 border-transparent d-flex align-items-center gap-2">
-                    <i class="fas fa-home"></i> ANASAYFA
-                </a>
-                <a href="#" class="nav-item py-3 px-4 text-white text-decoration-none fw-medium border-bottom border-3 border-transparent d-flex align-items-center gap-2">
-                    <i class="fas fa-book"></i> MEVZUATLAR
-                </a>
-                <a href="#" class="nav-item py-3 px-4 text-white text-decoration-none fw-medium border-bottom border-3 border-transparent d-flex align-items-center gap-2">
-                    <i class="fas fa-graduation-cap"></i> EĞİTİMLER
-                </a>
-                <a href="#" class="nav-item py-3 px-4 text-white text-decoration-none fw-medium border-bottom border-3 border-transparent d-flex align-items-center gap-2">
-                    <i class="fas fa-file-contract"></i> PROTOKOLLER
-                </a>
-                <a href="#" class="nav-item py-3 px-4 text-white text-decoration-none fw-medium border-bottom border-3 border-transparent d-flex align-items-center gap-2">
-                    <i class="fas fa-folder"></i> DOKÜMANLAR
-                </a>
-                <a href="#" class="nav-item py-3 px-4 text-white text-decoration-none fw-medium border-bottom border-3 border-transparent d-flex align-items-center gap-2">
-                    <i class="fas fa-cog"></i> SİSTEM
-                </a>
-            </div>
-        </nav>
-    </header>
-
-    <div class="container-fluid main-container px-4 my-4">
-        <aside class="sidebar d-flex flex-column gap-3">
-            <div class="sidebar-card bg-white rounded-3 shadow-sm overflow-hidden">
-                <div class="sidebar-header bg-gradient-primary text-white p-3 fw-semibold d-flex align-items-center gap-2">
-                    <i class="fas fa-clipboard-list"></i> Personel Menüsü
-                </div>
-                <div class="sidebar-content p-3">
-                    <ul class="menu-list list-unstyled mb-0">
-                        <li class="mb-2"><a href="#" class="d-flex align-items-center gap-3 p-3 text-secondary text-decoration-none rounded-2 transition-all active"><span class="menu-icon"><i class="fas fa-home"></i></span> Ana Sayfa</a></li>
-                        <li class="mb-2"><a href="#" class="d-flex align-items-center gap-3 p-3 text-secondary text-decoration-none rounded-2 transition-all"><span class="menu-icon"><i class="fas fa-user-circle"></i></span> Profil Bilgileri</a></li>
-                        <li class="mb-2"><a href="#" class="d-flex align-items-center gap-3 p-3 text-secondary text-decoration-none rounded-2 transition-all"><span class="menu-icon"><i class="fas fa-calendar-alt"></i></span> İzin İşlemleri</a></li>
-                        <li class="mb-2"><a href="#" class="d-flex align-items-center gap-3 p-3 text-secondary text-decoration-none rounded-2 transition-all"><span class="menu-icon"><i class="fas fa-money-bill-wave"></i></span> Bordro Sorgulama</a></li>
-                        <li class="mb-2"><a href="#" class="d-flex align-items-center gap-3 p-3 text-secondary text-decoration-none rounded-2 transition-all"><span class="menu-icon"><i class="fas fa-chart-line"></i></span> Performans Değerlendirme</a></li>
-                        <li class="mb-2"><a href="#" class="d-flex align-items-center gap-3 p-3 text-secondary text-decoration-none rounded-2 transition-all"><span class="menu-icon"><i class="fas fa-graduation-cap"></i></span> Eğitim Programları</a></li>
-                        <li class="mb-2"><a href="#" class="d-flex align-items-center gap-3 p-3 text-secondary text-decoration-none rounded-2 transition-all"><span class="menu-icon"><i class="fas fa-phone-square-alt"></i></span> Dahili Rehber</a></li>
-                        <li class="mb-2"><a href="#" class="d-flex align-items-center gap-3 p-3 text-secondary text-decoration-none rounded-2 transition-all"><span class="menu-icon"><i class="fas fa-file-alt"></i></span> Başvuru Formları</a></li>
-                        <li class="mb-0"><a href="#" class="d-flex align-items-center gap-3 p-3 text-secondary text-decoration-none rounded-2 transition-all"><span class="menu-icon"><i class="fas fa-cogs"></i></span> Sistem Ayarları</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="sidebar-card bg-white rounded-3 shadow-sm overflow-hidden">
-                <div class="sidebar-header bg-gradient-primary text-white p-3 fw-semibold d-flex align-items-center gap-2">
-                    <i class="fas fa-chart-area"></i> Hızlı Bilgiler
-                </div>
-                <div class="sidebar-content p-3">
-                    <div class="quick-stats row row-cols-2 g-3">
-                        <div class="col">
-                            <div class="stat-item text-center p-3 bg-light rounded-3">
-                                <div class="stat-number text-primary fw-bold">1,247</div>
-                                <div class="stat-label text-secondary mt-2">Toplam Personel</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="stat-item text-center p-3 bg-light rounded-3">
-                                <div class="stat-number text-primary fw-bold">156</div>
-                                <div class="stat-label text-secondary mt-2">Aktif İzin</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="stat-item text-center p-3 bg-light rounded-3">
-                                <div class="stat-number text-primary fw-bold">8</div>
-                                <div class="stat-label text-secondary mt-2">Yeni Duyuru</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="stat-item text-center p-3 bg-light rounded-3">
-                                <div class="stat-number text-primary fw-bold">23</div>
-                                <div class="stat-label text-secondary mt-2">Güncel Eğitim</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sidebar-card bg-white rounded-3 shadow-sm overflow-hidden">
-                <div class="sidebar-header bg-gradient-primary text-white p-3 fw-semibold d-flex align-items-center gap-2">
-                    <i class="fas fa-bolt"></i> Hızlı Erişim
-                </div>
-                <div class="sidebar-content p-3">
-                    <div class="d-flex flex-column gap-2">
-                        <a href="#" class="btn btn-outline-primary text-center py-2 px-3 fw-medium transition-all"><i class="fas fa-file-signature me-2"></i> İzin Talebi</a>
-                        <a href="#" class="btn btn-outline-primary text-center py-2 px-3 fw-medium transition-all"><i class="fas fa-money-check-alt me-2"></i> Bordro Görüntüle</a>
-                        <a href="#" class="btn btn-outline-primary text-center py-2 px-3 fw-medium transition-all"><i class="fas fa-chart-pie me-2"></i> Performans Raporu</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sidebar-card bg-white rounded-3 shadow-sm overflow-hidden">
-                <div class="sidebar-header bg-gradient-primary text-white p-3 fw-semibold d-flex align-items-center gap-2">
-                    <i class="fas fa-gift"></i> Bugün Doğanlar
-                </div>
-                <div class="sidebar-content p-3">
-                    <div id="birthday-list" class="d-flex flex-column gap-3">
-                        </div>
-                    <nav aria-label="Doğum Günü Sayfalandırma" class="mt-3">
-                        <ul class="pagination pagination-sm justify-content-center mb-0" id="birthday-pagination">
-                            </ul>
-                    </nav>
-                </div>
-            </div>
-            </aside>
-
-        <main class="content-area bg-white rounded-3 shadow-sm overflow-hidden">
-            <div class="content-header p-4 border-bottom">
-                <h1 class="content-title text-primary mb-2 fw-semibold d-flex align-items-center gap-2"><i class="fas fa-bullhorn"></i> DUYURULAR VE HABERLER</h1>
-                <p class="content-subtitle text-secondary fs-5 mb-0">Personellerimizin Sağlığını ve Gelişimini Destekliyoruz</p>
-            </div>
-
-            <div class="content-body p-4">
-                <div class="news-grid row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                    <div class="col">
-                        <div class="news-card border rounded-3 overflow-hidden transition-all">
-                            <div class="news-image position-relative d-flex align-items-center justify-content-center" style="background-image: url('https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=400&h=200&fit=crop&crop=center')">
-                                <span class="news-badge position-absolute top-3 end-3 bg-white text-primary px-3 py-1 rounded-pill fw-semibold z-index-2">YENİ</span>
-                            </div>
-                            <div class="news-content p-3">
-                                <h3 class="news-title fs-5 fw-semibold text-dark mb-3">Personel Diş Sağlığı Programı Başlatıldı</h3>
-                                <div class="news-meta d-flex justify-content-between align-items-center text-secondary fs-6 mb-3">
-                                    <span><i class="fas fa-calendar-alt me-1"></i> 23 Temmuz 2025</span>
-                                </div>
-                                <p class="news-excerpt text-secondary mb-3">
-                                    Gebze Belediyesi personellerinin ağız ve diş sağlığı için kapsamlı bir program başlatılmıştır.ücretsiz muayene ve tedavi imkanları...
-                                </p>
-                                <a href="#" class="news-link d-inline-flex align-items-center gap-2 text-primary text-decoration-none fw-medium transition-color">Devamını Oku <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="news-card border rounded-3 overflow-hidden transition-all">
-                            <div class="news-image position-relative d-flex align-items-center justify-content-center" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=200&fit=crop&crop=center')">
-                                <span class="news-badge position-absolute top-3 end-3 bg-white text-primary px-3 py-1 rounded-pill fw-semibold z-index-2">EĞİTİM</span>
-                            </div>
-                            <div class="news-content p-3">
-                                <h3 class="news-title fs-5 fw-semibold text-dark mb-3">Stajyer Oryantasyon Eğitimi</h3>
-                                <div class="news-meta d-flex justify-content-between align-items-center text-secondary fs-6 mb-3">
-                                    <span><i class="fas fa-calendar-alt me-1"></i> 22 Temmuz 2025</span>
-                                </div>
-                                <p class="news-excerpt text-secondary mb-3">
-                                    2025 yaz dönemi stajyerlerine yönelik oryantasyon eğitimi düzenlenmiştir.
-                                </p>
-                                <a href="#" class="news-link d-inline-flex align-items-center gap-2 text-primary text-decoration-none fw-medium transition-color">Devamını Oku <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="news-card border rounded-3 overflow-hidden transition-all">
-                            <div class="news-image position-relative d-flex align-items-center justify-content-center" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop&crop=center')">
-                                <span class="news-badge position-absolute top-3 end-3 bg-white text-primary px-3 py-1 rounded-pill fw-semibold z-index-2">DUYURU</span>
-                            </div>
-                            <div class="news-content p-3">
-                                <h3 class="news-title fs-5 fw-semibold text-dark mb-3">Yeni Personel Portal Sistemi</h3>
-                                <div class="news-meta d-flex justify-content-between align-items-center text-secondary fs-6 mb-3">
-                                    <span><i class="fas fa-calendar-alt me-1"></i> 21 Temmuz 2025</span>
-                                </div>
-                                <p class="news-excerpt text-secondary mb-3">
-                                    Personel portalımız yenilenmiştir. Yeni sistemde daha kolay kullanım, mobil uyumluluk ve gelişmiş özellikler bulunmaktadır...
-                                </p>
-                                <a href="#" class="news-link d-inline-flex align-items-center gap-2 text-primary text-decoration-none fw-medium transition-color">Devamını Oku <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="news-card border rounded-3 overflow-hidden transition-all">
-                            <div class="news-image position-relative d-flex align-items-center justify-content-center" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=200&fit=crop&crop=center')">
-                                <span class="news-badge position-absolute top-3 end-3 bg-white text-primary px-3 py-1 rounded-pill fw-semibold z-index-2">SAĞLIK</span>
-                            </div>
-                            <div class="news-content p-3">
-                                <h3 class="news-title fs-5 fw-semibold text-dark mb-3">Periyodik Sağlık Kontrolleri</h3>
-                                <div class="news-meta d-flex justify-content-between align-items-center text-secondary fs-6 mb-3">
-                                    <span><i class="fas fa-calendar-alt me-1"></i> 20 Temmuz 2025</span>
-                                </div>
-                                <p class="news-excerpt text-secondary mb-3">
-                                    Tüm personelimiz için zorunlu periyodik sağlık kontrolleri başlamıştır. Randevu almak için İnsan Kaynakları Müdürlüğü ile iletişime geçiniz...
-                                </p>
-                                <a href="#" class="news-link d-inline-flex align-items-center gap-2 text-primary text-decoration-none fw-medium transition-color">Devamını Oku <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="news-card border rounded-3 overflow-hidden transition-all">
-                            <div class="news-image position-relative d-flex align-items-center justify-content-center" style="background-image: url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=200&fit=crop&crop=center')">
-                                <span class="news-badge position-absolute top-3 end-3 bg-white text-primary px-3 py-1 rounded-pill fw-semibold z-index-2">ETKİNLİK</span>
-                            </div>
-                            <div class="news-content p-3">
-                                <h3 class="news-title fs-5 fw-semibold text-dark mb-3">Personel Aile Pikniği Düzenlendi</h3>
-                                <div class="news-meta d-flex justify-content-between align-items-center text-secondary fs-6 mb-3">
-                                    <span><i class="fas fa-calendar-alt me-1"></i> 19 Temmuz 2025</span>
-                                </div>
-                                <p class="news-excerpt text-secondary mb-3">
-                                    Geleneksel personel aile pikniğimiz Ballıkayalar Tabiat Parkı'nda gerçekleştirildi. Etkinliğe 200'den fazla personel ve ailesi katıldı...
-                                </p>
-                                <a href="#" class="news-link d-inline-flex align-items-center gap-2 text-primary text-decoration-none fw-medium transition-color">Devamını Oku <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="news-card border rounded-3 overflow-hidden transition-all">
-                            <div class="news-image position-relative d-flex align-items-center justify-content-center" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=200&fit=crop&crop=center')">
-                                <span class="news-badge position-absolute top-3 end-3 bg-white text-primary px-3 py-1 rounded-pill fw-semibold z-index-2">EĞİTİM</span>
-                            </div>
-                            <div class="news-content p-3">
-                                <h3 class="news-title fs-5 fw-semibold text-dark mb-3">Dijital Dönüşüm Eğitimi</h3>
-                                <div class="news-meta d-flex justify-content-between align-items-center text-secondary fs-6 mb-3">
-                                    <span><i class="fas fa-calendar-alt me-1"></i> 18 Temmuz 2025</span>
-                                </div>
-                                <p class="news-excerpt text-secondary mb-3">
-                                    Tüm personele yönelik dijital dönüşüm ve yeni teknolojiler eğitimi başlamıştır. Eğitim programına kayıt olmak için portal üzerinden başvuru yapabilirsiniz...
-                                </p>
-                                <a href="#" class="news-link d-inline-flex align-items-center gap-2 text-primary text-decoration-none fw-medium transition-color">Devamını Oku <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
     </div>
 
-    <footer class="footer bg-dark-blue text-white text-center py-4 mt-5">
-        <p class="mb-0">&copy; 2025 Gebze Belediyesi. Tüm hakları saklıdır. | Bilgi İşlem Müdürlüğü tarafından geliştirilmiştir.</p>
+    <!-- Ana İçerik -->
+    <div class="container-fluid px-5 my-5">
+        <div class="row g-4">
+            <!-- Sol Taraf - Haber Detayı -->
+            <div class="col-lg-8">
+                <div class="news-detail-container">
+                    <!-- Haber Başlığı -->
+                    <div class="news-header">
+                        <h1 class="news-title">GEBZE'DE OFF-ROAD HEYECANI</h1>
+                        <div class="news-meta">
+                            <div class="news-meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>15 Ocak 2025</span>
+                            </div>
+                            <div class="news-meta-item">
+                                <i class="fas fa-user"></i>
+                                <span>Halkla İlişkiler</span>
+                            </div>
+                            <div class="news-meta-item">
+                                <i class="fas fa-eye"></i>
+                                <span>1,247 Görüntülenme</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ana Görsel -->
+                  
+ <div class="news-gallery">
+                            <div class="gallery-container">
+                                <div class="gallery-track" id="galleryTrack">
+                                    <div class="gallery-item">
+                                        <img src="/images/off-road-foto/gebze-de-off-road-heyecan_120.jpg" alt="Off-Road Yarışı 1">
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="/images/off-road-foto/gebze-de-off-road-heyecan_2075.jpg" alt="Off-Road Yarışı 2">
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="/images/off-road-foto/gebze-de-off-road-heyecan_2143.jpg" alt="Off-Road Yarışı 3">
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="/images/off-road-foto/gebze-de-off-road-heyecan_3569.jpg" alt="Off-Road Yarışı 4">
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="/images/off-road-foto/gebze-de-off-road-heyecan_3911.jpg" alt="Off-Road Yarışı 5">
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="/images/off-road-foto/gebze-de-off-road-heyecan_4046.jpg" alt="Off-Road Yarışı 6">
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="/images/off-road-foto/gebze-de-off-road-heyecan_4564.jpg" alt="Off-Road Yarışı 7">
+                                    </div>
+                                    <div class="gallery-item">
+                                        <img src="/images/off-road-foto/gebze-de-off-road-heyecan_4975.jpg" alt="Off-Road Yarışı 8">
+                                    </div>
+                                </div>
+                                
+                                <button class="gallery-nav gallery-prev" id="galleryPrev">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="gallery-nav gallery-next" id="galleryNext">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                                
+                                <div class="gallery-counter" id="galleryCounter">
+                                    1 / 8
+                                </div>
+                            </div>
+                            
+                            <div class="gallery-indicators" id="galleryIndicators">
+                                <!-- JavaScript ile doldurulacak -->
+                            </div>
+                        </div>
+                    <!-- Haber İçeriği -->
+                    <div class="news-content">
+                        <div class="news-text">
+                            <p><strong>Gebze Belediyesi'nin Denizli Mahallesi'nde düzenlediği ve maceraseverlerin yoğun ilgi gösterdiği Off-Road Festivali 2 gün süren nefes kesen heyecan dolu yarışların ardından sona erdi.</strong></p>
+                            
+                            <p>Festival boyunca, Türkiye'nin dört bir yanından gelen off-road tutkunları, zorlu parkurlarda yeteneklerini sergiledi. Denizli Mahallesi'nin doğal güzellikleri arasında kurulan parkurlar, hem yarışmacılar hem de izleyiciler için unutulmaz anlar yaşattı.</p>
+                            
+                            <p>Festivalde dereceye giren ekiplere ödüllerini veren Başkan Zinnur BÜYÜKGÖZ, tüm katılımcılara teşekkür ederek, "Bu güzel organizasyon sayesinde hem sporu teşvik ettik hem de Gebze'nin doğal güzelliklerini tanıttık. Gelecek yıl da daha büyük bir festival ile sizlerle buluşmak için sabırsızlanıyoruz" dedi.</p>
+                            
+                            <p>İki gün süren festival boyunca, çeşitli kategorilerde yarışmalar düzenlendi. Amatör ve profesyonel sürücülerin katıldığı yarışlarda büyük heyecan yaşandı. Organizasyon, güvenlik önlemleri açısından da örnek gösterilen bir etkinlik oldu.</p>
+                        </div>
+
+                        <!-- Galeri -->
+                       
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sağ Taraf - Diğer Haberler -->
+            <div class="col-lg-4">
+                <div class="other-news-container">
+                    <div class="other-news-header">
+                        <h2 class="other-news-title">
+                            <i class="fas fa-newspaper"></i>
+                            Diğer Haberler
+                        </h2>
+                    </div>
+                    
+                    <div class="news-cards-container" id="newsCardsContainer">
+                        <!-- JavaScript ile doldurulacak -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="/images/logo(2).png" class="footer-logo" alt="Gebze Belediyesi" />
+                    <p><i class="fas fa-phone"></i> (0262) 123 45 67</p>
+                    <p><i class="fas fa-envelope"></i> bilgiislem@gebze.bel.tr</p>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gebze Belediyesi - Bilgi İşlem Müdürlüğü | Tüm Hakları Saklıdır</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Diğer haberler verisi
+        const otherNews = [
+            {
+                image: '/images/stajyer-oryantasyon-e-t-m_8697.jpg',
+                title: 'Stajyer Oryantasyon Eğitimi Tamamlandı',
+                excerpt: 'Belediyemizde yeni döneme başlayan stajyer öğrencilerimiz için kapsamlı oryantasyon programı düzenlendi.',
+                date: '12 Ocak 2025',
+                category: 'Eğitim'
+            },
+            {
+                image: '/images/personel-bayramla-ma-programi_5965.jpg',
+                title: 'Geleneksel Bayramlaşma Töreni',
+                excerpt: 'Kurban Bayramı vesilesiyle tüm personelimizin katılımıyla coşkulu bir bayramlaşma programı yapıldı.',
+                date: '10 Ocak 2025',
+                category: 'Etkinlik'
+            },
+            {
+                image: '/images/8-mart-dunya-kadinlar-gunu-programi_8383.jpg',
+                title: '8 Mart Dünya Kadınlar Günü Kutlandı',
+                excerpt: 'Belediyemizdeki kadın personelimizin Dünya Kadınlar Günü\'nü özel bir etkinlikle kutladık.',
+                date: '8 Ocak 2025',
+                category: 'Sosyal'
+            },
+            {
+                image: '/images/personel-ftar-program_109.jpg',
+                title: 'Personel İftar Programı',
+                excerpt: 'Ramazan ayının manevi atmosferinde personelimizle birlikte iftar sofrasında buluştuk.',
+                date: '5 Ocak 2025',
+                category: 'Sosyal'
+            },
+            {
+                image: '/images/24-kas-m-o-retmenler-gunu_2947.jpg',
+                title: 'Öğretmenler Günü Unutulmadı',
+                excerpt: 'Gebze\'deki öğretmenlerimizi bu özel günlerinde yalnız bırakmadık ve çeşitli ziyaretler gerçekleştirdik.',
+                date: '3 Ocak 2025',
+                category: 'Ziyaret'
+            },
+            {
+                image: '/images/ulusal-da-bisikleti-kupas-yar-lar_128.jpg',
+                title: 'Dağ Bisikleti Kupası Nefes Kesti',
+                excerpt: 'Türkiye Ulusal Dağ Bisikleti Kupası\'nın bir ayağına ev sahipliği yapmanın gururunu yaşadık.',
+                date: '1 Ocak 2025',
+                category: 'Spor'
+            }
+        ];
+
+        // Galeri fotoğrafları
+        const galleryImages = [
+            '/images/off-road-foto/gebze-de-off-road-heyecan_120.jpg',
+            '/images/off-road-foto/gebze-de-off-road-heyecan_2075.jpg',
+            '/images/off-road-foto/gebze-de-off-road-heyecan_2143.jpg',
+            '/images/off-road-foto/gebze-de-off-road-heyecan_3569.jpg',
+            '/images/off-road-foto/gebze-de-off-road-heyecan_3911.jpg',
+            '/images/off-road-foto/gebze-de-off-road-heyecan_4046.jpg',
+            '/images/off-road-foto/gebze-de-off-road-heyecan_4564.jpg',
+            '/images/off-road-foto/gebze-de-off-road-heyecan_4975.jpg'
+        ];
+
+        let currentGalleryIndex = 0;
+        let galleryAutoSlide;
+
+        // Sayfa yüklendiğinde
+        document.addEventListener('DOMContentLoaded', function() {
+            renderOtherNews();
+            addScrollAnimation();
+            initGallery();
+        });
+
+        function initGallery() {
+            const track = document.getElementById('galleryTrack');
+            const prevBtn = document.getElementById('galleryPrev');
+            const nextBtn = document.getElementById('galleryNext');
+            const counter = document.getElementById('galleryCounter');
+            const indicators = document.getElementById('galleryIndicators');
+
+            // Indicator dots oluştur
+            galleryImages.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = `gallery-dot ${index === 0 ? 'active' : ''}`;
+                dot.addEventListener('click', () => goToSlide(index));
+                indicators.appendChild(dot);
+            });
+
+            // Buton event listeners
+            prevBtn.addEventListener('click', () => {
+                stopAutoSlide();
+                previousSlide();
+                startAutoSlide();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                stopAutoSlide();
+                nextSlide();
+                startAutoSlide();
+            });
+
+            // Otomatik slide başlat
+            startAutoSlide();
+
+            // Hover durumunda otomatik slide'ı durdur
+            const galleryContainer = document.querySelector('.gallery-container');
+            galleryContainer.addEventListener('mouseenter', stopAutoSlide);
+            galleryContainer.addEventListener('mouseleave', startAutoSlide);
+
+            // Klavye kontrolleri
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    stopAutoSlide();
+                    previousSlide();
+                    startAutoSlide();
+                } else if (e.key === 'ArrowRight') {
+                    stopAutoSlide();
+                    nextSlide();
+                    startAutoSlide();
+                }
+            });
+        }
+
+        function updateGallery() {
+            const track = document.getElementById('galleryTrack');
+            const counter = document.getElementById('galleryCounter');
+            const dots = document.querySelectorAll('.gallery-dot');
+
+            // Slide'ı kaydır
+            track.style.transform = `translateX(-${currentGalleryIndex * 100}%)`;
+            
+            // Counter güncelle
+            counter.textContent = `${currentGalleryIndex + 1} / ${galleryImages.length}`;
+            
+            // Active dot güncelle
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentGalleryIndex);
+            });
+        }
+
+        function nextSlide() {
+            currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+            updateGallery();
+        }
+
+        function previousSlide() {
+            currentGalleryIndex = currentGalleryIndex === 0 ? galleryImages.length - 1 : currentGalleryIndex - 1;
+            updateGallery();
+        }
+
+        function goToSlide(index) {
+            currentGalleryIndex = index;
+            updateGallery();
+        }
+
+        function startAutoSlide() {
+            galleryAutoSlide = setInterval(nextSlide, 4000); // 4 saniyede bir değiş
+        }
+
+        function stopAutoSlide() {
+            if (galleryAutoSlide) {
+                clearInterval(galleryAutoSlide);
+            }
+        }
+
+        function renderOtherNews() {
+            const container = document.getElementById('newsCardsContainer');
+            
+            otherNews.forEach((news, index) => {
+                const newsCard = document.createElement('div');
+                newsCard.className = 'news-card';
+                newsCard.style.animationDelay = `${index * 0.1}s`;
+                
+                newsCard.innerHTML = `
+                    <img src="${news.image}" alt="${news.title}" class="news-card-image">
+                    <div class="news-card-content">
+                        <h3 class="news-card-title">${news.title}</h3>
+                        <p class="news-card-excerpt">${news.excerpt}</p>
+                        <div class="news-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> ${news.date}</span>
+                            <button class="read-more-btn" onclick="readMore('${news.title}')">
+                                Devamını Oku
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                newsCard.addEventListener('click', function() {
+                    readMore(news.title);
+                });
+                
+                container.appendChild(newsCard);
+            });
+        }
+
+        function readMore(title) {
+            alert(`${title} haberinin detayına yönlendiriliyorsunuz...`);
+            // Gerçek uygulamada burası sayfa yönlendirmesi olacak
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function shareNews() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Gebze\'de Off-Road Heyecanı',
+                    text: 'Gebze Belediyesi\'nin düzenlediği Off-Road Festivali büyük ilgi gördü.',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback - URL'yi panoya kopyala
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Haber linki panoya kopyalandı!');
+                });
+            }
+        }
+
+        function addScrollAnimation() {
+            const newsCards = document.querySelectorAll('.news-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            });
+
+            newsCards.forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // Galeri fotoğraflarına tıklama olayı
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.gallery-item img')) {
+                // Modal açma veya lightbox işlemi burada yapılabilir
+                console.log('Galeri resmi tıklandı');
+            }
+        });
+
+        // Smooth scroll için
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+    </script>
 </body>
 </html>

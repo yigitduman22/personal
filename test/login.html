@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haber Detayı - Gebze Belediyesi Personel Portalı</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="news-detail.css"/>
+    <style>
+      /* HABER DETAY SAYFASI STİLLERİ */
+
+      .other-news-box {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin-top: 30px;
+    border: 1px solid #e9ecef;
+}
+
+.other-news-title {
+    font-size: 2rem;
+    color: #022842;
+    font-weight: 600;
+    border-left: 4px solid #022842;
+   
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.other-news-list {
+     border-bottom: 2px solid rgb(194, 194, 194);
+     
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.other-news-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 12px;
+    transition: background 0.3s ease;
+}
+
+.other-news-item:last-child {
+    border-bottom: none;
+}
+
+.other-news-item:hover {
+    background: rgba(0, 89, 179, 0.05);
+    border-radius: 8px;
+    
+}
+
+.other-news-item img {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+#other-news-list {
+  min-height: 1150px; /* ya da 1. sayfadaki boyuta göre göz kararı belirle */
+  transition: min-height 0.3s ease;
+}
+
+
+.item-title {
+    font-size: 20px;
+    color: #022842;
+    font-weight: 500;
+}
+
+.item-date {
+    font-size: 15px;
+    color: #6c757d;
+    margin-top: 4px;
+}
+
+
+/* Breadcrumb Stilleri */
+.breadcrumb-section {
+    background: #f8f9fa;
+    padding: 20px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+/* Navbar stilleri - Genişletilmiş */
+.navbar {
+    background-color: #022842;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    /* Bu değeri 90% olarak bırakın veya istediğiniz kadar daraltın */
+    margin: auto;
+    flex-wrap: wrap;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.logo-img {
+    height: 10px;
+    transform: scale(3);
+    transform-origin: left center;
+}
+
+/* Nav links - Sağa kaydırıldı */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    margin-left: 650px; /* Sağa doğru kaydırıldı */
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: orange;
+    background-color: rgba(0, 89, 179, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-links a i {
+    font-size: 1rem;
+}
+
+/* ========== NAVBAR DROPDOWN STİLLERİ ========== */
+
+/* Dropdown Container */
+.nav-dropdown {
+    position: relative;
+}
+
+/* Dropdown Toggle (Ana Buton) */
+
+.dropdown-arrow {
+    font-size: 0.8rem !important;
+    margin-left: 0.3rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .dropdown-arrow{
+    transform: rotate(180deg);
+}
+
+/* Dropdown Menu - 4 sütun için genişletildi */
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 50%;
+    margin-left: 30px;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    width: 1500px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.nav-dropdown.hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    padding: 25px;
+}
+
+/* Dropdown Grid Layout - 4 sütun */
+.dropdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3'ten 4'e çıkarıldı */
+    gap: 0;
+    row-gap: 20px;
+}
+
+/* Dropdown Items - 4 sütun için optimize edildi */
+.dropdown-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 15px !important;
+    padding: 15px !important; /* Padding biraz azaltıldı */
+    text-decoration: none;
+    color: #495057 !important;
+    transition: all 0.3s ease;
+    border-radius: 8px !important;
+    background: none !important;
+    transform: none !important;
+    text-align: left;
+    min-height: auto;
+    justify-content: flex-start !important;
+    flex-direction: row !important;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(0, 89, 179, 0.08) !important;
+    transform: none !important;
+}
+
+.dropdown-item i {
+    font-size: 20px !important;
+    color: #000000 !important;
+    width: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.dropdown-item:hover i {
+    color: #344e75 !important;
+}
+
+/* METIN CONTAINER */
+.dropdown-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* BAŞLIK STİLİ */
+.dropdown-title {
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    color: #000000 !important;
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* AÇIKLAMA STİLİ */
+.dropdown-description {
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    color: #696868 !important;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.dropdown-item:hover .dropdown-title {
+    color: #344e75 !important;
+}
+
+.dropdown-item:hover .dropdown-description {
+    color: #666 !important;
+}
+
+/* Dropdown Menu Ok İşareti */
+.nav-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid white;
+    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* ========== DROPDOWN STİLLERİ SONU ========== */
+
+
+/* Profil Container */
+.profile-container {
+    position: relative;
+}
+
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+    background-color: rgba(0, 89, 179, 0.1);
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e9ecef;
+}
+
+.profile-arrow {
+    font-size: 0.8rem;
+    color: #6c757d;
+    transition: transform 0.3s ease;
+}
+
+.profile-btn.active .profile-arrow {
+    transform: rotate(180deg);
+}
+
+/* Profil Menüsü */
+.profile-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    min-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.profile-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Profil Bilgileri */
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+}
+
+.profile-menu-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e9ecef;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.profile-name {
+    font-weight: 600;
+    color: #212529;
+    font-size: 16px;
+}
+
+.profile-role {
+    font-size: 14px;
+    color: #6c757d;
+    margin-top: 2px;
+}
+
+.profile-divider {
+    margin: 0;
+    border-color: #e9ecef;
+}
+
+/* Profil Menü Listesi */
+.profile-menu-list {
+    list-style: none;
+    padding: 12px 0;
+    margin: 0;
+}
+
+.profile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #495057;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.profile-menu-item:hover {
+    background-color: rgba(0, 89, 179, 0.05);
+    color: #0059b3;
+}
+
+.profile-menu-item.logout:hover {
+    background-color: rgba(220, 53, 69, 0.05);
+    color: #dc3545;
+}
+
+.profile-menu-item i {
+    width: 16px;
+    font-size: 14px;
+}
+
+.breadcrumb {
+    background: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.breadcrumb-item a {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: #022842;
+}
+
+.breadcrumb-item.active {
+    color: #022842;
+    font-weight: 500;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    color: #6c757d;
+}
+
+/* Ana Makale Kartı */
+.news-detail-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 80px;
+    border-right: 30px;
+    border-left: 30px;
+}
+
+/* Makale Başlığı */
+.article-header {
+    padding: 30px 30px 0 30px;
+}
+
+.article-category {
+    display: inline-block;
+    background: linear-gradient(135deg, #022842 0%, #1e4a6b 100%);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.article-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #022842;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.meta-item i {
+    color: #022842;
+    font-size: 16px;
+}
+
+/* Makale Resmi */
+.article-image-container {
+    position: relative;
+    margin: 20px 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    
+}
+
+.article-image {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.article-image:hover {
+    transform: scale(1.02);
+}
+
+/* Makale İçeriği */
+.article-content {
+    padding: 0 30px 30px 30px;
+}
+
+.article-excerpt {
+    font-size: 1.1rem;
+    color: #495057;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-left: 4px solid #022842;
+    border-radius: 8px;
+    font-style: italic;
+}
+
+.article-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #495057;
+}
+
+.article-body p {
+    margin-bottom: 20px;
+}
+
+.article-body h3 {
+    color: #022842;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.article-body ul, .article-body ol {
+    margin-bottom: 20px;
+    padding-left: 25px;
+}
+
+.article-body li {
+    margin-bottom: 8px;
+}
+
+/* Makale Aksiyonları (Sadece Geri Dön butonu için kullanılıyor) */
+.article-actions {
+    display: flex;
+    justify-content: flex-end; /* Butonun sağa hizalanması için */
+    align-items: center;
+    padding: 25px 30px;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.btn-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #022842 0%, #1e4a6b 100%);
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background: linear-gradient(135deg, #1e4a6b 0%, #022842 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(2, 40, 66, 0.3);
+}
+
+/* Footer stilleri */
+footer {
+    background-color: #022842;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+    padding: 40px 0 20px 0;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    margin-top: 50px;
+}
+
+footer .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+}
+
+.footer-logo{
+    height: 7px;
+    transform: scale(3);
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.footer-content p {
+    margin: 8px 0;
+    font-size: 14px;
+    color:white;
+}
+
+.footer-content i {
+    margin-right: 8px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+    color: white;
+}
+
+
+/* === GALERİ SLIDER STİLLERİ === */
+.ana-haber-container { position: relative; }
+.ana-haber-baslik-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 2rem 1.5rem 1.5rem;
+    border-radius: 0 0 0.75rem 0.75rem;
+}
+.ana-haber-baslik-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+.ana-haber-baslik-link:hover {
+    color: #ffd700 !important;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+    transform: translateY(-2px);
+}
+.ana-haber-baslik {
+    color: white;
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    line-height: 1.3;
+    transition: all 0.3s ease;
+}
+#gallery-container .gallery-wrapper { overflow: hidden; }
+#gallery-track { transition: transform 1s ease-in-out; }
+.gallery-thumbnail {
+    cursor: pointer;
+    border: 3px solid transparent;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    width: 130px;
+    height: 80px;
+    overflow: hidden;
+    position: relative;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.gallery-thumbnail.active {
+    border-color: #022842;
+    box-shadow: 0 0 15px rgba(13, 110, 253, 0.3);
+}
+.gallery-thumbnail-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    transition: transform 0.3s ease;
+}
+.gallery-thumbnail:hover .gallery-thumbnail-image {
+    transform: scale(1.05);
+}
+.gallery-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+.gallery-dot.active {
+    background-color: #022842;
+    transform: scale(1.3);
+    border-color: #022842;
+}
+.gallery-dot:hover {
+    background-color: #6c757d;
+    transform: scale(1.2);
+}
+#main-haber-gorsel { transition: opacity 0.5s ease; cursor: pointer; }
+#ana-haber-baslik { transition: opacity 0.5s ease; }
+.main-image-container { position: relative; overflow: hidden; }
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+.gallery-arrow:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+.gallery-arrow.prev { left: 20px; }
+.gallery-arrow.next { right: 20px; }
+.main-image-container:hover .gallery-arrow {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* === SLIDER KÜÇÜK RESİMLERİ KUTUSUNU GENİŞLET === */
+.gallery-wrapper {
+    height: 100px;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 0 24px;
+    margin: 0 auto;
+    gap: 0;
+}
+.gallery-thumbnail {
+    width: 120px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2px;
+}
+.gallery-thumbnail-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+/* === BÜYÜK RESMİ ALTTAN VE ÜSTTEN GENİŞLET === */
+.ana-haber-container {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+#main-haber-gorsel {
+    max-height: 480px !important;
+    min-height: 320px;
+    object-fit: cover;
+    border-radius: 1.2rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+
+/* === SLIDER ANA GÖRSEL KUTUSU İÇİN RESME BOŞLUK === */
+.ana-haber-container, .main-image-container {
+    
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#main-haber-gorsel {
+    width: 100vw;
+    height: auto;
+    max-height: 80vh;
+    object-fit: cover;
+    border-radius: 0;
+    box-shadow: none;
+}
+/* Galeri Yatay Slider */
+#gallery-container .gallery-wrapper {
+    overflow: hidden;
+}
+
+#gallery-track {
+    transition: transform 1s ease-in-out;
+}
+
+.gallery-thumbnail {
+    cursor: pointer;
+    border: 3px solid transparent;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    width: 130px;
+    height: 80px;
+    overflow: hidden;
+    position: relative;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-thumbnail.active {
+    border-color: #022842;
+    box-shadow: 0 0 15px rgba(13, 110, 253, 0.3);
+}
+
+.gallery-thumbnail-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    transition: transform 0.3s ease;
+}
+
+.gallery-thumbnail:hover .gallery-thumbnail-image {
+    transform: scale(1.05);
+}
+#ana-haber-baslik, #ana-haber-link {
+  display: none !important;
+}
+
+
+/* Galeri Noktaları */
+.gallery-dot {
+    display: none;
+}
+
+@media (max-width: 768px) {
+  .content-area .row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .content-area > .row > div:first-child {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-top: 20px;
+  }
+
+  .content-area > .row > div:last-child {
+    width: 100%;
+    margin-right: 0 !important;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .other-news-box {
+    padding: 10px;
+  }
+
+  .other-news-title {
+    font-size: 1.5rem;
+  }
+
+  .other-news-item img {
+    width: 100px;
+    height: 80px;
+  }
+
+  .item-title {
+    font-size: 18px;
+  }
+
+  .item-date {
+    font-size: 13px;
+  }
+}
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+    margin-left: 0 !important;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    padding: 0.5rem 1rem;
+  }
+
+  .logo-img {
+    transform: scale(2.5);
+  }
+}
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+      <div class="nav-container">
+          <div class="logo-container">
+              <img src="/images/logo(2).png" alt="Gebze Belediyesi Logosu" class="logo-img" />
+          </div>
+         <ul class="nav-links">
+              <li class="nav-dropdown">
+                  <a href="ana_sayfa/ana_sayfa.html" class="nav-dropdown-toggle">
+                      <i class="fas fa-home"></i>
+                      Anasayfa
+                      <i class="fas fa-chevron-down dropdown-arrow"></i>
+                  </a>
+                  <div class="nav-dropdown-menu">
+                      <div class="dropdown-content">
+                          <div class="dropdown-grid">
+                              <a href="#" class="dropdown-item">
+                                 <i class="fas fa-bullhorn"></i>
+                                  <div class="dropdown-text">
+                                        <div class="dropdown-title">DUYURULAR</div>
+                                        <div class="dropdown-description">Personelimize yönelik güncel bilgiler</div>
+                                    </div>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                  <i class="fas fa-comments"></i>
+                                   <div class="dropdown-text">
+                                        <div class="dropdown-title">SİZDEN GELENLER</div>
+                                        <div class="dropdown-description">Öneri, talep ve geri bildirim için </div>
+                                    </div>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                  <i class="fas fa-calendar-check"></i>
+                                    <div class="dropdown-text">
+                                        <div class="dropdown-title">ETKİNLİKLER</div>
+                                        <div class="dropdown-description">Kurum içi etkinlikler</div>
+                                    </div>
+                              </a>
+                            <a href="#" class="dropdown-item">
+                                  <i class="fas fa-video"></i>
+                                   <div class="dropdown-text">
+                                        <div class="dropdown-title">VİDEOLAR</div>
+                                        <div class="dropdown-description">Bilgilendirici videolar</div>
+                                    </div>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                  <i class="fas fa-file-alt"></i>
+                                   <div class="dropdown-text">
+                                        <div class="dropdown-title">DÖKÜMANLAR</div>
+                                        <div class="dropdown-description">Yönelgeler, formlar ve resmi belgeler</div>
+                                    </div>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                  <i class="fas fa-poll"></i>
+                                   <div class="dropdown-text">
+                                        <div class="dropdown-title">ANKETLER</div>
+                                        <div class="dropdown-description">Katılabileceğiniz güncel anketler</div>
+                                    </div>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                  <i class="fas fa-link"></i>
+                                  <div class="dropdown-text">
+                                        <div class="dropdown-title">YARDIMCI LİNKLER</div>
+                                        <div class="dropdown-description">İş akışı için tüm önemli linkler</div>
+                                    </div>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                       <i class="fas fa-cross"></i>
+                                        <div class="dropdown-text">
+                                            <div class="dropdown-title">VEFAT EDEN BİLGİSİ</div>
+                                            <div class="dropdown-description">Vefat eden çalışanlarımız hakkında</div>
+                                        </div>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                        <i class="fas fa-birthday-cake"></i>
+                                       <div class="dropdown-text">
+                                            <div class="dropdown-title">DOĞUM GÜNÜ BİLGİSİ</div>
+                                            <div class="dropdown-description">Bugün doğum günü olan çalışanlarımız için </div>
+                                        </div>
+                            </a>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+
+              <li><a href="#"><i class="fas fa-gavel"></i> Mevzuatlar</a></li>
+              <li><a href="#"><i class="fas fa-graduation-cap"></i> Eğitimler</a></li>
+              <li><a href="#"><i class="fas fa-handshake"></i> Protokoller</a></li>
+              <li><a href="#"><i class="fas fa-folder-open"></i> Dökümanlar</a></li>
+          </ul>
+
+          <div class="profile-container">
+              <div class="profile-dropdown">
+                  <button class="profile-btn" id="profileBtn">
+                      <img src="/images/login/login.jpg" alt="Profil" class="profile-img">
+                      <i class="fas fa-chevron-down profile-arrow"></i>
+                  </button>
+                  <div class="profile-menu" id="profileMenu">
+                      <div class="profile-info">
+                          <img src="/images/login/login.jpg" alt="Profil" class="profile-menu-img">
+                          <div class="profile-details">
+                              <span class="profile-name">Kullanıcı Adı</span>
+                              <span class="profile-role">Personel</span>
+                          </div>
+                      </div>
+                      <hr class="profile-divider">
+                      <ul class="profile-menu-list">
+                          <li>
+                              <a href="#" class="profile-menu-item">
+                                  <i class="fas fa-user"></i>
+                                  <span>Profilim</span>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="#" class="profile-menu-item">
+                                  <i class="fas fa-cog"></i>
+                                  <span>Ayarlar</span>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="/giris_sayfasi/login.html" class="profile-menu-item logout">
+                                  <i class="fas fa-sign-out-alt"></i>
+                                  <span>Çıkış Yap</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+    <div class="breadcrumb-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="margin-left: -20%;">
+                    <li class="breadcrumb-item"><a href="ana_sayfa/ana_sayfa.html"><i class="fas fa-home"></i> Anasayfa</a></li>
+                    <li class="breadcrumb-item"><a href="/sizden_gelenler/sizden_gelenler.html">Haberler</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="breadcrumbTitle">Off-Road Heyecanı</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+   <div class="content-area" style="width: 100%; padding: 0 30px;">
+    <div class="row" style="display: flex; gap: 20px;">
+     
+          
+                <div style="flex: 2; min-width: 0; margin-left: 5%; margin-top: 30px;">
+                    <article class="news-detail-card">
+                       <div class="article-header" style="padding: 20px 0;">
+  
+  <!-- Kategori Rozeti -->
+  <div style="margin-bottom: 5px;">
+    <span class="article-category" id="articleCategory" style="
+      background-color: #0a3044;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-block;
+      letter-spacing: 0.5px;
+      margin-left: 3%;
+    ">
+      HABERLER & DUYURULAR
+    </span>
+  </div>
+
+  <!-- Başlık ve Meta Bilgi: Yan yana -->
+  <div style="
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 10px;
+  ">
+    
+    <!-- Başlık -->
+    <h1 id="articleTitle" style="font-size: 40px; font-weight: 700; color: #0a3044; margin: 0; margin-left: 3%;">
+      GEBZE'DE OFF-ROAD HEYECANI
+    </h1>
+
+    <!-- Meta Bilgiler -->
+    <div class="article-meta" style="
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      color: #0a3044;
+      align-items: center;
+      margin-right: 3%;
+    ">
+      <div class="meta-item" style="display: flex; align-items: center; gap: 5px;">
+        <i class="fas fa-calendar-alt"></i>
+        <span id="articleDate">Tarih</span>
+      </div>
+      <div class="meta-item" style="display: flex; align-items: center; gap: 5px;">
+        <i class="fas fa-eye"></i>
+        <span id="articleViews">0</span> görüntülenme
+      </div>
+      <div class="meta-item" style="display: flex; align-items: center; gap: 5px;">
+        <i class="fas fa-user"></i>
+        <span>Gebze Belediyesi</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+                         <div class="article-image-container">
+                            <img id="main-haber-gorsel" src="/images/off-road-foto/gebze-de-off-road-heyecan_5429.jpg" alt="Haber görseli" class="article-image" style=" width: 1114px !important; border-radius: 15px; padding:0% !important" >
+                          <a href="#" id="ana-haber-link" class="anahaber-baslik-link">
+  <h3 id="ana-haber-baslik" class="ana-haber-baslik"></h3>
+</a>
+
+                        </div>
+                       
+                        <!-- Galeri Container -->
+                        <div id="gallery-container" class="mb-4">
+                            <div class="gallery-wrapper">
+                                <div id="gallery-track" class="d-flex gap-2">
+                                </div>
+                            </div>
+                            <div id="gallery-dots" class="d-flex justify-content-center gap-2 mt-3">
+                            </div>
+
+                      
+                        <div class="article-content">
+                        <!-- Kısa özet alanını kaldırdım, sadece haber metni görünecek -->
+                         <div class="article-body" id="articleBody">
+                         <!-- Haber metni buraya gelecek -->
+                        <p style="font-size: 24px;"><strong>Gebze Belediyesi'nin Denizli Mahallesi'nde düzenlediği ve maceraseverlerin yoğun ilgi gösterdiği Off-Road Festivali 2 gün süren nefes kesen heyecan dolu yarışların ardından sona erdi.</strong></p>
+                            
+                            <p style="font-size: 20px;">Festival boyunca, Türkiye'nin dört bir yanından gelen off-road tutkunları, zorlu parkurlarda yeteneklerini sergiledi. Denizli Mahallesi'nin doğal güzellikleri arasında kurulan parkurlar, hem yarışmacılar hem de izleyiciler için unutulmaz anlar yaşattı.</p>
+                            
+                            <p style="font-size: 20px;">Festivalde dereceye giren ekiplere ödüllerini veren Başkan Zinnur BÜYÜKGÖZ, tüm katılımcılara teşekkür etti.</p>
+                            
+                            
+                        </div>
+                    </div>
+
+                        <div class="article-actions">
+                            <div class="back-button">
+                                <a href="/sizden_gelenler/sizden_gelenler.html" class="btn-back">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Geri Dön
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            <div style="flex: 1; min-width: 0; margin-right: 5%;">
+                
+        <aside class="other-news-box">
+            <h4 class="other-news-title">Diğer Haberler</h4>
+            <div id="other-news-list" class="other-news-list">
+                <a href="haber1.html" class="other-news-item">
+                    <img src="/images/8-mart-dunya-kadinlar-gunu-programi_8383.jpg" alt="Haber 1">
+                    <div>
+                        <div class="item-title">8 Mart Dünya Kadınlar Günü</div>
+                        <p style="color: rgb(135, 135, 135);">Belediyemizdeki kadın personelimizin Dünya Kadınlar Günü'nü özel bir etkinlikle kutladık.</p>
+                        <div class="item-date">28 Temmuz 2025</div>
+                    </div>
+                </a>
+                <a href="haber2.html" class="other-news-item">
+                    <img src="/images/24-kas-m-o-retmenler-gunu_2947.jpg" alt="Haber 2">
+                    <div>
+                        <div class="item-title">Öğretmenler Günü Unutulmadı</div>
+                        <p style="color: rgb(135, 135, 135);">Gebze'deki öğretmenlerimizi bu özel günlerinde yalnız bırakmadık ve çeşitli ziyaretler gerçekleştirdik.</p>
+                        <div class="item-date">25 Temmuz 2025</div>
+                    </div>
+                </a>
+                <a href="haber3.html" class="other-news-item">
+                    <img src="/images/gebze-de-ek-zam-protokolu-mzalandi_4681.jpg" alt="Haber 3">
+                    <div>
+                        <div class="item-title">Yeni Ek Zam Protokolü</div>
+                        <p style="color: rgb(135, 135, 135);">Belediyemizde ek zam Protokolü imzalandı</p>
+                        <div class="item-date">20 Temmuz 2025</div>
+                    </div>
+                </a>
+                 <a href="haber4.html" class="other-news-item">
+                    <img src="/images/gebze-de-zab-ta-haftas-kutland_5157 (1).jpg" alt="Haber 4">
+                    <div>
+                        <div class="item-title">Zabıta Haftası Kutlandı</div>
+                        <p style="color: rgb(135, 135, 135);">Zabıta Haftası unutulmadı</p>
+                        <div class="item-date">30 Temmuz 2025</div>
+                    </div>
+                </a>
+                 <a href="haber5.html" class="other-news-item">
+                    <img src="/images/imdi-troy-zaman_1518.jpg" alt="Haber 5">
+                    <div>
+                        <div class="item-title">Şimdi Troy Zamanı</div>
+                        <p style="color: rgb(135, 135, 135);">Belediye personellerimizle beraber Troy'a geçiyoruz.</p>
+                        <div class="item-date"> 7 Temmuz 2025</div>
+                    </div>
+                </a>
+                <a href="haber6.html" class="other-news-item">
+                    <img src="/images/personel-ftar-program_109.jpg" alt="Haber 6">
+                    <div>
+                        <div class="item-title">İftar Programı</div>
+                        <p style="color: rgb(135, 135, 135);">Ramazan ayının manevi atmosferinde personelimizle birlikte iftar sofrasında buluştuk</p>
+                        <div class="item-date"> 9 Temmuz 2025</div>
+                    </div>
+                </a>
+                <a href="haber7.html" class="other-news-item">
+                    <img src="/images/stajyer-donem-sonu-etk-nl_6028.jpg" alt="Haber 7">
+                    <div>
+                        <div class="item-title">Stajyer Dönem Sonu Etkinliği</div>
+                        <p style="color: rgb(135, 135, 135);">Stajlarını başarıyla tamamlayan stajyerlerimize özel dönem sonu etkinliği</p>
+                        <div class="item-date"> 11 Temmuz 2025</div>
+                    </div>
+                </a>
+                <a href="haber8.html" class="other-news-item">
+                    <img src="/images/stajyer-oryantasyon-e-t-m_8697.jpg" alt="Haber 8">
+                    <div>
+                        <div class="item-title">Stajyerlere Oryantasyon Eğitimi</div>
+                        <p style="color: rgb(135, 135, 135);">Belediyemizde yeni döneme başlayan stajyer öğrencilerimiz için oryantasyon programı düzenlendi</p>
+                        <div class="item-date"> 12 Temmuz 2025</div>
+                    </div>
+                </a>
+                 <a href="haber9.html" class="other-news-item">
+                    <img src="/images/ulusal-da-bisikleti-kupas-yar-lar_128.jpg" alt="Haber 9">
+                    <div>
+                        <div class="item-title">Ulusal Bisiklet Yarışması</div>
+                        <p style="color: rgb(135, 135, 135);">Belediyemizde yeni döneme başlayan stajyer öğrencilerimiz için oryantasyon programı düzenlendi</p>
+                        <div class="item-date"> 12 Temmuz 2025</div>
+                    </div>
+                </a>
+                 <a href="haber12.html" class="other-news-item">
+                    <img src="/images/personel-p-kn-k-programi_9118.jpg" alt="Haber 10">
+                    <div>
+                        <div class="item-title">Personel Piknik Programı</div>
+                        <p style="color: rgb(135, 135, 135);">Belediyemizde yeni döneme başlayan stajyer öğrencilerimiz için oryantasyon programı düzenlendi</p>
+                        <div class="item-date"> 12 Temmuz 2025</div>
+                    </div>
+                </a>
+                 <a href="haber11.html" class="other-news-item">
+                    <img src="/images/stajyer-f-lm-okuma-programi_3604.jpg" alt="Haber 11">
+                    <div>
+                        <div class="item-title">Stajyer Film Okuma Programı</div>
+                        <p style="color: rgb(135, 135, 135);">Belediyemizde yeni döneme başlayan stajyer öğrencilerimiz için oryantasyon programı düzenlendi</p>
+                        <div class="item-date"> 12 Temmuz 2025</div>
+                    </div>
+                </a>
+                 <a href="haber12.html" class="other-news-item">
+                    <img src="/images/on-odeme-kred-ve-avans-e-t-m_2065.jpeg" alt="Haber 12">
+                    <div>
+                        <div class="item-title">Stajyerlere Oryantasyon Eğitimi</div>
+                        <p style="color: rgb(135, 135, 135);">Belediyemizde yeni döneme başlayan stajyer öğrencilerimiz için oryantasyon programı düzenlendi</p>
+                        <div class="item-date"> 12 Temmuz 2025</div>
+                    </div>
+                </a>
+
+            </div>
+        </aside>
+        <div id="news-pagination" style="text-align: center; margin-top: 20px;"></div>
+    </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <img src="/images/logo(2).png" class="footer-logo" alt="Gebze Belediyesi" />
+          <p><i class="fas fa-phone"></i> (0262) 123 45 67</p>
+          <p><i class="fas fa-envelope\"></i> bilgiislem@gebze.bel.tr</p>
+          <div class="social-icons mt-3">
+            <a href="https://www.facebook.com/gebzebelediye/?locale=tr_TR"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/gebze_belediye?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/gebze_belediyesi/?hl=tr"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@gebzebelediyesi7295"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/gebze-belediyesi/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+        <p>© 2025 Gebze Belediyesi - Bilgi İşlem Müdürlüğü | Tüm Hakları Saklıdır</p>
+      </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Galeri fotoğrafları array'i - Başlık ve açıklamalarla
+const detayGorseller = [
+    {
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_120.jpg",
+        
+    },
+    {
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_2075.jpg",
+        
+    },
+    {
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_2143.jpg",
+        
+    },
+    {
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_3569.jpg",
+        
+    },
+    {
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_3911.jpg",
+        
+    },
+    {
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_4046.jpg",
+        
+    },
+    {
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_4564.jpg",
+       
+    },
+    {
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_4975.jpg",
+       
+    },
+    {
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_5429.jpg",
+       
+    },
+    
+];
+   // --- GALERİ SİSTEMİ ---
+    const mainImage = document.getElementById('main-haber-gorsel');
+    const mainTitle = document.getElementById('ana-haber-baslik');
+    const galleryTrack = document.getElementById('gallery-track');
+    const galleryDotsContainer = document.getElementById('gallery-dots');
+
+    if (mainImage && mainTitle && galleryTrack && detayGorseller.length > 1) {
+        const itemsPerView = 5;
+        const totalGroups = Math.ceil(detayGorseller.length / itemsPerView);
+        let currentGroupIndex = 0;
+        let selectedImageIndex = 0;
+        let autoSlideInterval;
+        let isAutoPlaying = true;
+
+        // Ok butonlarını oluştur
+        const mainImageContainer = mainImage.parentElement;
+        mainImageContainer.classList.add('main-image-container');
+        
+        const prevArrow = document.createElement('button');
+        prevArrow.className = 'gallery-arrow prev';
+        prevArrow.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        
+        const nextArrow = document.createElement('button');
+        nextArrow.className = 'gallery-arrow next';
+        nextArrow.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        
+        mainImageContainer.appendChild(prevArrow);
+        mainImageContainer.appendChild(nextArrow);
+
+        // Sonsuz döngü için görselleri çoğalt
+        const galleryItems = [...detayGorseller, ...detayGorseller, ...detayGorseller];
+        
+        // Galeriyi ve noktaları oluştur
+        galleryItems.forEach((gorsel, index) => {
+            const originalIndex = index % detayGorseller.length;
+            const thumbnail = document.createElement('div');
+            thumbnail.className = 'gallery-thumbnail';
+            thumbnail.innerHTML = `
+                <img src="${gorsel.resim}" alt="${gorsel.baslik}" class="gallery-thumbnail-image">
+            `;
+            thumbnail.dataset.index = originalIndex;
+            galleryTrack.appendChild(thumbnail);
+        });
+
+        for (let i = 0; i < totalGroups; i++) {
+             const dot = document.createElement('div');
+             dot.className = 'gallery-dot';
+             dot.dataset.groupIndex = i;
+             galleryDotsContainer.appendChild(dot);
+        }
+
+        const thumbnails = galleryTrack.querySelectorAll('.gallery-thumbnail');
+        const dots = galleryDotsContainer.querySelectorAll('.gallery-dot');
+        
+        // Ana görsel ve başlık güncelleme fonksiyonu
+        function updateGallery(newIndex) {
+            selectedImageIndex = newIndex;
+            const selectedItem = detayGorseller[selectedImageIndex];
+            
+            mainImage.style.opacity = '0';
+            mainTitle.style.opacity = '0';
+            
+            setTimeout(() => {
+                mainImage.src = selectedItem.resim;
+                mainTitle.textContent = selectedItem.baslik;
+                mainImage.style.opacity = '1';
+                mainTitle.style.opacity = '1';
+            }, 250);
+            
+            thumbnails.forEach(thumb => {
+                thumb.classList.toggle('active', parseInt(thumb.dataset.index) === selectedImageIndex);
+            });
+
+            // Aktif thumbnail görünür alanda mı kontrol et
+            ensureThumbnailVisible(selectedImageIndex);
+        }
+        
+        // Dot'ları güncelle
+        function updateDots() {
+             dots.forEach(dot => {
+                 dot.classList.toggle('active', parseInt(dot.dataset.groupIndex) === currentGroupIndex);
+             });
+        }
+        
+        // Grup değiştirme
+        function setGroup(groupIndex) {
+            currentGroupIndex = groupIndex;
+            const itemWidth = thumbnails[0].offsetWidth + 8;
+            const groupWidth = itemWidth * itemsPerView;
+            galleryTrack.style.transform = `translateX(-${currentGroupIndex * groupWidth}px)`;
+            updateDots();
+        }
+
+        // Aktif thumbnail'ın görünür olmasını sağla
+        function ensureThumbnailVisible(imageIndex) {
+            const groupIndex = Math.floor(imageIndex / itemsPerView);
+            if (groupIndex !== currentGroupIndex) {
+                setGroup(groupIndex);
+            }
+        }
+
+        // Otomatik slider başlat
+        function startAutoSlide() {
+            if (autoSlideInterval) clearInterval(autoSlideInterval);
+            
+            autoSlideInterval = setInterval(() => {
+                if (isAutoPlaying) {
+                    const nextIndex = (selectedImageIndex + 1) % detayGorseller.length;
+                    updateGallery(nextIndex);
+                }
+            }, 4000); // 4 saniyede bir değiş
+        }
+
+        // Otomatik slider durdur
+        function stopAutoSlide() {
+            isAutoPlaying = false;
+            if (autoSlideInterval) {
+                clearInterval(autoSlideInterval);
+            }
+        }
+
+        // Otomatik slider yeniden başlat
+        function resumeAutoSlide() {
+            isAutoPlaying = true;
+            startAutoSlide();
+        }
+
+        // Önceki fotoğraf
+        function showPrevImage() {
+            const prevIndex = selectedImageIndex === 0 ? detayGorseller.length - 1 : selectedImageIndex - 1;
+            updateGallery(prevIndex);
+        }
+
+        // Sonraki fotoğraf
+        function showNextImage() {
+            const nextIndex = (selectedImageIndex + 1) % detayGorseller.length;
+            updateGallery(nextIndex);
+        }
+
+        // Event listener'lar
+        prevArrow.addEventListener('click', (e) => {
+            e.stopPropagation();
+            stopAutoSlide();
+            showPrevImage();
+            setTimeout(resumeAutoSlide, 10000);
+        });
+
+        nextArrow.addEventListener('click', (e) => {
+            e.stopPropagation();
+            stopAutoSlide();
+            showNextImage();
+            setTimeout(resumeAutoSlide, 10000);
+        });
+
+        // Thumbnail tıklama
+        galleryTrack.addEventListener('click', (e) => {
+            const thumbnail = e.target.closest('.gallery-thumbnail');
+            if (thumbnail) {
+                stopAutoSlide();
+                updateGallery(parseInt(thumbnail.dataset.index));
+                setTimeout(resumeAutoSlide, 10000);
+            }
+        });
+
+        // Dot tıklama
+        galleryDotsContainer.addEventListener('click', (e) => {
+             const dot = e.target.closest('.gallery-dot');
+             if (dot) {
+                 setGroup(parseInt(dot.dataset.groupIndex));
+             }
+        });
+
+        // Klavye kontrolleri
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                stopAutoSlide();
+                showPrevImage();
+                setTimeout(resumeAutoSlide, 10000);
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                stopAutoSlide();
+                showNextImage();
+                setTimeout(resumeAutoSlide, 10000);
+            }
+        });
+
+        // Ana görsel hover olayları
+        mainImageContainer.addEventListener('mouseenter', () => {
+            stopAutoSlide();
+        });
+
+        mainImageContainer.addEventListener('mouseleave', () => {
+            resumeAutoSlide();
+        });
+
+        // Başlangıç durumu
+        updateGallery(0);
+        updateDots();
+        startAutoSlide();
+    }
+    
+      // DOM Elements
+const profileBtn = document.getElementById('profileBtn');
+const profileMenu = document.getElementById('profileMenu');
+const navDropdown = document.querySelector('.nav-dropdown');
+const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+const dropdownMenu = document.querySelector('.nav-dropdown-menu');
+
+// Initialize Event Listeners
+document.addEventListener('DOMContentLoaded', function() {
+    setupEventListeners();
+});
+
+// Event Listeners
+function setupEventListeners() {
+    // Navbar dropdown functionality
+    if (navDropdown && dropdownToggle && dropdownMenu) {
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Close profile menu if open
+            if (profileMenu && profileBtn) {
+                profileMenu.classList.remove('show');
+                profileBtn.classList.remove('active');
+            }
+
+            navDropdown.classList.toggle('active'); // Toggle 'active' class
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!navDropdown.contains(e.target)) {
+                navDropdown.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                navDropdown.classList.remove('active');
+            }
+        });
+    }
+
+    // Profile dropdown functionality
+    if (profileBtn && profileMenu) {
+        profileBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+
+            // Close navbar dropdown if open
+            if (navDropdown) {
+                navDropdown.classList.remove('active');
+            }
+
+            profileMenu.classList.toggle('show');
+            profileBtn.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
+                profileMenu.classList.remove('show');
+                profileBtn.classList.remove('active');
+            }
+        });
+
+        const logoutBtn = profileMenu.querySelector('.logout');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (confirm('Çıkış yapmak istediğinizden emin misiniz?')) {
+                    console.log('Çıkış yapılıyor...');
+                    // Burada çıkış yapma işlemleri (örn. oturumu sonlandırma, yönlendirme) eklenebilir.
+                }
+            });
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                profileMenu.classList.remove('show');
+                profileBtn.classList.remove('active');
+            }
+        });
+    }
+}
+document.addEventListener("DOMContentLoaded", function () {
+    const allNews = Array.from(document.querySelectorAll(".other-news-item"));
+    const newsList = document.getElementById("other-news-list");
+    const pagination = document.getElementById("news-pagination");
+    const itemsPerPage = 8;
+    let currentPage = 1;
+
+    // Tüm haberleri DOM'dan kaldır, JS ile yöneteceğiz
+    allNews.forEach(item => item.remove());
+
+    function renderPage(page) {
+        // Önce listeyi temizle
+        newsList.innerHTML = "";
+
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const currentItems = allNews.slice(startIndex, endIndex);
+
+        currentItems.forEach(item => newsList.appendChild(item));
+        renderPagination(page);
+    }
+
+    function renderPagination(activePage) {
+        const totalPages = Math.ceil(allNews.length / itemsPerPage);
+        pagination.innerHTML = "";
+
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement("button");
+            btn.textContent = i;
+            btn.style.margin = "0 5px";
+            btn.style.padding = "5px 10px";
+            btn.style.cursor = "pointer";
+            btn.style.borderRadius = "5px";
+            btn.style.border = "1px solid #ccc";
+            btn.style.background = (i === activePage) ? "#0a3044" : "#fff";
+            btn.style.color = (i === activePage) ? "#fff" : "#000";
+            btn.addEventListener("click", () => {
+                currentPage = i;
+                renderPage(currentPage);
+            });
+            pagination.appendChild(btn);
+        }
+    }
+
+    // İlk yüklemede ilk sayfa göster
+    renderPage(currentPage);
+    
+});
+
+    </script>
+</body>
+</html>

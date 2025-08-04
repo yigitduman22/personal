@@ -1,28 +1,28 @@
-// Galeri fotoğrafları array'i - Başlık ve açıklamalarla
+     // Galeri fotoğrafları array'i - Başlık ve açıklamalarla
 const detayGorseller = [
     {
-        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_2075.jpg",
-       
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_120.jpg",
+        
     },
     {
-        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_120.jpg",
-       
+        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_2075.jpg",
+        
     },
     {
         resim: "/images/off-road-foto/gebze-de-off-road-heyecan_2143.jpg",
-
+        
     },
     {
         resim: "/images/off-road-foto/gebze-de-off-road-heyecan_3569.jpg",
-      
+        
     },
     {
         resim: "/images/off-road-foto/gebze-de-off-road-heyecan_3911.jpg",
-       
+        
     },
     {
         resim: "/images/off-road-foto/gebze-de-off-road-heyecan_4046.jpg",
-       
+        
     },
     {
         resim: "/images/off-road-foto/gebze-de-off-road-heyecan_4564.jpg",
@@ -30,127 +30,15 @@ const detayGorseller = [
     },
     {
         resim: "/images/off-road-foto/gebze-de-off-road-heyecan_4975.jpg",
-     
+       
     },
     {
         resim: "/images/off-road-foto/gebze-de-off-road-heyecan_5429.jpg",
-      
+       
     },
+    
 ];
-
-document.addEventListener('DOMContentLoaded', function() {
-    // --- NAVBAR DROPDOWN SİSTEMİ ---
-    const navDropdown = document.querySelector('.nav-dropdown');
-    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
-    const dropdownMenu = document.querySelector('.nav-dropdown-menu');
-
-    if (navDropdown && dropdownToggle && dropdownMenu) {
-        // Dropdown toggle butonuna tıklama
-        dropdownToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Profil menüsünü kapat
-            const profileMenu = document.getElementById('profileMenu');
-            const profileBtn = document.getElementById('profileBtn');
-            if (profileMenu && profileBtn) {
-                profileMenu.classList.remove('show');
-                profileBtn.classList.remove('active');
-            }
-            
-            // Dropdown menüyü aç/kapat
-            navDropdown.classList.toggle('active');
-        });
-
-        // Dropdown menü item'larına tıklama
-        const dropdownItems = dropdownMenu.querySelectorAll('.dropdown-item');
-        dropdownItems.forEach(item => {
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                console.log('Dropdown item clicked:', this.textContent.trim());
-                // Burada sayfa yönlendirmesi veya işlem yapılabilir
-                
-                // Menüyü kapat
-                navDropdown.classList.remove('active');
-            });
-        });
-
-        // Sayfa herhangi bir yerine tıklandığında dropdown'ları kapat
-        document.addEventListener('click', function(e) {
-            if (!navDropdown.contains(e.target)) {
-                navDropdown.classList.remove('active');
-            }
-        });
-
-        // ESC tuşu ile dropdown'ı kapat
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                navDropdown.classList.remove('active');
-            }
-        });
-
-        // Dropdown menü hover efektleri
-        dropdownMenu.addEventListener('mouseenter', function() {
-            // Mouse menü üzerindeyken menüyü açık tut
-        });
-
-        dropdownMenu.addEventListener('mouseleave', function() {
-            // Mouse menü dışına çıktığında kapat (isteğe bağlı)
-            // setTimeout(() => {
-            //     navDropdown.classList.remove('active');
-            // }, 300);
-        });
-    }
-
-    // --- PROFİL DROPDOWN SİSTEMİ ---
-    const profileBtn = document.getElementById('profileBtn');
-    const profileMenu = document.getElementById('profileMenu');
-
-    if (profileBtn && profileMenu) {
-        // Profil butonuna tıklama
-        profileBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            
-            // Navbar dropdown'ını kapat
-            if (navDropdown) {
-                navDropdown.classList.remove('active');
-            }
-            
-            profileMenu.classList.toggle('show');
-            profileBtn.classList.toggle('active');
-        });
-
-        // Sayfa herhangi bir yerine tıklandığında menüyü kapat
-        document.addEventListener('click', function(e) {
-            if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
-                profileMenu.classList.remove('show');
-                profileBtn.classList.remove('active');
-            }
-        });
-
-        // Çıkış yap butonuna tıklama
-        const logoutBtn = profileMenu.querySelector('.logout');
-        if (logoutBtn) {
-            logoutBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (confirm('Çıkış yapmak istediğinizden emin misiniz?')) {
-                    // Burada çıkış işlemi yapılacak
-                    console.log('Çıkış yapılıyor...');
-                    // window.location.href = '/logout'; // Gerçek uygulamada bu şekilde yönlendirme yapılır
-                }
-            });
-        }
-
-        // ESC tuşu ile menüyü kapat
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                profileMenu.classList.remove('show');
-                profileBtn.classList.remove('active');
-            }
-        });
-    }
-
-    // --- GALERİ SİSTEMİ ---
+   // --- GALERİ SİSTEMİ ---
     const mainImage = document.getElementById('main-haber-gorsel');
     const mainTitle = document.getElementById('ana-haber-baslik');
     const galleryTrack = document.getElementById('gallery-track');
@@ -352,90 +240,133 @@ document.addEventListener('DOMContentLoaded', function() {
         startAutoSlide();
     }
     
-    // --- YENİ EKLENEN DUYURULAR VE SAYFALANDIRMA SİSTEMİ ---
-    // Örnek Duyuru Verileri (Toplam 15 adet, 5 sayfa eder)
-    const tumDuyurular = [
-        { resim: '/images/stajyer-oryantasyon-e-t-m_8697.jpg', baslik: 'Stajyer Oryantasyon Eğitimi Tamamlandı', aciklama: 'Belediyemizde yeni döneme başlayan stajyer öğrencilerimiz için oryantasyon programı düzenlendi.' },
-        { resim: '/images/personel-bayramla-ma-programi_5965.jpg', baslik: 'Geleneksel Bayramlaşma Töreni Gerçekleşti', aciklama: 'Kurban Bayramı vesilesiyle tüm personelimizin katılımıyla coşkulu bir bayramlaşma programı yapıldı.' },
-        { resim: '/images/8-mart-dunya-kadinlar-gunu-programi_8383.jpg', baslik: '8 Mart Dünya Kadınlar Günü Kutlandı', aciklama: 'Belediyemizdeki kadın personelimizin Dünya Kadınlar Günü\'nü özel bir etkinlikle kutladık.' },
-        { resim: '/images/personel-ftar-program_109.jpg', baslik: 'Personel İftar Programı Büyük İlgi Gördü', aciklama: 'Ramazan ayının manevi atmosferinde personelimizle birlikte iftar sofrasında buluştuk.' },
-        { resim: '/images/24-kas-m-o-retmenler-gunu_2947.jpg', baslik: 'Öğretmenler Günü Unutulmadı', aciklama: 'Gebze\'deki öğretmenlerimizi bu özel günlerinde yalnız bırakmadık ve çeşitli ziyaretler gerçekleştirdik.' },
-        { resim: '/images/ulusal-da-bisikleti-kupas-yar-lar_128.jpg', baslik: 'Dağ Bisikleti Kupası Gebze\'de Nefes Kesti', aciklama: 'Türkiye Ulusal Dağ Bisikleti Kupası\'nın bir ayağına ev sahipliği yapmanın gururunu yaşadık.' },
-        { resim: '/images/personellerimizin-a-z-ve-di-sa-l-n-onemsiyoruz_7091.jpg', baslik: 'Personelimize Ağız ve Diş Sağlığı Taraması', aciklama: 'Çalışanlarımızın sağlığını önemsiyor, düzenli olarak sağlık taramaları gerçekleştiriyoruz.' },
-        { resim: '/images/personel-p-kn-k-programi_9118.jpg', baslik: 'Yaz Sezonunu Piknikle Açtık', aciklama: 'Yoğun çalışma temposuna mola vererek tüm birimlerimizin katıldığı bir piknik organizasyonu düzenledik.' },
-        { resim: '/images/stajyer-f-lm-okuma-programi_3604.jpg', baslik: 'Stajyerlerle Film Okuma Etkinliği', aciklama: 'Gençlerimizin vizyonunu geliştirmek amacıyla film okuma ve analiz programları düzenliyoruz.' },
-        { resim: '/images/pesonel-ftar-programi_3732.jpg', baslik: 'İkinci Geleneksel İftar Buluşması', aciklama: 'Personelimiz ve aileleriyle birlikte Ramazan ayının bereketini paylaştığımız iftar programımız.' },
-        { resim: '/images/stajyer-donem-sonu-etk-nl_6028.jpg', baslik: 'Stajyer Dönem Sonu Veda Programı', aciklama: 'Staj dönemini başarıyla tamamlayan öğrencilerimiz için bir veda ve teşekkür etkinliği düzenlendi.' },
-        { resim: '/images/stajyer-o-renci-oryantasyonu_2177.jpg', baslik: 'Yeni Stajyerlerimize "Hoş Geldin" Dedik', aciklama: 'Belediye çalışmalarını yakından tanımaları için yeni stajyerlerimize yönelik bir oryantasyon yapıldı.' },
-        { resim: '/images/8-mart-dunya-kadinlar-gunu-programi_8383.jpg', baslik: 'Kadın Personelimize Özel İkramlar', aciklama: '8 Mart kapsamında belediyemizdeki tüm kadın çalışanlarımıza küçük bir jest hazırladık.' },
-        { resim: '/images/personel-bayramla-ma-programi_5965.jpg', baslik: 'Ramazan Bayramı Buluşması', aciklama: 'Ramazan Bayramı dolayısıyla personelimizle bir araya gelerek bayramlaştık.' },
-        { resim: '/images/personel-ftar-program_109.jpg', baslik: 'Birlik ve Beraberlik İftarı', aciklama: 'İftar programımız, personelimiz arasındaki birlik ve beraberliği pekiştirdi.' },
-    ];
+      // DOM Elements
+const profileBtn = document.getElementById('profileBtn');
+const profileMenu = document.getElementById('profileMenu');
+const navDropdown = document.querySelector('.nav-dropdown');
+const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+const dropdownMenu = document.querySelector('.nav-dropdown-menu');
 
-    const duyurularListesi = document.getElementById('duyurular-listesi');
-    const prevButton = document.getElementById('prev-page');
-    const nextButton = document.getElementById('next-page');
-    const sayfaBilgisi = document.getElementById('sayfa-bilgisi');
+// Initialize Event Listeners
+document.addEventListener('DOMContentLoaded', function() {
+    setupEventListeners();
+});
 
-    if (duyurularListesi && prevButton && nextButton && sayfaBilgisi) {
-        let gecerliSayfa = 1;
-        const duyuruSayisiSayfaBasi = 5;
-        const toplamSayfa = Math.min(5, Math.ceil(tumDuyurular.length / duyuruSayisiSayfaBasi)); // En fazla 5 sayfa olacak
+// Event Listeners
+function setupEventListeners() {
+    // Navbar dropdown functionality
+    if (navDropdown && dropdownToggle && dropdownMenu) {
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
 
-        // Duyuruları sayfaya göre render eden fonksiyon
-        function renderDuyurular() {
-            // Mevcut listeyi temizle
-            duyurularListesi.innerHTML = '';
+            // Close profile menu if open
+            if (profileMenu && profileBtn) {
+                profileMenu.classList.remove('show');
+                profileBtn.classList.remove('active');
+            }
 
-            // Gösterilecek duyuruların başlangıç ve bitiş indeksini hesapla
-            const baslangic = (gecerliSayfa - 1) * duyuruSayisiSayfaBasi;
-            const bitis = baslangic + duyuruSayisiSayfaBasi;
-            const gosterilecekDuyurular = tumDuyurular.slice(baslangic, bitis);
+            navDropdown.classList.toggle('active'); // Toggle 'active' class
+        });
 
-            // Her bir duyuru için HTML oluştur ve listeye ekle
-            gosterilecekDuyurular.forEach(duyuru => {
-                const duyuruElementi = `
-                    <a href="#" class="duyuru-item">
-                        <img src="${duyuru.resim}" alt="${duyuru.baslik}" class="duyuru-resim">
-                        <div class="duyuru-icerik">
-                            <h3 class="duyuru-baslik">${duyuru.baslik}</h3>
-                            <p class="duyuru-aciklama">${duyuru.aciklama}</p>
-                        </div>
-                    </a>
-                `;
-                duyurularListesi.innerHTML += duyuruElementi;
+        document.addEventListener('click', function(e) {
+            if (!navDropdown.contains(e.target)) {
+                navDropdown.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                navDropdown.classList.remove('active');
+            }
+        });
+    }
+
+    // Profile dropdown functionality
+    if (profileBtn && profileMenu) {
+        profileBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+
+            // Close navbar dropdown if open
+            if (navDropdown) {
+                navDropdown.classList.remove('active');
+            }
+
+            profileMenu.classList.toggle('show');
+            profileBtn.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
+                profileMenu.classList.remove('show');
+                profileBtn.classList.remove('active');
+            }
+        });
+
+        const logoutBtn = profileMenu.querySelector('.logout');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (confirm('Çıkış yapmak istediğinizden emin misiniz?')) {
+                    console.log('Çıkış yapılıyor...');
+                    // Burada çıkış yapma işlemleri (örn. oturumu sonlandırma, yönlendirme) eklenebilir.
+                }
             });
-
-            // Sayfalandırma kontrollerini güncelle
-            updatePaginationControls();
         }
 
-        // Sayfalandırma butonlarını ve bilgi metnini güncelleyen fonksiyon
-        function updatePaginationControls() {
-            sayfaBilgisi.textContent = `Sayfa ${gecerliSayfa} / ${toplamSayfa}`;
-            prevButton.disabled = gecerliSayfa === 1;
-            nextButton.disabled = gecerliSayfa === toplamSayfa;
-        }
-
-        // Önceki sayfa butonuna tıklama olayı
-        prevButton.addEventListener('click', () => {
-            if (gecerliSayfa > 1) {
-                gecerliSayfa--;
-                renderDuyurular();
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                profileMenu.classList.remove('show');
+                profileBtn.classList.remove('active');
             }
         });
+    }
+}
+document.addEventListener("DOMContentLoaded", function () {
+    const allNews = Array.from(document.querySelectorAll(".other-news-item"));
+    const newsList = document.getElementById("other-news-list");
+    const pagination = document.getElementById("news-pagination");
+    const itemsPerPage = 8;
+    let currentPage = 1;
 
-        // Sonraki sayfa butonuna tıklama olayı
-        nextButton.addEventListener('click', () => {
-            if (gecerliSayfa < toplamSayfa) {
-                gecerliSayfa++;
-                renderDuyurular();
-            }
-        });
+    // Tüm haberleri DOM'dan kaldır, JS ile yöneteceğiz
+    allNews.forEach(item => item.remove());
 
-        // Sayfa ilk yüklendiğinde ilk 3 duyuruyu göster
-        if(toplamSayfa > 0) {
-            renderDuyurular();
+    function renderPage(page) {
+        // Önce listeyi temizle
+        newsList.innerHTML = "";
+
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const currentItems = allNews.slice(startIndex, endIndex);
+
+        currentItems.forEach(item => newsList.appendChild(item));
+        renderPagination(page);
+    }
+
+    function renderPagination(activePage) {
+        const totalPages = Math.ceil(allNews.length / itemsPerPage);
+        pagination.innerHTML = "";
+
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement("button");
+            btn.textContent = i;
+            btn.style.margin = "0 5px";
+            btn.style.padding = "5px 10px";
+            btn.style.cursor = "pointer";
+            btn.style.borderRadius = "5px";
+            btn.style.border = "1px solid #ccc";
+            btn.style.background = (i === activePage) ? "#0a3044" : "#fff";
+            btn.style.color = (i === activePage) ? "#fff" : "#000";
+            btn.addEventListener("click", () => {
+                currentPage = i;
+                renderPage(currentPage);
+            });
+            pagination.appendChild(btn);
         }
     }
+
+    // İlk yüklemede ilk sayfa göster
+    renderPage(currentPage);
+    
 });
