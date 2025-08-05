@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (navDropdown && dropdownToggle && dropdownMenu) {
         // Dropdown toggle butonuna tıklama
         dropdownToggle.addEventListener('click', function(e) {
-            e.preventDefault();
+           
             e.stopPropagation();
             
             
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const dropdownItems = dropdownMenu.querySelectorAll('.dropdown-item');
         dropdownItems.forEach(item => {
             item.addEventListener('click', function(e) {
-                e.preventDefault();
+                
                 console.log('Dropdown item clicked:', this.textContent.trim());
                 // Burada sayfa yönlendirmesi veya işlem yapılabilir
                 
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const logoutBtn = profileMenu.querySelector('.logout');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', function(e) {
-                e.preventDefault();
+                
                 if (confirm('Çıkış yapmak istediğinizden emin misiniz?')) {
                     // Burada çıkış işlemi yapılacak
                     console.log('Çıkış yapılıyor...');
@@ -350,12 +350,12 @@ document.addEventListener('DOMContentLoaded', function() {
         // Klavye kontrolleri
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') {
-                e.preventDefault();
+            
                 stopAutoSlide();
                 showPrevImage();
                 setTimeout(resumeAutoSlide, 10000);
             } else if (e.key === 'ArrowRight') {
-                e.preventDefault();
+             
                 stopAutoSlide();
                 showNextImage();
                 setTimeout(resumeAutoSlide, 10000);

@@ -8,15 +8,31 @@
     margin-top: 30px;
     border: 1px solid #e9ecef;
 }
+.other-news-logos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 60px;
+    gap: 50px;
+    margin-left: 9%;
+}
+
+.other-news-logos img {
+    max-width: 200px; /* İstediğin boyut */
+    height: auto;
+}
+
 
 .other-news-title {
     font-size: 2rem;
-    color: #022842;
+    color: #0a3044;
     font-weight: 600;
-    border-left: 4px solid #022842;
-   
+    border-left: 1.5px solid #ccc;
+   border-bottom: 1.5px solid #ccc; /* İnce gri çizgi */
+    padding-bottom: 15px; /* Yazı ile çizgi arasına mesafe */
     padding-left: 10px;
     margin-bottom: 20px;
+     box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.2); /* Çizgiye gölge efekti */
 }
 
 .other-news-list {
@@ -55,7 +71,7 @@
     flex-shrink: 0;
 }
 #other-news-list {
-  min-height: 1150px; /* ya da 1. sayfadaki boyuta göre göz kararı belirle */
+ 
   transition: min-height 0.3s ease;
 }
 
@@ -72,6 +88,29 @@
     margin-top: 4px;
 }
 
+.other-news-list {
+    max-height: 670px ; /* 5 haberin yüksekliğine göre ayarla */
+    overflow-y: auto;
+    padding-right: 5px;
+    scrollbar-width: none; /* Firefox’ta gizle */
+}
+.other-news-list:hover {
+    scrollbar-width: thin; /* Hover olunca göster */
+}
+.other-news-list::-webkit-scrollbar {
+    width: 8px;
+    background: transparent; /* Chrome scrollbar gizli */
+}
+.other-news-list:hover::-webkit-scrollbar {
+    background: #ddd; /* Hover olunca görünür */
+}
+.other-news-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+.other-news-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 
 /* Breadcrumb Stilleri */
 .breadcrumb-section {
@@ -803,25 +842,22 @@ footer .container {
 
 
 /* === SLIDER KÜÇÜK RESİMLERİ KUTUSUNU GENİŞLET === */
-/* Ortak kapsayıcı */
-#gallery-container {
-    max-width: 1114px; /* üstteki görsel ile aynı genişlik */
-    margin-left: auto;
-    margin-right: auto;
-}
 
-/* Galeri kutusu */
+
 .gallery-wrapper {
     height: 100px;
-    width: 100%;
+    width: 94%;              /* Hem solda hem sağda eşit boşluk */
+    max-width: 1114px;       /* Üst görsel ile aynı genişlik */
+    margin: 0 auto;          /* Ortala */
     display: flex;
     align-items: center;
     justify-content: center;
     background: #fff;
-    border-radius: 0.75rem;
+    border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     padding: 0 24px;
     gap: 0;
+    box-sizing: border-box;  /* Padding genişliğe dahil olsun */
 }
 
 

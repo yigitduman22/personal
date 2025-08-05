@@ -323,50 +323,7 @@ function setupEventListeners() {
     }
 }
 document.addEventListener("DOMContentLoaded", function () {
-    const allNews = Array.from(document.querySelectorAll(".other-news-item"));
     const newsList = document.getElementById("other-news-list");
-    const pagination = document.getElementById("news-pagination");
-    const itemsPerPage = 8;
-    let currentPage = 1;
-
-    // Tüm haberleri DOM'dan kaldır, JS ile yöneteceğiz
-    allNews.forEach(item => item.remove());
-
-    function renderPage(page) {
-        // Önce listeyi temizle
-        newsList.innerHTML = "";
-
-        const startIndex = (page - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        const currentItems = allNews.slice(startIndex, endIndex);
-
-        currentItems.forEach(item => newsList.appendChild(item));
-        renderPagination(page);
-    }
-
-    function renderPagination(activePage) {
-        const totalPages = Math.ceil(allNews.length / itemsPerPage);
-        pagination.innerHTML = "";
-
-        for (let i = 1; i <= totalPages; i++) {
-            const btn = document.createElement("button");
-            btn.textContent = i;
-            btn.style.margin = "0 5px";
-            btn.style.padding = "5px 10px";
-            btn.style.cursor = "pointer";
-            btn.style.borderRadius = "5px";
-            btn.style.border = "1px solid #ccc";
-            btn.style.background = (i === activePage) ? "#0a3044" : "#fff";
-            btn.style.color = (i === activePage) ? "#fff" : "#000";
-            btn.addEventListener("click", () => {
-                currentPage = i;
-                renderPage(currentPage);
-            });
-            pagination.appendChild(btn);
-        }
-    }
-
-    // İlk yüklemede ilk sayfa göster
-    renderPage(currentPage);
-    
+    // Burada herhangi bir sayfalama yok, tüm haberler listede
+    // Scroll ile kullanıcı aşağı indikçe görebilir
 });
