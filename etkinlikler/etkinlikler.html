@@ -170,12 +170,16 @@
                     <div class="results-count" id="resultsCount">
                         <strong>156</strong> sonuç bulundu
                     </div>
-                    <select class="sort-dropdown" id="sortSelect">
-                        <option value="newest">Devam Eden Etkinlikler</option>
-                        <option value="oldest">Sonlandırılmış Etkinlikler</option>
-                    </select>
-                </div>
-
+                  <select class="sort-dropdown" id="sortSelect">
+    <option value="all">Tüm Etkinlikler</option>
+    <option value="active">Devam Eden Etkinlikler</option>
+    <option value="completed">Sonlandırılmış Etkinlikler</option>
+</select>
+                    
+                 </div>
+                 <div id="categoryContainer" class="category-container">
+                 <!-- Seçilen kategoriye göre burası dinamik değişecek -->
+                 </div>
                 <!-- Loading Spinner -->
                 <div class="loading-spinner d-none" id="loadingSpinner">
                     <div class="spinner-border" role="status">
@@ -188,6 +192,7 @@
                 <div class="news-grid" id="newsGrid">
                     <!-- News items will be populated by JavaScript -->
                 </div>
+                
 
                 <!-- No Results -->
                 <div class="no-results d-none" id="noResults">
