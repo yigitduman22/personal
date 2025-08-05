@@ -803,9 +803,16 @@ footer .container {
 
 
 /* === SLIDER KÜÇÜK RESİMLERİ KUTUSUNU GENİŞLET === */
+/* Ortak kapsayıcı */
+#gallery-container {
+    max-width: 1114px; /* üstteki görsel ile aynı genişlik */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Galeri kutusu */
 .gallery-wrapper {
     height: 100px;
-    max-width: 100%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -814,9 +821,10 @@ footer .container {
     border-radius: 0.75rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     padding: 0 24px;
-    margin: 0 auto;
     gap: 0;
 }
+
+
 .gallery-thumbnail {
     width: 120px;
     height: 80px;
