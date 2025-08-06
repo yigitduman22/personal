@@ -424,7 +424,7 @@ body {
 
 .page-title {
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: 0.5rem;
     color: #022842;
 }
@@ -432,7 +432,7 @@ body {
 .page-subtitle {
     font-size: 1rem;
     color: #6c757d;
-    max-width: 600px;
+    max-width: 400px;
     margin: 0 auto;
 }
 

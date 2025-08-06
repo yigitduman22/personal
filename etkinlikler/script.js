@@ -4,8 +4,8 @@ const newsData = [
         id: 1,
         title: "Stajyer Oryantasyon Eğitimi",
         excerpt: "6734 ve 6735 Sayılı Kanun Eğitimi - Biyomedikal Eğitimi - Üniversite Eğitimi - Oryantasyon Eğitimi - Fen Programlama Eğitimi - Mevzuat Eğitimi - Teknoloji Çalışma Eğitimi...",            
-        date: "06.08.2024",
-        endDate: "31.12.2024", // Bitiş tarihi eklendi
+        date: "06.08.2025",
+        endDate: "31.12.2025", // Bitiş tarihi eklendi
         views: 91,
         status: "aktif",
         image: "/images/stajyer-oryantasyon-e-t-m_8697.jpg",
@@ -14,8 +14,8 @@ const newsData = [
         id: 2,
         title: "Stajyer Dönem Sonu Etkinliği",
         excerpt: "Köprülü Geçmis Mahallesi, 503 Sokak'taki çalışmalar...Köprülü Geçmis Mahallesi, 503 Sokak'taki çalışmalar...",      
-        date: "22.05.2024",
-        endDate: "30.06.2024", // Bitiş tarihi eklendi
+        date: "22.05.2025",
+        endDate: "30.06.2025", // Bitiş tarihi eklendi
         views: 145,
         status: "aktif",
         image: "/images/stajyer-donem-sonu-etk-nl_6028.jpg"
@@ -44,8 +44,8 @@ const newsData = [
         id: 5,
         title: "Ön Ödeme Kredi ve Avans Eğitimi",
         excerpt: "Bağışlanmış günlük programı göbildirinde park ve yeşil alanlarımızda...",      
-        date: "27.02.2024",
-        endDate: "31.03.2024", // Bitiş tarihi eklendi
+        date: "27.02.2025",
+        endDate: "31.03.2025", // Bitiş tarihi eklendi
         views: 156,
         status: "pasif",
         image: "/images/on-odeme-kred-ve-avans-e-t-m_2065.jpeg"
@@ -64,7 +64,7 @@ const newsData = [
         id: 7,
         title: "Ofis Programları Eğitimi",
         excerpt: "Şehrimizin çeşitli bölgelerinde gerçekleştirilen yol bakım ve onarım çalışmaları devam ediyor...",       
-        date: "19.02.2024",
+        date: "19.02.2025",
         endDate: "31.08.2025", // Bitiş tarihi eklendi - devam eden
         views: 267,
         status: "aktif",
@@ -104,8 +104,8 @@ const newsData = [
         id: 11,
         title: "Stajyer Öğrenci Oryantasyonu ",
         excerpt: "Şehir merkezindeki altyapı geliştirme ve modernizasyon çalışmaları hızla devam ediyor...",    
-        date: "29.11.2023",
-        endDate: "15.12.2023", // Bitiş tarihi eklendi
+        date: "29.11.2025",
+        endDate: "15.12.2025", // Bitiş tarihi eklendi
         views: 423,
         status: "pasif",
         image: "/images/stajyer-o-renci-oryantasyonu_2177.jpg"
@@ -164,7 +164,7 @@ const newsData = [
 
 let filteredData = [...newsData];
 let currentPage = 1;
-const itemsPerPage = 8; // 4'lü grid için 8 kart gösteriyoruz
+const itemsPerPage = 12; // 4'lü grid için 8 kart gösteriyoruz
 
 // DOM Elements
 const searchInput = document.getElementById('searchInput');

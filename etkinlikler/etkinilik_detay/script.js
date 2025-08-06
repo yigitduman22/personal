@@ -17,6 +17,8 @@ const totalDeptPages = document.getElementById('totalDeptPages');
 let currentDeptIndex = 0; 
 const totalDeptItems = departmentItems.length; 
 let autoSlideInterval;
+const itemsPerPage = 6; // Her sayfada 6 öğe
+const totalPages = Math.ceil(items.length / itemsPerPage);
 
 // Initialize Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
@@ -200,4 +202,5 @@ function updateDepartmentButtons() {
     if (nextDeptBtn) {
         nextDeptBtn.disabled = currentDeptIndex === totalDeptItems - 1;
     } 
+    
 }
