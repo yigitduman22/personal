@@ -2,127 +2,164 @@
 const newsData = [
     {
         id: 1,
-        title: "İnsan Kaynakları ve Eğitim Müdürlüğü",
-        excerpt: "6734 ve 6735 Sayılı Kanun Eğitimi - Biyomedikal Eğitimi - Üniversite Eğitimi - Oryantasyon Eğitimi - Fen Programlama Eğitimi - Mevzuat Eğitimi - Teknoloji Çalışma Eğitimi...",
-        category: "insan-kaynaklari",
-        categoryName: "İnsan Kaynakları ve Eğitim Müdürlüğ",
-        date: "06.11.2023",
+        title: "Stajyer Oryantasyon Eğitimi",
+        excerpt: "6734 ve 6735 Sayılı Kanun Eğitimi - Biyomedikal Eğitimi - Üniversite Eğitimi - Oryantasyon Eğitimi - Fen Programlama Eğitimi - Mevzuat Eğitimi - Teknoloji Çalışma Eğitimi...",            
+        date: "06.08.2024",
+        endDate: "31.12.2024", // Bitiş tarihi eklendi
         views: 91,
-        image: "/images/sizden_gelenler/insan_kaynaklari/nsan-kaynaklar-ve-e-itim-mudurlu-u_1547.jpg",
-       
-        
+        status: "aktif",
+        image: "/images/stajyer-oryantasyon-e-t-m_8697.jpg",
     },
     {
         id: 2,
-        title: "Fen İşleri Müdürlüğü",
-        excerpt: "Köprülü Geçmis Mahallesi, 503 Sokak'taki çalışmalar...Köprülü Geçmis Mahallesi, 503 Sokak'taki çalışmalar...",
-        category: "fen-isleri",
-        categoryName: "Fen İşleri Müdürlüğü",
-        date: "19.10.2023",
+        title: "Stajyer Dönem Sonu Etkinliği",
+        excerpt: "Köprülü Geçmis Mahallesi, 503 Sokak'taki çalışmalar...Köprülü Geçmis Mahallesi, 503 Sokak'taki çalışmalar...",      
+        date: "22.05.2024",
+        endDate: "30.06.2024", // Bitiş tarihi eklendi
         views: 145,
-        image: "/images/sizden_gelenler/fen_isleri/fen-leri-mudurlu-u_3604.jpg"
+        status: "aktif",
+        image: "/images/stajyer-donem-sonu-etk-nl_6028.jpg"
     },
     {
         id: 3,
-        title: "Temizlik İşleri Müdürlüğü",
-        excerpt: "Kül, katkısız ve tüm güzelleştirme organlarından şeye çeşit kurtarıcılar...Kül, katkısız ve tüm güzelleştirme organlarından şeye çeşit kurtarıcılar...",
-        category: "temizlik",
-        categoryName: "Temizlik İşleri Müdürlüğü",
-        date: "19.10.2023",
+        title: "Personel İftar Programı",
+        excerpt: "Kül, katkısız ve tüm güzelleştirme organlarından şeye çeşit kurtarıcılar...Kül, katkısız ve tüm güzelleştirme organlarından şeye çeşit kurtarıcılar...",       
+        date: "15.03.2024",
+        endDate: "15.04.2024", // Bitiş tarihi eklendi
         views: 78,
-        image: "/images/sizden_gelenler/temizlik_isleri/temizlik-leri-mudurlu-u_2142.jpg"
+        status: "pasif",
+        image: "/images/pesonel-ftar-programi_3732.jpg"
     },
     {
         id: 4,
-        title: "Veteriner İşleri Müdürlüğü",
-        excerpt: "4 Ekim Dünya Hayvanları Koruma Günü nedeniyle 4 Ekim boyunca...4 Ekim Dünya Hayvanları Koruma Günü nedeniyle 4 Ekim boyunca...",
-        category: "veteriner",
-        categoryName: "Veteriner İşleri Müdürlüğü",
-        date: "17.10.2023",
+        title: "8 Mart Dünya Kadınlar Günü Programı",
+        excerpt: "4 Ekim Dünya Hayvanları Koruma Günü nedeniyle 4 Ekim boyunca...4 Ekim Dünya Hayvanları Koruma Günü nedeniyle 4 Ekim boyunca...",          
+        date: "08.03.2024",
+        endDate: "08.03.2024", // Bitiş tarihi eklendi
         views: 234,
-        image: "/images/sizden_gelenler/veteriner_isleri/veteriner-leri-mudurlu-u_547.jpg"
+        status: "pasif",
+        image: "/images/8-mart-dunya-kadinlar-gunu-programi_8383.jpg"
     },
     {
         id: 5,
-        title: "Park ve Bahçeler Müdürlüğü",
-        excerpt: "Bağışlanmış günlük programı göbildirinde park ve yeşil alanlarımızda...",
-        category: "park-bahce",
-        categoryName: "Park ve Bahçeler Müdürlüğü",
-        date: "17.10.2023",
+        title: "Ön Ödeme Kredi ve Avans Eğitimi",
+        excerpt: "Bağışlanmış günlük programı göbildirinde park ve yeşil alanlarımızda...",      
+        date: "27.02.2024",
+        endDate: "31.03.2024", // Bitiş tarihi eklendi
         views: 156,
-        image: "/images/sizden_gelenler/park_bahce/park-ve-bahceler-mudurlu-u_357.jpg"
+        status: "pasif",
+        image: "/images/on-odeme-kred-ve-avans-e-t-m_2065.jpeg"
     },
     {
         id: 6,
-        title: "İnsan Kaynakları Eğitim Semineri",
+        title: "Marmara Kariyer Yer Fuarı",
         excerpt: "Personel gelişimi için düzenlenen eğitim seminerimiz tamamlandı. Katılımcılarımız başarı sertifikalarını aldı...",
-        category: "insan-kaynaklari",
-        categoryName: "İnsan Kaynakları ve Eğitim Müdürlüğü",
-        date: "15.10.2023",
+        date: "26.02.2024",
+        endDate: "28.02.2024", // Bitiş tarihi eklendi
         views: 189,
-        image: "/images/sizden_gelenler/insan_kaynaklari/nsan-kaynaklar-ve-e-itim-mudurlu-u_4846.jpg"
+        status: "pasif",
+        image: "/images/marmara-kar-yer-fuari-kocael-2024_9790.jpg"
     },
     {
         id: 7,
-        title: "Yol Bakım ve Onarım Çalışmaları",
-        excerpt: "Şehrimizin çeşitli bölgelerinde gerçekleştirilen yol bakım ve onarım çalışmaları devam ediyor...",
-        category: "fen-isleri",
-        categoryName: "Fen İşleri Müdürlüğü",
-        date: "12.10.2023",
+        title: "Ofis Programları Eğitimi",
+        excerpt: "Şehrimizin çeşitli bölgelerinde gerçekleştirilen yol bakım ve onarım çalışmaları devam ediyor...",       
+        date: "19.02.2024",
+        endDate: "31.08.2025", // Bitiş tarihi eklendi - devam eden
         views: 267,
-        image: "/images/sizden_gelenler/fen_isleri/fen-leri-mudurlu-u_8989.jpg"
+        status: "aktif",
+        image: "/images/of-s-programlari-e-t-m_2683.jpeg"
     },
     {
         id: 8,
-        title: "Çevre Temizlik Kampanyası",
-        excerpt: "Doğal yaşam alanlarının korunması için başlatılan temizlik kampanyası büyük ilgi gördü...",
-        category: "temizlik",
-        categoryName: "Temizlik İşleri Müdürlüğü",
-        date: "10.10.2023",
+        title: "İlkyardım Eğitimi",
+        excerpt: "Doğal yaşam alanlarının korunması için başlatılan temizlik kampanyası büyük ilgi gördü...",      
+        date: "12.02.2024",
+        endDate: "31.12.2025", // Bitiş tarihi eklendi - devam eden
         views: 198,
-        image: "/images/sizden_gelenler/temizlik_isleri/temizlik-leri-mudurlu-u_6633.jpg"
+        status: "aktif",
+        image: "/images/lkyardim-e-t-m_1307.jpeg"
     },
-    {
+     {
         id: 9,
-        title: "Dijital Dönüşüm Eğitimi",
-        excerpt: "Personelimize yönelik dijital dönüşüm ve teknoloji kullanımı eğitimi başarıyla tamamlandı...",
-        category: "insan-kaynaklari",
-        categoryName: "Zabıta Müdürlüğü",
-        date: "08.10.2023",
-        views: 312,
-        image: "/images/sizden_gelenler/zabıta/zab-ta-mudurlu-u_6319.jpg"
+        title: "Stajyer Film-Okuma Programı",
+        excerpt: "Doğal yaşam alanlarının korunması için başlatılan temizlik kampanyası büyük ilgi gördü...",   
+        date: "07.02.2024",
+        endDate: "15.03.2024", // Bitiş tarihi eklendi
+        views: 198,
+        status: "pasif",
+        image: "/images/lkyardim-e-t-m_1307.jpeg"
     },
     {
         id: 10,
-        title: "Altyapı Geliştirme Projesi",
-        excerpt: "Şehir merkezindeki altyapı geliştirme ve modernizasyon çalışmaları hızla devam ediyor...",
-        category: "fen-isleri",
-        categoryName: "Fen İşleri Müdürlüğü",
-        date: "05.10.2023",
-        views: 423,
-        image: "/images/sizden_gelenler/fen_isleri/fen-leri-mudurlu-u_8989.jpg"
+        title: "3 Aralık Dünya Engelliler Günü  Personel Etkinliği",
+        excerpt: "Personelimize yönelik dijital dönüşüm ve teknoloji kullanımı eğitimi başarıyla tamamlandı...",      
+        date: "03.12.2023",
+        endDate: "03.12.2023", // Bitiş tarihi eklendi
+        views: 312,
+        status: "pasif",
+        image: "/images/3-aralik-dunya-engell-ler-gunu-personel-yeme_9554.jpg"
     },
     {
         id: 11,
-        title: "Sokak Hayvanları Bakım Programı",
-        excerpt: "Sokak hayvanlarının sağlık kontrolü ve bakım programı kapsamında çalışmalar sürdürülüyor...",
-        category: "veteriner",
-        categoryName: "Veteriner İşleri Müdürlüğü",
-        date: "03.10.2023",
-        views: 186,
-        image: "/images/sizden_gelenler/veteriner_isleri/veteriner-leri-mudurlu-u_547.jpg"
+        title: "Stajyer Öğrenci Oryantasyonu ",
+        excerpt: "Şehir merkezindeki altyapı geliştirme ve modernizasyon çalışmaları hızla devam ediyor...",    
+        date: "29.11.2023",
+        endDate: "15.12.2023", // Bitiş tarihi eklendi
+        views: 423,
+        status: "pasif",
+        image: "/images/stajyer-o-renci-oryantasyonu_2177.jpg"
     },
     {
         id: 12,
-        title: "Yeşil Alan Düzenleme Çalışması",
+        title: "24 Kasım Öğretmenler Günü Etkinliği",
+        excerpt: "Sokak hayvanlarının sağlık kontrolü ve bakım programı kapsamında çalışmalar sürdürülüyor...",     
+        date: "24.11.2023",
+        endDate: "24.11.2023", // Bitiş tarihi eklendi
+        views: 186,
+        status: "pasif",
+        image: "/images/24-kas-m-o-retmenler-gunu_2947.jpg"
+    },
+    {
+        id: 13,
+        title: "Müdürlükler Arası Spor Turnuvası",
         excerpt: "Kent genelindeki park ve yeşil alanların bakım ve düzenleme çalışmaları tamamlandı...",
-        category: "park-bahce",
-        categoryName: "Park ve Bahçeler Müdürlüğü",
-        date: "01.10.2023",
+        date: "21.08.2023",
+        endDate: "30.09.2023", // Bitiş tarihi eklendi
         views: 278,
-        image: "/images/sizden_gelenler/park_bahce/park-ve-bahceler-mudurlu-u_4188.jpg",
-    
-    }
+        status: "pasif",
+        image: "/images/futbol-turnuvasi_9646.jpg",
+    },
+    {
+        id: 14,
+        title: "Personel Piknik Programı",
+        excerpt: "Kent genelindeki park ve yeşil alanların bakım ve düzenleme çalışmaları tamamlandı...",
+        date: "22.07.2023",
+        endDate: "22.07.2023", // Bitiş tarihi eklendi
+        views: 278,
+        status: "pasif",
+        image: "/images/personel-p-kn-k-programi_9118.jpg",
+    },
+      {
+        id: 15,
+        title: "Personel Bayramlaşma Programı",
+        excerpt: "Kent genelindeki park ve yeşil alanların bakım ve düzenleme çalışmaları tamamlandı...",
+        date: "23.06.2023",
+        endDate: "25.06.2023", // Bitiş tarihi eklendi
+        views: 278,
+        status: "pasif",
+        image: "/images/personel-bayramla-ma-programi_5965.jpg",
+    },
+     {
+        id: 16,
+        title: "Personel İftar Programı",
+        excerpt: "Kent genelindeki park ve yeşil alanların bakım ve düzenleme çalışmaları tamamlandı...",
+        date: "10.04.2023",
+        endDate: "15.05.2023", // Bitiş tarihi eklendi
+        views: 278,
+        status: "pasif",
+        image: "/images/personel-ftar-program_109.jpg",
+    },
 ];
 
 let filteredData = [...newsData];
@@ -140,6 +177,18 @@ const totalNews = document.getElementById('totalNews');
 const loadingSpinner = document.getElementById('loadingSpinner');
 const noResults = document.getElementById('noResults');
 const pagination = document.getElementById('pagination');
+
+// Etkinlik durumunu kontrol eden fonksiyon
+function getEventStatus(endDate) {
+    const today = new Date();
+    const eventEndDate = new Date(endDate.split('.').reverse().join('-'));
+    
+    if (eventEndDate >= today) {
+        return { status: 'active', text: 'Aktif', class: 'aktif' };
+    } else {
+        return { status: 'expired', text: 'Süresi Doldu', class: 'pasif' };
+    }
+}
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
@@ -259,8 +308,7 @@ function handleSearch() {
     } else {
         filteredData = newsData.filter(item =>
             item.title.toLowerCase().includes(query) ||
-            item.excerpt.toLowerCase().includes(query) ||
-            item.categoryName.toLowerCase().includes(query)
+            item.excerpt.toLowerCase().includes(query)
         );
     }
     
@@ -268,12 +316,27 @@ function handleSearch() {
     renderNews();
 }
 
-// Filter function
+// Filter function - Sort dropdown'a göre filtreleme
 function handleFilter(category) {
-    if (category === 'all') {
+    const sortType = sortSelect.value;
+    
+    if (sortType === 'active') {
+        // Devam eden etkinlikler
+        filteredData = newsData.filter(item => {
+            const eventStatus = getEventStatus(item.endDate);
+            return eventStatus.status === 'active';
+        });
+    } else if (sortType === 'completed') {
+        // Sonlandırılmış etkinlikler
+        filteredData = newsData.filter(item => {
+            const eventStatus = getEventStatus(item.endDate);
+            return eventStatus.status === 'expired';
+        });
+    } else if (sortType === 'all') {
+        // Tüm etkinlikler
         filteredData = [...newsData];
     } else {
-        filteredData = newsData.filter(item => item.category === category);
+        filteredData = [...newsData];
     }
     
     currentPage = 1;
@@ -282,24 +345,7 @@ function handleFilter(category) {
 
 // Sort function
 function handleSort() {
-    const sortType = sortSelect.value;
-    
-    switch (sortType) {
-        case 'newest':
-            filteredData.sort((a, b) => new Date(b.date.split('.').reverse().join('-')) - new Date(a.date.split('.').reverse().join('-')));
-            break;
-        case 'oldest':
-            filteredData.sort((a, b) => new Date(a.date.split('.').reverse().join('-')) - new Date(b.date.split('.').reverse().join('-')));
-            break;
-        case 'most-viewed':
-            filteredData.sort((a, b) => b.views - a.views);
-            break;
-        case 'alphabetical':
-            filteredData.sort((a, b) => a.title.localeCompare(b.title, 'tr'));
-            break;
-    }
-    
-    renderNews();
+    handleFilter(); // Sort dropdown değiştiğinde filtrelemeyi yeniden yap
 }
 
 // Render news function
@@ -335,32 +381,37 @@ function hideLoading() {
     if (loadingSpinner) loadingSpinner.classList.add('d-none');
 }
 
-// Show news grid
+// Show news grid - Güncellenmiş durum badge'i ile
 function showNewsGrid(items) {
     if (newsGrid) {
         newsGrid.classList.remove('d-none');
         if (noResults) noResults.classList.add('d-none');
         
-        newsGrid.innerHTML = items.map(item => `
-            <div class="news-card" onclick="openNewsDetail(${item.id})">
-                <img src="${item.image}" alt="${item.title}" class="news-image" loading="lazy">
-                <div class="news-content">
-                    <span class="news-category">${item.categoryName}</span>
-                    <h3 class="news-title">${item.title}</h3>
-                    <p class="news-excerpt">${item.excerpt}</p>
-                    <div class="news-meta">
-                        <span class="news-date">
-                            <i class="fas fa-calendar-alt"></i>
-                            ${item.date}
-                        </span>
-                        <span class="news-views">
-                            <i class="fas fa-eye"></i>
-                            ${item.views}
-                        </span>
+        newsGrid.innerHTML = items.map(item => {
+            const eventStatus = getEventStatus(item.endDate);
+            return `
+                <div class="news-card" onclick="openNewsDetail(${item.id})">
+                    <img src="${item.image}" alt="${item.title}" class="news-image" loading="lazy">
+                    <div class="news-content">
+                        <div class="event-status">
+                            <span class="badge ${eventStatus.class}">${eventStatus.text}</span>
+                        </div>
+                        <h3 class="news-title">${item.title}</h3>
+                        <p class="news-excerpt">${item.excerpt}</p>
+                        <div class="news-meta">
+                            <span class="news-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                ${item.date}
+                            </span>
+                            <span class="news-views">
+                                <i class="fas fa-eye"></i>
+                                ${item.views}
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
     }
 }
 
@@ -456,7 +507,7 @@ function changePage(page) {
 function openNewsDetail(id) {
     // Bu fonksiyon gerçek uygulamada detay sayfasına yönlendirme yapacak
     console.log('Haber detayı açılıyor:', id);
-    window.location.href = `/sizden_gelenler/sizden_detay/sizden.html?${id}`;
+    window.location.href = `${id}`;
 }
 
 // Debounce function
