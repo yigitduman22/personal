@@ -9,17 +9,24 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-menu-toggle d-lg-none">
+        <button class="mobile-toggle-btn" id="mobileToggleBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
     <nav class="navbar">
       <div class="nav-container">
           <div class="logo-container">
               <img src="/images/logo(2).png" alt="Gebze Belediyesi Logosu" class="logo-img" />
           </div>
           
-         <ul class="nav-links">
+         <ul class="nav-links" id="navLinks">
               <li class="nav-dropdown">
                   <a href="/ana_sayfa/ana_sayfa.html" class="nav-dropdown-toggle">
                       <i class="fas fa-home"></i> 
-                      Anasayfa
+                      <span class="nav-text">Anasayfa</span>
                       <i class="fas fa-chevron-down dropdown-arrow"></i>
                   </a>
                   <div class="nav-dropdown-menu">
@@ -93,16 +100,17 @@
                   </div>
               </li>
 
-              <li><a href="#"><i class="fas fa-gavel"></i> Mevzuatlar</a></li>
-              <li><a href="#"><i class="fas fa-graduation-cap"></i> Eğitimler</a></li>
-              <li><a href="#"><i class="fas fa-handshake"></i> Protokoller</a></li>
-              <li><a href="#"><i class="fas fa-folder-open"></i> Dökümanlar</a></li>
+              <li><a href="#"><i class="fas fa-gavel"></i> <span class="nav-text">Mevzuatlar</span></a></li>
+              <li><a href="#"><i class="fas fa-graduation-cap"></i> <span class="nav-text">Eğitimler</span></a></li>
+              <li><a href="#"><i class="fas fa-handshake"></i> <span class="nav-text">Protokoller</span></a></li>
+              <li><a href="#"><i class="fas fa-folder-open"></i> <span class="nav-text">Dökümanlar</span></a></li>
           </ul>
           
           <div class="profile-container">
               <div class="profile-dropdown">
                   <button class="profile-btn" id="profileBtn">
                       <img src="/images/login/login.jpg" alt="Profil" class="profile-img">
+                      <span class="profile-name-mobile d-lg-none">Kullanıcı</span>
                       <i class="fas fa-chevron-down profile-arrow"></i>
                   </button>
                   <div class="profile-menu" id="profileMenu">
@@ -140,26 +148,29 @@
       </div>
     </nav>
 
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay d-lg-none" id="mobileOverlay"></div>
+
 <div class="d-flex flex-column min-vh-100">
-    <div class="container my-5">
+    <div class="container my-3 my-md-5">
   <div class="row justify-content-center">
-    <div class="col-lg-8 col-md-10">
+    <div class="col-lg-8 col-md-10 col-11">
       <div class="card shadow rounded-4 overflow-hidden">
         <div class="row g-0">
-          <!-- Sol: Görsel -->
-          <div class="col-md-5">
-            <img src="/images/anket/anket.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="...">
+          <!-- Görsel -->
+          <div class="col-md-5 col-12">
+            <img src="/images/anket/anket.jpg" class="img-fluid h-100 w-100 object-fit-cover survey-image" alt="Anket">
           </div>
 
-          <!-- Sağ: İçerik -->
-          <div class="col-md-7 d-flex flex-column justify-content-between p-4">
+          <!-- İçerik -->
+          <div class="col-md-7 col-12 d-flex flex-column justify-content-between p-3 p-md-4">
             <div>
-              <p class="text-primary fw-bold mb-1">PERSONEL ANKETİ</p>
-              <h5 class="fw-semibold">Personel Anket Formu</h5>
-              <p class="text-muted">Gebze Belediyesi'nde görevli personele yönelik hazırlanan bu anket formu ile hizmet kalitemizi daha iyi analiz edebiliyoruz.</p>
-              <p class="text-secondary small"><i class="bi bi-calendar3 me-1"></i>Yayın Tarihi: 09.10.2023</p>
+              <p class="text-primary fw-bold mb-1 small">PERSONEL ANKETİ</p>
+              <h5 class="fw-semibold mb-3">Personel Anket Formu</h5>
+              <p class="text-muted mb-3 survey-description">Gebze Belediyesi'nde görevli personele yönelik hazırlanan bu anket formu ile hizmet kalitemizi daha iyi analiz edebiliyoruz.</p>
+              <p class="text-secondary small mb-0"><i class="bi bi-calendar3 me-1"></i>Yayın Tarihi: 09.10.2023</p>
             </div>
-            <a href="https://personel.gebze.bel.tr/anket/personel-anket-formu?id=30&anket=54" class="btn btn-primary w-100 mt-3">Ankete Katıl</a>
+            <a href="https://personel.gebze.bel.tr/anket/personel-anket-formu?id=30&anket=54" class="btn btn-primary w-100 mt-3 survey-btn">Ankete Katıl</a>
           </div>
         </div>
       </div>
@@ -170,15 +181,21 @@
   <footer>
       <div class="container">
         <div class="footer-content">
-          <img src="/images/logo(2).png" class="footer-logo" alt="Gebze Belediyesi" />
-          <p><i class="fas fa-phone"></i> (0262) 123 45 67</p>
-          <p><i class="fas fa-envelope"></i> bilgiislem@gebze.bel.tr</p>
-          <div class="social-icons mt-3">
-            <a href="https://www.facebook.com/gebzebelediye/?locale=tr_TR"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://x.com/gebze_belediye?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/gebze_belediyesi/?hl=tr"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.youtube.com/@gebzebelediyesi7295"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.linkedin.com/company/gebze-belediyesi/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a>
+          <div class="footer-left">
+            <img src="/images/logo(2).png" class="footer-logo" alt="Gebze Belediyesi" />
+          </div>
+          <div class="footer-center">
+            <p><i class="fas fa-phone"></i> (0262) 123 45 67</p>
+            <p><i class="fas fa-envelope"></i> bilgiislem@gebze.bel.tr</p>
+          </div>
+          <div class="footer-right">
+            <div class="social-icons mt-3">
+              <a href="https://www.facebook.com/gebzebelediye/?locale=tr_TR"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://x.com/gebze_belediye?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/gebze_belediyesi/?hl=tr"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com/@gebzebelediyesi7295"><i class="fab fa-youtube"></i></a>
+              <a href="https://www.linkedin.com/company/gebze-belediyesi/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a>
+            </div>
           </div>
         </div>
         <div class="footer-bottom">
