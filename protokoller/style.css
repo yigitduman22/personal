@@ -411,12 +411,8 @@
     border-radius: 10px;
     margin-bottom: 20px;
      border-left: 5px solid #2c4a77; /* Sol çizgi */
-
-     .page-header {
-    position: relative;
+     position: relative;
     z-index: 1; /* Butonların önüne geçmesin */
-}
-
 }
 
 .page-header h1 {

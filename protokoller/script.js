@@ -102,7 +102,7 @@ function previewDocument(fullUrl) {
 }
 // Sayfa yüklendiğinde 'Dökümanlar' filtresini uygula
 document.addEventListener("DOMContentLoaded", function () {
-    const defaultFilter = "document";
+    const defaultFilter = "protocol";
     const searchTerm = ""; // Arama kutusu boş
 
     document.querySelectorAll(".document-card").forEach(card => {
