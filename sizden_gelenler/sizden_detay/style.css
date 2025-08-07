@@ -852,7 +852,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.3px;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     width: fit-content;
 }
 
@@ -887,7 +887,7 @@
     line-height: 1.2; /* Çok satırsa daha sıkı dursun */
 }
 
-/* Sayfalandırma stilleri */
+/* Sayfalandırma stilleri - Nokta göstergeleri için güncellendi */
 .departments-pagination {
     display: flex;
     align-items: center;
@@ -931,10 +931,41 @@
     transform: none;
 }
 
-.pagination-text {
-    font-size: 14px;
-    color: #6c757d; 
-    font-weight: 500;
+/* Nokta göstergeleri container */
+.pagination-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Her bir nokta */
+.pagination-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+}
+
+/* Aktif nokta */
+.pagination-dot.active {
+    background-color: #022842;
+    transform: scale(1.2);
+}
+
+/* Nokta hover efekti */
+.pagination-dot:hover {
+    background-color: #1e4a6b;
+    transform: scale(1.1);
+}
+
+/* Aktif nokta hover */
+.pagination-dot.active:hover {
+    background-color: #022842;
+    transform: scale(1.2);
 }
 
 /* Footer stilleri */
@@ -986,7 +1017,6 @@ footer .container {
     color: white;
 }
 
-
 /* Social Icons Stilleri */
 .social-icons {
     display: flex;
@@ -1012,7 +1042,6 @@ footer .container {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
 }
-
 
 /* Responsive tasarım */
 @media (max-width: 768px) {
@@ -1092,6 +1121,26 @@ footer .container {
     .departments-slider {
         height: 350px;
     }
+    
+    .departments-pagination {
+        padding: 20px 30px;
+        gap: 10px;
+    }
+    
+    .pagination-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 12px;
+    }
+    
+    .pagination-dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .pagination-dots {
+        gap: 6px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1166,6 +1215,26 @@ footer .container {
     
     .other-news-description {
         font-size: 0.8rem;
+    }
+    
+    .departments-pagination {
+        padding: 15px 20px;
+        gap: 8px;
+    }
+    
+    .pagination-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+    }
+    
+    .pagination-dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .pagination-dots {
+        gap: 4px;
     }
 }
 

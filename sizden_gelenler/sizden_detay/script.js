@@ -12,14 +12,13 @@ const galleryItems = document.querySelectorAll('.gallery-item');
 const galleryPrevBtn = document.getElementById('galleryPrevBtn');
 const galleryNextBtn = document.getElementById('galleryNextBtn');
 
-// Department Slider Elements
+// Department Slider Elements - Güncellenmiş
 const departmentSlider = document.querySelector('.departments-slider');
 const deptTrack = document.querySelector('.departments-track');
 const departmentItems = document.querySelectorAll('.department-item');
 const prevDeptBtn = document.getElementById('prevDeptBtn');
 const nextDeptBtn = document.getElementById('nextDeptBtn');
-const currentDeptPage = document.getElementById('currentDeptPage');
-const totalDeptPages = document.getElementById('totalDeptPages');
+const paginationDots = document.getElementById('paginationDots'); // Yeni eklendi
 
 // Article Elements
 const articleTitle = document.getElementById('articleTitle');
@@ -243,7 +242,7 @@ function scrollGalleryToActive() {
     }
 }
 
-// ========== DEPARTMAN SLIDER FONKSİYONLARI ==========
+// ========== DEPARTMAN SLIDER FONKSİYONLARI - GÜNCELLENDİ ==========
 
 function initializeDepartmentSlider() {
     console.log('Departman slider başlatılıyor...');
@@ -253,10 +252,8 @@ function initializeDepartmentSlider() {
         return;
     }
     
-    // Toplam sayfa sayısını güncelle
-    if (totalDeptPages) {
-        totalDeptPages.textContent = totalDeptItems;
-    }
+    // Nokta göstergelerini oluştur
+    createPaginationDots();
     
     // Başlangıç pozisyonunu ayarla
     showDepartmentItem(0);
@@ -293,6 +290,30 @@ function initializeDepartmentSlider() {
     console.log('Departman slider başarıyla başlatıldı');
 }
 
+// Nokta göstergelerini oluştur
+function createPaginationDots() {
+    if (!paginationDots) return;
+    
+    // Mevcut noktalları temizle
+    paginationDots.innerHTML = '';
+    
+    // Her sayfa için bir nokta oluştur
+    for (let i = 0; i < totalDeptItems; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'pagination-dot';
+        dot.setAttribute('data-slide', i);
+        dot.setAttribute('title', `Sayfa ${i + 1}`);
+        
+        // Nokta tıklama olayını ekle
+        dot.addEventListener('click', function() {
+            showDepartmentItem(i);
+            resetAutoSlide();
+        });
+        
+        paginationDots.appendChild(dot);
+    }
+}
+
 function showDepartmentItem(index) {
     if (index < 0 || index >= totalDeptItems) {
         return;
@@ -309,13 +330,11 @@ function showDepartmentItem(index) {
     // Mevcut slayt index'ini güncelle
     currentDeptIndex = index;
     
-    // Sayfa numarasını güncelle
-    if (currentDeptPage) {
-        currentDeptPage.textContent = index + 1;
-    }
-    
     // Butonların durumunu güncelle
     updateDepartmentButtons();
+    
+    // Nokta göstergelerini güncelle
+    updatePaginationDots();
 }
 
 function updateDepartmentButtons() {
@@ -326,6 +345,21 @@ function updateDepartmentButtons() {
     if (nextDeptBtn) {
         nextDeptBtn.disabled = currentDeptIndex === totalDeptItems - 1;
         nextDeptBtn.style.opacity = currentDeptIndex === totalDeptItems - 1 ? '0.5' : '1';
+    }
+}
+
+// Nokta göstergelerini güncelle
+function updatePaginationDots() {
+    if (!paginationDots) return;
+    
+    const dots = paginationDots.querySelectorAll('.pagination-dot');
+    
+    // Tüm noktalardan active sınıfını kaldır
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Mevcut sayfanın noktasına active sınıfını ekle
+    if (dots[currentDeptIndex]) {
+        dots[currentDeptIndex].classList.add('active');
     }
 }
 
