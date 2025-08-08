@@ -1,210 +1,601 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gebze Belediyesi Personel Portalı</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anketler - Gebze Belediyesi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #f4f6f9;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+      color: #003366;
+      margin-bottom: 30px;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      width: 60%;
+      height: 3px;
+      background: #0056b3;
+      bottom: -8px;
+      left: 0;
+      border-radius: 5px;
+      animation: slideIn 1s ease-out;
+    }
+
+    @keyframes slideIn {
+      0% { width: 0; }
+      100% { width: 60%; }
+    }
+
+    .stats-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .stats-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .stats-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .survey-card {
+      background-color: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .survey-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .survey-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(1.05); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .survey-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #003366;
+    }
+
+    .survey-desc {
+      color: #444;
+      font-size: 0.96rem;
+    }
+
+    .survey-date {
+      color: #777;
+      font-size: 0.85rem;
+    }
+
+    .survey-btn {
+      background-color: #0056b3;
+      color: white;
+      border-radius: 25px;
+      padding: 8px 20px;
+      font-weight: 500;
+      transition: background 0.3s ease, transform 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .survey-btn:hover {
+      background-color: #003f8a;
+      transform: scale(1.05);
+      color: white;
+    }
+
+    .survey-btn.completed {
+      background-color: #28a745;
+    }
+
+    .survey-btn.expired {
+      background-color: #6c757d;
+    }
+
+    .status-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .status-active {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .status-completed {
+      background-color: #cce5ff;
+      color: #004085;
+    }
+
+    .status-expired {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    .progress-container {
+      margin-top: 10px;
+    }
+
+    .participation-rate {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .footer-text {
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+      margin-top: 40px;
+    }
+
+    .search-container {
+      position: relative;
+      max-width: 400px;
+    }
+
+    .search-input {
+      border-radius: 25px;
+      padding-left: 45px;
+      border: 2px solid #e9ecef;
+      transition: border-color 0.3s ease;
+    }
+
+    .search-input:focus {
+      border-color: #0056b3;
+      box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.25);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6c757d;
+    }
+
+    .filter-active {
+      background-color: #0056b3 !important;
+      color: white !important;
+    }
+
+    .notification-bell {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .notification-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #dc3545;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .recent-activity {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .activity-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .activity-item:last-child {
+      border-bottom: none;
+    }
+
+    .priority-high {
+      border-left: 4px solid #dc3545;
+    }
+
+    .priority-medium {
+      border-left: 4px solid #ffc107;
+    }
+
+    .priority-low {
+      border-left: 4px solid #28a745;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #6c757d;
+    }
+
+    .empty-state i {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Mobile Menu Toggle -->
-    <div class="mobile-menu-toggle d-lg-none">
-        <button class="mobile-toggle-btn" id="mobileToggleBtn">
-            <i class="fas fa-bars"></i>
-        </button>
+
+  <div class="container py-5">
+
+    <h2 class="section-title">📋 Anketler</h2>
+
+
+
+    <!-- Bilgilendirme kutusu -->
+    <div class="alert alert-primary shadow-sm" role="alert">
+      <i class="fas fa-info-circle me-2"></i><strong>Bilgilendirme:</strong> Bu sayfadaki anketler, Gebze Belediyesi personelinin görüş ve önerilerini toplamak amacıyla hazırlanmıştır. Katılım gönüllüdür, bilgileriniz gizli tutulur.
     </div>
 
-    <nav class="navbar">
-      <div class="nav-container">
-          <div class="logo-container">
-              <img src="/images/logo(2).png" alt="Gebze Belediyesi Logosu" class="logo-img" />
-          </div>
-          
-         <ul class="nav-links" id="navLinks">
-              <li class="nav-dropdown">
-                  <a href="/ana_sayfa/ana_sayfa.html" class="nav-dropdown-toggle">
-                      <i class="fas fa-home"></i> 
-                      <span class="nav-text">Anasayfa</span>
-                      <i class="fas fa-chevron-down dropdown-arrow"></i>
-                  </a>
-                  <div class="nav-dropdown-menu">
-                      <div class="dropdown-content">
-                          <div class="dropdown-grid">
-                              <a href="/ana_sayfa/ana_sayfa.html" class="dropdown-item">
-                                 <i class="fas fa-bullhorn"></i>
-                                  <div class="dropdown-text">
-                                        <div class="dropdown-title">DUYURULAR</div>
-                                        <div class="dropdown-description">Personelimize yönelik güncel bilgiler</div>
-                                    </div>
-                              </a>
-                              <a href="/sizden_gelenler/sizden_gelenler.html" class="dropdown-item">
-                                  <i class="fas fa-comments"></i>
-                                   <div class="dropdown-text">
-                                        <div class="dropdown-title">SİZDEN GELENLER</div>
-                                        <div class="dropdown-description">Öneri, talep ve geri bildirim için </div>
-                                    </div>
-                              </a>
-                              <a href="#" class="dropdown-item">
-                                  <i class="fas fa-calendar-check"></i>
-                                  <div class="dropdown-text">
-                                        <div class="dropdown-title">ETKİNLİKLER</div>
-                                        <div class="dropdown-description">Kurum içi etkinlikler</div>
-                                    </div>
-                              </a>
-                              <a href="#" class="dropdown-item">
-                                  <i class="fas fa-video"></i>
-                                   <div class="dropdown-text">
-                                        <div class="dropdown-title">VİDEOLAR</div>
-                                        <div class="dropdown-description">Bilgilendirici videolar</div>
-                                    </div>
-                              </a>
-                              <a href="#" class="dropdown-item">
-                                  <i class="fas fa-file-alt"></i>
-                                   <div class="dropdown-text">
-                                        <div class="dropdown-title">DÖKÜMANLAR</div>
-                                        <div class="dropdown-description">Yönelgeler, formlar ve resmi belgeler</div>
-                                    </div>
-                              </a>
-                              <a href="#" class="dropdown-item">
-                                  <i class="fas fa-poll"></i>
-                                   <div class="dropdown-text">
-                                        <div class="dropdown-title">ANKETLER</div>
-                                        <div class="dropdown-description">Katılabileceğiniz güncel anketler</div>
-                                    </div>
-                              </a>
-                              <a href="#" class="dropdown-item">
-                                 <i class="fas fa-link"></i>
-                                  <div class="dropdown-text">
-                                        <div class="dropdown-title">YARDIMCI LİNKLER</div>
-                                        <div class="dropdown-description">İş akışı için tüm önemli linkler</div>
-                                    </div>
-                              </a>
-                              <a href="#" class="dropdown-item">
-                                   <i class="fas fa-cross"></i>
-                                  <div class="dropdown-text">
-                                        <div class="dropdown-title">VEFAT EDEN BİLGİSİ</div>
-                                        <div class="dropdown-description">Vefat eden çalışanlarımız hakkında</div>
-                                    </div>
-                              </a>
-                              <a href="#" class="dropdown-item">
-                                  <i class="fas fa-birthday-cake"></i>
-                                   <div class="dropdown-text">
-                                        <div class="dropdown-title">DOĞUM GÜNÜ BİLGİSİ</div>
-                                        <div class="dropdown-description">Bugün doğum günü olan çalışanlarımız için </div>
-                                    </div>
-                              </a>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-
-              <li><a href="#"><i class="fas fa-gavel"></i> <span class="nav-text">Mevzuatlar</span></a></li>
-              <li><a href="#"><i class="fas fa-graduation-cap"></i> <span class="nav-text">Eğitimler</span></a></li>
-              <li><a href="#"><i class="fas fa-handshake"></i> <span class="nav-text">Protokoller</span></a></li>
-              <li><a href="#"><i class="fas fa-folder-open"></i> <span class="nav-text">Dökümanlar</span></a></li>
-          </ul>
-          
-          <div class="profile-container">
-              <div class="profile-dropdown">
-                  <button class="profile-btn" id="profileBtn">
-                      <img src="/images/login/login.jpg" alt="Profil" class="profile-img">
-                      <span class="profile-name-mobile d-lg-none">Kullanıcı</span>
-                      <i class="fas fa-chevron-down profile-arrow"></i>
-                  </button>
-                  <div class="profile-menu" id="profileMenu">
-                      <div class="profile-info">
-                          <img src="/images/login/login.jpg" alt="Profil" class="profile-menu-img">
-                          <div class="profile-details">
-                              <span class="profile-name">Kullanıcı Adı</span>
-                              <span class="profile-role">Personel</span>
-                          </div>
-                      </div>
-                      <hr class="profile-divider">
-                      <ul class="profile-menu-list">
-                          <li>
-                              <a href="#" class="profile-menu-item">
-                                  <i class="fas fa-user"></i>
-                                  <span>Profilim</span>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="#" class="profile-menu-item">
-                                  <i class="fas fa-cog"></i>
-                                  <span>Ayarlar</span>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="#" class="profile-menu-item logout">
-                                  <i class="fas fa-sign-out-alt"></i>
-                                  <span>Çıkış Yap</span>
-                              </a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
+    <!-- Arama ve Filtre -->
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="form-control search-input" placeholder="Anket ara..." id="searchInput">
+        </div>
       </div>
-    </nav>
+      <div class="col-md-6">
+        <div class="d-flex justify-content-end align-items-center gap-2">
+          <select class="form-select" style="width: auto;">
+            <option>Tarihe Göre Sırala</option>
+            <option>En Yeni</option>
+            <option>En Eski</option>
+            <option>Popülerlik</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
-    <!-- Mobile Overlay -->
-    <div class="mobile-overlay d-lg-none" id="mobileOverlay"></div>
+    <!-- Filtre butonları -->
+    <div class="mb-4">
+      <button class="btn btn-outline-primary btn-sm me-2 filter-btn filter-active" data-filter="all">
+        <i class="fas fa-list me-1"></i>Tümü
+      </button>
+      <button class="btn btn-outline-success btn-sm me-2 filter-btn" data-filter="active">
+        <i class="fas fa-play-circle me-1"></i>Aktif Anketler
+      </button>
+      <button class="btn btn-outline-warning btn-sm me-2 filter-btn" data-filter="pending">
+        <i class="fas fa-clock me-1"></i>Beklemede
+      </button>
+      <button class="btn btn-outline-secondary btn-sm me-2 filter-btn" data-filter="completed">
+        <i class="fas fa-check-circle me-1"></i>Tamamlanan
+      </button>
+      <button class="btn btn-outline-danger btn-sm me-2 filter-btn" data-filter="expired">
+        <i class="fas fa-times-circle me-1"></i>Süresi Dolmuş
+      </button>
+      <button class="btn btn-outline-info btn-sm filter-btn" data-filter="favorites">
+        <i class="fas fa-star me-1"></i>Favoriler
+      </button>
+    </div>
 
-<div class="d-flex flex-column min-vh-100">
-    <div class="container my-3 my-md-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-8 col-md-10 col-11">
-      <div class="card shadow rounded-4 overflow-hidden">
-        <div class="row g-0">
-          <!-- Görsel -->
-          <div class="col-md-5 col-12">
-            <img src="/images/anket/anket.jpg" class="img-fluid h-100 w-100 object-fit-cover survey-image" alt="Anket">
-          </div>
+    <!-- Anket Kartları -->
+    <div class="row g-4" id="surveyContainer">
 
-          <!-- İçerik -->
-          <div class="col-md-7 col-12 d-flex flex-column justify-content-between p-3 p-md-4">
+      <!-- Anket 1 - Aktif -->
+      <div class="col-md-6 col-lg-4 survey-item" data-category="active" data-priority="high">
+        <div class="survey-card h-100 d-flex flex-column priority-high">
+          <span class="status-badge status-active">
+            <i class="fas fa-play-circle me-1"></i>Aktif
+          </span>
+          <img src="https://img.freepik.com/free-photo/business-graphs-charts-tablet_23-2147819730.jpg" class="survey-img" alt="Anket 1">
+          <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
             <div>
-              <p class="text-primary fw-bold mb-1 small">PERSONEL ANKETİ</p>
-              <h5 class="fw-semibold mb-3">Personel Anket Formu</h5>
-              <p class="text-muted mb-3 survey-description">Gebze Belediyesi'nde görevli personele yönelik hazırlanan bu anket formu ile hizmet kalitemizi daha iyi analiz edebiliyoruz.</p>
-              <p class="text-secondary small mb-0"><i class="bi bi-calendar3 me-1"></i>Yayın Tarihi: 09.10.2023</p>
+              <h5 class="survey-title">Personel Memnuniyet Anketi 2024</h5>
+              <p class="survey-desc">Görev yapan personele yönelik genel değerlendirme formu. İş memnuniyeti ve çalışma koşulları değerlendirmesi.</p>
+              <p class="survey-date">
+                <i class="fas fa-calendar me-1"></i>09.10.2024 - 15.11.2024
+              </p>
+              <div class="progress-container">
+                <div class="d-flex justify-content-between">
+                  <span class="participation-rate">Katılım: 45/120 kişi</span>
+                  <span class="participation-rate">%37</span>
+                </div>
+                <div class="progress mt-2" style="height: 6px;">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 37%"></div>
+                </div>
+              </div>
             </div>
-            <a href="https://personel.gebze.bel.tr/anket/personel-anket-formu?id=30&anket=54" class="btn btn-primary w-100 mt-3 survey-btn">Ankete Katıl</a>
+            <div class="mt-3">
+              <a href="#" class="btn survey-btn w-100">
+                <i class="fas fa-edit me-2"></i>Ankete Katıl
+              </a>
+              <button class="btn btn-outline-warning btn-sm mt-2" onclick="toggleFavorite(this)">
+                <i class="far fa-star"></i> Favoriye Ekle
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Anket 2 - Tamamlanan -->
+      <div class="col-md-6 col-lg-4 survey-item" data-category="completed" data-priority="medium">
+        <div class="survey-card h-100 d-flex flex-column priority-medium">
+          <span class="status-badge status-completed">
+            <i class="fas fa-check-circle me-1"></i>Tamamlandı
+          </span>
+          <img src="https://img.freepik.com/free-photo/bar-graph-clipboard_23-2147819729.jpg" class="survey-img" alt="Anket 2">
+          <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+            <div>
+              <h5 class="survey-title">Eğitim İhtiyaç Analizi 2024</h5>
+              <p class="survey-desc">Mesleki gelişim ihtiyaçlarını belirlemeye yönelik form. Personel eğitim programları planlaması.</p>
+              <p class="survey-date">
+                <i class="fas fa-calendar me-1"></i>15.03.2024 - 30.04.2024
+              </p>
+              <div class="progress-container">
+                <div class="d-flex justify-content-between">
+                  <span class="participation-rate">Katılım: 95/120 kişi</span>
+                  <span class="participation-rate">%79</span>
+                </div>
+                <div class="progress mt-2" style="height: 6px;">
+                  <div class="progress-bar bg-primary" role="progressbar" style="width: 79%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <a href="#" class="btn survey-btn completed w-100">
+                <i class="fas fa-chart-bar me-2"></i>Sonuçları Gör
+              </a>
+              <button class="btn btn-outline-info btn-sm mt-2">
+                <i class="fas fa-download me-1"></i>Rapor İndir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Anket 3 - Süresi Dolmuş -->
+      <div class="col-md-6 col-lg-4 survey-item" data-category="expired" data-priority="low">
+        <div class="survey-card h-100 d-flex flex-column priority-low">
+          <span class="status-badge status-expired">
+            <i class="fas fa-times-circle me-1"></i>Süresi Doldu
+          </span>
+          <img src="https://img.freepik.com/free-photo/clipboard-checklist_23-2148153169.jpg" class="survey-img" alt="Anket 3">
+          <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+            <div>
+              <h5 class="survey-title">İş Ortamı Değerlendirme Anketi</h5>
+              <p class="survey-desc">Çalışma ortamına ilişkin memnuniyet verilerini toplar. Fiziksel koşullar ve sosyal ortam analizi.</p>
+              <p class="survey-date">
+                <i class="fas fa-calendar me-1"></i>05.12.2023 - 20.01.2024
+              </p>
+              <div class="progress-container">
+                <div class="d-flex justify-content-between">
+                  <span class="participation-rate">Katılım: 67/120 kişi</span>
+                  <span class="participation-rate">%56</span>
+                </div>
+                <div class="progress mt-2" style="height: 6px;">
+                  <div class="progress-bar bg-secondary" role="progressbar" style="width: 56%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3">
+              <a href="#" class="btn survey-btn expired w-100">
+                <i class="fas fa-archive me-2"></i>Arşivdeki Sonuçlar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Anket 4 - Beklemede -->
+      <div class="col-md-6 col-lg-4 survey-item" data-category="pending" data-priority="high">
+        <div class="survey-card h-100 d-flex flex-column priority-high">
+          <span class="status-badge status-active">
+            <i class="fas fa-clock me-1"></i>Yakında
+          </span>
+          <img src="https://img.freepik.com/free-photo/business-concept-with-team-close-up_23-2149145123.jpg" class="survey-img" alt="Anket 4">
+          <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+            <div>
+              <h5 class="survey-title">Dijital Dönüşüm Değerlendirme</h5>
+              <p class="survey-desc">Belediyemizdeki dijital süreçler ve teknoloji kullanımına yönelik personel görüşlerini alan anket.</p>
+              <p class="survey-date">
+                <i class="fas fa-calendar me-1"></i>Başlangıç: 20.11.2024
+              </p>
+              <div class="alert alert-info alert-sm mt-2 p-2">
+                <i class="fas fa-info-circle me-1"></i>
+                <small>Bu anket 5 gün sonra başlayacak</small>
+              </div>
+            </div>
+            <div class="mt-3">
+              <button class="btn btn-outline-primary w-100" disabled>
+                <i class="fas fa-clock me-2"></i>Henüz Başlamadı
+              </button>
+              <button class="btn btn-outline-secondary btn-sm mt-2">
+                <i class="fas fa-bell me-1"></i>Hatırlat
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Boş Durum Mesajı (gizli) -->
+    <div class="empty-state d-none" id="emptyState">
+      <i class="fas fa-search"></i>
+      <h4>Sonuç Bulunamadı</h4>
+      <p>Aradığınız kriterlere uygun anket bulunamadı.</p>
+    </div>
+
+    <!-- Son Aktiviteler -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <h4 class="mb-4">
+          <i class="fas fa-clock me-2"></i>Son Aktiviteler
+        </h4>
+        <div class="recent-activity">
+          <div class="activity-item">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <strong>Personel Memnuniyet Anketi</strong> - Yeni yanıt alındı
+                <br><small class="text-muted">2 saat önce</small>
+              </div>
+              <span class="badge bg-success">Yeni</span>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <strong>Eğitim İhtiyaç Analizi</strong> - Sonuçlar yayınlandı
+                <br><small class="text-muted">1 gün önce</small>
+              </div>
+              <span class="badge bg-primary">Tamamlandı</span>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <strong>Dijital Dönüşüm Değerlendirme</strong> - Anket oluşturuldu
+                <br><small class="text-muted">3 gün önce</small>
+              </div>
+              <span class="badge bg-info">Beklemede</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Alt Bilgi -->
+    <div class="footer-text mt-5">
+      <i class="fas fa-phone me-2"></i>Sorularınız için: 
+      <a href="mailto:ik@gebze.bel.tr">ik@gebze.bel.tr</a> | 
+      <a href="tel:02626413131">0262 641 31 31</a>
+      <br>
+      <small class="text-muted mt-2 d-block">
+        © 2024 Gebze Belediyesi - Tüm hakları saklıdır.
+      </small>
+    </div>
+
   </div>
-</div>
-  </div>
-  <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-left">
-            <img src="/images/logo(2).png" class="footer-logo" alt="Gebze Belediyesi" />
-          </div>
-          <div class="footer-center">
-            <p><i class="fas fa-phone"></i> (0262) 123 45 67</p>
-            <p><i class="fas fa-envelope"></i> bilgiislem@gebze.bel.tr</p>
-          </div>
-          <div class="footer-right">
-            <div class="social-icons mt-3">
-              <a href="https://www.facebook.com/gebzebelediye/?locale=tr_TR"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://x.com/gebze_belediye?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.instagram.com/gebze_belediyesi/?hl=tr"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.youtube.com/@gebzebelediyesi7295"><i class="fab fa-youtube"></i></a>
-              <a href="https://www.linkedin.com/company/gebze-belediyesi/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-        <p>&copy; 2025 Gebze Belediyesi - Bilgi İşlem Müdürlüğü | Tüm Hakları Saklıdır</p>
-      </div>
-      </div>
-    </footer>
-</div>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Arama fonksiyonu
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const surveyItems = document.querySelectorAll('.survey-item');
+      let hasResults = false;
+
+      surveyItems.forEach(item => {
+        const title = item.querySelector('.survey-title').textContent.toLowerCase();
+        const desc = item.querySelector('.survey-desc').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+          item.style.display = 'block';
+          hasResults = true;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      // Boş durum mesajını göster/gizle
+      const emptyState = document.getElementById('emptyState');
+      if (!hasResults && searchTerm !== '') {
+        emptyState.classList.remove('d-none');
+      } else {
+        emptyState.classList.add('d-none');
+      }
+    });
+
+    // Filtre fonksiyonu
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Aktif butonu değiştir
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('filter-active'));
+        this.classList.add('filter-active');
+
+        const filter = this.getAttribute('data-filter');
+        const surveyItems = document.querySelectorAll('.survey-item');
+        let hasResults = false;
+
+        surveyItems.forEach(item => {
+          const category = item.getAttribute('data-category');
+          
+          if (filter === 'all' || category === filter) {
+            item.style.display = 'block';
+            hasResults = true;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Boş durum kontrolü
+        const emptyState = document.getElementById('emptyState');
+        if (!hasResults) {
+          emptyState.classList.remove('d-none');
+        } else {
+          emptyState.classList.add('d-none');
+        }
+      });
+    });
+
+    // Favori ekleme/çıkarma
+    function toggleFavorite(btn) {
+      const icon = btn.querySelector('i');
+      const text = btn.querySelector('text') || btn.childNodes[btn.childNodes.length - 1];
+      
+      if (icon.classList.contains('far')) {
+        icon.classList.remove('far');
+        icon.classList.add('fas');
+        btn.classList.remove('btn-outline-warning');
+        btn.classList.add('btn-warning');
+        text.textContent = ' Favorilerden Çıkar';
+      } else {
+        icon.classList.remove('fas');
+        icon.classList.add('far');
+        btn.classList.remove('btn-warning');
+        btn.classList.add('btn-outline-warning');
+        text.textContent = ' Favoriye Ekle';
+      }
+    }
+
+    // Bildirim tıklama
+    document.querySelector('.notification-bell').addEventListener('click', function() {
+      alert('3 yeni bildiriminiz var:\n• Yeni anket: Personel Memnuniyet Anketi\n• Anket hatırlatması: Eğitim İhtiyaç Analizi\n• Sonuçlar hazır: İş Ortamı Değerlendirme');
+    });
+  </script>
 </body>
 </html>
