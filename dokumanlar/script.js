@@ -133,9 +133,9 @@ document.addEventListener("DOMContentLoaded", function () {
             } else if (target === "document") {
                 window.location.href = "/dokumanlar/dokumanlar.html";
             } else if (target === "regulation") {
-                window.location.href = "mevzuatlar.html";
-            } else if (target === "training") {
-                window.location.href = "egitimler.html";
+                window.location.href = "/mevzuatlar/mevzuat.html";
+           } else if (target === "training") {
+                window.location.href = "/egitimler/egitim.html";
             }
         });
     });

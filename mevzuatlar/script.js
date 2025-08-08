@@ -102,7 +102,7 @@ function previewDocument(fullUrl) {
 }
 // Sayfa yüklendiğinde 'Dökümanlar' filtresini uygula
 document.addEventListener("DOMContentLoaded", function () {
-    const defaultFilter = "protocol";
+    const defaultFilter = "regulation";
     const searchTerm = ""; // Arama kutusu boş
 
     document.querySelectorAll(".document-card").forEach(card => {
@@ -139,4 +139,159 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+});
+
+const SortSelect = document.getElementById('sortSelect');
+document.addEventListener('DOMContentLoaded', function() {
+    updateTotalCount();
+    renderNews();
+    setupEventListeners();
+});
+function setupEventListeners() {
+    // Navbar dropdown functionality from your existing code
+    const navDropdown = document.querySelector('.nav-dropdown');
+    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+    const dropdownMenu = document.querySelector('.nav-dropdown-menu');
+
+    if (navDropdown && dropdownToggle && dropdownMenu) {
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const profileMenu = document.getElementById('profileMenu');
+            const profileBtn = document.getElementById('profileBtn');
+            if (profileMenu && profileBtn) {
+                profileMenu.classList.remove('show');
+                profileBtn.classList.remove('active');
+            }
+            
+            navDropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!navDropdown.contains(e.target)) {
+                navDropdown.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                navDropdown.classList.remove('active');
+            }
+        });
+    }
+
+    // Profile dropdown functionality
+    const profileBtn = document.getElementById('profileBtn');
+    const profileMenu = document.getElementById('profileMenu');
+
+    if (profileBtn && profileMenu) {
+        profileBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            if (navDropdown) {
+                navDropdown.classList.remove('active');
+            }
+            
+            profileMenu.classList.toggle('show');
+            profileBtn.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
+                profileMenu.classList.remove('show');
+                profileBtn.classList.remove('active');
+            }
+        });
+
+        const logoutBtn = profileMenu.querySelector('.logout');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (confirm('Çıkış yapmak istediğinizden emin misiniz?')) {
+                    console.log('Çıkış yapılıyor...');
+                }
+            });
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                profileMenu.classList.remove('show');
+                profileBtn.classList.remove('active');
+            }
+        });
+    }
+
+    // Search functionality
+    if (searchInput && searchBtn) {
+        searchInput.addEventListener('input', debounce(handleSearch, 300));
+        searchBtn.addEventListener('click', handleSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleSearch();
+            }
+        });
+    }
+
+    // Filter buttons
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            handleFilter(this.dataset.category);
+        });
+    });
+
+    // Sort functionality
+    if (sortSelect) {
+        sortSelect.addEventListener('change', handleSort);
+    }
+}
+function handleSort() {
+    const sortType = sortSelect.value;
+
+    switch (sortType) {
+        case 'newest':
+            filteredData.sort((a, b) => new Date(b.date.split('.').reverse().join('-')) - new Date(a.date.split('.').reverse().join('-')));
+            break;
+        case 'oldest':
+            filteredData.sort((a, b) => new Date(a.date.split('.').reverse().join('-')) - new Date(b.date.split('.').reverse().join('-')));
+            break;
+        case 'most-viewed':
+            filteredData.sort((a, b) => b.views - a.views);
+            break;
+        case 'alphabetical':
+            filteredData.sort((a, b) => a.title.localeCompare(b.title, 'tr'));
+            break;
+    }
+
+    renderNews();
+}
+function updateResultsCount() {
+    if (resultsCount) {
+        resultsCount.innerHTML = `<strong>${filteredData.length}</strong> sonuç bulundu`;
+    }
+}
+const sortSelect = document.getElementById('sortSelect');
+const allCards = document.querySelectorAll('.document-card');
+
+sortSelect.addEventListener('change', function () {
+  const selectedType = this.value;
+
+  allCards.forEach(card => {
+    const cardType = card.dataset.type;
+    const cardCategory = card.dataset.category;
+
+    // Sadece regulation (mevzuat) içindekilere uygula
+    if (cardCategory === 'regulation') {
+      if (selectedType === 'all' || cardType === selectedType) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    } else {
+      // Mevzuat dışı kartlar gizlenmeden gösterilmeye devam eder
+      card.style.display = 'block';
+    }
+  });
 });

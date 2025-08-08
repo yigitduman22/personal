@@ -55,54 +55,29 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// 📥 İNDİRME BUTONU ANİMASYONU
-function downloadDocument(fileName, buttonElement) {
-    alert(`${fileName} dosyası indiriliyor...`);
 
-    const originalText = buttonElement.innerHTML;
-
-    buttonElement.innerHTML = `
-        <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;">
-            <path d="M12,4V2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
-        </svg>
-        İndiriliyor...
-    `;
-
-    setTimeout(() => {
-        buttonElement.innerHTML = `
-            <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;">
-                <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
-            </svg>
-            Tamamlandı
-        `;
-
-        setTimeout(() => {
-            buttonElement.innerHTML = originalText;
-        }, 2000);
-    }, 1500);
-}
 
 // 👁 ÖNİZLEME BUTONU (PDF, Word, Excel)
-function previewDocument(fullUrl) {
-    const ext = fullUrl.split('.').pop().toLowerCase();
-    let viewerUrl = '';
+function previewYouTubeVideo(url) {
+    const videoId = url.split("v=")[1];
+    const embedUrl = "https://www.youtube.com/embed/" + videoId;
 
-    if (ext === 'pdf') {
-        viewerUrl = fullUrl;
-    } 
-    else if (['doc', 'docx', 'xls', 'xlsx'].includes(ext)) {
-        viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(fullUrl)}&embedded=true`;
-    } 
-    else {
-        alert('Bu dosya türü önizlenemiyor.');
-        return;
-    }
-
-    window.open(viewerUrl, '_blank');
+    const previewWindow = window.open("", "Video Önizleme", "width=800,height=600");
+    previewWindow.document.write(`
+        <html>
+            <head>
+                <title>Video Önizleme</title>
+            </head>
+            <body style="margin:0;display:flex;justify-content:center;align-items:center;height:100vh;background:#000;">
+                <iframe width="100%" height="100%" src="${embedUrl}" frameborder="0" allowfullscreen></iframe>
+            </body>
+        </html>
+    `);
 }
+
 // Sayfa yüklendiğinde 'Dökümanlar' filtresini uygula
 document.addEventListener("DOMContentLoaded", function () {
-    const defaultFilter = "protocol";
+    const defaultFilter = "training";
     const searchTerm = ""; // Arama kutusu boş
 
     document.querySelectorAll(".document-card").forEach(card => {

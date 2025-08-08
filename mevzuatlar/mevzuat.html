@@ -137,7 +137,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" style="margin-left: -16%;">
                     <li class="breadcrumb-item"><a href="/ana_sayfa/ana_sayfa.html"><i class="fas fa-home"></i> Anasayfa</a></li>
-                    <li class="breadcrumb-item active" aria-current="page" id="breadcrumbTitle">Protokoller</li>
+                    <li class="breadcrumb-item active" aria-current="page" id="breadcrumbTitle">Mevzuatlar</li>
                 </ol>
             </nav>
         </div>
@@ -148,9 +148,8 @@
         <!-- Sayfa Başlığı -->
         <header class="page-header">
             <div class="content">
-               <h1>Protokoller</h1>
-               <p>İlgili birimlerle yapılan tüm protokolleri görüntüleyebilir, detaylarına ulaşabilirsiniz.</p>
-
+               <h1>Mevzuatlar</h1>
+               <p>Kurumsal işleyişi düzenleyen tüm mevzuatları bu sayfada görüntüleyebilirsiniz</p>
             </div>
         </header>
 
@@ -158,36 +157,51 @@
         <div class="controls-section">
             <div class="search-box">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-input" placeholder="Protokol ara..." id="searchInput">
+                <input type="text" class="search-input" placeholder="Mevzuat ara..." id="searchInput">
             </div>
             
             <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="protocol">Protokoller</button>
+                <button class="filter-btn " data-filter="protocol">Protokoller</button>
                 <button class="filter-btn" data-filter="document">Dökümanlar</button>
-                <button class="filter-btn" data-filter="regulation">Mevzuatlar</button>
+                <button class="filter-btn active" data-filter="regulation">Mevzuatlar</button>
                 <button class="filter-btn" data-filter="training">Eğitimler</button>
             </div>
+             
         </div>
+         <div class="results-header">
+                   
+                    <select class="sort-dropdown" id="sortSelect">
+                         <option value="all">Tüm Mevzuatlar</option>
+                         <option value="genel">Genel Mevzuatlar</option>
+                         <option value="memur">Memur Mevzuatları</option>
+                         <option value="sozlesmeli">Sözleşmeli Memur Mevzuatları</option>
+                         <option value="isci">İşçi Mevzuatları</option>
+                         <option value="sirket">Şirket Memuru Mevzuatları</option>
+
+                     </select>
+
+                </div>
+        
 
        
 
         <!-- Dökümanlar Grid -->
         <div class="documents-grid" id="documentsGrid">
             <!-- Personel Yönetmeliği -->
-            <div class="document-card" data-category="protocol">
+            <div class="document-card" data-category="regulation" data-type="genel">
                 <div class="document-header">
                     <div class="document-icon">
-                     <i class="fas fa-hospital"></i> <!-- En yaygın ve anlamlı olan -->
+                     > <i class="fas fa-folder-open"></i> <!-- En yaygın ve anlamlı olan -->
 
 
                     </div>
                     <div class="document-info">
-                        <h3 class="document-title">Gebze Merkez Prime Hastanesi</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Resmi Yazışma Kuralları</h3>
+                        <span class="document-category">Mevzuatlar</span>
                     </div>
                 </div>
                 <p class="document-description">
-                  Gebze Merkez Prime Hastanesi İle Gebze Belediyesi Personelleri Ve Birinci Derece Yakınlarına Yönelik % 20 Oranında İndirim Anlaşması İmzalanmıştır.
+                 Kamu kurum ve kuruluşlarında kullanılması esas ve her kamu görevlisi tarafından bilinmesi gereken resmi yazışmalar hakkında mevzuat hükümleri.
                 </p>
                 <div class="document-meta">
                     <div class="document-size">
@@ -201,7 +215,7 @@
                 </div>
                 <div class="download-section">
 
-                  <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/gebze-merkez-pr-me-hastanes/gebze-merkez-pr-me-hastanes_2019.pdf')">
+                  <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/regulation/resm-yazi-ma-kurallari/resm-yazi-ma-kurallari_1373.pdf')">
                        Detaylı Bilgi İçin
                   </button>
 
@@ -211,19 +225,19 @@
             </div>
 
             <!-- İzin Talep Formu -->
-            <div class="document-card" data-category="protocol">
+            <div class="document-card" data-category="regulation" data-type="genel">
                 <div class="document-header">
                     <div class="document-icon">
-                  <i class="fas fa-hospital"></i> <!-- En yaygın ve anlamlı olan -->
+                  <i class="fas fa-folder-open"></i> <!-- En yaygın ve anlamlı olan -->
 
                     </div>
                     <div class="document-info">
-                        <h3 class="document-title">Gebze MedicalPark Hastanesi</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Belediye Kanunu</h3>
+                        <span class="document-category">Mevzuatlar</span>
                     </div>
                 </div>
                 <p class="document-description">
-                 Gebze Medıcalpark Hastanesi İle Gebze Belediyesi Personelleri Ve Birinci Derece Yakınlarına Yönelik % 20 Oranında İndirim Anlaşması İmzalanmıştır.
+                Kanun Numarası : 5393 Kabul Tarihi : 3/7/2005 Yayımlandığı Resmî Gazete : Tarih : 13/7/2005 Sayı : 25874 Yayımlandığı Düstur : Tertip : 5 Cilt : 44
                 </p>
                 <div class="document-meta">
                     <div class="document-size">
@@ -237,26 +251,26 @@
                 </div>
                 <div class="download-section">
                    
-                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/gebze-medicalpark-hastanes/gebze-medicalpark-hastanes_3836.pdf')">
+                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/regulation/5393-sayili-beled-ye-kanunu/5393-sayili-beled-ye-kanunu_8722.pdf')">
                    Detaylı Bilgi İçin
                     </button>
                 </div>
             </div>
 
             <!-- Güvenlik Talimatları -->
-            <div class="document-card" data-category="protocol">
+            <div class="document-card" data-category="regulation" data-type="genel">
                 <div class="document-header">
                     <div class="document-icon">
-                   <i class="fas fa-hospital"></i> <!-- En yaygın ve anlamlı olan -->
+                   <i class="fas fa-folder-open"></i> <!-- En yaygın ve anlamlı olan -->
 
                     </div>
                     <div class="document-info">
-                        <h3 class="document-title">Gebze Özel Yüzyıl Hastanesi</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Kamu İhale Kanunu</h3>
+                        <span class="document-category">Mevzuatlar</span>
                     </div>
                 </div>
                 <p class="document-description">
-                    Gebze Özel Yüzyıl Hastanesi İle Gebze Belediyesi Personelleri Ve Birinci Derece Yakınlarına Yönelik % 20 Oranında İndirim Anlaşması İmzalanmıştır.
+                   Kanunun Numarası : 4734 Kabul Tarihi : 4/1/2002 Yayımlandığı Resmî Gazete : Tarih : 22/1/2002 Sayı : 24648 Yayımlandığı Düstur : Tertip : 5 Cilt : 42
                 </p>
                 <div class="document-meta">
                     <div class="document-size">
@@ -270,25 +284,25 @@
                 </div>
                <div class="download-section">
 
-                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/gebze-ozel-yuzyil-hastanes/gebze-ozel-yuzyil-hastanes_6572.pdf')">
+                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/regulation/kamu-hale-kanunu/kamu-hale-kanunu_4328.pdf')">
                   Detaylı Bilgi İçin
                     </button>
                </div>
             </div>
 
-             <div class="document-card" data-category="protocol">
+             <div class="document-card" data-category="regulation" data-type="genel">
                 <div class="document-header">
                     <div class="document-icon">
-                   <i class="fas fa-hospital"></i> <!-- En yaygın ve anlamlı olan -->
+                   <i class="fas fa-folder-open"></i> <!-- En yaygın ve anlamlı olan -->
 
                     </div>
                     <div class="document-info">
-                        <h3 class="document-title">Darıca Hospitalpark Hastanesi</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Kamu İhale Sözleşmeleri Kanunu</h3>
+                        <span class="document-category">Mevzuatlar</span>
                     </div>
                 </div>
                 <p class="document-description">
-                   Darıca Hospıtalpark Hastanesi İle Gebze Belediyesi Personelleri Ve Birinci Derece Yakınlarına Yönelik % 30 Oranında İndirim Anlaşması İmzalanmıştır.
+                  Kanun Numarası : 4735 Kabul Tarihi : 5/1/2002 Yayımlandığı Resmî Gazete : Tarih : 22/1/2002 Sayı : 24648 Yayımlandığı Düstur : Tertip : 5 Cilt : 42
                 </p>
                 <div class="document-meta">
                     <div class="document-size">
@@ -302,25 +316,25 @@
                 </div>
                <div class="download-section">
 
-                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/darica-hospitalpark-hastanes/darica-hospitalpark-hastanes_1530.pdf')" style="margin-top: 45px;">
-                  Detaylı Bilgi İçin 
+                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/regulation/kamu-hale-sozle-meler-kanunu/kamu-hale-sozle-meler-kanunu_8417.pdf')">
+                  Detaylı Bilgi İçin
                     </button>
                </div>
             </div>
 
-            <div class="document-card" data-category="protocol">
+            <div class="document-card" data-category="regulation" data-type="genel">
                 <div class="document-header">
                     <div class="document-icon">
-                <i class="fas fa-tooth"></i>
+                 <i class="fas fa-folder-open"></i> <!-- En yaygın ve anlamlı olan -->
 
                     </div>
                     <div class="document-info">
-                        <h3 class="document-title">Özel Ülker Ağız ve Diş Sağlığı Polikliniği</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">İmar Kanunu</h3>
+                        <span class="document-category">Mevzuatlar</span>
                     </div>
                 </div>
                 <p class="document-description">
-                  Personellerimizin ve 1. derece yakınlarının (anne, baba, eş ve çocuklar) diş sağlığına katkıda bulunmak adına çevre Polikliniklerimizle muayene, tetkik ve tedavilerde indirim anlaşmaları imzalanmıştır.
+                 Kanun Numarası : 3194 Kabul Tarihi : 3/5/1985 Yayımlandığı R. Gazete : Tarih :9/5/1985 Sayı: 18749 Yayımlandığı Düstur : Tertip : 5 Cilt : 24 Sayfa : 378
                 </p>
                 <div class="document-meta">
                     <div class="document-size">
@@ -332,28 +346,27 @@
                         04.10.2023
                     </div>
                 </div>
-               <div class="download-section">
+               <div class="download-section" style="margin-top: 48px;">
 
-                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/ozel-ulker-a-iz-ve-d-sa-li-i-pol-kl-n/ozel-ulker-a-iz-ve-d-sa-li-i-pol-kl-n_3454.pdf')">
+                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/regulation/3194-sayili-mar-kanunu/3194-sayili-mar-kanunu_9104.pdf')">
                   Detaylı Bilgi İçin
                     </button>
                </div>
             </div>
             
-            <div class="document-card" data-category="protocol">
+            <div class="document-card" data-category="regulation" data-type="genel">
                 <div class="document-header">
                     <div class="document-icon">
-                    <i class="fas fa-tooth"></i>
- <!-- En yaygın ve anlamlı olan -->
+                    <i class="fas fa-folder-open"></i> <!-- En yaygın ve anlamlı olan -->
 
                     </div>
                     <div class="document-info">
-                        <h3 class="document-title">Özel Dentriva Ağız ve Diş Sağlığı Polikliniği</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Kişisel Verilerin Korunması Kanunu</h3>
+                        <span class="document-category">Mevzuatlar</span>
                     </div>
                 </div>
                 <p class="document-description">
-                 Personellerimizin ve 1. derece yakınlarının (anne, baba, eş ve çocuklar) diş sağlığına katkıda bulunmak adına çevre Polikliniklerimizle muayene, tetkik ve tedavilerde indirim anlaşmaları imzalanmıştır.
+                Kanun Numarası : 6698 Kabul Tarihi : 24/3/2016 Yayımlandığı Resmî Gazete : Tarih : 7/4/2016 Sayı : 29677 Yayımlandığı Düstur : Tertip : 5 Cilt : 57
                 </p>
                 <div class="document-meta">
                     <div class="document-size">
@@ -367,25 +380,24 @@
                 </div>
                <div class="download-section">
 
-                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/ozel-dentr-va-a-iz-ve-d-sa-li-i-pol-kl-n/ozel-dentr-va-a-iz-ve-d-sa-li-i-pol-kl-n_5515.pdf')">
+                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/regulation/k-sel-ver-ler-n-korunmasi-kanunu/k-sel-ver-ler-n-korunmasi-kanunu_7116.pdf')">
                   Detaylı Bilgi İçin
                     </button>
                </div>
             </div>
-            <div class="document-card" data-category="protocol">
+            <div class="document-card" data-category="regulation" data-type="memur">
                 <div class="document-header">
                     <div class="document-icon">
-                    <i class="fas fa-tooth"></i>
- <!-- En yaygın ve anlamlı olan -->
+                     <i class="fas fa-folder-open"></i> <!-- En yaygın ve anlamlı olan -->
 
                     </div>
                     <div class="document-info">
-                        <h3 class="document-title">Özel Arapçeşme Ağız ve Diş Sağlığı Polikliniği</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Devlet Memurları Kanunu</h3>
+                        <span class="document-category">Mevzuatlar</span>
                     </div>
                 </div>
                 <p class="document-description">
-                Personellerimizin ve 1. derece yakınlarının (anne, baba, eş ve çocuklar) diş sağlığına katkıda bulunmak adına çevre Polikliniklerimizle muayene, tetkik ve tedavilerde indirim anlaşmaları imzalanmıştır.
+               Kanun Numarası : 657 Kabul Tarihi : 14/7/1965 Yayımlandığı Resmî Gazete : Tarih : 23/7/1965 Sayı : 12056 Yayımlandığı Düstur : Tertip : 5 Cilt : 4 Sayfa : 3044
                 </p>
                 <div class="document-meta">
                     <div class="document-size">
@@ -397,27 +409,26 @@
                      04.10.2023
                     </div>
                 </div>
-               <div class="download-section">
+               <div class="download-section" style="margin-top: 130px;">
 
-                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/ozel-arapce-me-a-iz-ve-d-sa-li-i-pol-kl-n/ozel-arapce-me-a-iz-ve-d-sa-li-i-pol-kl-n_7964.pdf')">
+                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/regulation/657-sayili-devlet-memurlari-kanunu/657-sayili-devlet-memurlari-kanunu_1477.pdf')">
                   Detaylı Bilgi İçin
                     </button>
                </div>
             </div>
-             <div class="document-card" data-category="protocol">
+             <div class="document-card" data-category="regulation" data-type="memur"> 
                 <div class="document-header">
                     <div class="document-icon">
-                  <i class="fas fa-tooth"></i>
-<!-- En yaygın ve anlamlı olan -->
+                   <i class="fas fa-folder-open"></i> <!-- En yaygın ve anlamlı olan -->
 
                     </div>
                     <div class="document-info">
-                        <h3 class="document-title">Şimşekdent Ağız ve Diş Sağlığı Polikliniği</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Devlet Memurlarına Verilecek Hastalık Raporları ile Hastalık ve Refakat İznine İlişkin Usul ve Esaslar Hakkında Yönetmenlik</h3>
+                        <span class="document-category">Mevzuatlar</span>
                     </div>
                 </div>
                 <p class="document-description">
-                Personellerimizin ve 1. derece yakınlarının (anne, baba, eş ve çocuklar) diş sağlığına katkıda bulunmak adına çevre Polikliniklerimizle muayene, tetkik ve tedavilerde indirim anlaşmaları imzalanmıştır.
+                Bakanlar Kurulu Kararının Tarihi : 22/8/2011 No : 2011/2226 Dayandığı Kanunun Tarihi : 14/7/1965 No : 657 Yayımlandığı R.Gazetenin Tarihi : 29/10/2011 No : 28099 Yayımlandığı Düsturun Tertibi : 5 Cilt : 51
 
 
                 </p>
@@ -433,7 +444,164 @@
                 </div>
                <div class="download-section">
 
-                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/m-ekdent-a-iz-ve-d-sa-li-i-pol-kl-n/m-ekdent-a-iz-ve-d-sa-li-i-pol-kl-n_2554.pdf')">
+                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/regulation/devlet-memurlarina-ver-lecek-hastalik-raporlari-le-hastalik-ve-refakat-zn-ne-l-k-n-usul-ve-esaslar-hakkinda-yonetmel-k/devlet-memurlarina-ver-lecek-hastalik-raporlari-le-hastalik-ve-refakat-zn-ne-l-k-n-usul-ve-esaslar-hakkinda-yonetmel-k_3060.pdf')">
+                  Detaylı Bilgi İçin
+                    </button>
+               </div>
+            </div>
+             <div class="document-card" data-category="regulation" data-type="memur"> 
+                <div class="document-header">
+                    <div class="document-icon">
+                   <i class="fas fa-folder-open"></i> <!-- En yaygın ve anlamlı olan -->
+
+                    </div>
+                    <div class="document-info">
+                        <h3 class="document-title">Memurlar ve Diğer Kamu Görevlilerinin Yargılanması Hakkında Kanun</h3>
+                        <span class="document-category">Mevzuatlar</span>
+                    </div>
+                </div>
+                <p class="document-description">
+               Kanun Numarası : 4483 Kabul Tarihi : 2/12/1999 Yayımlandığı Resmî Gazete : Tarih : 4/12/1999 Sayı : 23896 Yayımlandığı Düstur : Tertip : 5 Cilt : 39
+                </p>
+                <div class="document-meta">
+                    <div class="document-size">
+                        <i class="fas fa-file-pdf"></i>
+                        PDF • 1.7 MB
+                    </div>
+                    <div class="document-date">
+                        <i class="fas fa-calendar-alt"></i>
+                      04.10.2023
+                    </div>
+                </div>
+               <div class="download-section" style="margin-top: 80px;">
+
+                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/regulation/memurlar-ve-d-er-kamu-gorevl-ler-n-n-yargilanmasi-hakkinda-kanun/memurlar-ve-d-er-kamu-gorevl-ler-n-n-yargilanmasi-hakkinda-kanun_4777.pdf')">
+                  Detaylı Bilgi İçin
+                    </button>
+               </div>
+            </div>
+            <div class="document-card" data-category="regulation" data-type="memur"> 
+                <div class="document-header">
+                    <div class="document-icon">
+                   <i class="fas fa-folder-open"></i> <!-- En yaygın ve anlamlı olan -->
+
+                    </div>
+                    <div class="document-info">
+                        <h3 class="document-title">Mahalli İdareler Disiplin Amirleri Yönetmenliği</h3>
+                        <span class="document-category">Mevzuatlar</span>
+                    </div>
+                </div>
+                <p class="document-description">
+              MAHALLİ İDARELER DİSİPLİN AMİRLERİ YÖNETMELİĞİ
+
+ 
+                </p>
+                <div class="document-meta">
+                    <div class="document-size">
+                        <i class="fas fa-file-pdf"></i>
+                        PDF • 1.7 MB
+                    </div>
+                    <div class="document-date">
+                        <i class="fas fa-calendar-alt"></i>
+                      04.10.2023
+                    </div>
+                </div>
+               <div class="download-section" style="margin-top: 150px;">
+
+                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/regulation/mahall-dareler-d-s-pl-n-am-rler-yonetmel/mahall-dareler-d-s-pl-n-am-rler-yonetmel_5784.pdf')">
+                  Detaylı Bilgi İçin
+                    </button>
+               </div>
+            </div>
+             <div class="document-card" data-category="regulation" data-type="sozlesmeli"> 
+                <div class="document-header">
+                    <div class="document-icon">
+                   <i class="fas fa-folder-open"></i> <!-- En yaygın ve anlamlı olan -->
+
+                    </div>
+                    <div class="document-info">
+                        <h3 class="document-title">Sözleşmeli Personel Çalıştırılmasına İlişkin Esaslar</h3>
+                        <span class="document-category">Mevzuatlar</span>
+                    </div>
+                </div>
+                <p class="document-description">
+              Bakanlar Kurulu Kararının; Tarihi ve No’su : 6/6/1978-7/15754 Dayandığı Kanun : 28/2/1978-2143 Yayımlandığı Resmi Gazete : 28/6/1978-16330 9/5/2020 tarihli ve 31122 sayılı Resmî Gazete’de yayımlanan 8/5/2020 tarihli ve 2506 sayılı Cumhurbaşkanı Kararı uyarınca bu Yönetmelik Cumhurbaşkanlığı Yönetmeliği bölümüne eklenmiştir.
+                </p>
+                <div class="document-meta">
+                    <div class="document-size">
+                        <i class="fas fa-file-pdf"></i>
+                        PDF • 1.7 MB
+                    </div>
+                    <div class="document-date">
+                        <i class="fas fa-calendar-alt"></i>
+                      04.10.2023
+                    </div>
+                </div>
+               <div class="download-section">
+
+                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/regulation/sozle-mel-personel-cali-tirilmasina-l-k-n-esaslar/sozle-mel-personel-cali-tirilmasina-l-k-n-esaslar_7813.pdf')">
+                  Detaylı Bilgi İçin
+                    </button>
+               </div>
+            </div>
+            <div class="document-card" data-category="regulation" data-type="sozlesmeli"> 
+                <div class="document-header">
+                    <div class="document-icon">
+                   <i class="fas fa-folder-open"></i> <!-- En yaygın ve anlamlı olan -->
+
+                    </div>
+                    <div class="document-info">
+                        <h3 class="document-title">Sözleşmeli Personele Ek Ödeme Yapılmasına Dair Karar</h3>
+                        <span class="document-category">Mevzuatlar</span>
+                    </div>
+                </div>
+                <p class="document-description">
+             Bakanlar Kurulu Kararının Tarihi: 3/1/2012 Sayısı: 2012/2665 Yayımlandığı Resmi Gazete Tarihi:10/1/2012 Sayısı: 28169
+                </p>
+                <div class="document-meta">
+                    <div class="document-size">
+                        <i class="fas fa-file-pdf"></i>
+                        PDF • 1.7 MB
+                    </div>
+                    <div class="document-date">
+                        <i class="fas fa-calendar-alt"></i>
+                      04.10.2023
+                    </div>
+                </div>
+               <div class="download-section" style="margin-top: 130px;">
+
+                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/regulation/sozle-mel-personele-ek-odeme-yapilmasina-da-r-karar/sozle-mel-personele-ek-odeme-yapilmasina-da-r-karar_7257.pdf')">
+                  Detaylı Bilgi İçin
+                    </button>
+               </div>
+            </div>
+            <div class="document-card" data-category="regulation" data-type="isci"> 
+                <div class="document-header">
+                    <div class="document-icon">
+                   <i class="fas fa-folder-open"></i> <!-- En yaygın ve anlamlı olan -->
+
+                    </div>
+                    <div class="document-info">
+                        <h3 class="document-title">İş Kanunu</h3>
+                        <span class="document-category">Mevzuatlar</span>
+                    </div>
+                </div>
+                <p class="document-description">
+             Kanun Numarası : 4857 Kabul Tarihi : 22/5/2003 Yayımlandığı Resmî Gazete : Tarih : 10/6/2003 Sayı : 25134 Yayımlandığı Düstur : Tertip : 5 Cilt : 42
+                </p>
+                <div class="document-meta">
+                    <div class="document-size">
+                        <i class="fas fa-file-pdf"></i>
+                        PDF • 1.7 MB
+                    </div>
+                    <div class="document-date">
+                        <i class="fas fa-calendar-alt"></i>
+                      04.10.2023
+                    </div>
+                </div>
+               <div class="download-section">
+
+                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/regulation/4857-sayili-kanunu/4857-sayili-kanunu_8535.pdf')">
                   Detaylı Bilgi İçin
                     </button>
                </div>

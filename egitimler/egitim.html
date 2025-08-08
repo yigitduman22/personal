@@ -136,8 +136,9 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" style="margin-left: -16%;">
-                    <li class="breadcrumb-item"><a href="/ana_sayfa/ana_sayfa.html"><i class="fas fa-home"></i> Anasayfa</a></li>
-                    <li class="breadcrumb-item active" aria-current="page" id="breadcrumbTitle">Protokoller</li>
+                    <li class="breadcrumb-item"><a href="ana_sayfa/ana_sayfa.html"><i class="fas fa-home"></i> Anasayfa</a></li>
+                    
+                    <li class="breadcrumb-item active" aria-current="page" id="breadcrumbTitle">Eğitimler</li>
                 </ol>
             </nav>
         </div>
@@ -148,9 +149,8 @@
         <!-- Sayfa Başlığı -->
         <header class="page-header">
             <div class="content">
-               <h1>Protokoller</h1>
-               <p>İlgili birimlerle yapılan tüm protokolleri görüntüleyebilir, detaylarına ulaşabilirsiniz.</p>
-
+                <h1>Eğitimler</h1>
+                <p>Eğitim videoları, formlar ve ilgili tüm dokümanlara bu bölümden ulaşabilirsiniz.</p>
             </div>
         </header>
 
@@ -158,14 +158,14 @@
         <div class="controls-section">
             <div class="search-box">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-input" placeholder="Protokol ara..." id="searchInput">
+                <input type="text" class="search-input" placeholder="Eğitim ara..." id="searchInput">
             </div>
             
             <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="protocol">Protokoller</button>
-                <button class="filter-btn" data-filter="document">Dökümanlar</button>
+                <button class="filter-btn" data-filter="protocol">Protokoller</button>
+                <button class="filter-btn " data-filter="document">Dökümanlar</button>
                 <button class="filter-btn" data-filter="regulation">Mevzuatlar</button>
-                <button class="filter-btn" data-filter="training">Eğitimler</button>
+                <button class="filter-btn active" data-filter="training">Eğitimler</button>
             </div>
         </div>
 
@@ -174,20 +174,16 @@
         <!-- Dökümanlar Grid -->
         <div class="documents-grid" id="documentsGrid">
             <!-- Personel Yönetmeliği -->
-            <div class="document-card" data-category="protocol">
+            <div class="document-card" data-category="training">
                 <div class="document-header">
-                    <div class="document-icon">
-                     <i class="fas fa-hospital"></i> <!-- En yaygın ve anlamlı olan -->
-
-
-                    </div>
+                    
                     <div class="document-info">
-                        <h3 class="document-title">Gebze Merkez Prime Hastanesi</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Yaşam Enerjisini Yükseltme Yolları</h3>
+                        <span class="document-category">Eğitimler</span>
                     </div>
                 </div>
                 <p class="document-description">
-                  Gebze Merkez Prime Hastanesi İle Gebze Belediyesi Personelleri Ve Birinci Derece Yakınlarına Yönelik % 20 Oranında İndirim Anlaşması İmzalanmıştır.
+                 Yaşam Enerjisini Yükseltme Yolları
                 </p>
                 <div class="document-meta">
                     <div class="document-size">
@@ -200,30 +196,26 @@
                     </div>
                 </div>
                 <div class="download-section">
-
-                  <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/gebze-merkez-pr-me-hastanes/gebze-merkez-pr-me-hastanes_2019.pdf')">
-                       Detaylı Bilgi İçin
-                  </button>
-
+                   
+<button class="preview-btn" onclick="previewYouTubeVideo('https://www.youtube.com/watch?v=NkLIwJsycKw')">
+  <i class="fas fa-video"></i> Video
+</button>
 
 
                 </div>
             </div>
 
             <!-- İzin Talep Formu -->
-            <div class="document-card" data-category="protocol">
+            <div class="document-card" data-category="training">
                 <div class="document-header">
-                    <div class="document-icon">
-                  <i class="fas fa-hospital"></i> <!-- En yaygın ve anlamlı olan -->
-
-                    </div>
+                   
                     <div class="document-info">
-                        <h3 class="document-title">Gebze MedicalPark Hastanesi</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Satın Alma Yöntem ve Süreçleri</h3>
+                        <span class="document-category">Eğitimler</span>
                     </div>
                 </div>
                 <p class="document-description">
-                 Gebze Medıcalpark Hastanesi İle Gebze Belediyesi Personelleri Ve Birinci Derece Yakınlarına Yönelik % 20 Oranında İndirim Anlaşması İmzalanmıştır.
+                  Satın Alma Yöntem ve Süreçleri
                 </p>
                 <div class="document-meta">
                     <div class="document-size">
@@ -232,31 +224,29 @@
                     </div>
                     <div class="document-date">
                         <i class="fas fa-calendar-alt"></i>
-                        04.10.2023
+                        08.01.2025
                     </div>
                 </div>
                 <div class="download-section">
                    
-                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/gebze-medicalpark-hastanes/gebze-medicalpark-hastanes_3836.pdf')">
-                   Detaylı Bilgi İçin
-                    </button>
+                                      
+<button class="preview-btn" onclick="previewYouTubeVideo('https://www.youtube.com/watch?v=HlSLDMRZOAE')">
+  <i class="fas fa-video"></i> Video
+</button>
                 </div>
             </div>
 
             <!-- Güvenlik Talimatları -->
-            <div class="document-card" data-category="protocol">
+            <div class="document-card" data-category="training">
                 <div class="document-header">
-                    <div class="document-icon">
-                   <i class="fas fa-hospital"></i> <!-- En yaygın ve anlamlı olan -->
-
-                    </div>
+                   
                     <div class="document-info">
-                        <h3 class="document-title">Gebze Özel Yüzyıl Hastanesi</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Disiplin Uygulamaları</h3>
+                        <span class="document-category">Eğitimler</span>
                     </div>
                 </div>
                 <p class="document-description">
-                    Gebze Özel Yüzyıl Hastanesi İle Gebze Belediyesi Personelleri Ve Birinci Derece Yakınlarına Yönelik % 20 Oranında İndirim Anlaşması İmzalanmıştır.
+                    Disiplin Uygulamaları
                 </p>
                 <div class="document-meta">
                     <div class="document-size">
@@ -265,31 +255,27 @@
                     </div>
                     <div class="document-date">
                         <i class="fas fa-calendar-alt"></i>
-                        04.10.2023
+                        20.12.2024
                     </div>
                 </div>
                <div class="download-section">
-
-                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/gebze-ozel-yuzyil-hastanes/gebze-ozel-yuzyil-hastanes_6572.pdf')">
-                  Detaylı Bilgi İçin
-                    </button>
+                     
+                  <button class="preview-btn" onclick="previewYouTubeVideo('https://www.youtube.com/watch?v=oQaAM3yFu5k')">
+  <i class="fas fa-video"></i> Video
+</button>
                </div>
             </div>
 
-             <div class="document-card" data-category="protocol">
+             <div class="document-card" data-category="training">
                 <div class="document-header">
-                    <div class="document-icon">
-                   <i class="fas fa-hospital"></i> <!-- En yaygın ve anlamlı olan -->
-
-                    </div>
+                    
                     <div class="document-info">
-                        <h3 class="document-title">Darıca Hospitalpark Hastanesi</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Belediye Şirketleri</h3>
+                        <span class="document-category">Eğitimler</span>
                     </div>
                 </div>
                 <p class="document-description">
-                   Darıca Hospıtalpark Hastanesi İle Gebze Belediyesi Personelleri Ve Birinci Derece Yakınlarına Yönelik % 30 Oranında İndirim Anlaşması İmzalanmıştır.
-                </p>
+                    Belediye Şirketleri                </p>
                 <div class="document-meta">
                     <div class="document-size">
                         <i class="fas fa-file-pdf"></i>
@@ -297,31 +283,27 @@
                     </div>
                     <div class="document-date">
                         <i class="fas fa-calendar-alt"></i>
-                        04.10.2023
+                        20.12.2024
                     </div>
                 </div>
-               <div class="download-section">
-
-                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/darica-hospitalpark-hastanes/darica-hospitalpark-hastanes_1530.pdf')" style="margin-top: 45px;">
-                  Detaylı Bilgi İçin 
-                    </button>
+               <div class="download-section" style="margin-top: 52px;">
+                     
+                  <button class="preview-btn" onclick="previewYouTubeVideo('https://www.youtube.com/watch?v=Bpl95iZ8Gkc')">
+  <i class="fas fa-video"></i> Video
+</button>
                </div>
             </div>
 
-            <div class="document-card" data-category="protocol">
+            <div class="document-card" data-category="training">
                 <div class="document-header">
-                    <div class="document-icon">
-                <i class="fas fa-tooth"></i>
-
-                    </div>
+                   
                     <div class="document-info">
-                        <h3 class="document-title">Özel Ülker Ağız ve Diş Sağlığı Polikliniği</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Belediyelerin Sosyal Yardım ve Hizmetleri</h3>
+                        <span class="document-category">Eğitimler</span>
                     </div>
                 </div>
                 <p class="document-description">
-                  Personellerimizin ve 1. derece yakınlarının (anne, baba, eş ve çocuklar) diş sağlığına katkıda bulunmak adına çevre Polikliniklerimizle muayene, tetkik ve tedavilerde indirim anlaşmaları imzalanmıştır.
-                </p>
+                   Belediyelerin Sosyal Yardım ve Hizmetleri              </p>
                 <div class="document-meta">
                     <div class="document-size">
                         <i class="fas fa-file-pdf"></i>
@@ -329,32 +311,27 @@
                     </div>
                     <div class="document-date">
                         <i class="fas fa-calendar-alt"></i>
-                        04.10.2023
+                        20.12.2024
                     </div>
                 </div>
                <div class="download-section">
-
-                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/ozel-ulker-a-iz-ve-d-sa-li-i-pol-kl-n/ozel-ulker-a-iz-ve-d-sa-li-i-pol-kl-n_3454.pdf')">
-                  Detaylı Bilgi İçin
-                    </button>
+                     
+                  <button class="preview-btn" onclick="previewYouTubeVideo('https://www.youtube.com/watch?v=v_43pkCuwdg')">
+  <i class="fas fa-video"></i> Video
+</button>
                </div>
             </div>
-            
-            <div class="document-card" data-category="protocol">
-                <div class="document-header">
-                    <div class="document-icon">
-                    <i class="fas fa-tooth"></i>
- <!-- En yaygın ve anlamlı olan -->
 
-                    </div>
+             <div class="document-card" data-category="training">
+                <div class="document-header">
+                    
                     <div class="document-info">
-                        <h3 class="document-title">Özel Dentriva Ağız ve Diş Sağlığı Polikliniği</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Bilgi Edinme Hakkı</h3>
+                        <span class="document-category">Eğitimler</span>
                     </div>
                 </div>
                 <p class="document-description">
-                 Personellerimizin ve 1. derece yakınlarının (anne, baba, eş ve çocuklar) diş sağlığına katkıda bulunmak adına çevre Polikliniklerimizle muayene, tetkik ve tedavilerde indirim anlaşmaları imzalanmıştır.
-                </p>
+                   Bilgi Edinme Hakkı           </p>
                 <div class="document-meta">
                     <div class="document-size">
                         <i class="fas fa-file-pdf"></i>
@@ -362,31 +339,27 @@
                     </div>
                     <div class="document-date">
                         <i class="fas fa-calendar-alt"></i>
-                        04.10.2023
+                        20.12.2024
                     </div>
                 </div>
-               <div class="download-section">
-
-                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/ozel-dentr-va-a-iz-ve-d-sa-li-i-pol-kl-n/ozel-dentr-va-a-iz-ve-d-sa-li-i-pol-kl-n_5515.pdf')">
-                  Detaylı Bilgi İçin
-                    </button>
+               <div class="download-section" style="margin-top: 52px;">
+                     
+                  <button class="preview-btn" onclick="previewYouTubeVideo('https://www.youtube.com/watch?v=nTbrb8pqY9U')">
+  <i class="fas fa-video"></i> Video
+</button>
                </div>
             </div>
-            <div class="document-card" data-category="protocol">
-                <div class="document-header">
-                    <div class="document-icon">
-                    <i class="fas fa-tooth"></i>
- <!-- En yaygın ve anlamlı olan -->
 
-                    </div>
+             <div class="document-card" data-category="training">
+                <div class="document-header">
+                    
                     <div class="document-info">
-                        <h3 class="document-title">Özel Arapçeşme Ağız ve Diş Sağlığı Polikliniği</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Kırsal Mahalle ve Kırsal Yerleşik Alan Yönetmeliği</h3>
+                        <span class="document-category">Eğitimler</span>
                     </div>
                 </div>
                 <p class="document-description">
-                Personellerimizin ve 1. derece yakınlarının (anne, baba, eş ve çocuklar) diş sağlığına katkıda bulunmak adına çevre Polikliniklerimizle muayene, tetkik ve tedavilerde indirim anlaşmaları imzalanmıştır.
-                </p>
+                  Kırsal Mahalle ve Kırsal Yerleşik Alan Yönetmeliği           </p>
                 <div class="document-meta">
                     <div class="document-size">
                         <i class="fas fa-file-pdf"></i>
@@ -394,33 +367,27 @@
                     </div>
                     <div class="document-date">
                         <i class="fas fa-calendar-alt"></i>
-                     04.10.2023
+                        20.12.2024
                     </div>
                 </div>
                <div class="download-section">
-
-                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/ozel-arapce-me-a-iz-ve-d-sa-li-i-pol-kl-n/ozel-arapce-me-a-iz-ve-d-sa-li-i-pol-kl-n_7964.pdf')">
-                  Detaylı Bilgi İçin
-                    </button>
+                     
+                  <button class="preview-btn" onclick="previewYouTubeVideo('https://www.youtube.com/watch?v=HULXxszRxVk')">
+  <i class="fas fa-video"></i> Video
+</button>
                </div>
             </div>
-             <div class="document-card" data-category="protocol">
+           
+               <div class="document-card" data-category="training">
                 <div class="document-header">
-                    <div class="document-icon">
-                  <i class="fas fa-tooth"></i>
-<!-- En yaygın ve anlamlı olan -->
-
-                    </div>
+                    
                     <div class="document-info">
-                        <h3 class="document-title">Şimşekdent Ağız ve Diş Sağlığı Polikliniği</h3>
-                        <span class="document-category">Protokoller</span>
+                        <h3 class="document-title">Kamulaştırma</h3>
+                        <span class="document-category">Eğitimler</span>
                     </div>
                 </div>
                 <p class="document-description">
-                Personellerimizin ve 1. derece yakınlarının (anne, baba, eş ve çocuklar) diş sağlığına katkıda bulunmak adına çevre Polikliniklerimizle muayene, tetkik ve tedavilerde indirim anlaşmaları imzalanmıştır.
-
-
-                </p>
+                   Kamulaştırma         </p>
                 <div class="document-meta">
                     <div class="document-size">
                         <i class="fas fa-file-pdf"></i>
@@ -428,16 +395,46 @@
                     </div>
                     <div class="document-date">
                         <i class="fas fa-calendar-alt"></i>
-                      04.10.2023
+                        20.12.2024
                     </div>
                 </div>
-               <div class="download-section">
-
-                    <button class="preview-btn" onclick="previewDocument('https://personel.gebze.bel.tr/upload/antlasma/m-ekdent-a-iz-ve-d-sa-li-i-pol-kl-n/m-ekdent-a-iz-ve-d-sa-li-i-pol-kl-n_2554.pdf')">
-                  Detaylı Bilgi İçin
-                    </button>
+               <div class="download-section" style="margin-top: 52px;">
+                     
+                  <button class="preview-btn" onclick="previewYouTubeVideo('https://www.youtube.com/watch?v=F5pE70bPaWM')">
+  <i class="fas fa-video"></i> Video
+</button>
                </div>
             </div>
+
+   <div class="document-card" data-category="training">
+                <div class="document-header">
+                   
+                    <div class="document-info">
+                        <h3 class="document-title">Yeni Zabıta Yönetmeliği</h3>
+                        <span class="document-category">Eğitimler</span>
+                    </div>
+                </div>
+                <p class="document-description">
+                   Yeni Zabıta Yönetmeliği         </p>
+                <div class="document-meta">
+                    <div class="document-size">
+                        <i class="fas fa-file-pdf"></i>
+                        PDF • 1.7 MB
+                    </div>
+                    <div class="document-date">
+                        <i class="fas fa-calendar-alt"></i>
+                        20.12.2024
+                    </div>
+                </div>
+               <div class="download-section" style="margin-top: 52px;">
+                     
+                  <button class="preview-btn" onclick="previewYouTubeVideo('https://www.youtube.com/watch?v=9QWJRD0G_Iw')">
+<span><i class="fas fa-video"></i> <span style="margin-left:8px !important;">Video</span></span>
+
+</button>
+               </div>
+            </div>
+
             </div>
         </div>
     </div>
