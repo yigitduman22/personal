@@ -507,7 +507,7 @@ function changePage(page) {
 function openNewsDetail(id) {
     // Bu fonksiyon gerçek uygulamada detay sayfasına yönlendirme yapacak
     console.log('Haber detayı açılıyor:', id);
-    window.location.href = `${id}`;
+    window.location.href = `/etkinlikler/etkinilik_detay/etkinlikd.html?${id}`;
 }
 
 // Debounce function
