@@ -136,3 +136,48 @@ function downloadDocument(fileName, buttonElement) {
     setTimeout(() => (buttonElement.innerHTML = original), 2000);
   }, 1500);
 }
+
+document.addEventListener('DOMContentLoaded', function(){
+  const navToggle = document.getElementById('navToggle');
+  const mainNav   = document.getElementById('mainNav');
+
+  if(navToggle && mainNav){
+    navToggle.addEventListener('click', () => {
+      const open = mainNav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  // Mobilde dropdown'ları tıklamayla aç/kapat
+  const mq = window.matchMedia('(max-width: 992px)');
+  function wireMobileDropdowns(){
+    document.querySelectorAll('.nav-dropdown').forEach(dd => {
+      const toggle = dd.querySelector('.nav-dropdown-toggle');
+      if(!toggle) return;
+
+      // Eski dinleyicileri temizlemek için clone
+      const clone = toggle.cloneNode(true);
+      toggle.parentNode.replaceChild(clone, toggle);
+
+      if(mq.matches){
+        clone.addEventListener('click', (e) => {
+          e.preventDefault();
+          dd.classList.toggle('open');
+        });
+      }else{
+        dd.classList.remove('open'); // desktop'ta hover ile açılacak
+      }
+    });
+  }
+  wireMobileDropdowns();
+  mq.addEventListener('change', wireMobileDropdowns);
+
+  // Dışarı tıklanınca mobil menüyü kapat (isteğe bağlı)
+  document.addEventListener('click', (e) => {
+    if(!mainNav.contains(e.target) && !navToggle.contains(e.target)){
+      mainNav.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded','false');
+    }
+  });
+});
+
