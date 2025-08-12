@@ -372,6 +372,119 @@ html, body {
   font-size: 14px;
 }
 
+/* ========== YENİ ANKET BAŞLIK VE KONTROLLER ========== */
+.surveys-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* Başlığı altta hizala, kontrolleri yukarıda tut */
+  margin-bottom: 20px; /* 30px'den 20px'e düşürüldü */
+  padding: 0 10px;
+}
+
+.surveys-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  letter-spacing: -0.5px;
+  margin-bottom: 5px; 
+}
+
+.surveys-controls {
+display: flex;
+  gap: 15px;
+  align-items: flex-end; /* Kontrolleri de altta hizala */
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 45px 12px 15px;
+  width: 300px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.search-box i {
+  position: absolute;
+  right: 15px;
+  color: #666;
+  font-size: 14px;
+}
+
+.sort-select {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 15px;
+  background: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 180px;
+}
+
+.sort-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* ========== YENİ FİLTRE TABLARI ========== */
+.filter-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px; /* 30px'den 20px'e düşürüldü */
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px; /* 15px'den 10px'e düşürüldü */
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  padding: 10px 18px;
+  border: none;
+  background: none;
+  color: #666;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.filter-tab:hover {
+  background: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+}
+
+.filter-tab.active {
+  background: #007bff;
+  color: white;
+}
+
+.filter-tab.active:hover {
+  background: #0056b3;
+}
+
+#surveyContainer {
+  margin-top: 10px; /* Filtre tabları ile kartlar arası boşluk azaltıldı */
+}
+
 /* ========== FOOTER STİLLERİ - TAM GENİŞLİK ========== */
 footer {
   background-color: #022842;
@@ -606,36 +719,6 @@ footer {
   margin-top: 40px;
 }
 
-.search-container {
-  position: relative;
-  max-width: 400px;
-}
-
-.search-input {
-  border-radius: 25px;
-  padding-left: 45px;
-  border: 2px solid #e9ecef;
-  transition: border-color 0.3s ease;
-}
-
-.search-input:focus {
-  border-color: #0056b3;
-  box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.25);
-}
-
-.search-icon {
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #6c757d;
-}
-
-.filter-active {
-  background-color: #0056b3 !important;
-  color: white !important;
-}
-
 .notification-bell {
   position: relative;
   cursor: pointer;
@@ -665,6 +748,8 @@ footer {
 }
 
 .container.py-5 {
+  width: 91% !important;
+  max-width: none !important;
   flex: 1;
   padding-bottom: 0px !important; /* Bu satırı ekleyin */
 }
@@ -718,8 +803,51 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
   
-  footer {
-    margin-left: 0;
+  .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-content img.logo-img {
+        margin-bottom: 10px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+  
+  .surveys-header {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  .surveys-controls {
+    flex-direction: column;
     width: 100%;
+    gap: 15px;
+  }
+  
+  .search-box input {
+    width: 100%;
+  }
+  
+  .sort-select {
+    width: 100%;
+  }
+  
+  .surveys-title {
+    font-size: 1.8rem;
+  }
+  
+  .filter-tabs {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .filter-tab {
+    padding: 8px 14px;
+    font-size: 13px;
   }
 }

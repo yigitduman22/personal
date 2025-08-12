@@ -172,18 +172,18 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Arama input bulunamadı');
     }
 
-    // ========== FİLTRE FONKSİYONU ==========
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    if (filterBtns.length > 0) {
-        console.log('Filtre butonları bulundu:', filterBtns.length);
+    // ========== YENİ FİLTRE TAB SİSTEMİ ==========
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    if (filterTabs.length > 0) {
+        console.log('Filtre tabları bulundu:', filterTabs.length);
         
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                console.log('Filtre tıklandı:', this.getAttribute('data-filter'));
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                console.log('Filtre tab tıklandı:', this.getAttribute('data-filter'));
                 
-                // Aktif filtre butonunu güncelle
-                filterBtns.forEach(b => b.classList.remove('filter-active'));
-                this.classList.add('filter-active');
+                // Aktif filtre tabını güncelle
+                filterTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
 
                 const filter = this.getAttribute('data-filter');
                 const surveyItems = document.querySelectorAll('.survey-item');
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     } else {
-        console.log('Filtre butonları bulunamadı');
+        console.log('Filtre tabları bulunamadı');
     }
 
     // ========== BİLDİRİM SİSTEMİ ==========
@@ -241,6 +241,47 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // ========== SIRALAMA SİSTEMİ ==========
+    const sortSelect = document.querySelector('.sort-select');
+    if (sortSelect) {
+        console.log('Sıralama select bulundu');
+        
+        sortSelect.addEventListener('change', function(e) {
+            const sortType = e.target.value;
+            console.log('Sıralama seçildi:', sortType);
+            
+            const surveyContainer = document.getElementById('surveyContainer');
+            const surveyItems = Array.from(surveyContainer.querySelectorAll('.survey-item'));
+            
+            // Sıralama işlemi
+            surveyItems.sort((a, b) => {
+                switch(sortType) {
+                    case 'En Yeni':
+                        return sortByDate(a, b, false); // Yeniden eskiye
+                    case 'En Eski':
+                        return sortByDate(a, b, true);  // Eskiden yeniye
+                    case 'Popülerlik':
+                        return sortByPopularity(a, b);
+                    default:
+                        return sortByDate(a, b, false); // Varsayılan: En yeni
+                }
+            });
+            
+            // Sıralanmış öğeleri DOM'a tekrar ekle
+            surveyItems.forEach(item => {
+                surveyContainer.appendChild(item);
+            });
+            
+            // Smooth scroll efekti
+            surveyContainer.style.opacity = '0.7';
+            setTimeout(() => {
+                surveyContainer.style.opacity = '1';
+            }, 150);
+        });
+    } else {
+        console.log('Sıralama select bulunamadı');
+    }
 
     console.log('Tüm JavaScript event listener\'ları başarıyla yüklendi');
 });
@@ -285,6 +326,67 @@ function toggleFavorite(btn) {
             console.log('Favorilerden çıkarıldı');
         }
     }
+}
+
+// ========== SIRALAMA YARDIMCI FONKSİYONLARI ==========
+
+// Tarihe göre sıralama
+function sortByDate(a, b, ascending = true) {
+    const dateA = extractDate(a);
+    const dateB = extractDate(b);
+    
+    if (!dateA || !dateB) return 0;
+    
+    return ascending ? dateA - dateB : dateB - dateA;
+}
+
+// Popülerliğe göre sıralama (katılım oranına göre)
+function sortByPopularity(a, b) {
+    const participationA = extractParticipation(a);
+    const participationB = extractParticipation(b);
+    
+    return participationB - participationA; // Yüksekten düşüğe
+}
+
+// Anket kartından tarihi çıkar
+function extractDate(surveyItem) {
+    const dateElement = surveyItem.querySelector('.survey-date');
+    if (!dateElement) return null;
+    
+    const dateText = dateElement.textContent;
+    // Tarih formatı: "09.10.2024 - 15.11.2024" 
+    const dateMatch = dateText.match(/(\d{2})\.(\d{2})\.(\d{4})/);
+    
+    if (dateMatch) {
+        const [, day, month, year] = dateMatch;
+        return new Date(year, month - 1, day); // JavaScript ayları 0-11 arası
+    }
+    
+    return null;
+}
+
+// Katılım oranını çıkar
+function extractParticipation(surveyItem) {
+    const participationElement = surveyItem.querySelector('.participation-rate');
+    if (!participationElement) return 0;
+    
+    const participationText = participationElement.textContent;
+    // Format: "Katılım: 45/120 kişi" veya "%37"
+    
+    // Yüzde değerini ara
+    const percentMatch = participationText.match(/(\d+)%/);
+    if (percentMatch) {
+        return parseInt(percentMatch[1]);
+    }
+    
+    // Oran değerini ara (45/120)
+    const ratioMatch = participationText.match(/(\d+)\/(\d+)/);
+    if (ratioMatch) {
+        const [, current, total] = ratioMatch;
+        return Math.round((parseInt(current) / parseInt(total)) * 100);
+    }
+    
+    return 0;
 }
 
 // ========== YARDIMCI FONKSİYONLAR ==========
@@ -335,16 +437,23 @@ function showToast(message, type = 'info') {
         document.body.appendChild(toastContainer);
     }
     
-    // Toast'ı ekle ve göster
-    toastContainer.insertAdjacentHTML('beforeend', toastHTML);
-    const toastElement = toastContainer.lastElementChild;
-    const toast = new bootstrap.Toast(toastElement);
+    // Toast'ı ekle
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = toastHTML.trim();
+    const toastElement = tempDiv.firstChild;
+    
+    toastContainer.appendChild(toastElement);
+    
+    // Bootstrap Toast'ı başlat
+    const toast = new bootstrap.Toast(toastElement, {
+        autohide: true,
+        delay: 5000
+    });
+    
     toast.show();
     
-    // Toast kapandıktan sonra DOM'dan kaldır
+    // Temizleme için event listener
     toastElement.addEventListener('hidden.bs.toast', function () {
-        this.remove();
+        toastElement.remove();
     });
 }
-
-console.log('JavaScript dosyası tamamen yüklendi');

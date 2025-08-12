@@ -141,51 +141,41 @@
   </nav>
 
   <div class="container py-5">
-    <h2 class="section-title">📋 Anketler</h2>
-
-    <!-- Bilgilendirme kutusu -->
-    <div class="alert alert-primary shadow-sm" role="alert">
-      <i class="fas fa-info-circle me-2"></i><strong>Bilgilendirme:</strong> Bu sayfadaki anketler, Gebze Belediyesi personelinin görüş ve önerilerini toplamak amacıyla hazırlanmıştır. Katılım gönüllüdür, bilgileriniz gizli tutulur.
-    </div>
-
-    <!-- Arama ve Filtre -->
-    <div class="row mb-4">
-      <div class="col-md-6">
-        <div class="search-container">
-          <i class="fas fa-search search-icon"></i>
-          <input type="text" class="form-control search-input" placeholder="Anket ara..." id="searchInput">
+    <!-- Yeni Anket Başlığı ve Kontroller -->
+    <div class="surveys-header">
+      <h1 class="surveys-title">Anketler</h1>
+      <div class="surveys-controls">
+        <div class="search-box">
+          <input type="text" placeholder="Anket ara..." id="searchInput">
+          <i class="fas fa-search"></i>
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="d-flex justify-content-end align-items-center gap-2">
-          <select class="form-select" style="width: auto;">
-            <option>Tarihe Göre Sırala</option>
-            <option>En Yeni</option>
-            <option>En Eski</option>
-            <option>Popülerlik</option>
-          </select>
-        </div>
+        <select class="sort-select">
+          <option value="Tarihe Göre Sırala">Tarihe Göre Sırala</option>
+          <option value="En Yeni">En Yeni</option>
+          <option value="En Eski">En Eski</option>
+          <option value="Popülerlik">Popülerlik</option>
+        </select>
       </div>
     </div>
 
-    <!-- Filtre butonları -->
-    <div class="mb-4">
-      <button class="btn btn-outline-primary btn-sm me-2 filter-btn filter-active" data-filter="all">
+    <!-- Yeni Filtre Tabları -->
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">
         <i class="fas fa-list me-1"></i>Tümü
       </button>
-      <button class="btn btn-outline-success btn-sm me-2 filter-btn" data-filter="active">
+      <button class="filter-tab" data-filter="active">
         <i class="fas fa-play-circle me-1"></i>Aktif Anketler
       </button>
-      <button class="btn btn-outline-warning btn-sm me-2 filter-btn" data-filter="pending">
+      <button class="filter-tab" data-filter="pending">
         <i class="fas fa-clock me-1"></i>Beklemede
       </button>
-      <button class="btn btn-outline-secondary btn-sm me-2 filter-btn" data-filter="completed">
+      <button class="filter-tab" data-filter="completed">
         <i class="fas fa-check-circle me-1"></i>Tamamlanan
       </button>
-      <button class="btn btn-outline-danger btn-sm me-2 filter-btn" data-filter="expired">
+      <button class="filter-tab" data-filter="expired">
         <i class="fas fa-times-circle me-1"></i>Süresi Dolmuş
       </button>
-      <button class="btn btn-outline-info btn-sm filter-btn" data-filter="favorites">
+      <button class="filter-tab" data-filter="favorites">
         <i class="fas fa-star me-1"></i>Favoriler
       </button>
     </div>
