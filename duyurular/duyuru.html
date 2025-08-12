@@ -14,9 +14,12 @@
           <div class="logo-container">
               <img src="/images/logo(2).png" alt="Gebze Belediyesi Logosu" class="logo-img" />
           </div>
-          
-         <ul class="nav-links">
-              <li class="nav-dropdown">
+          <!-- HAMBURGER BUTONU -->
+    <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="mainNav">
+      <i class="fas fa-bars"></i>
+    </button>
+         <ul class="nav-links" id="mainNav">
+              <li class="nav-dropdown dd-safe">
                   <a href="/ana_sayfa/ana_sayfa.html" class="nav-dropdown-toggle">
                       <i class="fas fa-home"></i> 
                       Anasayfa
@@ -25,7 +28,7 @@
                   <div class="nav-dropdown-menu">
                       <div class="dropdown-content">
                           <div class="dropdown-grid">
-                              <a href="/ana_sayfa/ana_sayfa.html" class="dropdown-item">
+                              <a href="/duyurular/duyuru.html" class="dropdown-item">
                                  <i class="fas fa-bullhorn"></i>
                                   <div class="dropdown-text">
                                         <div class="dropdown-title">DUYURULAR</div>
@@ -39,7 +42,7 @@
                                         <div class="dropdown-description">Öneri, talep ve geri bildirim için </div>
                                     </div>
                               </a>
-                              <a href="#" class="dropdown-item">
+                              <a href="/etkinlikler/etkinlikler.html" class="dropdown-item">
                                   <i class="fas fa-calendar-check"></i>
                                   <div class="dropdown-text">
                                         <div class="dropdown-title">ETKİNLİKLER</div>
@@ -54,14 +57,14 @@
                                     </div>
                               </a>
                              
-                              <a href="#" class="dropdown-item">
+                              <a href="/anketler/anketler.html" class="dropdown-item">
                                   <i class="fas fa-poll"></i>
                                    <div class="dropdown-text">
                                         <div class="dropdown-title">ANKETLER</div>
                                         <div class="dropdown-description">Katılabileceğiniz güncel anketler</div>
                                     </div>
                               </a>
-                              <a href="#" class="dropdown-item">
+                              <a href="/yardımcı_linkler/yardımcı_linkler.html" class="dropdown-item">
                                  <i class="fas fa-link"></i>
                                   <div class="dropdown-text">
                                         <div class="dropdown-title">YARDIMCI LİNKLER</div>
@@ -87,10 +90,51 @@
                   </div>
               </li>
 
-              <li><a href="#"><i class="fas fa-gavel"></i> Mevzuatlar</a></li>
-              <li><a href="#"><i class="fas fa-graduation-cap"></i> Eğitimler</a></li>
-              <li><a href="#"><i class="fas fa-handshake"></i> Protokoller</a></li>
-              <li><a href="#"><i class="fas fa-folder-open"></i> Dökümanlar</a></li>
+              
+              <li class="nav-dropdown dd-safe">
+                  <a href="/ana_sayfa/ana_sayfa.html" class="nav-dropdown-toggle">
+                      <i class="fas fa-home"></i> 
+                      Kurumsal Kaynaklar
+                      <i class="fas fa-chevron-down dropdown-arrow"></i>
+                  </a>
+                  <div class="nav-dropdown-menu">
+                      <div class="dropdown-content">
+                          <div class="dropdown-grid">
+                              <a href="/protokoller/protokol.html" class="dropdown-item">
+                                 <i class="fas fa-bullhorn"></i>
+                                  <div class="dropdown-text">
+                                        <div class="dropdown-title">PROTOKOLLER</div>
+                                       
+                                    </div>
+                              </a>
+                              <a href="/dokumanlar/dokumanlar.html" class="dropdown-item">
+                                  <i class="fas fa-comments"></i>
+                                   <div class="dropdown-text">
+                                        <div class="dropdown-title">DOKÜMANLAR</div>
+                                      
+                                    </div>
+                              </a>
+                              <a href="/mevzuatlar/mevzuat.html" class="dropdown-item">
+                                  <i class="fas fa-calendar-check"></i>
+                                  <div class="dropdown-text">
+                                        <div class="dropdown-title">MEVZUATLAR</div>
+                                        
+                                    </div>
+                              </a>
+                              <a href="/egitimler/egitim.html" class="dropdown-item">
+                                  <i class="fas fa-video"></i>
+                                   <div class="dropdown-text">
+                                        <div class="dropdown-title">EĞİTİMLER</div>
+                                        
+                                    </div>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+             <li><a href="#"><i class="fas fa-gavel"></i> Videolar</a></li>
+              <li><a href="#"><i class="fas fa-graduation-cap"></i> Duyurular</a></li>
+              <li><a href="#"><i class="fas fa-handshake"></i> Etkinlikler</a></li>
           </ul>
               <div class="profile-container">
               <div class="profile-dropdown">
@@ -160,8 +204,8 @@
                 <input type="text" class="search-input" placeholder="Duyuru ara..." id="searchInput">
             </div>
              
-        </div>
-         <div class="results-header">
+       
+         
                    
                     <select class="sort-dropdown" id="sortSelect">
                          <option value="all">Tüm Duyurular</option>
@@ -180,7 +224,7 @@
             <!-- Personel Yönetmeliği -->
             <div class="document-card" data-type="insan">
                 <div class="document-header">
-                   <img src="/images/d-l-e-t-m-modeller-nde-gecerl-50-nd-r-m_4469.jpg" alt="" style="width: 100px; height: 100px;">
+                   <img src="/images/d-l-e-t-m-modeller-nde-gecerl-50-nd-r-m_4469.jpg" alt="" style="width: 130px; height: 130px; border-radius: 15px;">
                     <div class="document-info">
                         <h3 class="document-title">DİL EĞİTİM MODELLERİNDE GEÇERLİ %50 İNDİRİM!</h3>
                         <span class="document-category">İnsan Kaynakları</span>
@@ -210,7 +254,7 @@
             <!-- İzin Talep Formu -->
             <div class="document-card"  data-type="insan">
                 <div class="document-header">
-                    <img src="/images/personellerimizin-a-z-ve-di-sa-l-n-onemsiyoruz_7091.jpg" alt="" style="width: 100px; height: 100px;">
+                    <img src="/images/personellerimizin-a-z-ve-di-sa-l-n-onemsiyoruz_7091.jpg" alt="" style="width: 130px; height: 130px; border-radius: 15px;">
                     <div class="document-info">
                         <h3 class="document-title">Personellerimizin Ağız ve Diş Sağlığını Önemsiyoruz</h3>
                         <span class="document-category">İnsan Kaynakları</span>
@@ -237,7 +281,7 @@
             <!-- Güvenlik Talimatları -->
             <div class="document-card"  data-type="insan">
                 <div class="document-header">
-                    <img src="/images/imdi-troy-zaman_1518.jpg" alt="" style="width: 100px; height: 100px;">
+                    <img src="/images/imdi-troy-zaman_1518.jpg" alt="" style="width: 130px; height: 130px; border-radius: 15px;">
                     <div class="document-info">
                         <h3 class="document-title">Şimdi TROY zamanı!</h3>
                         <span class="document-category">İnsan Kaynakları</span>
@@ -263,7 +307,7 @@
 
              <div class="document-card"  data-type="insan">
                 <div class="document-header">
-                    <img src="/images/gebze-de-zab-ta-haftas-kutland_5157 (1).jpg" alt="" style="width: 100px; height: 100px;">
+                    <img src="/images/gebze-de-zab-ta-haftas-kutland_5157 (1).jpg" alt="" style="width: 130px; height: 130px; border-radius: 15px;">
                     <div class="document-info">
                         <h3 class="document-title">Gebze’de Zabıta Haftası Kutlandı</h3>
                         <span class="document-category">İnsan Kaynakları</span>
@@ -289,7 +333,7 @@
 
             <div class="document-card"  data-type="insan">
                 <div class="document-header">
-                    <img src="/images/gebze-de-ek-zam-protokolu-mzalandi_4681.jpg" alt="" style="width: 100px; height: 100px;">
+                    <img src="/images/gebze-de-ek-zam-protokolu-mzalandi_4681.jpg" alt="" style="width: 130px; height: 130px; border-radius: 15px;">
                     <div class="document-info">
                         <h3 class="document-title">GEBZE’DE EK ZAM PROTOKOLÜ İMZALANDI</h3>
                         <span class="document-category">İnsan Kaynakları</span>
@@ -315,7 +359,7 @@
             
             <div class="document-card"  data-type="insan">
                 <div class="document-header">
-                   <img src="/images/gebze-nin-filosu-buyuyor_2355.jpg" alt="" style="width: 100px; height: 100px;">
+                   <img src="/images/gebze-nin-filosu-buyuyor_2355.jpg" alt="" style="width: 130px; height: 130px; border-radius: 15px;">
                     <div class="document-info">
                         <h3 class="document-title">Gebze’nin Filosu Büyüyor;</h3>
                         <span class="document-category">İnsan Kaynakları</span>
@@ -341,7 +385,7 @@
           
             <div class="document-card"  data-type="insan"> 
                 <div class="document-header">
-                 <img src="/images/daha-saazlikli-ba-r-personel-a-a-a-n_7523.jpg" alt="" style="width: 100px; height: 100px;">
+                 <img src="/images/daha-saazlikli-ba-r-personel-a-a-a-n_7523.jpg" alt="" style="width: 130px; height: 130px; border-radius: 15px;">
                     <div class="document-info">
                         <h3 class="document-title">Daha Sağlıklı Personel İçin</h3>
                         <span class="document-category">İnsan Kaynakları</span>
@@ -366,7 +410,7 @@
             </div>
              <div class="document-card"  data-type="bilgi"> 
                 <div class="document-header">
-                    <img src="/images/parola-g端venlik-politikas脹-duyurusu_2090.jpg" alt="" style="width: 100px; height: 100px;">
+                    <img src="/images/parola-g端venlik-politikas脹-duyurusu_2090.jpg" alt="" style="width: 130px; height: 130px; border-radius: 15px;">
                     <div class="document-info">
                         <h3 class="document-title">Parola Güvenlik Politika Geçişi</h3>
                         <span class="document-category">Bilgi İşlem</span>
