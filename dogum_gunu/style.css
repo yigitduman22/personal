@@ -443,3 +443,41 @@ footer .container {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
 }
+
+body {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+    font-weight: bold;
+    color: #343a40;
+}
+
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    border-radius: 15px;
+    min-height: 220px; /* Kartı biraz uzun yapar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
+}
+
+.card img {
+    border-radius: 15%;
+    width: 210px; /* Daha büyük foto */
+    height: 250px;
+    object-fit: cover;
+}
+
+.birthday-icon {
+    font-size: 1.5rem;
+    color: #ff6b6b;
+}

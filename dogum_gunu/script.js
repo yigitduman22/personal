@@ -111,3 +111,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Test verisi
+    const personeller = [
+        { id: 1, ad: "Tümay", soyad: "AKSAN", dogumTarihi: "1995-08-12", fotoUrl: "/images/dogum_gunu/37604190820-tumay-aksan_3957.jpg" },
+        { id: 2, ad: "Yavuz", soyad: "AĞAÇ", dogumTarihi: "1988-03-05", fotoUrl: "/images/dogum_gunu/32980582726-yavuz-a-ac_5843.jpg" },
+        { id: 3, ad: "Yavuz", soyad: "AĞAÇ", dogumTarihi: "1992-08-12", fotoUrl: "/images/dogum_gunu/32980582726-yavuz-a-ac_5843.jpg" }
+    ];
+
+    const bugun = new Date();
+    const ay = String(bugun.getMonth() + 1).padStart(2, "0");
+    const gun = String(bugun.getDate()).padStart(2, "0");
+    const tarihYazi = bugun.toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" });
+
+    const bugunkuler = personeller.filter(p => {
+        const [yil, ayStr, gunStr] = p.dogumTarihi.split("-");
+        return ayStr === ay && gunStr === gun;
+    });
+
+    const liste = document.getElementById("personelListesi");
+    const bosMesaj = document.getElementById("bosMesaj");
+
+    if (bugunkuler.length > 0) {
+    bugunkuler.forEach(p => {
+        liste.innerHTML += `
+            <div class="col-md-4">
+                <div class="card p-3 text-center shadow-sm h-100">
+                    <img src="${p.fotoUrl}" alt="${p.ad}" class="mx-auto d-block">
+                    <h5 class="mt-3">${p.ad} ${p.soyad} <span class="birthday-icon">🎂</span></h5>
+                    <small class="text-secondary">📅 ${tarihYazi}</small>
+                </div>
+            </div>
+        `;
+    });
+    } else {
+        bosMesaj.classList.remove("d-none");
+    }
+});
