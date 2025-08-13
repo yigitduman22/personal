@@ -365,8 +365,9 @@
 
 /* Ana content alanı */
 .content-area {
-    padding: 5px;
-    width: 100%;
+    margin-left: 65px; /* Logo'nun bulunduğu konumla hizalar */
+    padding-right: 65px;
+    flex: 1;
 }
 
 /* Footer stilleri */
@@ -383,6 +384,7 @@ footer .container {
     width: 90%;
     max-width: 1200px;
     margin: auto;
+    flex: 1;
 }
 
 .footer-content {
@@ -447,22 +449,45 @@ footer .container {
 body {
     background: linear-gradient(135deg, #f8f9fa, #e9ecef);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0; 
+    padding: 0; 
 
 .title {
     font-weight: bold;
     color: #343a40;
 }
 
+.page-header {
+    padding: 15px 20px;
+    background-color: #f1f5f9; /* hafif açık renkli arka plan */
+    border-left: 4px solid #1e3a8a; /* koyu mavi vurgu çizgisi */
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.header-title {
+    margin: 0;
+    font-size: 2rem; /* abartısız, orta boy */
+    font-weight: 600;
+    color: #1f2937; /* koyu kurumsal renk */
+}
+
+
 .card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+ transition: transform 0.2s ease, box-shadow 0.2s ease;
     border: none;
     border-radius: 15px;
-    min-height: 220px; /* Kartı biraz uzun yapar */
+    min-height: 320px; /* Yüksekliği azaltın */
+    max-width: 280px; /* Genişlik sınırı ekleyin */
+    margin: 0 auto; /* Ortala */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 15px; /* Padding ekleyin */
 }
 
 .card:hover {
@@ -472,12 +497,14 @@ body {
 
 .card img {
     border-radius: 15%;
-    width: 210px; /* Daha büyük foto */
-    height: 250px;
+    width: 150px; /* Boyutu küçültün */
+    height: 180px; /* Boyutu küçültün */
     object-fit: cover;
+    margin-bottom: 10px; /* Alt boşluk ekleyin */
 }
 
 .birthday-icon {
     font-size: 1.5rem;
     color: #ff6b6b;
+}
 }
