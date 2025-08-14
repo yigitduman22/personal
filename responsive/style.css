@@ -1,0 +1,177 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* === MASAÜSTÜ NAVBAR === */
+.navbar {
+    background-color: #022842;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.nav-left, .nav-center, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left { flex: 1; justify-content: flex-start; }
+.nav-center { flex: 1; justify-content: center; }
+.nav-right { flex: 1; justify-content: flex-end; }
+
+.logo-img {
+    height: 40px; /* Logo boyutunu ayarlayın */
+}
+
+/* Masaüstünde mobil menü butonunu gizle */
+.mobile-menu-toggle { display: none; }
+
+/* Profil menüsü stilleri (masaüstü) */
+.profile-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.profile-menu {
+    /* ... önceki profil menüsü stilleriniz buraya gelebilir ... */
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    min-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+.profile-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* === MOBİL İÇİN YENİ STİLLER (992px altı) === */
+@media (max-width: 992px) {
+    .navbar { padding: 0.75rem 0; }
+    
+    /* Mobil menü butonunu göster */
+    .mobile-menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    /* === SOLDAN AÇILIR MENÜ === */
+    .side-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 80%;
+        max-width: 320px; /* Ekranın yarısı gibi */
+        background-color: #fff;
+        z-index: 1001;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .side-menu.active {
+        transform: translateX(0);
+    }
+    
+    .side-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 1.5rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .side-menu-profile { display: flex; align-items: center; gap: 12px; }
+    .side-menu-profile-img { width: 40px; height: 40px; border-radius: 50%; }
+    .side-menu-profile-details { display: flex; flex-direction: column; }
+    .side-menu-profile-name { font-weight: 600; color: #111; }
+    .side-menu-profile-email { font-size: 0.8rem; color: #666; }
+
+    .close-menu-btn {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: #333;
+        cursor: pointer;
+        line-height: 1;
+    }
+    
+    .side-menu-links {
+        list-style: none;
+        padding: 1rem 0;
+        margin: 0;
+        overflow-y: auto;
+    }
+
+    .side-menu-links li a {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: background-color 0.2s;
+    }
+
+    .side-menu-links li a:hover, .side-menu-links li a.active {
+        background-color: #f0f0f0;
+    }
+    
+    .side-menu-links li a i {
+        font-size: 1.1rem;
+        width: 20px;
+        text-align: center;
+        color: #555;
+    }
+
+    /* === ARKA PLAN KARARTMA === */
+    .menu-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        display: none; /* Başlangıçta gizli */
+    }
+    
+    .menu-backdrop.active {
+        display: block;
+    }
+}
