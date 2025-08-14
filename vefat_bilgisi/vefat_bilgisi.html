@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vefat Eden Bilgisi - Gebze Belediyesi Personel Portalı</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="vefat.css"/>
@@ -140,13 +140,18 @@
           </div>
       </div>
     </nav>
+ <!-- Breadcrumb Section - Hizalama Düzeltildi -->
+<div class="breadcrumb-section" style="background-color: #f8f9fa; padding: 15px;">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/ana_sayfa/ana_sayfa.html"><i class="fas fa-home"></i> Anasayfa</a></li>
+                <li class="breadcrumb-item active" aria-current="page" id="breadcrumbTitle">Vefat Bilgisi</li>
+            </ol>
+        </nav>
+    </div>
+</div>
 
-    <!-- Ana İçerik Alanı -->
-   
-            <!-- Vefat Kartları Grid -->
-            <div class="vefat-grid" id="vefatGrid">
-                <!-- Kartlar JavaScript ile doldurulacak -->
-            </div>
 <div class="main-content">
         <div class="container">
             <!-- Sayfa Başlığı -->
@@ -155,233 +160,35 @@
                     <i class="fas fa-ribbon header-icon"></i>
                     <h1>VEFAT EDEN BİLGİSİ</h1>
                 </div>
-                <p class="header-subtitle">Kaybettiğimiz değerli çalışanlarımızı saygıyla anıyoruz</p>
+                
             </div>
 
             <!-- Vefat Kartları Grid -->
             <div class="vefat-grid" id="vefatGrid">
-                <!-- Vefat Kartı 1 -->
-                <div class="vefat-card">
-                    <div class="card-header">
-                        <div class="memorial-icon">
-                            <i class="fas fa-dove"></i>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="person-photo">
-                            <img src="https://via.placeholder.com/120x120/cccccc/666666?text=Fotoğraf" alt="Ahmet Yılmaz">
-                        </div>
-                        <h3 class="person-name">Ahmet YILMAZ</h3>
-                        <p class="person-position">Bilgi İşlem Uzmanı</p>
-                        <div class="person-dates">
-                            <div class="date-info">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>15 Mart 1965 - 8 Ocak 2024</span>
-                            </div>
-                        </div>
-                        <div class="memorial-message">
-                            <p>"Özverili çalışmaları ve güler yüzü ile hatırlayacağımız değerli çalışanımız. Ruhu şad olsun."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Vefat Kartı 2 -->
-                <div class="vefat-card">
-                    <div class="card-header">
-                        <div class="memorial-icon">
-                            <i class="fas fa-dove"></i>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="person-photo">
-                            <img src="https://via.placeholder.com/120x120/cccccc/666666?text=Fotoğraf" alt="Fatma Demir">
-                        </div>
-                        <h3 class="person-name">Fatma DEMİR</h3>
-                        <p class="person-position">Mali İşler Uzmanı</p>
-                        <div class="person-dates">
-                            <div class="date-info">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>22 Haziran 1970 - 15 Şubat 2024</span>
-                            </div>
-                        </div>
-                        <div class="memorial-message">
-                            <p>"30 yıllık hizmet hayatında gösterdiği fedakarlık ile örnek olan değerli çalışanımız."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Vefat Kartı 3 -->
-                <div class="vefat-card">
-                    <div class="card-header">
-                        <div class="memorial-icon">
-                            <i class="fas fa-dove"></i>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="person-photo">
-                            <img src="https://via.placeholder.com/120x120/cccccc/666666?text=Fotoğraf" alt="Mehmet Kaya">
-                        </div>
-                        <h3 class="person-name">Mehmet KAYA</h3>
-                        <p class="person-position">İtfaiye Eri</p>
-                        <div class="person-dates">
-                            <div class="date-info">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>10 Ağustos 1972 - 3 Mart 2024</span>
-                            </div>
-                        </div>
-                        <div class="memorial-message">
-                            <p>"Vatandaşlarımızın güvenliği için canını ortaya koyan kahraman itfaiyecimiz."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Vefat Kartı 4 -->
-                <div class="vefat-card">
-                    <div class="card-header">
-                        <div class="memorial-icon">
-                            <i class="fas fa-dove"></i>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="person-photo">
-                            <img src="https://via.placeholder.com/120x120/cccccc/666666?text=Fotoğraf" alt="Ayşe Özkan">
-                        </div>
-                        <h3 class="person-name">Ayşe ÖZKAN</h3>
-                        <p class="person-position">Sosyal Hizmet Uzmanı</p>
-                        <div class="person-dates">
-                            <div class="date-info">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>5 Kasım 1968 - 20 Nisan 2024</span>
-                            </div>
-                        </div>
-                        <div class="memorial-message">
-                            <p>"İhtiyaç sahibi ailelerimize yardım eli uzatan gönül güzeli çalışanımız."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Vefat Kartı 5 -->
-                <div class="vefat-card">
-                    <div class="card-header">
-                        <div class="memorial-icon">
-                            <i class="fas fa-dove"></i>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="person-photo">
-                            <img src="https://via.placeholder.com/120x120/cccccc/666666?text=Fotoğraf" alt="Mustafa Çelik">
-                        </div>
-                        <h3 class="person-name">Mustafa ÇELİK</h3>
-                        <p class="person-position">Park ve Bahçe Şefi</p>
-                        <div class="person-dates">
-                            <div class="date-info">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>18 Ocak 1963 - 12 Mayıs 2024</span>
-                            </div>
-                        </div>
-                        <div class="memorial-message">
-                            <p>"Şehrimizin yeşil alanlarını güzelleştiren emektar çalışanımız. Anısı yaşayacak."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Vefat Kartı 6 -->
-                <div class="vefat-card">
-                    <div class="card-header">
-                        <div class="memorial-icon">
-                            <i class="fas fa-dove"></i>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="person-photo">
-                            <img src="https://via.placeholder.com/120x120/cccccc/666666?text=Fotoğraf" alt="Zeynep Aksoy">
-                        </div>
-                        <h3 class="person-name">Zeynep AKSOY</h3>
-                        <p class="person-position">Halkla İlişkiler Uzmanı</p>
-                        <div class="person-dates">
-                            <div class="date-info">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>2 Eylül 1975 - 8 Haziran 2024</span>
-                            </div>
-                        </div>
-                        <div class="memorial-message">
-                            <p>"Vatandaşlarımıza güler yüzle hizmet eden, sevecen kişiliği ile tanınan çalışanımız."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Vefat Kartı 7 -->
-                <div class="vefat-card">
-                    <div class="card-header">
-                        <div class="memorial-icon">
-                            <i class="fas fa-dove"></i>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="person-photo">
-                            <img src="https://via.placeholder.com/120x120/cccccc/666666?text=Fotoğraf" alt="İbrahim Şahin">
-                        </div>
-                        <h3 class="person-name">İbrahim ŞAHİN</h3>
-                        <p class="person-position">Temizlik Müdürü</p>
-                        <div class="person-dates">
-                            <div class="date-info">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>14 Mart 1962 - 25 Temmuz 2024</span>
-                            </div>
-                        </div>
-                        <div class="memorial-message">
-                            <p>"Şehrimizin temizliği için gösterdiği özveri ile hatırlayacağımız değerli müdürümüz."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Vefat Kartı 8 -->
-                <div class="vefat-card">
-                    <div class="card-header">
-                        <div class="memorial-icon">
-                            <i class="fas fa-dove"></i>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="person-photo">
-                            <img src="https://via.placeholder.com/120x120/cccccc/666666?text=Fotoğraf" alt="Hanife Yıldız">
-                        </div>
-                        <h3 class="person-name">Hanife YILDIZ</h3>
-                        <p class="person-position">Sağlık İşleri Uzmanı</p>
-                        <div class="person-dates">
-                            <div class="date-info">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span>30 Nisan 1969 - 10 Ağustos 2024</span>
-                            </div>
-                        </div>
-                        <div class="memorial-message">
-                            <p>"Halk sağlığı için fedakarca çalışan, mesleğini sevgiyle icra eden hemşire hanımımız."</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Kartlar JavaScript ile doldurulacak -->
             </div>
 
             <!-- Sayfalama -->
             <div class="pagination-container">
                 <nav aria-label="Vefat bilgileri sayfalama">
                     <ul class="pagination">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Önceki">
+                        <li class="page-item disabled" id="prevPageItem">
+                            <a class="page-link" href="#" aria-label="Önceki" id="prevPage">
                                 <i class="fas fa-chevron-left"></i>
                                 Önceki
                             </a>
                         </li>
                         <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
+                            <a class="page-link" href="#" data-page="1">1</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="#">2</a>
+                            <a class="page-link" href="#" data-page="2">2</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="#">3</a>
+                            <a class="page-link" href="#" data-page="3">3</a>
                         </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Sonraki">
+                        <li class="page-item" id="nextPageItem">
+                            <a class="page-link" href="#" aria-label="Sonraki" id="nextPage">
                                 Sonraki
                                 <i class="fas fa-chevron-right"></i>
                             </a>

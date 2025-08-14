@@ -358,7 +358,19 @@
     width: 16px;
     font-size: 14px;
 }
-
+/* ===================== BREADCRUMB ===================== */
+ /* Breadcrumb Stilleri */
+.breadcrumb-section{
+  background:#31353a;
+  padding:20px 0;
+  border-bottom:1px solid #e9ecef;
+   max-width: 1850px;
+}
+.breadcrumb{ background:none; padding:0; margin:0; font-size:14px; }
+.breadcrumb-item a{ color:#6c757d; text-decoration:none; transition:color .3s; }
+.breadcrumb-item a:hover{ color:#022842; }
+.breadcrumb-item.active{ color:#022842; font-weight:500; }
+.breadcrumb-item + .breadcrumb-item::before{ content:">"; color:#6c757d; }
 /* ========== ANA İÇERİK ALANI ========== */
 .content-area {
     min-height: 100vh;
