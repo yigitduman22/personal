@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" href="style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <nav class="navbar">
@@ -15,9 +16,10 @@
               <img src="/images/logo(2).png" alt="Gebze Belediyesi Logosu" class="logo-img" />
           </div>
           <!-- HAMBURGER BUTONU -->
-    <button class="nav-toggle" id="navToggle" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="mainNav">
-      <i class="fas fa-bars"></i>
-    </button>
+    <button class="nav-toggle" id="navToggle" aria-controls="mainNav" aria-expanded="false">
+  <i class="fas fa-bars"></i>
+</button>
+
          <ul class="nav-links" id="mainNav">
               <li class="nav-dropdown dd-safe">
                   <a href="/ana_sayfa/ana_sayfa.html" class="nav-dropdown-toggle">
@@ -28,13 +30,7 @@
                   <div class="nav-dropdown-menu">
                       <div class="dropdown-content">
                           <div class="dropdown-grid">
-                              <a href="/duyurular/duyuru.html" class="dropdown-item">
-                                 <i class="fas fa-bullhorn"></i>
-                                  <div class="dropdown-text">
-                                        <div class="dropdown-title">DUYURULAR</div>
-                                        <div class="dropdown-description">Personelimize yönelik güncel bilgiler</div>
-                                    </div>
-                              </a>
+                              
                               <a href="/sizden_gelenler/sizden_gelenler.html" class="dropdown-item">
                                   <i class="fas fa-comments"></i>
                                    <div class="dropdown-text">
@@ -42,20 +38,7 @@
                                         <div class="dropdown-description">Öneri, talep ve geri bildirim için </div>
                                     </div>
                               </a>
-                              <a href="/etkinlikler/etkinlikler.html" class="dropdown-item">
-                                  <i class="fas fa-calendar-check"></i>
-                                  <div class="dropdown-text">
-                                        <div class="dropdown-title">ETKİNLİKLER</div>
-                                        <div class="dropdown-description">Kurum içi etkinlikler</div>
-                                    </div>
-                              </a>
-                              <a href="#" class="dropdown-item">
-                                  <i class="fas fa-video"></i>
-                                   <div class="dropdown-text">
-                                        <div class="dropdown-title">VİDEOLAR</div>
-                                        <div class="dropdown-description">Bilgilendirici videolar</div>
-                                    </div>
-                              </a>
+                              
                              
                               <a href="/anketler/anketler.html" class="dropdown-item">
                                   <i class="fas fa-poll"></i>
@@ -93,7 +76,7 @@
               
               <li class="nav-dropdown dd-safe">
                   <a href="/ana_sayfa/ana_sayfa.html" class="nav-dropdown-toggle">
-                      <i class="fas fa-home"></i> 
+                      
                       Kurumsal Kaynaklar
                       <i class="fas fa-chevron-down dropdown-arrow"></i>
                   </a>
@@ -132,9 +115,9 @@
                       </div>
                   </div>
               </li>
-             <li><a href="#"><i class="fas fa-gavel"></i> Videolar</a></li>
-              <li><a href="#"><i class="fas fa-graduation-cap"></i> Duyurular</a></li>
-              <li><a href="#"><i class="fas fa-handshake"></i> Etkinlikler</a></li>
+             <li><a href="#"><i class="fas fa-video"></i>Videolar</a></li>
+              <li><a href="#"><i class="fas fa-bullhorn"></i> Duyurular</a></li>
+              <li><a href="#"> <i class="fas fa-calendar-check"></i> Etkinlikler</a></li>
           </ul>
               <div class="profile-container">
               <div class="profile-dropdown">

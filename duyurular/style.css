@@ -464,3 +464,235 @@ footer .container{ width:90%; max-width:1200px; margin:auto; }
 
 /* Üçgen yoksa panel linke biraz daha yaklaşsın (istersen oynat) */
 .nav-dropdown.dd-lock { --gap: 8px; }  /* 6–12px arası deneyebilirsin */
+@media (max-width: 992px){
+  /* mevcut shift'leri sıfırla */
+  .navbar{ --logo-shift:0; --profile-shift:0; --menu-shift:0; }
+  .logo-container{ transform:none; justify-self:center; }
+  .profile-container{ transform:none; }
+  .nav-toggle{ display:block; margin-left:auto; position:relative; z-index:1401; }
+
+  /* OFF-CANVAS: ana menü */
+  .nav-links{
+    /* SOLDAN açılır; SAĞDAN istersen aşağıya bak */
+    position: fixed;
+    top: 0; bottom: 0; left: 0;
+    width: 82vw; max-width: 360px;
+    background: #072b44;       /* koyu mavi panel */
+    padding: 14px 12px 24px;
+    display: flex; flex-direction: column; gap: 6px;
+    transform: translateX(-100%);
+    transition: transform .28s ease;
+    z-index: 1400;
+    overflow-y: auto;
+    border-right: 1px solid rgba(255,255,255,.08);
+  }
+  .nav-links.is-open{ transform: translateX(0); }
+
+  /* arka plan perdesi */
+  .offcanvas-backdrop{
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.35);
+    backdrop-filter: blur(1px);
+    opacity: 0; pointer-events: none;
+    transition: opacity .2s ease;
+    z-index: 1390;
+  }
+  .offcanvas-backdrop.show{ opacity: 1; pointer-events: auto; }
+  body.offcanvas-open{ overflow: hidden; }
+
+  /* sidebar içindeki dropdown’lar: akordeon */
+  .nav-dropdown{ width: 100%; }
+  .nav-dropdown .nav-dropdown-toggle{
+    justify-content: space-between;
+    padding: .9rem .6rem;
+    border-radius: 10px;
+  }
+  .nav-dropdown.open .nav-dropdown-toggle{ background: rgba(255,255,255,.07); }
+
+  .nav-dropdown-menu{
+    position: static !important;
+    display: none;
+    background: transparent;
+    box-shadow: none;
+    padding: 8px 6px 0;
+    margin: 0 !important;
+  }
+  .nav-dropdown.open .nav-dropdown-menu{ display: block; }
+
+  .dropdown-grid{ display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px 12px; }
+  @media (max-width: 480px){ .dropdown-grid{ grid-template-columns: 1fr; } }
+
+  .dropdown-item{
+    padding: 10px !important; border-radius: 10px !important;
+    background: transparent !important; color: #e9f0f7 !important;
+  }
+  .dropdown-item i{ color:#e9f0f7 !important; }
+  .dropdown-title{ color:#fff !important; font-size: 15px !important; }
+  .dropdown-description{ color:#c8d3dc !important; font-size: 13px !important; }
+
+  /* masaüstü “hover-gap” köprüsü mobilde devre dışı */
+  .nav-dropdown.dd-safe::after{ display:none; }
+  .nav-dropdown-menu::before{ display:none !important; }
+}
+/* Masaüstü ve tablet: 3 sütun */
+.documents-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 24px;
+}
+
+.document-card {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Küçük ekran: 1 sütun */
+@media (max-width: 768px) {
+  .documents-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+/* === Arama kutusu + Filtre (select) responsive yerleşim === */
+
+/* Masaüstü / tablet: yan yana */
+.controls-section{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+/* Arama kutusu: solda, genişleyebilir */
+.search-box{
+  flex:1;
+  max-width:760px;      /* istersen 680–820 arası oynat */
+}
+
+/* Arama input ve select aynı yükseklikte dursun */
+.search-input{
+  height:46px;          /* ikonlu padding'in zaten var */
+  line-height:46px;
+}
+
+/* Filtre (select): sağda, sabit minimum genişlik */
+.sort-dropdown{
+  height:46px;
+  min-width:260px;      /* istersen 220–300 arası oynat */
+  width:auto;           /* masaüstünde içerik kadar */
+}
+
+/* ===== Tablet ve küçük ekranlar: alt alta (ayrı ayrı genişlik) ===== */
+@media (max-width: 992px){
+  .controls-section{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:12px;
+  }
+  /* Arama üstte tam genişlik */
+  .search-box{
+    max-width:none;
+    order:1;
+  }
+  .search-input{
+    width:100%;
+  }
+  /* Filtre altta tam genişlik */
+  .sort-dropdown{
+    width:100%;
+    order:2;
+  }
+}
+
+/* ===== Küçük telefon ince ayarı ===== */
+@media (max-width: 480px){
+  .search-input{
+    padding: .85rem 1rem .85rem 2.6rem; /* sol ikon için boşluk */
+    font-size:15px;
+  }
+  .search-icon{ left:.75rem; }          /* ikon hizası */
+  .sort-dropdown{
+    height:44px;
+    font-size:15px;
+  }
+}
+/* 1) Değişkeni global yap ki breadcrumb da kullanabilsin */
+:root{
+  --logo-shift: 16rem;  /* nav’da kullandığın değerle aynı */
+}
+
+/* 2) Breadcrumb konteynerini nav ile aynı genişlik ve shift'e getir */
+.breadcrumb-section .container{
+  width: min(1200px, 92%) !important;
+  margin: 0 auto !important;
+  position: relative;
+  transform: translateX(calc(-1 * var(--logo-shift))); /* LOGO ile aynı sola kaydır */
+}
+
+/* 3) Mobilde kaydırmayı kapat (logo da zaten 0’a dönüyor) */
+@media (max-width: 992px){
+  :root{ --logo-shift: 0; }                 /* global sıfırla */
+  .breadcrumb-section .container{
+    transform: none !important;             /* hizayı ortala */
+  }
+}
+
+/* 4) (Opsiyonel) Inline margin’i bastır: */
+.breadcrumb{
+  margin-left: 0 !important;
+}
+/* ---- Global güvenlik: yatay taşmayı engelle ---- */
+html, body { width: 100%; overflow-x: hidden; }
+
+/* ---- NAV: mobilde tüm kaydırmaları kapat ---- */
+@media (max-width: 992px){
+  .navbar{ --logo-shift: 0; --profile-shift: 0; --menu-shift: 0; }
+  .logo-container{ transform: none !important; }
+  .profile-container{ transform: none !important; }
+  .nav-container{ width: 100% !important; padding: 0 16px; box-sizing: border-box; }
+
+  /* dropdown panel mobilde akışta kalsın ve yana taşmasın */
+  .nav-dropdown-menu{
+    position: static !important;
+    margin: 0 !important;          /* <<< -550px ofseti sıfırla */
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ---- Breadcrumb: inline margin’leri bastır + mobil hizalama ---- */
+.breadcrumb-section .container{
+  width: min(1200px, 92%); margin: 0 auto; position: relative;
+}
+.breadcrumb{ margin-left: 0 !important; }  /* olası inline -16%’yi iptal */
+
+/* Logoyla hizalama için masaüstünde shift uygula; mobilde otomatik kapanır */
+:root{ --logo-shift: 16rem; }
+@media (min-width: 993px){
+  .breadcrumb-section .container{
+    transform: translateX(calc(-1 * var(--logo-shift)));
+  }
+}
+@media (max-width: 992px){
+  .breadcrumb-section .container{
+    transform: none !important;
+    padding: 0 16px;               /* kenarlık payı */
+    box-sizing: border-box;
+  }
+}
+
+/* ---- Ana içerik: mobilde padding + box-sizing ile taşmayı kes ---- */
+.main-container{
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+@media (max-width: 992px){
+  .main-container{ padding: 16px; }
+}
+
+/* ---- Kart ızgarası zaten 3/1 çalışıyor; taşma koruması ---- */
+.documents-grid{ max-width: 100%; }
+.document-header img{ max-width: 100%; height: auto; display: block; }
