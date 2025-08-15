@@ -788,3 +788,51 @@ footer .container {
         padding-right: 40px; /* Bu değeri artırıp azaltarak boşluğu ayarlayabilirsin */
     }
 }
+
+/* === FOOTER MOBİL GÖRÜNÜM DÜZENLEMESİ === */
+/* Ekran 768px ve daha dar olduğunda */
+@media (max-width: 768px) {
+    .footer-content {
+        /* Elemanları yan yana yerine alt alta sırala */
+        flex-direction: column;
+        /* Ortala */
+        align-items: center;
+        /* Metinleri de ortala */
+        text-align: center;
+    }
+
+    .footer-content p {
+        /* İletişim bilgileri arasında boşluk bırak */
+        margin-bottom: 15px;
+    }
+
+    .social-icons {
+        /* Sosyal medya ikonlarının konumunu sıfırla */
+        transform: translateY(0);
+        /* Üstündeki elemanla arasına boşluk koy */
+        margin-top: 15px;
+    }
+
+    .footer-logo {
+        /* Logo için alt boşluk ver */
+        margin-bottom: 20px;
+    }
+}
+
+/* === FOOTER'I SAYFA ALTINA SABİTLEME === */
+
+html {
+    height: 100%;
+}
+
+body {
+    /* vh yerine, mobil cihazlarla daha uyumlu olan dvh birimini kullanıyoruz */
+    min-height: 100dvh; 
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+} 
+
+.main-content {
+    flex-grow: 1; /* Bu alan, footer'ı aşağı iterek mevcut tüm boş alanı doldursun */
+}
