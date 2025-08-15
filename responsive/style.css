@@ -775,3 +775,16 @@ footer .container {
         display: none !important;
     }
 }
+/* === MASAÜSTÜ GÖRÜNÜM - MENÜ SAĞA HİZALAMA AYARI === */
+/* Ekran 993px ve daha geniş olduğunda (masaüstü) */
+@media (min-width: 993px) {
+    /* Sol taraftaki logo alanının, tüm boş alanı doldurarak genişlemesini sağla */
+    .nav-left {
+        flex-grow: 1;
+    }
+
+    /* Menü linkleri ile sağdaki profil ikonu arasına boşluk koy */
+    .nav-links {
+        padding-right: 40px; /* Bu değeri artırıp azaltarak boşluğu ayarlayabilirsin */
+    }
+}
