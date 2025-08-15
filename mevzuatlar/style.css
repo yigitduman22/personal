@@ -571,7 +571,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #4ecdc4, #45b7d1);
+            background-color: #164e63;
         }
 
         .document-card:hover {
@@ -664,7 +664,7 @@
 
         .preview-btn {
            flex: 1;
-            background: linear-gradient(90deg, #4ecdc4, #45b7d1);
+            background-color: #344e75;
             color: white;
             border: none;
             padding: 1rem 1.5rem;
