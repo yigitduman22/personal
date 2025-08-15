@@ -9,24 +9,105 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-left">
                 <button class="mobile-menu-toggle" aria-label="Menüyü aç">
                     <i class="fas fa-bars"></i>
                 </button>
-            </div>
-
-            <div class="nav-center">
                 <a href="/ana_sayfa/ana_sayfa.html" class="logo-container">
                     <img src="/images/logo(2).png" alt="Gebze Belediyesi Logosu" class="logo-img" />
                 </a>
             </div>
 
+            <ul class="nav-links">
+                <li class="nav-dropdown">
+                    <a href="/ana_sayfa/ana_sayfa.html" class="nav-dropdown-toggle">
+                        <i class="fas fa-home"></i> Anasayfa
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <a href="/ana_sayfa/ana_sayfa.html" class="dropdown-item">
+                                    <i class="fas fa-bullhorn"></i>
+                                    <div class="dropdown-text">
+                                        <div class="dropdown-title">DUYURULAR</div>
+                                        <div class="dropdown-description">Personelimize yönelik güncel bilgiler</div>
+                                    </div>
+                                </a>
+                                <a href="/sizden_gelenler/sizden_gelenler.html" class="dropdown-item">
+                                    <i class="fas fa-comments"></i>
+                                    <div class="dropdown-text">
+                                        <div class="dropdown-title">SİZDEN GELENLER</div>
+                                        <div class="dropdown-description">Öneri, talep ve geri bildirim için</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <div class="dropdown-text">
+                                        <div class="dropdown-title">ETKİNLİKLER</div>
+                                        <div class="dropdown-description">Kurum içi etkinlikler</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-video"></i>
+                                    <div class="dropdown-text">
+                                        <div class="dropdown-title">VİDEOLAR</div>
+                                        <div class="dropdown-description">Bilgilendirici videolar</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-file-alt"></i>
+                                    <div class="dropdown-text">
+                                        <div class="dropdown-title">DÖKÜMANLAR</div>
+                                        <div class="dropdown-description">Yönelgeler, formlar ve resmi belgeler</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-poll"></i>
+                                    <div class="dropdown-text">
+                                        <div class="dropdown-title">ANKETLER</div>
+                                        <div class="dropdown-description">Katılabileceğiniz güncel anketler</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-link"></i>
+                                    <div class="dropdown-text">
+                                        <div class="dropdown-title">YARDIMCI LİNKLER</div>
+                                        <div class="dropdown-description">İş akışı için tüm önemli linkler</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-cross"></i>
+                                    <div class="dropdown-text">
+                                        <div class="dropdown-title">VEFAT EDEN BİLGİSİ</div>
+                                        <div class="dropdown-description">Vefat eden çalışanlarımız hakkında</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-birthday-cake"></i>
+                                    <div class="dropdown-text">
+                                        <div class="dropdown-title">DOĞUM GÜNÜ BİLGİSİ</div>
+                                        <div class="dropdown-description">Bugün doğum günü olan çalışanlarımız için</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#"><i class="fas fa-gavel"></i> Mevzuatlar</a></li>
+                <li><a href="#"><i class="fas fa-graduation-cap"></i> Eğitimler</a></li>
+                <li><a href="#"><i class="fas fa-handshake"></i> Protokoller</a></li>
+                <li><a href="#"><i class="fas fa-folder-open"></i> Dökümanlar</a></li>
+            </ul>
+
             <div class="nav-right">
                 <div class="profile-dropdown">
                     <button class="profile-btn" id="profileBtn">
                         <img src="/images/login/login.jpg" alt="Profil" class="profile-img">
+                        <i class="fas fa-chevron-down profile-arrow"></i>
                     </button>
                     <div class="profile-menu" id="profileMenu">
                         <div class="profile-info">
@@ -36,7 +117,6 @@
                                 <span class="profile-role">Personel</span>
                             </div>
                         </div>
-                        <hr class="profile-divider">
                         <ul class="profile-menu-list">
                             <li><a href="#" class="profile-menu-item"><i class="fas fa-user"></i><span>Profilim</span></a></li>
                             <li><a href="#" class="profile-menu-item"><i class="fas fa-cog"></i><span>Ayarlar</span></a></li>
@@ -47,7 +127,6 @@
             </div>
         </div>
     </nav>
-
     <div class="side-menu" id="sideMenu">
         <div class="side-menu-header">
             <div class="side-menu-profile">
@@ -59,7 +138,6 @@
             </div>
             <button class="close-menu-btn" aria-label="Menüyü kapat">&times;</button>
         </div>
-        
         <ul class="side-menu-links">
             <li><a href="/ana_sayfa/ana_sayfa.html"><i class="fas fa-home"></i> Anasayfa</a></li>
             <li><a href="/sizden_gelenler/sizden_gelenler.html"><i class="fas fa-comments"></i> Sizden Gelenler</a></li>
@@ -68,15 +146,30 @@
             <li><a href="#"><i class="fas fa-file-alt"></i> Dökümanlar</a></li>
             <li><a href="#"><i class="fas fa-poll"></i> Anketler</a></li>
             <li><a href="#"><i class="fas fa-link"></i> Yardımcı Linkler</a></li>
-            <li><a href="#"><i class="fas fa-cross"></i> Vefat Eden Bilgisi</a></li>
-            <li><a href="#"><i class="fas fa-birthday-cake"></i> Doğum Günü Bilgisi</a></li>
+            <li><a href="#"><i class="fas fa-link"></i> Vefat Eden Bilgisi</a></li>
+            <li><a href="#"><i class="fas fa-link"></i> Doğum Günü Bilgisi</a></li>
         </ul>
     </div>
-
     <div class="menu-backdrop" id="menuBackdrop"></div>
-
     <footer>
-        </footer>
+      <div class="container">
+        <div class="footer-content">
+          <img src="/images/logo(2).png" class="footer-logo" alt="Gebze Belediyesi" />
+           <p><i class="fas fa-phone"></i> (0262) 123 45 67</p>
+          <p><i class="fas fa-envelope"></i> bilgiislem@gebze.bel.tr</p>
+          <div class="social-icons mt-3">
+            <a href="https://www.facebook.com/gebzebelediye/?locale=tr_TR"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/gebze_belediye?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/gebze_belediyesi/?hl=tr"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@gebzebelediyesi7295"><i class="fab fa-youtube"></i></a>
+             <a href="https://www.linkedin.com/company/gebze-belediyesi/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+        <p>&copy; 2025 Gebze Belediyesi - Bilgi İşlem Müdürlüğü | Tüm Hakları Saklıdır</p>
+      </div>
+      </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
