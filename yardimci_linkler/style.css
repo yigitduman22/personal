@@ -504,7 +504,7 @@
 
 /* ========== KART RESİMLERİ - UNİFORM BOYUTLAR ========== */
 .card-image {
-    height: 140px; /* Uniform height */
+    height: 200px; /* Uniform height */
     display: flex;
     align-items: center;
     justify-content: center;

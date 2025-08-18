@@ -5,12 +5,10 @@ const newsData = [
         title: "İnsan Kaynakları ve Eğitim Müdürlüğü",
         excerpt: "6734 ve 6735 Sayılı Kanun Eğitimi - Biyomedikal Eğitimi - Üniversite Eğitimi - Oryantasyon Eğitimi - Fen Programlama Eğitimi - Mevzuat Eğitimi - Teknoloji Çalışma Eğitimi...",
         category: "insan-kaynaklari",
-        categoryName: "İnsan Kaynakları ve Eğitim Müdürlüğ",
+        categoryName: "İnsan Kaynakları ve Eğitim Müdürlüğü",
         date: "06.11.2023",
         views: 91,
         image: "/images/sizden_gelenler/insan_kaynaklari/nsan-kaynaklar-ve-e-itim-mudurlu-u_1547.jpg",
-       
-        
     },
     {
         id: 2,
@@ -86,7 +84,7 @@ const newsData = [
         id: 9,
         title: "Dijital Dönüşüm Eğitimi",
         excerpt: "Personelimize yönelik dijital dönüşüm ve teknoloji kullanımı eğitimi başarıyla tamamlandı...",
-        category: "insan-kaynaklari",
+        category: "zabita",
         categoryName: "Zabıta Müdürlüğü",
         date: "08.10.2023",
         views: 312,
@@ -121,7 +119,6 @@ const newsData = [
         date: "01.10.2023",
         views: 278,
         image: "/images/sizden_gelenler/park_bahce/park-ve-bahceler-mudurlu-u_4188.jpg",
-    
     }
 ];
 
@@ -150,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Event Listeners
 function setupEventListeners() {
-    // Navbar dropdown functionality from your existing code
+    // Navbar dropdown functionality
     const navDropdown = document.querySelector('.nav-dropdown');
     const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
     const dropdownMenu = document.querySelector('.nav-dropdown-menu');
