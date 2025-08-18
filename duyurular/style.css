@@ -2,7 +2,7 @@
 /* === TEMEL NAVBAR YAPISI === */
 .navbar {
     background-color: #022842;
-    padding: 0.5rem 0; /* Padding'i biraz azalttık */
+    padding: 0.5rem 0 ; /* Padding'i biraz azalttık */
     position: sticky;
     top: 0;
     z-index: 999;
@@ -38,7 +38,7 @@
 }
 
 .logo-container {
-    width: 350px; /* Değeri buradan büyüttük */
+    width: 300px; /* Değeri buradan büyüttük */
     transition: width 0.3s ease;
 }
 
@@ -642,8 +642,11 @@
     .nav-links {
         display: none;
     }
-    
-
+     @media (max-width: 480px) {
+    .logo-container {
+        width: 160px;
+    }
+     }
     /* 2. Profil butonunun yanındaki aşağı oku mobilde gizle */
     .profile-arrow {
         display: none;

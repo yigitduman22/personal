@@ -1,43 +1,64 @@
-/* Navbar stilleri - Genişletilmiş */
+
+/* === TEMEL NAVBAR YAPISI === */
 .navbar {
-            background-color: #022842;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
+    background-color: #022842;
+    padding: 1.5rem 0 !important; /* Padding'i biraz azalttık */
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Anahtar kural: Elemanları aralıklı hizalar */
     align-items: center;
     width: 90%;
+    max-width: 1600px; /* Daha geniş ekranlar için maksimum genişlik */
     margin: auto;
-    flex-wrap: wrap;
 }
 
-.logo-container {
+/* === NAVBAR BÖLÜMLERİ (SOL, ORTA, SAĞ) === */
+.nav-left, .nav-center, .nav-right {
     display: flex;
     align-items: center;
-    gap: 0.7rem;
+}
+
+.nav-left {
+    flex-shrink: 0; /* Logonun küçülmesini engeller */
+}
+
+.nav-center {
+    flex-grow: 1; /* Orta bölümün boş alanı doldurmasını sağlar */
+    justify-content: center; /* Menü linklerini ortalar */
+}
+
+.nav-right {
+    flex-shrink: 0; /* Profil bölümünün küçülmesini engeller */
+}
+
+
+.logo-container {
+    width: 300px; /* Değeri buradan büyüttük */
+    transition: width 0.3s ease;
 }
 
 .logo-img {
-    height: 10px;
-    transform: scale(3);
-    transform-origin: left center;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-/* Nav links - Sağa kaydırıldı */
+
+
+/* === NAVİGASYON LİNKLERİ === */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     margin: 0;
     padding: 0;
-    flex-wrap: wrap;
-    margin-left: 650px; /* Sağa doğru kaydırıldı */
+    /* ÖNEMLİ: Sabit margin-left kaldırıldı */
 }
 
 .nav-links li {
@@ -53,9 +74,14 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1rem;
     border-radius: 0.5rem;
     white-space: nowrap;
+}
+
+.nav-links a:hover, .nav-dropdown:hover .nav-dropdown-toggle {
+    color: orange;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .nav-links a:hover {
@@ -67,7 +93,122 @@
 .nav-links a i {
     font-size: 1rem;
 }
-* Breadcrumb Stilleri */
+/* Masaüstünde mobil menü butonunu gizle */
+.mobile-menu-toggle { display: none; }
+
+/* Profil menüsü stilleri (masaüstü) */
+.profile-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.profile-menu {
+    position: absolute; /* En önemli kural: Menüyü sayfa akışından çıkarır */ 
+    top: calc(100% + 10px); /* Butonun 10px altına konumlandırır */ 
+    right: 0; /* Sağa hizalar */ 
+    background: white; /* Beyaz arka plan */ 
+    border-radius: 12px; /* Kenarları yuvarlaklaştırır */ 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Gölgelendirme */ 
+    min-width: 280px; /* Minimum genişlik */ 
+    opacity: 0; /* Başlangıçta gizli */ 
+    visibility: hidden; /* Başlangıçta gizli ve tıklanamaz */ 
+    transform: translateY(-10px); /* Hafif yukarıda başlatır (animasyon için) */ 
+    transition: all 0.3s ease; /* Animasyon süresi */ 
+    z-index: 1000; /* Diğer elemanların üzerinde görünmesini sağlar */
+    padding: 1rem 0; /* İç boşluk */
+}
+
+/* Menü içindeki profil bilgisi bölümü */
+.profile-info {
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem 1rem; /* İç boşluk */
+    border-bottom: 1px solid #eee; /* Alt çizgi */
+}
+
+.profile-role {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* Profil menüsündeki link listesi */
+.profile-menu-list {
+    list-style: none; /* Madde imlerini kaldır */
+    padding: 0.5rem 0 0;
+    margin: 0;
+}
+
+/* Her bir menü linki */
+.profile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* İkon ve metin arası boşluk */
+    padding: 0.75rem 1.5rem;
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    color: #333;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.profile-menu-item:hover {
+    background-color: #f5f5f5; /* Üzerine gelince arka plan rengi */
+}
+
+.profile-menu-item i {
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+    color: #555;
+}
+
+/* Çıkış Yap butonu için özel renk */
+.profile-menu-item.logout {
+    color: #D93025;
+}
+
+.profile-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.profile-menu-item.logout:hover {
+    background-color: #fce8e6;
+}
+
+.profile-menu-item.logout i {
+    color: #D93025;
+}
+
+/* Ayracı gizledik çünkü profile-info'ya border-bottom ekledik */
+.profile-divider {
+    display: none;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-menu-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+/* JavaScript ile .show class'ı eklendiğinde menüyü görünür yapar */
+.profile-menu.show {
+    opacity: 1; /* Görünür yap */
+    visibility: visible; /* Tıklanabilir yap */
+    transform: translateY(0); /* Orijinal pozisyonuna indir */
+}
+/* Breadcrumb Stilleri */
 .breadcrumb-section {
     background: #31353a;
     padding: 20px 0;
@@ -108,9 +249,8 @@
 
 /* Dropdown Toggle (Ana Buton) */
 
-
 .dropdown-arrow {
-    font-size: 0.8rem !important;
+    font-size: 0.7rem !important; /* İkonu biraz küçülttük */
     margin-left: 0.3rem;
     transition: transform 0.3s ease;
 }
@@ -138,11 +278,8 @@
     border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-.nav-dropdown.hover .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
+.document-card.is-hidden { display: none !important; }
+
 
 /* Dropdown Content */
 .dropdown-content {
@@ -225,20 +362,6 @@
             color: #666 !important;
         }
 
-/* Dropdown Menu Ok İşareti */
-.nav-dropdown-menu::before {
-    content: '';
-    position: absolute;
-    top: -9px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-bottom: 9px solid white;
-    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
-}
 
 .nav-dropdown:hover .nav-dropdown-menu {
     opacity: 1;
@@ -249,11 +372,9 @@
 .nav-dropdown:hover .dropdown-arrow {
     transform: rotate(180deg);
 }
-
-
 /* ========== DROPDOWN STİLLERİ SONU ========== */
 
-/* Profil Container */
+/* === PROFİL BÖLÜMÜ === */
 .profile-container {
     position: relative;
 }
@@ -288,7 +409,7 @@
 
 .profile-arrow {
     font-size: 0.8rem;
-    color: #6c757d;
+    color: #e0e0e0; /* Rengi biraz daha görünür yaptık */
     transition: transform 0.3s ease;
 }
 
@@ -389,13 +510,238 @@
     width: 16px;
     font-size: 14px;
 }
+/* Tıklandığında menünün görünmesini sağlayan eksik kural */
+.nav-dropdown.active .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
 
+/* Tıklandığında ok ikonunun dönmesini sağlayan ek kural */
+.nav-dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* === MOBİL İÇİN YENİ STİLLER (992px altı) === */
+@media (max-width: 992px) {
+    .navbar { padding: 0.75rem 0; }
+    
+    /* Mobil menü butonunu göster */
+    .mobile-menu-toggle {
+    display: block; /* Masaüstünde mobil menü butonunu gizle */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 1rem; /* Logo ile arasına boşluk koyar */
+}
+
+   /* === SOLDAN AÇILIR MENÜ === */
+    .side-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 80%;
+        max-width: 320px; /* Ekranın yarısı gibi */
+        background-color: #fff;
+        z-index: 1001;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .side-menu.active {
+        transform: translateX(0);
+    }
+    
+    .side-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 1.5rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .side-menu-profile { display: flex; align-items: center; gap: 12px; }
+    .side-menu-profile-img { width: 40px; height: 40px; border-radius: 50%; }
+    .side-menu-profile-details { display: flex; flex-direction: column; }
+    .side-menu-profile-name { font-weight: 600; color: #111; }
+    .side-menu-profile-email { font-size: 0.8rem; color: #666; }
+
+    .close-menu-btn {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: #333;
+        cursor: pointer;
+        line-height: 1;
+    }
+    
+    .side-menu-links {
+        list-style: none;
+        padding: 1rem 0;
+        margin: 0;
+        overflow-y: auto;
+    }
+
+    .side-menu-links li a {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: background-color 0.2s;
+    }
+
+    .side-menu-links li a:hover, .side-menu-links li a.active {
+        background-color: #f0f0f0;
+    }
+    
+    .side-menu-links li a i {
+        font-size: 1.1rem;
+        width: 20px;
+        text-align: center;
+        color: #555;
+    }
+
+    /* === ARKA PLAN KARARTMA === */
+    .menu-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        display: none; /* Başlangıçta gizli */
+    }
+    
+    .menu-backdrop.active {
+        display: block;
+    }
+}
+/* === MOBİL GÖRÜNÜM İÇİN TÜM DÜZENLEMELER (992px altı) === */
+@media (max-width: 992px) {
+    /* 1. Masaüstü menü linklerini mobil ekranda gizle */
+    .nav-links {
+        display: none;
+    }
+
+    @media (max-width: 480px) {
+    .logo-container {
+        width: 160px;
+    }
+}
+
+    /* 2. Profil butonunun yanındaki aşağı oku mobilde gizle */
+    .profile-arrow {
+        display: none;
+    }
+    
+    /* 3. Navbar konteynerini yeniden düzenle */
+    .nav-container {
+        display: flex;
+        justify-content: space-between; /* En sola ve en sağa yasla */
+        align-items: center;
+        width: 100%; /* Tam genişlik kullan */
+        padding: 0 1rem; /* Kenarlara biraz boşluk ver */
+    }
+
+    /* 4. Sol tarafı (hamburger + logo) ve sağ tarafı (profil) ayarla */
+    .nav-left {
+        display: flex;
+        align-items: center;
+        flex-grow: 1; /* Sol tarafın genişlemesine izin ver */
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+    }
+    
+    /* 5. Hamburger menü ikonunu her zaman görünür yap */
+    .mobile-menu-toggle {
+        display: block; /* Gizlenmişse bile görünür yap */
+        font-size: 1.8rem; /* Biraz daha belirgin olsun */
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-right: 15px; /* Logo ile arasına boşluk koy */
+    }
+}
+/* === MASAÜSTÜ GÖRÜNÜM TEMİZLİĞİ === */
+/* Ekran 993px ve daha geniş olduğunda (yani tablet ve masaüstünde) */
+@media (min-width: 993px) {
+
+    /* Yandan açılır mobil menüyü tamamen gizle */
+    .side-menu {
+        display: none !important;
+    }
+
+    /* Mobil menü açıldığında ekranı karartan arka planı gizle */
+    .menu-backdrop {
+        display: none !important;
+    }
+}
+/* === MASAÜSTÜ GÖRÜNÜM - MENÜ SAĞA HİZALAMA AYARI === */
+/* Ekran 993px ve daha geniş olduğunda (masaüstü) */
+@media (min-width: 993px) {
+    /* Sol taraftaki logo alanının, tüm boş alanı doldurarak genişlemesini sağla */
+    .nav-left {
+        flex-grow: 1;
+    }
+
+    /* Menü linkleri ile sağdaki profil ikonu arasına boşluk koy */
+    .nav-links {
+        padding-right: 40px; /* Bu değeri artırıp azaltarak boşluğu ayarlayabilirsin */
+    }
+}
+/* === FOOTER MOBİL GÖRÜNÜM DÜZENLEMESİ === */
+/* Ekran 768px ve daha dar olduğunda */
+@media (max-width: 768px) {
+    .footer-content {
+        /* Elemanları yan yana yerine alt alta sırala */
+        flex-direction: column;
+        /* Ortala */
+        align-items: center;
+        /* Metinleri de ortala */
+        text-align: center;
+    }
+
+    .footer-content p {
+        /* İletişim bilgileri arasında boşluk bırak */
+        margin-bottom: 15px;
+    }
+
+    .social-icons {
+        /* Sosyal medya ikonlarının konumunu sıfırla */
+        transform: translateY(0);
+        /* Üstündeki elemanla arasına boşluk koy */
+        margin-top: 15px;
+    }
+
+    .footer-logo {
+        /* Logo için alt boşluk ver */
+        margin-bottom: 20px;
+    }
+}
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #ffffff 0%, #e7e7e7 100%);
            
         }
+
+        .main-content {
+    flex-grow: 1; /* Bu alan, footer'ı aşağı iterek mevcut tüm boş alanı doldursun */
+}
 
         /* Ana Container */
         .main-container {
@@ -411,8 +757,9 @@
     border-radius: 10px;
     margin-bottom: 20px;
      border-left: 5px solid #2c4a77; /* Sol çizgi */
-      z-index: 1; /* Butonların önüne geçmesin */
-        position: relative;
+      position: relative;
+    z-index: 1; /* Butonların önüne geçmesin */
+
 }
 
 .page-header h1 {
@@ -450,7 +797,7 @@
             margin-left: 1%;
         }
 
-        /* Filtre ve Arama Bölümü */
+       /* Filtre ve Arama Bölümü */
         .controls-section {
             display: flex;
             justify-content: space-between;
@@ -490,7 +837,8 @@
             color: #64748b;
         }
 
-        .filter-buttons {
+
+         .filter-buttons {
             display: flex;
            
     gap: 1rem;
@@ -516,13 +864,11 @@
         }
 
         /* Dökümanlar Grid */
-           .documents-grid {
+            .documents-grid {
            display: flex;
-  flex-wrap: wrap;
-  gap: 24px;         
+            flex-wrap: wrap;
+            gap: 24px;         
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-           
-          
         }
 
         /* Döküman Kartları */
@@ -563,7 +909,6 @@
     max-width: 100%;
   }
 }
-
         .document-card::before {
             content: '';
             position: absolute;
@@ -659,57 +1004,8 @@
             display: flex;
             gap: 1rem;
         }
-
-
-        .preview-btn {
-            flex: 1;
-            background-color: #344e75;
-            color: white;
-            border: none;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .preview-btn:hover {
-            background: white;
-             border: 1px solid black;
-            color: black;
-        }
-
       
-/* Social Icons Stilleri */
-.social-icons {
-    display: flex;
-    gap: 1rem;
-    transform: translateY(-20px);
-}
 
-.social-icons a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    background-color: white;
-    color: #1b3f8b;
-    text-decoration: none;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-
-.social-icons a:hover {
-    background-color: #d2d2d2;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
-}
 
 /* Footer stilleri */
 footer {
@@ -758,4 +1054,260 @@ footer .container {
     margin-top: 15px;
     font-size: 13px;
     color: white;
+}
+/* Social Icons Stilleri */
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    transform: translateY(-20px);
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    color: #1b3f8b;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #d2d2d2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
+}
+ @media (max-width: 1024px) {
+            .documents-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 0 12px;
+            }
+
+            .page-header {
+                padding: 1.5rem 0;
+                margin-bottom: 1.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .controls-section {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+            }
+
+            .search-box {
+                flex: none;
+                max-width: none;
+            }
+
+            .filter-buttons {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+
+            .documents-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .document-card {
+                padding: 1rem;
+            }
+
+            .document-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-container {
+                padding: 0 8px;
+            }
+
+            .page-header {
+                padding: 1rem 0;
+            }
+
+            .page-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .controls-section {
+                margin-bottom: 1rem;
+            }
+
+            .filter-buttons {
+                overflow-x: auto;
+                padding-bottom: 4px;
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                flex-shrink: 0;
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+
+            .document-card {
+                border-radius: 8px;
+            }
+
+            .document-header {
+                gap: 0.75rem;
+            }
+
+            .document-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+
+            .document-title {
+                font-size: 1rem;
+            }
+
+            .document-description {
+                font-size: 0.875rem;
+            }
+
+            .download-section {
+                margin-top: 1rem;
+            }
+        }
+        @media (max-width: 360px) {
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .search-input {
+                padding: 0.75rem 1rem;
+            }
+
+            .filter-btn {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            .document-card {
+                padding: 1rem;
+            }
+
+            .document-title {
+                font-size: 0.9rem;
+            }
+
+            .document-description {
+                font-size: 0.8rem;
+            }
+        }
+        /* --- Footer düzeltmeleri --- */
+
+/* Logo: transform yerine net genişlik kullan */
+.footer-logo{
+  /* height: 7px;  <-- kaldır */
+  /* transform: scale(3); <-- kaldır */
+  width: 140px;       /* ihtiyaca göre 120-160px */
+  height: auto;
+  margin-top: 10px;
+  margin-right: 10px;
+  display: block;
+}
+
+/* Masaüstü: hafif yukarı çekmeyi margin ile yap istersen */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  /* transform: translateY(-20px); <-- kaldır */
+  margin-top: 0; /* masaüstünde sıfır */
+}
+
+/* Küçük ekran düzeni */
+@media (max-width: 768px) {
+
+  .footer-content {
+    flex-direction: column;   /* alt alta */
+    align-items: center;
+    text-align: center;
+    gap: 12px;                /* öğeler arası boşluk */
+  }
+
+  /* Footer içindeki her parça tam genişlikte satır kaplasın */
+  .footer-content > * {
+    flex: 1 1 100%;
+  }
+
+  /* Sosyal ikonları aşağı kaydırmayı margin ile yap */
+  .social-icons {
+    margin-top: 15px;
+  }
+
+  /* Logo çok büyükse küçült */
+  .footer-logo {
+    width: 120px;
+    margin-bottom: 12px;
+  }
+}
+
+/* Çok dar ekranlar için */
+@media (max-width: 400px) {
+  .footer-logo { width: 105px; }
+  .social-icons a { width: 32px; height: 32px; font-size: 14px; }
+}
+
+.sort-dropdown {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 8px 15px;
+    background: white;
+    color: #495057;
+    transition: all 0.3s ease;
+}
+
+.sort-dropdown:focus {
+    border-color: #022842;
+    box-shadow: 0 0 0 0.2rem rgba(2, 40, 66, 0.1);
+}
+        .preview-btn {
+            flex: 1;
+            background-color: #344e75;
+            color: white;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .preview-btn:hover {
+            background: white;
+             border: 1px solid black;
+            color: black;
+        }
+        @media (max-width: 992px){
+  .navbar{
+    position: static !important;
+    top: auto !important;
+  }
 }
