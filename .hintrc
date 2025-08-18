@@ -27,7 +27,19 @@
       }
     ],
     "no-inline-styles": "off",
-    "disown-opener": "off"
+    "disown-opener": "off",
+    "axe/structure": [
+      "default",
+      {
+        "listitem": "off"
+      }
+    ],
+    "axe/parsing": [
+      "default",
+      {
+        "duplicate-id-active": "off"
+      }
+    ]
   },
   "browserslist": [
     "defaults",
