@@ -31,7 +31,7 @@ const breadcrumbTitle = document.getElementById('breadcrumbTitle');
 // Global Variables
 let currentGalleryIndex = 0;
 let currentDeptIndex = 0;
-let totalDeptItems = departmentItems.length;
+let totalDeptItems = 3; // Toplam departman sayısı
 let autoSlideInterval;
 let viewCount = 0;
 
