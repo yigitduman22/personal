@@ -261,7 +261,7 @@ footer .container {
 /* YERİNE GELECEK YENİ KODLAR */
 
 .logo-container {
-    width: 300px; /* Değeri buradan büyüttük */
+    width: 310px; /* Değeri buradan büyüttük */
     transition: width 0.3s ease;
 }
 
