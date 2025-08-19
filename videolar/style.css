@@ -1,0 +1,95 @@
+/* Genel Sayfa Stilleri */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Öne Çıkan Video Alanı */
+.featured-video-placeholder {
+    position: relative;
+    background-color: #e9ecef;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #adb5bd;
+}
+
+/* Filtreleme Butonları */
+.nav-pills .nav-link {
+    font-weight: 500;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #022842;
+    box-shadow: 0 4px 15px rgba(2, 40, 66, 0.3);
+}
+
+/* Video Kartları Genel Yapısı */
+.video-card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.video-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
+}
+
+/* Kart Thumbnail ve Play İkonu */
+.card-thumbnail {
+    position: relative;
+    overflow: hidden;
+}
+.play-icon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.video-card:hover .play-icon-overlay {
+    opacity: 1;
+}
+
+/* Kart Başlığı */
+.card-title {
+    font-weight: 600;
+    color: #212529;
+}
+
+/* Kart Footer (Alt Bilgi) */
+.card-footer {
+    background-color: #fff;
+    border-top: 1px solid #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Kartı saran linkin stilini sıfırlama */
+.video-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+.video-card-link:hover {
+    color: inherit;
+}
+
+/* JS Filtreleme için Animasyonlu Geçiş */
+.video-item {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.video-item.hide {
+    transform: scale(0.95);
+    opacity: 0;
+    /* display: none anlık olarak eklenecek, bu animasyonun görünmesini sağlar */
+}
