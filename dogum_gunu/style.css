@@ -7,8 +7,6 @@
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 html, body {
-    /* Dikeyde taşma olsa bile, içerik ekrandan uzun değilse kaydırma çubuğunu gizle */
-    overflow: hidden;
     /* Genişliğin her zaman ekran kadar olmasını garantile */
     width: 100%;
     /* Yüksekliğin her zaman ekran kadar olmasını garantile */
@@ -27,11 +25,13 @@ html, body {
 
 .nav-container {
     display: flex;
-    justify-content: space-between; /* Anahtar kural: Elemanları aralıklı hizalar */
+    justify-content: space-between;
     align-items: center;
-    width: 90%;
-    max-width: 1600px; /* Daha geniş ekranlar için maksimum genişlik */
-    margin: auto;
+    width: 100%;
+    /* Kenar boşluklarını padding ile veriyoruz. 
+       (Değerler: üst-sağ-alt-sol) */
+    padding: 0 0px 0 20px;
+    box-sizing: border-box; /* ÖNEMLİ: Bu satır padding'in genişliği bozmamasını sağlar */
 }
 
 /* === NAVBAR BÖLÜMLERİ (SOL, ORTA, SAĞ) === */
@@ -853,6 +853,40 @@ body {
 .main-content {
     flex-grow: 1; /* Bu alan, footer'ı aşağı iterek mevcut tüm boş alanı doldursun */
 }
+
+/* === BAŞLIK RESPONSIVE AYARI === */
+/* Ekran 768px ve daha darsa bu stiller devreye girsin */
+@media (max-width: 768px) {
+    .page-header-container {
+        /* İkon ve yazıyı yan yana yerine alt alta getirir */
+        flex-direction: column;
+        /* İçerideki her şeyi ortalar */
+        align-items: center;
+        text-align: center;
+        padding: 20px 15px; /* Kenar boşluklarını mobile göre ayarlar */
+    }
+
+    .header-icon-wrapper {
+        margin-right: 0; /* Sağdaki boşluğu sıfırlar */
+        margin-bottom: 15px; /* Altına boşluk ekler */
+        
+        /* İkonu ve çerçevesini biraz küçültebiliriz */
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+    }
+
+    .header-title-main {
+        /* Ana başlığın fontunu mobile göre küçültür */
+        font-size: 1.4rem;
+    }
+
+    .header-subtitle {
+        /* Tarih yazısının fontunu ayarlar */
+        font-size: 0.9rem;
+    }
+}
+
 /* ================================================== */
 /* YENİ EKLENEN VE GÜNCELLENEN DOĞUM GÜNÜ STİLLERİ */
 /* ================================================== */
@@ -1009,4 +1043,26 @@ body {
 
 .kutla-btn .fa-gift {
     margin-right: 8px;
+}
+
+/* === NAVBAR MENÜSÜNÜ SAĞA YASLAMA (GARANTİ ÇÖZÜM) === */
+/* Sadece 993px ve üstü genişlikteki ekranlarda çalışacak */
+@media (min-width: 993px) {
+
+    /* 1. Sol taraftaki logo bölümünün tüm boşluğu doldurmasını sağlıyoruz. */
+    /* Bu hareket, diğer her şeyi otomatikman en sağa iter. */
+    .nav-left {
+        flex-grow: 1;
+    }
+
+    /* 2. Ortadaki menü konteynerinin gereksiz yer kaplamasını engelliyoruz. */
+    .nav-center {
+        flex-grow: 0;
+    }
+
+    /* 3. Menü linkleri ile profil ikonu arasına biraz boşluk koyuyoruz. */
+    /* Bu değeri değiştirerek boşluğu ayarlayabilirsin. */
+    .nav-links {
+        padding-right: 30px; 
+    }
 }

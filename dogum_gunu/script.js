@@ -85,57 +85,49 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 1, 
           ad: "Tümay", 
           soyad: "AKSAN", 
-          dogumTarihi: "1995-08-18", 
-          departman: "Bilgi İşlem",
+          dogumTarihi: "1995-08-19", 
           fotoUrl: "/images/dogum_gunu/37604190820-tumay-aksan_3957.jpg" },
 
         { id: 2, 
           ad: "Yavuz", 
           soyad: "AĞAÇ", 
-          dogumTarihi: "1992-08-18", 
-          departman: "İnsan Kaynakları", 
+          dogumTarihi: "1992-08-19", 
           fotoUrl: "/images/dogum_gunu/32980582726-yavuz-a-ac_5843.jpg" },
 
         { id: 3, 
           ad: "Zeynep", 
           soyad: "YILMAZ", 
-          dogumTarihi: "1995-08-18", 
-          departman: "Mali Hizmetler", 
+          dogumTarihi: "1995-08-19",  
           fotoUrl: "/images/dogum_gunu/manzara.jpg" },
 
         { id: 4, 
           ad: "Fatih", 
           soyad: "SULTAN MEHMET", 
-          dogumTarihi: "1990-08-18", 
-          departman: "Fen İşleri", 
+          dogumTarihi: "1990-08-19", 
           fotoUrl: "/images/dogum_gunu/Fatih.jpg" },
 
           { id: 4, 
           ad: "Fatih", 
           soyad: "SULTAN MEHMET", 
-          dogumTarihi: "1990-08-18", 
-          departman: "Fen İşleri", 
+          dogumTarihi: "1990-08-19", 
           fotoUrl: "/images/dogum_gunu/Fatih.jpg" },
 
           { id: 4, 
           ad: "Fatih", 
           soyad: "SULTAN MEHMET", 
-          dogumTarihi: "1990-08-18", 
-          departman: "Fen İşleri", 
+          dogumTarihi: "1990-08-19",  
           fotoUrl: "/images/dogum_gunu/Fatih.jpg" },
 
           { id: 4, 
           ad: "Fatih", 
           soyad: "SULTAN MEHMET", 
-          dogumTarihi: "1990-08-18", 
-          departman: "Fen İşleri", 
+          dogumTarihi: "1990-08-19", 
           fotoUrl: "/images/dogum_gunu/Fatih.jpg" },
 
           { id: 4, 
           ad: "Fatih", 
           soyad: "SULTAN MEHMET", 
-          dogumTarihi: "1990-08-18", 
-          departman: "Fen İşleri", 
+          dogumTarihi: "1990-08-19", 
           fotoUrl: "/images/dogum_gunu/Fatih.jpg" },
     ];
 
@@ -160,12 +152,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <img src="${personel.fotoUrl}" class="card-img-top" alt="${personel.ad} ${personel.soyad}">
                         <div class="card-body">
                             <div>
-                                <h5 class="card-title">${personel.ad} ${personel.soyad} <i class="fa-solid fa-cake-candles" style="color: #f39c12;"></i></h5>
-                                <p class="card-text">${personel.departman}</p>
+                                <h5 class="card-title">${personel.ad} ${personel.soyad}</h5>
                             </div>
-                            <button class="btn kutla-btn">
-                                <i class="fa-solid fa-gift"></i> Kutla!
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -175,27 +163,4 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         bosMesajElementi.classList.remove("d-none");
     }
-
-    // "Kutla!" butonlarına tıklama olayını ekle
-    document.querySelectorAll('.kutla-btn').forEach(button => {
-        button.addEventListener('click', function(event) {
-            const card = event.target.closest('.birthday-card');
-            patlatKonfeti(card);
-        });
-    });
-
-    // Belirli bir elementin üzerinden konfeti patlatan fonksiyon
-    function patlatKonfeti(element) {
-        const rect = element.getBoundingClientRect();
-        const x = (rect.left + rect.right) / 2 / window.innerWidth;
-        const y = (rect.top + rect.bottom) / 2 / window.innerHeight;
-
-        confetti({
-            particleCount: 150,
-            spread: 90,
-            origin: { x, y },
-            colors: ['#f39c12', '#f1c40f', '#e67e22', '#ffffff']
-        });
-    }
-
 });
