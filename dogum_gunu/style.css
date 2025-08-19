@@ -352,8 +352,8 @@ footer .container {
     background: white;
     border-radius: 16px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    width: 80vw; /* Genişliği ekranın %80'i kadar olsun */          /* Genişliği ekranın genişliğinin %95'i yap */
-    max-width: 1100px; /* Ama en fazla 1100px olsun, çok devasa görünmesin */    opacity: 0;
+    width: 90vw;  /* Ekranın %90'ını kaplasın ama... */    max-width: 1100px; /* Ama en fazla 1100px olsun, çok devasa görünmesin */    opacity: 0;
+    max-width: 850px; /* EN FAZLA bu kadar geniş olsun. Boşluğu bu çözecek. */
     padding: 25px;
     visibility: hidden;
     transform: translateX(-50%) translateY(-10px);
