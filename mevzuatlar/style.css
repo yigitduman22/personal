@@ -744,7 +744,7 @@
 
         /* Ana Container */
         .main-container {
-            max-width: 1600px;
+            max-width: 1660px;
             margin: 0 auto;
             padding: 2rem;
         }
@@ -1030,13 +1030,14 @@
             background: white;
             color: black;
             border: 2px solid black;
-            padding: 1rem;
+            padding: 0.75rem;
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 200px;
         }
 
         .preview-btn:hover {
@@ -1045,9 +1046,39 @@
             border: none;
         }
 
-      
+        .preview-btn2 {
+            background: #344e75;
+            color: white;
+            border: 2px solid #344e75;
+            padding: 0.75rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+        }
 
-
+        .preview-btn2:hover {
+            background: white;
+            color: black;
+            border: 2px solid black;
+        }
+/* Dropdown Menu Ok İşareti */
+.nav-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid white;
+    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+}
 /* Footer stilleri */
 footer {
     background-color: #022842;
