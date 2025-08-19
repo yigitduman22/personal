@@ -325,9 +325,8 @@ footer .container {
 /* ========== NAVBAR DROPDOWN STİLLERİ ========== */
 
 /* Dropdown Container */
-/* Referans noktasını sıfırlıyoruz ki menü kendini butona göre değil, ekrana göre hizalasın */
 .nav-dropdown {
-    position: static !important;
+    position: relative;
 }
 
 /* Dropdown Toggle (Ana Buton) */
@@ -345,20 +344,19 @@ footer .container {
 /* Dropdown Menu - 4 sütun için genişletildi */
 .nav-dropdown-menu {
     position: absolute;
-    top: 100%; /* Açıldığı butonun hemen altında başlasın */
-    left: 50%; /* Ortalanması için */
+    top: calc(100% + 15px);
+    left: 50%;
     margin-left: 30px;
-    transform: translateX(-50%); /* Ortalanması için */
+    transform: translateX(-50%);
     background: white;
     border-radius: 16px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    width: 90vw;  /* Ekranın %90'ını kaplasın ama... */    max-width: 1100px; /* Ama en fazla 1100px olsun, çok devasa görünmesin */    opacity: 0;
-    max-width: 850px;     /* EN FAZLA bu kadar geniş olsun. Boşluğu bu çözecek. */
-    padding: 25px;
+     width: 95vw;          /* Genişliği ekranın genişliğinin %95'i yap */
+    max-width: 1500px;    /* Ama en fazla 1500px olsun, dev gibi görünmesin */
+    opacity: 0;
     visibility: hidden;
     transform: translateX(-50%) translateY(-10px);
     transition: all 0.3s ease;
-    opacity: 0;
     z-index: 1000;
     border: 1px solid rgba(0, 0, 0, 0.06);
 }
@@ -377,7 +375,7 @@ footer .container {
 /* Dropdown Grid Layout - 4 sütun */
 .dropdown-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* 3'ten 4'e çıkarıldı */
     gap: 0;
     row-gap: 20px;
 }
