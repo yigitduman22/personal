@@ -1,4 +1,46 @@
 /* Genel Sayfa Stilleri */
+/* --- ADIM 1: AKIŞKAN YAZI BOYUTU SİSTEMİ (FLUID TYPOGRAPHY) --- */
+/* Burada sayfa için dinamik font boyutları tanımlıyoruz */
+:root {
+    --font-size-base: clamp(0.9rem, 1.5vw, 1.1rem);      /* Normal yazılar için */
+    --font-size-lg:   clamp(1rem, 2vw, 1.25rem);       /* Kart başlıkları gibi */
+    --font-size-xl:   clamp(1.2rem, 3vw, 1.75rem);      /* Orta boy başlıklar için */
+    --font-size-display: clamp(1.8rem, 5vw, 2.8rem); /* Ana, büyük başlıklar için */
+}
+
+/* --- ADIM 2: YENİ SİSTEMİ SAYFAYA UYGULAMA --- */
+
+/* Bütün normal yazıların temel boyutu artık bu olacak */
+body {
+    font-size: var(--font-size-base) !important; 
+}
+
+/* Öne çıkan videonun ana başlığı */
+.featured-video-section h1.display-5 {
+    font-size: var(--font-size-display) !important;
+    line-height: 1.1; /* Satır yüksekliğini ayarlayalım */
+}
+
+/* Öne çıkan videonun açıklama yazısı */
+.featured-video-section p.lead {
+    font-size: var(--font-size-lg) !important;
+}
+
+/* Video kartlarının başlıkları */
+.card-title {
+    font-size: var(--font-size-lg) !important;
+}
+
+/* Kartların altındaki kategori ve süre bilgisi */
+.card-footer small {
+    font-size: var(--font-size-base) !important;
+}
+
+/* Filtre butonlarının yazıları */
+.nav-pills .nav-link {
+    font-size: var(--font-size-base) !important;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f8f9fa;

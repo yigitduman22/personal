@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Ana Filtreleme Fonksiyonumuz ---
     const performFilter = () => {
-        // ... (Bu fonksiyon aynı kalıyor, değişiklik yok) ...
         const selectedCategory = document.querySelector('.nav-pills .nav-link.active').getAttribute('data-category');
         const searchTerm = searchInput.value.toLowerCase();
         let visibleCount = 0;
@@ -53,9 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- MODAL VİDEO OYNATMA MANTIĞI (YENİ EKLENDİ) ---
     // Modal açılmadan hemen önce bu olay tetiklenir
     videoModalEl.addEventListener('show.bs.modal', (event) => {
-        // Tıklanan kartı buluyoruz (event.relatedTarget)
-        const clickedCard = event.relatedTarget;
-        const youtubeId = clickedCard.getAttribute('data-youtube-id');
+        // Tıklanan elemanı buluyoruz (ister kart, ister buton olsun)
+        const clickedElement = event.relatedTarget;
+        const youtubeId = clickedElement.getAttribute('data-youtube-id');
         
         if (youtubeId) {
             // Iframe'in src'sini autoplay parametresi ile güncelliyoruz
@@ -68,4 +67,5 @@ document.addEventListener('DOMContentLoaded', () => {
     videoModalEl.addEventListener('hidden.bs.modal', () => {
         youtubeIframe.setAttribute('src', '');
     });
+
 });
