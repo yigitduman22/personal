@@ -21,8 +21,11 @@ body {
     font-weight: 500;
 }
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    background-color: #022842;
-    box-shadow: 0 4px 15px rgba(2, 40, 66, 0.3);
+    color: white;
+    background-image: linear-gradient(to right, #00529B, #022842); /* Kurumsal mavi tonlarıyla renk geçişi */
+    background-color: transparent; /* Eski düz rengi iptal ediyoruz */
+    box-shadow: 0 4px 15px rgba(2, 40, 66, 0.4);
+    transform: translateY(-2px);
 }
 
 /* Video Kartları Genel Yapısı */
@@ -31,9 +34,10 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
+/* Video Kartları Hover Efekti (GÜNCELLENDİ) */
 .video-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 12px 30px -5px rgba(0, 40, 66, 0.2) !important; /* Daha yumuşak ve modern gölge */
 }
 
 /* Kart Thumbnail ve Play İkonu */
@@ -92,4 +96,51 @@ body {
     transform: scale(0.95);
     opacity: 0;
     /* display: none anlık olarak eklenecek, bu animasyonun görünmesini sağlar */
+}
+
+/* Ana Buton Stili (YENİ EKLENDİ) */
+.btn-primary {
+    background-image: linear-gradient(to right, #f39c12, #e67e22); /* Kurumsal turuncu tonları */
+    border: none;
+    transition: all 0.3s ease;
+    font-weight: 600 !important;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(243, 156, 18, 0.5);
+}
+
+/* --- TİPOGRAFİ İYİLEŞTİRMELERİ --- */
+
+/* Öne Çıkan Videonun Ana Başlığı (Daha tok bir görünüm için) */
+.featured-video-section h1.display-5 {
+    letter-spacing: -1px; 
+}
+
+/* Video Kartlarının Başlıkları (Daha okunaklı ve vurgulu) */
+.card-title {
+    font-weight: 600; /* Kalınlığını teyit edelim */
+    color: #2c3e50; /* Saf siyah yerine laciverte yakın, daha yumuşak bir ton */
+    transition: color 0.3s ease; /* Rengin yumuşak değişimi için */
+}
+
+/* Kartın üzerine gelince başlık rengi kurumsal laciverte dönsün */
+.video-card:hover .card-title {
+    color: #022842; 
+}
+
+/* --- MİKRO ANİMASYONLAR --- */
+
+/* Kartın üzerindeki Play İkonu için */
+.play-icon-overlay i {
+    transition: transform 0.3s ease; /* Yumuşak geçiş efekti */
+}
+.video-card:hover .play-icon-overlay i {
+    transform: scale(1.2); /* Üzerine gelince ikon hafifçe büyüsün */
+}
+
+/* Öne çıkan alandaki "Tümünü Gör" butonu için */
+.btn-outline-secondary:hover {
+    transform: translateY(-2px); /* Buton hafifçe yukarı kaysın */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Hafif bir gölge eklensin */
 }
