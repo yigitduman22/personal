@@ -28,21 +28,22 @@ body {
     transform: translateY(-2px);
 }
 
-/* Video Kartları Genel Yapısı */
+/* 1. Video Kartlarının Temel Stili */
 .video-card {
-    border: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;  /* Çok hafif, silik bir kenarlık */
+    transition: all 0.3s ease; /* Bütün animasyonlar için yumuşak geçiş */
     cursor: pointer;
+    background-color: #ffffff; /* Kartların beyaz arkaplanı olmasını garantile */
 }
-/* Video Kartları Hover Efekti (GÜNCELLENDİ) */
+/* 2. Kartların Üzerine Gelince (Hover) Olacaklar */
 .video-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px -5px rgba(0, 40, 66, 0.2) !important; /* Daha yumuşak ve modern gölge */
+    transform: translateY(-5px); /* Kartı 5px yukarı kaldır */
+    box-shadow: 0 12px 25px rgba(0, 40, 66, 0.15); /* Modern, yumuşak gölge */
 }
 
-/* Kart Thumbnail ve Play İkonu */
+/* 3. Resim Alanı ve Üzerindeki "Play" İkonu */
 .card-thumbnail {
-    position: relative;
+    position: relative; /* Play ikonunu konumlandırmak için gerekli */
     overflow: hidden;
 }
 .play-icon-overlay {
@@ -51,15 +52,16 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(2, 40, 66, 0.5); /* Kurumsal lacivertin yarı şeffaf hali */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: white;
-    opacity: 0;
+    opacity: 0; /* Normalde görünmez */
     transition: opacity 0.3s ease;
 }
+/* Kartın üzerine gelince "Play" ikonunu görünür yap */
 .video-card:hover .play-icon-overlay {
     opacity: 1;
 }
