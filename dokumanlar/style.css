@@ -750,9 +750,54 @@ body {
     flex-grow: 1; /* Bu alan, footer'ı aşağı iterek mevcut tüm boş alanı doldursun */
 }
 
+/* Dropdown Menu Ok İşareti */
+.nav-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 63%;
+    transform: translateX(-63%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid white;
+    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+}
+/* Dropdown Menu Ok İşareti */
+.nav-dropdown-menu2::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 85%;
+    transform: translateX(-85%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid white;
+    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Dropdown Menu Ok İşareti */
+.nav-dropdown-menu3::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 98%;
+    transform: translateX(-98%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid white;
+    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+}
+
+
         /* Ana Container */
         .main-container {
-            max-width: 1600px;
+            max-width: 1650px;
             margin: 0 auto;
             padding: 2rem;
         }

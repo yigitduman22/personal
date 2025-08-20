@@ -744,7 +744,7 @@
 
         /* Ana Container */
         .main-container {
-            max-width: 1600px;
+            max-width: 1650px;
             margin: 0 auto;
             padding: 2rem;
         }
@@ -1030,13 +1030,14 @@
             background: white;
             color: black;
             border: 2px solid black;
-            padding: 1rem;
+            padding: 0.75rem;
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 100%;
         }
 
         .preview-btn:hover {
