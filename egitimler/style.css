@@ -1377,3 +1377,100 @@ footer .container {
     top: auto !important;
   }
 }
+/* === Pagination === */
+.pagination-bar{
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  margin:1.25rem 0; flex-wrap:wrap;
+}
+.pagination{ display:flex; gap:.5rem; flex-wrap:wrap; }
+.page-btn{
+  border:1px solid rgba(0,0,0,.15); background:#fff; padding:.4rem .7rem; border-radius:.5rem;
+  font-size:.95rem; cursor:pointer;
+}
+.page-btn:hover{ box-shadow:0 2px 6px rgba(0,0,0,.08); }
+.page-btn.active{ font-weight:600; border-color:rgba(0,0,0,.35); }
+.page-btn:disabled{ opacity:.5; cursor:not-allowed; }
+.page-ellipsis{ padding:.4rem .2rem; }
+.page-info{ font-size:.95rem; opacity:.85; }
+.page-size label{ margin-right:.4rem; font-size:.9rem; opacity:.8; }
+.page-size select{ padding:.35rem .5rem; border-radius:.4rem; border:1px solid rgba(0,0,0,.15); }
+
+/* Pagination’ın gizlemek için kullandığı sınıf (filtre/arama ile çakışmaz) */
+.paginate-hide{ display:none !important; }
+/* Orta ve küçük ekranlarda ortala, alt alta gelsin */
+@media (max-width: 768px){
+  .pagination-bar{ justify-content:center; }
+  .page-info{ width:100%; text-align:center; order:3; }
+  .page-size{ order:1; }
+  .pagination{ order:2; }
+}
+
+/* Çok küçük ekranda buton tıklanabilirliğini artır */
+@media (max-width: 480px){
+  .page-btn{ padding:.5rem .65rem; font-size:.95rem; }
+  .page-size select{ padding:.4rem .55rem; }
+}
+/* === DOWNLOAD BUTTONS: responsive & taşma düzeltmeleri === */
+.download-section{
+  display:flex;
+  gap:12px;                 /* mobilde biraz daha dar boşluk */
+  flex-wrap:wrap;           /* kırılabilsin */
+  align-items:stretch;
+}
+
+/* Butonların kutu hesabı net olsun, taşma yapmasın */
+.download-section .preview-btn,
+.download-section .preview-btn2{
+  box-sizing:border-box;
+  min-width:0;              /* flex çocuklarında taşmaları keser */
+  flex:1 1 0;               /* 3’lü düzende eşit paylaşılsın */
+  white-space:nowrap;       /* tek satır */
+  overflow:hidden;
+  text-overflow:ellipsis;   /* metin uzun ise … */
+}
+
+/* Tablet ve altı: 2 sütun (50% - gap) + üçüncü buton altta */
+@media (max-width: 768px){
+  .download-section .preview-btn,
+  .download-section .preview-btn2{
+    flex:1 1 calc(50% - 6px);
+    max-width:calc(50% - 6px);
+    padding:.85rem 1rem;    /* iç boşluğu biraz küçült */
+    font-size:.95rem;
+  }
+  /* 3. buton tek başına tam satır kaplasın (isteğe bağlı) */
+  .download-section .preview-btn:nth-child(3),
+  .download-section .preview-btn2:nth-child(3){
+    flex:1 1 100%;
+    max-width:100%;
+  }
+}
+
+/* Küçük mobil: her buton %100 */
+@media (max-width: 480px){
+  .download-section .preview-btn,
+  .download-section .preview-btn2{
+    flex:1 1 100%;
+    max-width:100%;
+    padding:.8rem 1rem;
+    font-size:.95rem;
+  }
+}
+
+/* Hover’da border değişimi genişliği zıplatmasın */
+.preview-btn,
+.preview-btn2{
+  border-width:2px;           /* normalde de 2px olsun */
+}
+.preview-btn:hover{
+  border-color:black;         /* hover’da sadece renk değişsin */
+}
+.preview-btn2:hover{
+  border-color:#344e75;
+}
+
+/* İkon/metin hizası daha sıkı dursun */
+.preview-btn i,
+.preview-btn2 i{
+  flex:0 0 auto;
+}

@@ -214,14 +214,43 @@ body {
         .dropdown-item:hover .dropdown-description {
             color: #666 !important;
         }
-
+.mobile-menu-toggle { display: none; }
 /* Dropdown Menu Ok İşareti */
 .nav-dropdown-menu::before {
     content: '';
     position: absolute;
     top: -9px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 70%;
+    transform: translateX(-70%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid white;
+    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+}
+/* Dropdown Menu Ok İşareti */
+.nav-dropdown-menu2::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 95%;
+    transform: translateX(-95%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid white;
+    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Dropdown Menu Ok İşareti */
+.nav-dropdown-menu3::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 98%;
+    transform: translateX(-98%);
     width: 0;
     height: 0;
     border-left: 9px solid transparent;
@@ -752,6 +781,17 @@ footer .container {
     transform: none;
     opacity: 0.6;
 }
+.title-v2{
+  position:relative; display:inline-flex; align-items:center; gap:10px;
+  background:#fff; color:#344e75; 
+  padding:16px ; 
+  border-radius:10px;
+  font-weight:700; font-size:28px;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  border-left: 4px solid #344e75;
+  width: 1160px !important;
+}
+
 
 .sayfa-bilgisi {
     font-size: 1rem;
@@ -790,7 +830,7 @@ footer .container {
     padding: 2rem 1.5rem;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     position: relative;
     overflow: hidden;
 }
@@ -802,18 +842,18 @@ footer .container {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #ff6b35, #f7931e, #ff6b35);
+   
     border-radius: 1rem 1rem 0 0;
 }
 
 .otomasyon-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-    border-color: #0d6efd;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.699);
+   
 }
 
 .otomasyon-item:hover::before {
-    background: linear-gradient(90deg, #1b3f8b, #0d6fed, #1b3f8b);
+  
 }
 
 .otomasyon-isim {
