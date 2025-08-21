@@ -88,6 +88,7 @@ body {
 /* JS tarafından eklenecek olan, soluklaştırma class'ı */
 #video-grid.is-fading {
     opacity: 0;
+    transform: translateY(15px); /* Kaybolurken hafifçe aşağı kaysın */
 }
 
 /* 1. Video Kartlarının Temel Stili */
@@ -207,4 +208,39 @@ body {
 .btn-outline-secondary:hover {
     transform: translateY(-2px); /* Buton hafifçe yukarı kaysın */
     box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Hafif bir gölge eklensin */
+}
+/* --- GİRİŞ ANİMASYONLARI --- */
+
+/* Aşağıdan yukarı kayarak belirme animasyonu */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animasyonları bölümlere farklı gecikmelerle uygula */
+.featured-video-section {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.filters-and-search-section {
+    animation: fadeInUp 0.6s ease-out 0.2s forwards; /* 0.2s sonra başla */
+    opacity: 0; /* Gecikme sırasında görünmez olmasını garantile */
+}
+
+#video-grid, .pagination {
+    animation: fadeInUp 0.6s ease-out 0.4s forwards; /* 0.4s sonra başla */
+    opacity: 0; /* Gecikme sırasında görünmez olmasını garantile */
+}
+/* --- BUTON TIKLAMA ANİMASYONU --- */
+
+/* :active durumu, bir elemana fare ile basılı tutulduğu anı temsil eder */
+.btn:active, .nav-pills .nav-link:active {
+    transform: translateY(1px) scale(0.98); /* Hafifçe aşağı indir ve küçült */
+    box-shadow: none; /* Tıklama anında gölgeyi kaldırarak içeri gömülme hissi ver */
 }
