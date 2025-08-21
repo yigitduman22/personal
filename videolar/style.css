@@ -35,6 +35,15 @@ body {
 .card-footer small {
     font-size: var(--font-size-base) !important;
 }
+.card-footer small i {
+    margin-right: 0.3em; /* İkon ve yazı arasındaki boşluğu ayarlar */
+    font-size: 0.9em; /* İkon boyutunu ayarlar */
+    color: #6c757d; /* İkon rengini ayarlar (açık gri) */
+}
+
+.card-footer small {
+    font-size: 0.85em; /* Yazı boyutunu ayarlar */
+}
 
 /* Filtre butonlarının yazıları */
 .nav-pills .nav-link {
@@ -68,6 +77,17 @@ body {
     background-color: transparent; /* Eski düz rengi iptal ediyoruz */
     box-shadow: 0 4px 15px rgba(2, 40, 66, 0.4);
     transform: translateY(-2px);
+}
+
+/* --- Sayfa Geçiş Animasyonu İçin --- */
+
+#video-grid {
+    transition: opacity 0.2s ease-in-out; /* Opaklık değişimini 0.2 saniyede yumuşakça yap */
+}
+
+/* JS tarafından eklenecek olan, soluklaştırma class'ı */
+#video-grid.is-fading {
+    opacity: 0;
 }
 
 /* 1. Video Kartlarının Temel Stili */
