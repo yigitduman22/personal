@@ -358,12 +358,12 @@
         }
 
 /* Dropdown Menu Ok İşareti */
-.nav-dropdown-menu::before {
+.nav-dropdown-menu::before{
     content: '';
     position: absolute;
     top: -9px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 73%;
+    transform: translateX(-73%);
     width: 0;
     height: 0;
     border-left: 9px solid transparent;
@@ -371,6 +371,36 @@
     border-bottom: 9px solid white;
     filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
 }
+/* Dropdown Menu Ok İşareti */
+.nav-dropdown-menu2::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 94%;
+    transform: translateX(-94%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid white;
+    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Dropdown Menu Ok İşareti */
+.nav-dropdown-menu3::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 98%;
+    transform: translateX(-98%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid white;
+    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+}
+
 
 .nav-dropdown:hover .nav-dropdown-menu {
     opacity: 1;
@@ -730,7 +760,7 @@ body{
   font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
   background-color: #fff;
 }
-.main-container{ max-width:1600px; margin:0 auto; padding:2rem; }
+.main-container{ max-width:1680px !important; margin:0 auto; padding:2rem; }
 
 /* Header Bölümü */
 .page-header{
@@ -989,20 +1019,6 @@ body {
   height: var(--y-gap);              /* boşluğu köprüyle kapat */
   z-index: 0;                        /* menünün altında kalsın; hover'ı korur */
 }
-
-/* Ok işaretini de aynı yatay ofsete göre hizala (opsiyonel) */
-.nav-dropdown.dd-safe .nav-dropdown-menu::before{
-  left: calc(1.75rem + var(--x-shift)); /* gerektiğinde 1.5–2.2rem arası oynat */
-  transform: none;
-}
-
-
-/* Ok (üçgen) tamamen kapalı */
-.nav-dropdown-menu::before{
-  display: none !important;
-  content: none !important;
-}
-
 
 /* Masaüstü ve tablet: 3 sütun */
 .documents-grid {

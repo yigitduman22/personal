@@ -220,8 +220,37 @@ body {
     content: '';
     position: absolute;
     top: -9px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 70%;
+    transform: translateX(-70%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid white;
+    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+}
+/* Dropdown Menu Ok İşareti */
+.nav-dropdown-menu2::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 95%;
+    transform: translateX(-95%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid white;
+    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Dropdown Menu Ok İşareti */
+.nav-dropdown-menu3::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 98%;
+    transform: translateX(-98%);
     width: 0;
     height: 0;
     border-left: 9px solid transparent;

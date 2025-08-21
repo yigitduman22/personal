@@ -755,8 +755,8 @@ body {
     content: '';
     position: absolute;
     top: -9px;
-    left: 63%;
-    transform: translateX(-63%);
+    left: 73%;
+    transform: translateX(-73%);
     width: 0;
     height: 0;
     border-left: 9px solid transparent;
@@ -769,8 +769,8 @@ body {
     content: '';
     position: absolute;
     top: -9px;
-    left: 85%;
-    transform: translateX(-85%);
+    left: 94%;
+    transform: translateX(-94%);
     width: 0;
     height: 0;
     border-left: 9px solid transparent;

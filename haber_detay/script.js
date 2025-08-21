@@ -45,7 +45,7 @@ const detayGorseller = [
     const galleryDotsContainer = document.getElementById('gallery-dots');
 
     if (mainImage && mainTitle && galleryTrack && detayGorseller.length > 1) {
-        const itemsPerView = 5;
+        const itemsPerView = 7;
         const totalGroups = Math.ceil(detayGorseller.length / itemsPerView);
         let currentGroupIndex = 0;
         let selectedImageIndex = 0;

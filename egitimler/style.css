@@ -282,8 +282,8 @@
     content: '';
     position: absolute;
     top: -9px;
-    left: 63%;
-    transform: translateX(-63%);
+    left: 70%;
+    transform: translateX(-70%);
     width: 0;
     height: 0;
     border-left: 9px solid transparent;
@@ -296,8 +296,8 @@
     content: '';
     position: absolute;
     top: -9px;
-    left: 85%;
-    transform: translateX(-85%);
+    left: 98%;
+    transform: translateX(-98%);
     width: 0;
     height: 0;
     border-left: 9px solid transparent;
