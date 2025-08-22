@@ -544,7 +544,7 @@ document.addEventListener('DOMContentLoaded', function() {
         bugunDoganlar.forEach(personel => {
             // Yeni kart yapısına uygun HTML oluşturuluyor
             const cardHtml = `
-                <div class="col-lg-3 col-md-6 mb-4">
+                <div class="col">
                     <div class="birthday-card">
                         <img src="${personel.fotoUrl}" class="card-img-top" alt="${personel.ad} ${personel.soyad}">
                         <div class="card-body">
