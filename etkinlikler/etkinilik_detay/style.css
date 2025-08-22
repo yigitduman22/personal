@@ -831,7 +831,7 @@
 
 /* Haber kartları - 6 haber için tam simetrik */
 .other-news-item {
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 0px solid #e9ecef;
     padding: 10px 12px !important; /* Padding 15px'den 10px'e düşürüldü */
     margin: 0;
     margin-bottom: 1px !important; /* Margin 2px'den 1px'e düşürüldü */
