@@ -1133,3 +1133,49 @@ body {
     transform: translateY(1px) scale(0.98); /* Hafifçe aşağı indir ve küçült */
     box-shadow: none; /* Tıklama anında gölgeyi kaldırarak içeri gömülme hissi ver */
 }
+
+/* === YENİ VE MODERN SAYFALAMA TASARIMI === */
+
+/* Konteynerin genel stili */
+.custom-pagination {
+  padding: 0;
+  background-color: #ffffff;
+  border-radius: 50px; /* Kenarları tamamen yuvarlak yapıyoruz */
+  box-shadow: 0 5px 20px rgba(0, 40, 66, 0.1); /* Daha belirgin, modern bir gölge */
+  display: inline-flex; /* İçerik kadar yer kaplasın diye */
+}
+
+/* Bütün butonların (linklerin) temel stili */
+.custom-pagination .page-link {
+  border: none; /* Kenarlıkları tamamen kaldırıyoruz */
+  background-color: transparent; /* Arka planı şeffaf yapıyoruz */
+  color: #022842; /* Kurumsal lacivert rengini kullanıyoruz */
+  font-weight: 600; /* Yazılar daha tok dursun */
+  border-radius: 50px; /* Butonlar da yuvarlak olsun */
+  margin: 5px; /* Butonlar arasında boşluk bırakıyoruz */
+  padding: 0.5rem 1rem; /* İç boşluğu ayarlıyoruz */
+  transition: all 0.3s ease; /* Yumuşak geçiş efekti */
+}
+
+/* Butonların üzerine gelince (hover) olacaklar */
+.custom-pagination .page-link:hover {
+  background-color: #f0f5fa; /* Çok hafif bir mavi tonu */
+  color: #00529B; /* Rengi biraz açıyoruz */
+  transform: translateY(-2px); /* Hafif yukarı kalksın */
+}
+
+/* Aktif olan sayfa butonu */
+.custom-pagination .page-item.active .page-link {
+  color: white;
+  /* Filtre butonlarındaki o güzel gradient'ı burada da kullanıyoruz */
+  background-image: linear-gradient(to right, #00529B, #022842); 
+  box-shadow: 0 4px 15px rgba(2, 40, 66, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Pasif (disabled) olan "Önceki" ve "Sonraki" butonları */
+.custom-pagination .page-item.disabled .page-link {
+  color: #adb5bd; /* Soluk bir gri */
+  background-color: transparent;
+  pointer-events: none; /* Tıklamayı engelle */
+}

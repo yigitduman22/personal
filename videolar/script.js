@@ -100,10 +100,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         paginationContainer.style.display = 'flex';
         // ... (sayfalama butonlarını oluşturma mantığı)
-        paginationContainer.innerHTML += `<li class="page-item ${currentPage === 1 ? 'disabled' : ''}"><a class="page-link" href="#" data-page="${currentPage - 1}">Önceki</a></li>`;
+        paginationContainer.innerHTML += `<li class="page-item ${currentPage === 1 ? 'disabled' : ''}"><a class="page-link" href="#" aria-label="Önceki" data-page="${currentPage - 1}"><i class="fas fa-chevron-left"></i></a></li>`;
+
+        // Sayfa numaraları aynı kalıyor
         for (let i = 1; i <= totalPages; i++) {
             paginationContainer.innerHTML += `<li class="page-item ${i === currentPage ? 'active' : ''}"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
         }
+
+// Sonraki butonu için ikon ekliyoruz
+paginationContainer.innerHTML += `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}"><a class="page-link" href="#" aria-label="Sonraki" data-page="${currentPage + 1}"><i class="fas fa-chevron-right"></i></a></li>`;
         paginationContainer.innerHTML += `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}"><a class="page-link" href="#" data-page="${currentPage + 1}">Sonraki</a></li>`;
     };
 
