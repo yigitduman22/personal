@@ -476,4 +476,88 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
         });
+
+ // Örnek personel verisi (Departman bilgisi eklendi)
+    const personeller = [
+        { id: 1, 
+          ad: "Tümay", 
+          soyad: "AKSAN", 
+          dogumTarihi: "1995-08-21", 
+          fotoUrl: "/images/dogum_gunu/37604190820-tumay-aksan_3957.jpg" },
+
+        { id: 2, 
+          ad: "Yavuz", 
+          soyad: "AĞAÇ", 
+          dogumTarihi: "1992-08-21", 
+          fotoUrl: "/images/dogum_gunu/32980582726-yavuz-a-ac_5843.jpg" },
+
+        { id: 3, 
+          ad: "Zeynep", 
+          soyad: "YILMAZ", 
+          dogumTarihi: "1995-08-22",  
+          fotoUrl: "/images/dogum_gunu/manzara.jpg" },
+
+        { id: 4, 
+          ad: "Fatih", 
+          soyad: "SULTAN MEHMET", 
+          dogumTarihi: "1990-08-22", 
+          fotoUrl: "/images/dogum_gunu/Fatih.jpg" },
+
+          { id: 4, 
+          ad: "Fatih", 
+          soyad: "SULTAN MEHMET", 
+          dogumTarihi: "1990-08-22", 
+          fotoUrl: "/images/dogum_gunu/Fatih.jpg" },
+
+          { id: 4, 
+          ad: "Fatih", 
+          soyad: "SULTAN MEHMET", 
+          dogumTarihi: "1990-08-22",  
+          fotoUrl: "/images/dogum_gunu/Fatih.jpg" },
+
+          { id: 4, 
+          ad: "Fatih", 
+          soyad: "SULTAN MEHMET", 
+          dogumTarihi: "1990-08-22", 
+          fotoUrl: "/images/dogum_gunu/Fatih.jpg" },
+
+          { id: 4, 
+          ad: "Fatih", 
+          soyad: "SULTAN MEHMET", 
+          dogumTarihi: "1990-08-22", 
+          fotoUrl: "/images/dogum_gunu/Fatih.jpg" },
+    ];
+
+    const bugun = new Date();
+    const bugunAy = String(bugun.getMonth() + 1).padStart(2, "0");
+    const bugunGun = String(bugun.getDate()).padStart(2, "0");
+
+    const bugunDoganlar = personeller.filter(p => {
+        const [, ay, gun] = p.dogumTarihi.split("-");
+        return ay === bugunAy && gun === bugunGun;
+    });
+
+    const listeElementi = document.getElementById("personelListesi");
+    const bosMesajElementi = document.getElementById("bosMesaj");
+
+    if (bugunDoganlar.length > 0) {
+        bugunDoganlar.forEach(personel => {
+            // Yeni kart yapısına uygun HTML oluşturuluyor
+            const cardHtml = `
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="birthday-card">
+                        <img src="${personel.fotoUrl}" class="card-img-top" alt="${personel.ad} ${personel.soyad}">
+                        <div class="card-body">
+                            <div>
+                                <h5 class="card-title">${personel.ad} ${personel.soyad}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            listeElementi.innerHTML += cardHtml;
+        });
+    } else {
+        bosMesajElementi.classList.remove("d-none");
+    }
 });

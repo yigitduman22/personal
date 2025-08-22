@@ -799,6 +799,116 @@ footer .container {
     color: #495057;
 }
 
+.page-header {
+    display: none;
+    border-left: 5px solid #0d6efd;
+    padding-left: 1rem;
+    background-color: transparent; /* Arka planı kaldırdık */
+    border-radius: 0;
+    margin-bottom: 2rem !important; /* Boşluğu artırdık */
+}
+
+/* Yeni başlık ana kapsayıcısı */
+.page-header-container {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e9ecef;
+    margin-bottom: 2.5rem; /* Kartlarla arasındaki boşluğu ayarlar */
+}
+
+/* İkonu çevreleyen renkli daire */
+.header-icon-wrapper {
+    font-size: 1.8rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #fd7e14, #f89d35); /* Kutlama hissiyatı için turuncu tonları */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Küçülmesini engeller */
+    margin-right: 20px;
+    box-shadow: 0 4px 10px rgba(253, 126, 20, 0.4);
+}
+
+/* Başlık ve alt başlık metinlerini gruplayan sarmalayıcı */
+.header-text-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ana başlık metni */
+.header-title-main {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #34495e;
+    line-height: 1.2;
+}
+
+
+
+/* Tarihi gösteren alt başlık metni */
+.header-subtitle {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #7f8c8d;
+    margin-top: 4px;
+}
+
+/* ESKİ .card STİLLERİ YERİNE YENİ KART TASARIMI */
+.birthday-card {
+    border: none;
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Konfeti pozisyonu için eklendi */
+}
+
+.birthday-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 20px auto 15px auto;
+    border: 4px solid #eef2f5;
+}
+
+.birthday-card .card-body {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.birthday-card .card-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #34495e;
+}
+
+.birthday-card .card-text {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
 /* =================================
    OTOMASYON SİSTEMLERİ STİLLERİ
    ================================= */
