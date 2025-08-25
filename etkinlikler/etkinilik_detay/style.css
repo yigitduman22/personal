@@ -1,3 +1,5 @@
+/* HABER DETAY SAYFASI STİLLERİ */
+
 /* Breadcrumb Stilleri */
 .breadcrumb-section {
     background: #f8f9fa;
@@ -25,14 +27,14 @@
 
 /* Row'da gap azalt */
 .row {
-    margin-right: -5px !important; /* -10px'den -5px'e düşürüldü */
-    margin-left: -5px !important;
+    margin-right: -10px !important;
+    margin-left: -10px !important;
 } 
 
 .row > * {
-    padding-right: 5px !important; /* 10px'den 5px'e düşürüldü */
-    padding-left: 5px !important;
-}
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+} 
 
 @media (max-width: 1200px) {
     .container {
@@ -62,15 +64,19 @@
 }
 
 @media (max-width: 768px) {
-    .departments-slider {
-        height: 400px !important; /* Mobilde yükseklik artırıldı */
-        min-height: 400px !important;
-    }
-    
-    .other-news-item {
-        padding: 6px 10px !important; /* Mobilde daha az padding */
-        margin-bottom: 0px !important;
-    }
+    .container {
+        width: 95% !important;
+        padding-left: 10px;
+        padding-right: 10px;
+    } 
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 98% !important;
+        padding-left: 5px;
+        padding-right: 5px;
+    } 
 }
 
 /* Ana container genişliğini artır */
@@ -159,8 +165,6 @@
 .nav-links a i {
     font-size: 1rem;
 } 
-/* Masaüstünde mobil menü butonunu gizle */
-.mobile-menu-toggle { display: none; }
 
 /* ========== NAVBAR DROPDOWN STİLLERİ ========== */
 
@@ -199,7 +203,49 @@
     z-index: 1000;
     border: 1px solid rgba(0, 0, 0, 0.06);
 } 
+/* Dropdown Menu Ok İşareti */
+.nav-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 63%;
+    transform: translateX(-63%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid white;
+    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+}
+/* Dropdown Menu Ok İşareti */
+.nav-dropdown-menu2::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 84%;
+    transform: translateX(-84%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid white;
+    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+}
 
+/* Dropdown Menu Ok İşareti */
+.nav-dropdown-menu3::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: 98%;
+    transform: translateX(-98%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid white;
+    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+}
 .nav-dropdown.active .nav-dropdown-menu {
     opacity: 1;
     visibility: visible;
@@ -288,48 +334,6 @@
 }
 
 /* Dropdown Menu Ok İşareti */
-.nav-dropdown-menu::before {
-     content: '';
-    position: absolute;
-    top: -9px;
-    left: 63%;
-    transform: translateX(-63%);
-    width: 0;
-    height: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-bottom: 9px solid white;
-    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
-}  
-/* Dropdown Menu Ok İşareti */
-.nav-dropdown-menu2::before {
-   content: '';
-    position: absolute;
-    top: -9px;
-    left: 85%;
-    transform: translateX(-85%);
-    width: 0;
-    height: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-bottom: 9px solid white;
-    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
-}
-
-/* Dropdown Menu Ok İşareti */
-.nav-dropdown-menu3::before {
-   content: '';
-    position: absolute;
-    top: -9px;
-    left: 98%;
-    transform: translateX(-98%);
-    width: 0;
-    height: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-bottom: 9px solid white;
-    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
-}
 
 .nav-dropdown:hover .nav-dropdown-menu {
     opacity: 1;
@@ -694,7 +698,7 @@
 
 /* Makale İçeriği */
 .article-content {
-    padding: 0 40px 10px 40px;
+    padding: 0 70px 40px 70px;
 } 
 
 .article-excerpt {
@@ -765,18 +769,15 @@
     box-shadow: 0 5px 15px rgba(2, 40, 66, 0.3); 
 }
 
-/* === DİĞER Etkinlikler SLİDER STİLLERİ - DÜZELTME === */
+/* === DİĞER MÜDÜRLÜKLER SLİDER STİLLERİ - DÜZELTME === */
 
 .other-departments-card {
     background: white;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin-bottom: 0px !important; /* Margin kaldırıldı */
-    height: auto;
-    min-height: 100% !important; /* Sol kartla aynı minimum yükseklik */
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 80px;
+    height: fit-content;
 }
 
 .departments-header {
@@ -801,13 +802,9 @@
 
 /* SLIDER VIEWPORT: İçeriğin taşmasını engeller - 6 haber için yükseklik artırıldı */
 .departments-slider {
- position: relative;
+    position: relative;
     overflow: hidden;
-    height: 100% !important;
-    flex: 1 !important; /* Kalan alanı kapla */
-    display: flex;
-    flex-direction: column;
-    min-height: 500px !important; /* Minimum yükseklik artırıldı */
+    height: 100%;
 }
 
 /* KAYDIRMA KANALI: Tüm slaytları yatayda tutar */
@@ -821,28 +818,26 @@
 .department-item {
     width: 100%;
     flex-shrink: 0;
-    padding: 15px !important; /* 20px'den 15px'e düşürüldü */
+    padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Kartları eşit aralıklarla dağıt */
     flex-direction: column;
     gap: 0px;
-    overflow-y: hidden;
+    overflow-y: hidden; /* 6 haber için scroll eklenebilir */
 }
 
 /* Haber kartları - 6 haber için tam simetrik */
 .other-news-item {
-    border-bottom: 0px solid #e9ecef;
-    padding: 10px 12px !important; /* Padding 15px'den 10px'e düşürüldü */
+    border-bottom: 1px solid #e9ecef;
+    padding: 15px 12px;
     margin: 0;
-    margin-bottom: 1px !important; /* Margin 2px'den 1px'e düşürüldü */
-   flex: 1;               /* Kalan alanı eşit paylaşsın */
-    height: auto !important; /* Sabit yükseklik iptal */
-    min-height: 0 !important;
+    height: calc((100% - 90px) / 6); /* 6 kart için eşit yükseklik, padding'ler çıkarıldı */
     display: flex;
     align-items: center;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2px;
     transition: all 0.3s ease;
 }
 
@@ -873,7 +868,7 @@
     flex-direction: column;
     justify-content: center;
     min-height: 50px;
-    gap: 2px !important; /* Gap azaltıldı */
+    gap: 0px !important; /* Aradaki boşluğu tamamen kapatır */
 }
 
 .department-category {
@@ -930,11 +925,9 @@
     align-items: center;
     justify-content: center;
     gap: 15px;
-    padding: 20px 70px !important; /* 30px'den 20px'e düşürüldü */
+    padding: 30px 70px;
     background: #f8f9fa;
     border-top: 1px solid #e9ecef;
-    margin-top: auto;
-
 }
 
 .pagination-btn {
@@ -976,31 +969,7 @@
     align-items: center;
     gap: 8px;
 }
-/* Kartlar arası mesafe düzeltmesi */
-.row {
-    align-items: stretch !important; /* Kartları aynı yükseklikte tut */
-    display: flex !important;
-}
 
-.col-lg-8, .col-lg-4 {
-    display: flex !important;
-    flex-direction: column !important;
-}
-   .news-detail-card,
-.other-departments-card {
-    flex: 1 !important; /* Aynı yükseklikte olsun */
-    display: flex !important;
-    flex-direction: column !important;
-    min-height: 100% !important;
-}
-/* Ana makale içeriği de flex olsun */
-.news-detail-card {
-    justify-content: space-between;
-}
-
-.article-content {
-    flex: 1; /* İçerik alanı büyüsün */
-}
 /* Her bir nokta */
 .pagination-dot {
     width: 12px;
@@ -1308,15 +1277,8 @@ footer .container {
     } 
 
     .news-detail-card {
-        background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); 
-    overflow: hidden;
-    margin-bottom: 80px;
-    border-right: 30px;
-    border-left: 30px;
-    height: auto; /* Yükseklik otomatik olsun */
-    min-height: 600px; /* Minimum yükseklik belirle */
+        box-shadow: none;
+        border: 1px solid #ddd;
     } 
 
     .article-title {

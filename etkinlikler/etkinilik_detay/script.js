@@ -614,7 +614,7 @@ document.addEventListener('visibilitychange', function() {
         console.log('Sayfa görünür oldu - otomatik kaydırma başlatıldı');
     }
 });
-  
+
 // Hata yakalama
 window.addEventListener('error', function(e) {
     console.error('JavaScript hatası:', e.error);
