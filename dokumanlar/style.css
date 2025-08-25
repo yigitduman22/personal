@@ -292,6 +292,7 @@
     grid-template-columns: repeat(4, 1fr); /* 3'ten 4'e çıkarıldı */
     gap: 0;
     row-gap: 20px;
+    width: 100%;
 }
 
 /* Dropdown Items - 4 sütun için optimize edildi */
@@ -310,6 +311,7 @@
     min-height: auto;
     justify-content: flex-start !important;
     flex-direction: row !important;
+    width: 100%;
 }
 
 .dropdown-item:hover {
