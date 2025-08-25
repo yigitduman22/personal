@@ -873,6 +873,54 @@ body{
 @media (max-width:576px){
   .document-card{ flex:0 0 100%; max-width:100%; }
 }
+/* === FOOTER MOBİL GÖRÜNÜM DÜZENLEMESİ === */
+/* Ekran 768px ve daha dar olduğunda */
+@media (max-width: 768px) {
+    .footer-content {
+        /* Elemanları yan yana yerine alt alta sırala */
+        flex-direction: column;
+        /* Ortala */
+        align-items: center;
+        /* Metinleri de ortala */
+        text-align: center;
+    }
+
+    .footer-content p {
+        /* İletişim bilgileri arasında boşluk bırak */
+        margin-bottom: 15px;
+        margin: 5px 0; /* İletişim bilgileri arasındaki boşluğu azalt */
+
+    }
+
+    .social-icons {
+        /* Sosyal medya ikonlarının konumunu sıfırla */
+        transform: translateY(0);
+        /* Üstündeki elemanla arasına boşluk koy */
+        margin-top: 0; /* Ekstra boşluğu kaldır, gap yeterli */
+    }
+
+    .footer-logo {
+        /* Logo için alt boşluk ver */
+        margin-bottom: 20px;
+    }
+}
+/* === FOOTER'I SAYFA ALTINA SABİTLEME === */
+
+html {
+    height: 100%;
+}
+
+body {
+    /* vh yerine, mobil cihazlarla daha uyumlu olan dvh birimini kullanıyoruz */
+    min-height: 100dvh; 
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+} 
+
+.main-content {
+    flex-grow: 1; /* Bu alan, footer'ı aşağı iterek mevcut tüm boş alanı doldursun */
+}
 
 /* Footer stilleri */
 footer {
@@ -899,16 +947,15 @@ footer .container {
     padding-bottom: 10px;
 }
 
-.footer-logo{
-    height: 7px;
-    transform: scale(3);
-    margin-top: 10px;
-    margin-right: 10px;
+.footer-logo {
+    max-width: 280px; /* Logonun maksimum genişliğini sınırlandırır */
+    height: auto;     /* Genişliğe göre yüksekliği otomatik ayarlar */
+    margin-bottom: 1rem; /* Altına biraz boşluk bırakır */
 }
 
 .footer-content p {
     margin: 8px 0;
-    font-size: 14px;
+    font-size: var(--font-size-base); /* YAZIYI AKILLI HALE GETİRDİK */
     color:white;
 }
 
@@ -947,53 +994,255 @@ footer .container {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
 }
-/* === FOOTER MOBİL GÖRÜNÜM DÜZENLEMESİ === */
-/* Ekran 768px ve daha dar olduğunda */
+
+        /* --- Footer düzeltmeleri --- */
+
+/* Logo: transform yerine net genişlik kullan */
+.footer-logo{
+  /* height: 7px;  <-- kaldır */
+  /* transform: scale(3); <-- kaldır */
+  width: 140px;       /* ihtiyaca göre 120-160px */
+  height: auto;
+  margin-top: 10px;
+  margin-right: 10px;
+  display: block;
+}
+
+/* Masaüstü: hafif yukarı çekmeyi margin ile yap istersen */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  /* transform: translateY(-20px); <-- kaldır */
+  margin-top: 0; /* masaüstünde sıfır */
+}
+
+/* Küçük ekran düzeni */
 @media (max-width: 768px) {
     .footer-content {
-        /* Elemanları yan yana yerine alt alta sırala */
-        flex-direction: column;
-        /* Ortala */
-        align-items: center;
-        /* Metinleri de ortala */
-        text-align: center;
+        flex-direction: column; /* Her şeyi alt alta sırala */
+        align-items: center;    /* Yatayda ortala */
+        text-align: center;     /* Metinleri ortala */
+        gap: 20px;              /* Aralarına boşluk koy */
     }
 
-    .footer-content p {
-        /* İletişim bilgileri arasında boşluk bırak */
-        margin-bottom: 15px;
-    }
+  /* Footer içindeki her parça tam genişlikte satır kaplasın */
+  .footer-content > * {
+    flex: 1 1 100%;
+  }
 
-    .social-icons {
-        /* Sosyal medya ikonlarının konumunu sıfırla */
-        transform: translateY(0);
-        /* Üstündeki elemanla arasına boşluk koy */
-        margin-top: 15px;
-    }
+  /* Sosyal ikonları aşağı kaydırmayı margin ile yap */
+  .social-icons {
+    margin-top: 15px;
+  }
 
-    .footer-logo {
-        /* Logo için alt boşluk ver */
-        margin-bottom: 20px;
-    }
+  /* Logo çok büyükse küçült */
+  .footer-logo {
+    width: 120px;
+    margin-bottom: 12px;
+  }
 }
 
-/* === FOOTER'I SAYFA ALTINA SABİTLEME === */
-
-html {
-    height: 100%;
+/* Çok dar ekranlar için */
+@media (max-width: 400px) {
+  .footer-logo { width: 105px; }
+  .social-icons a { width: 32px; height: 32px; font-size: 14px; }
+}
+@media (max-width: 992px){
+  .navbar{
+    position: static !important;
+    top: auto !important;
+  }
 }
 
-body {
-    /* vh yerine, mobil cihazlarla daha uyumlu olan dvh birimini kullanıyoruz */
-    min-height: 100dvh; 
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-} 
 
-.main-content {
-    flex-grow: 1; /* Bu alan, footer'ı aşağı iterek mevcut tüm boş alanı doldursun */
+/* --- FOOTER LOGO NİHAİ DÜZELTME --- */
+/* Daha güçlü bir seçici kullanarak diğer kuralları eziyoruz */
+footer .footer-content .footer-logo {
+    transform: none !important; /* Eski scale komutunu tamamen sıfırla */
+    height: auto !important;     /* Yüksekliği otomatik yapmaya zorla */
+    width: 100% !important;      /* Genişliğin esnek olmasını sağla */
+    max-width: 250px !important;  /* Ama en fazla 250px genişliğinde olsun */
+    
+    /* Hizalama için ek ayarlar */
+    margin-bottom: 1rem;
+    margin-right: 1rem;
 }
+
+/* Küçük ekran düzeni */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Her şeyi alt alta sırala */
+        align-items: center;    /* Yatayda ortala */
+        text-align: center;     /* Metinleri ortala */
+        gap: 20px;              /* Aralarına boşluk koy */
+    }
+
+  /* Footer içindeki her parça tam genişlikte satır kaplasın */
+  .footer-content > * {
+    flex: 1 1 100%;
+  }
+
+  /* Sosyal ikonları aşağı kaydırmayı margin ile yap */
+  .social-icons {
+    margin-top: 15px;
+  }
+
+  /* Logo çok büyükse küçült */
+  .footer-logo {
+    width: 120px;
+    margin-bottom: 12px;
+  }
+}
+
+/* Çok dar ekranlar için */
+@media (max-width: 400px) {
+  .footer-logo { width: 105px; }
+  .social-icons a { width: 32px; height: 32px; font-size: 14px; }
+}
+@media (max-width: 992px){
+  .navbar{
+    position: static !important;
+    top: auto !important;
+  }
+}
+
+/* ========== FOOTER STİLLERİ - TAM GENİŞLİK ========== */
+footer {
+  background-color: #022842;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+  padding: 40px 0 20px 0;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  margin-top: auto;
+  width: 100vw; /* Bu satırı ekleyin */
+  margin-left: calc(-50vw + 50%); /* Bu satırı geri ekleyin */
+  position: relative;
+  margin-bottom: 0; 
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+}
+
+.footer-logo {
+  height: 7px;
+  transform: scale(3);
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.footer-content p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: white;
+}
+
+.footer-content i {
+  margin-right: 8px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px;
+  color: white;
+}
+
+/* Social Icons Stilleri */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  transform: translateY(-20px);
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  color: #1b3f8b;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: #d2d2d2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
+}
+
+/* Logo: transform yerine net genişlik kullan */
+.footer-logo{
+  /* height: 7px;  <-- kaldır */
+  /* transform: scale(3); <-- kaldır */
+  width: 140px;       /* ihtiyaca göre 120-160px */
+  height: auto;
+  margin-top: 10px;
+  margin-right: 10px;
+  display: block;
+}
+
+/* Masaüstü: hafif yukarı çekmeyi margin ile yap istersen */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  /* transform: translateY(-20px); <-- kaldır */
+  margin-top: 0; /* masaüstünde sıfır */
+}
+
+/* Küçük ekran düzeni */
+@media (max-width: 768px) {
+
+  .footer-content {
+    flex-direction: column;   /* alt alta */
+    align-items: center;
+    text-align: center;
+    gap: 12px;                /* öğeler arası boşluk */
+  }
+
+  /* Footer içindeki her parça tam genişlikte satır kaplasın */
+  .footer-content > * {
+    flex: 1 1 100%;
+  }
+
+  /* Sosyal ikonları aşağı kaydırmayı margin ile yap */
+  .social-icons {
+    margin-top: 15px;
+  }
+
+  /* Logo çok büyükse küçült */
+  .footer-logo {
+    width: 120px;
+    margin-bottom: 12px;
+  }
+}
+
+/* Çok dar ekranlar için */
+@media (max-width: 400px) {
+  .footer-logo { width: 105px; }
+  .social-icons a { width: 32px; height: 32px; font-size: 14px; }
+}
+@media (max-width: 992px){
+  .navbar{
+    position: static !important;
+    top: auto !important;
+  }
+}
+
 /* === HOVER GAP FIX: tetikleyici ile panel arasına görünmez köprü === */
 .nav-dropdown.dd-safe{
   position: relative;
