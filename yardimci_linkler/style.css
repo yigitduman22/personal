@@ -637,7 +637,8 @@ body {
 
 /* Siteye Git Butonu */
 .site-btn {
-    background: linear-gradient(135deg, #022842, );
+     text-decoration: none;
+    background: linear-gradient(135deg, #022842, #164e63);
     color: white;
     border: none;
     padding: 0.8rem 1.8rem;
