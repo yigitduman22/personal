@@ -435,7 +435,6 @@ body {
     max-width: 600px;
     margin: 0 auto;
 }
-
 .search-filter-section {
     background: white;
     border-radius: 40px;
@@ -443,43 +442,42 @@ body {
     padding: 20px;
     margin-bottom: 20px;
     border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
 }
 
 .search-box {
     position: relative;
-    width: 100%; /* Bootstrap sütunu kadar genişlesin */
-    
+    width: 100%;
 }
 
 .search-input {
-    width: 1645px; /* Sabit genişlik yerine yüzde kullan */
+    width: 100%;
     border: 2px solid #e9ecef;
     border-radius: 50px;
-    padding: 15px 60px 15px 25px; /* sağdan boşluk buton için */
-    font-size: 16px;
+    padding: 15px 70px 15px 25px; 
+    font-size: 20px;
     transition: all 0.3s ease;
     box-shadow: none;
 }
 
-.search-input:focus {
-    border-color: #022842;
-    box-shadow: 0 0 0 0.2rem rgba(2, 40, 66, 0.1);
-}
-
 .search-btn {
     position: absolute;
-    right: 5px; /* İkonu sağ kenara çok yakın konumlandır */
+    right: 10px; 
     top: 50%;
     transform: translateY(-50%);
     background: linear-gradient(135deg, #022842 0%, #1e4a6b 100%);
     border: none;
-    border-radius: 50px;
-    width: 40px;
-    height: 40px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
     color: white;
     font-size: 16px;
     transition: all 0.3s ease;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .search-btn:hover {
@@ -816,9 +814,19 @@ footer .container {
     .filter-buttons {
         flex-wrap: wrap;
     }
+  .search-filter-section {
+        padding: 15px;
+    }
 
-    .search-filter-section {
-        padding: 20px;
+    .search-input {
+        padding: 12px 55px 12px 18px; 
+        font-size: 14px;
+    }
+
+    .search-btn {
+        width: 38px;
+        height: 38px;
+        right: 8px;
     }
 
     .page-title {
@@ -914,5 +922,14 @@ footer .container {
 
     .dropdown-item span {
         font-size: 10px;
+    }
+       .search-input {
+        font-size: 13px;
+        padding: 10px 50px 10px 15px;
+    }
+
+    .search-btn {
+        width: 34px;
+        height: 34px;
     }
 }

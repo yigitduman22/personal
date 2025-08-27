@@ -139,24 +139,73 @@
           </div>
       </div>
     </nav>
-  <div class="video-container">
-        <div class="video-header">
-            <i class="fab fa-youtube youtube-icon"></i>
-            <h1>Videolar</h1>
-        </div>
+      <main class="main-content-wrapper">
 
-        <div class="video-tabs">
-            <button class="tab-button active" data-category="baskan">Başkan</button>
-            <button class="tab-button" data-category="etkinlikler">Etkinlikler</button>
-            <button class="tab-button" data-category="personel-kurum">Personel-Kurum</button>
-            <button class="tab-button" data-category="shorts">Shorts</button>
-        </div>
+         <section class="slider-container">
+             <div class="slides-wrapper" id="slidesWrapper">
+             </div>
+             <button class="slide-nav-button left" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+             <button class="slide-nav-button right" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+             <div class="slide-dots" id="slideDots">
+             </div>
+         </section>
 
-        <div class="video-thumbnails-container">
-            <div class="video-thumbnails" id="videoListContainer">
-                </div>
-        </div>
-    </div>
+         <section class="filter-search-section">
+             <h2 class="text-3xl font-bold text-center text-primary-blue">Video Kategorileri ve Arama</h2>
+             <div class="category-buttons">
+                 <button class="active" onclick="showCategory('all', event)">Tümü</button>
+                 <button onclick="showCategory('baskan', event)">Başkan</button>
+                 <button onclick="showCategory('etkinlikler', event)">Etkinlikler</button>
+                 <button onclick="showCategory('personel', event)">Personel-Kurum</button>
+                 <button onclick="showCategory('shorts', event)">Shorts</button>
+             </div>
+
+             <div class="search-box">
+                 <input type="text" id="searchInput" placeholder="Video ara..." onkeyup="searchVideos()">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                 </svg>
+             </div>
+         </section>
+
+         <section class="video-list-section">
+             <h2 id="videoListSectionTitle">Tüm Videolar</h2>
+             <div class="video-list" id="videoList">
+             </div>
+             <div class="pagination-controls" id="paginationControls">
+             </div>
+         </section>
+
+         <div id="videoLightbox" class="video-lightbox">
+             <div class="video-lightbox-content">
+                 <span class="lightbox-close-btn" onclick="closeLightbox()">&times;</span>
+                 <div class="video-player-wrapper">
+                     <iframe id="lightboxVideoIframe" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                 </div>
+                 <div class="lightbox-video-details">
+                     <h3 id="lightboxVideoTitle"></h3>
+                     <p id="lightboxVideoDescription"></p>
+                     <div class="lightbox-actions">
+                         <button class="lightbox-like-btn" onclick="likeVideo(currentLightboxVideoId)">
+                             <i class="fas fa-heart"></i> Beğen <span id="lightboxLikeCount">0</span>
+                         </button>
+                         <button class="lightbox-comment-btn" onclick="toggleCommentSection()">
+                             <i class="fas fa-comment"></i> Yorumlar <span id="lightboxCommentCount">0</span>
+                         </button>
+                     </div>
+                 </div>
+                 <div id="lightboxCommentSection" class="lightbox-comment-section hidden">
+                     <h4>Yorumlar</h4>
+                     <div id="lightboxCommentList" class="lightbox-comment-list">
+                         <!-- Yorumlar buraya yüklenecek -->
+                     </div>
+                     <textarea id="commentInput" class="lightbox-comment-input" placeholder="Yorumunuzu yazın..."></textarea>
+                     <button class="lightbox-submit-comment-btn" onclick="submitComment()">Yorum Yap</button>
+                 </div>
+             </div>
+         </div>
+
+     </main>
 
     <footer>
       <div class="container">
