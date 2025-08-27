@@ -1,5 +1,16 @@
 
 /* === TEMEL NAVBAR YAPISI === */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Yatay kaydırmayı engeller */
+    width: 100%;
+    max-width: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 .navbar {
     background-color: #022842;
     padding: 1.5rem 0 !important; /* Padding'i biraz azalttık */
@@ -209,22 +220,54 @@
     transform: translateY(0); /* Orijinal pozisyonuna indir */
 }
 /* Breadcrumb Stilleri */
+/* === BREADCRUMB LOGO HİZASI DÜZELTMESİ === */
+
 .breadcrumb-section {
-    background: #31353a;
-    padding: 20px 0;
+    background: #e9ecef;
+    padding: 15px 0;
     border-bottom: 1px solid #e9ecef;
+    width: 100%;
 }
+
+/* Breadcrumb container'ı navbar'ın nav-container ile birebir aynı */
+.breadcrumb-container {
+    display: flex;
+    justify-content: flex-start; /* Sol tarafa hizala */
+    align-items: center;
+    width: 90%; /* Navbar ile aynı genişlik */
+    max-width: 1600px; /* Navbar ile aynı maksimum genişlik */
+    margin: auto; /* Navbar ile aynı margin */
+    padding: 0;
+}
+
+/* Breadcrumb'ı navbar'ın nav-left gibi konumlandır */
+.breadcrumb-left {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; /* Navbar'ın nav-left ile aynı */
+}
+
 .breadcrumb {
     background: none;
     padding: 0;
     margin: 0;
     font-size: 14px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
 }
 
 .breadcrumb-item a {
     color: #6c757d;
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 14px;
+    padding: 2px 4px;
 }
 
 .breadcrumb-item a:hover {
@@ -234,11 +277,41 @@
 .breadcrumb-item.active {
     color: #022842;
     font-weight: 500;
+    font-size: 14px;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
     content: ">";
     color: #6c757d;
+    margin: 0 8px;
+    font-size: 12px;
+}
+
+/* Mobil için responsive ayarlar */
+@media (max-width: 992px) {
+    .breadcrumb-container {
+        width: 100%;
+        padding: 0 1rem; /* Navbar mobil padding'i ile aynı */
+    }
+    
+    .breadcrumb-section {
+        padding: 12px 0;
+    }
+    
+    .breadcrumb {
+        font-size: 13px;
+    }
+    
+    .breadcrumb-item a,
+    .breadcrumb-item.active {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .breadcrumb-container {
+        padding: 0 0.5rem;
+    }
 }
 /* ========== NAVBAR DROPDOWN STİLLERİ ========== */
 
@@ -803,7 +876,12 @@ footer {
     padding: 40px 0 20px 0;
     font-family: 'Inter', sans-serif;
     color: #333;
-    margin-top: 50px;
+    margin-top: auto;
+    width: 100%; /* Basit %100 genişlik */
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    margin-bottom: 0;
 }
 
 footer .container {
