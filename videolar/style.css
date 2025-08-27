@@ -207,38 +207,7 @@
     visibility: visible; /* Tıklanabilir yap */
     transform: translateY(0); /* Orijinal pozisyonuna indir */
 }
-/* Breadcrumb Stilleri */
-.breadcrumb-section {
-    background: #31353a;
-    padding: 20px 0;
-    border-bottom: 1px solid #e9ecef;
-}
-.breadcrumb {
-    background: none;
-    padding: 0;
-    margin: 0;
-    font-size: 14px;
-}
 
-.breadcrumb-item a {
-    color: #6c757d;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.breadcrumb-item a:hover {
-    color: #022842;
-}
-
-.breadcrumb-item.active {
-    color: #022842;
-    font-weight: 500;
-}
-
-.breadcrumb-item + .breadcrumb-item::before {
-    content: ">";
-    color: #6c757d;
-}
 /* ========== NAVBAR DROPDOWN STİLLERİ ========== */
 
 /* Dropdown Container */
@@ -319,9 +288,6 @@
     border-bottom: 9px solid white;
     filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
 }
-
-.document-card.is-hidden { display: none !important; }
-
 
 /* Dropdown Content */
 .dropdown-content {
@@ -760,13 +726,15 @@
     .footer-content p {
         /* İletişim bilgileri arasında boşluk bırak */
         margin-bottom: 15px;
+        margin: 5px 0; /* İletişim bilgileri arasındaki boşluğu azalt */
+
     }
 
     .social-icons {
         /* Sosyal medya ikonlarının konumunu sıfırla */
         transform: translateY(0);
         /* Üstündeki elemanla arasına boşluk koy */
-        margin-top: 15px;
+        margin-top: 0; /* Ekstra boşluğu kaldır, gap yeterli */
     }
 
     .footer-logo {
@@ -774,334 +742,6 @@
         margin-bottom: 20px;
     }
 }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ffffff 0%, #e7e7e7 100%);
-           
-        }
-
-        .main-content {
-    flex-grow: 1; /* Bu alan, footer'ı aşağı iterek mevcut tüm boş alanı doldursun */
-}
-
-        /* Ana Container */
-        .main-container {
-            max-width: 1650px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* Header Bölümü */
-        .page-header {
-    background-color: #f2f6fc; /* Açık mavi arka plan */
-    padding: 10px 15px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-     border-left: 5px solid #2c4a77; /* Sol çizgi */
-      position: relative;
-    z-index: 1; /* Butonların önüne geçmesin */
-
-}
-
-.page-header h1 {
-    font-size: 2.5rem; /* Daha küçük boyut */
-    font-weight: 600;
-    color: #2c4a77; /* Koyu mavi */
-    margin: 0;
-   
-    padding-left: 10px;
-   
-}
-
-
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="50" cy="10" r="1" fill="rgba(255,255,255,0.02)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .page-header .content {
-            position: relative;
-            z-index: 1;
-        }
-
-
-        .page-header p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            font-weight: 300;
-            margin-left: 1%;
-        }
-
-       /* Filtre ve Arama Bölümü */
-        .controls-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 3rem;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .search-box {
-            position: relative;
-            flex: 1;
-            max-width: 750px;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 1rem;
-            background: white;
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: #022842;
-            box-shadow: 0 0 0 4px rgba(2, 40, 66, 0.1);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #64748b;
-        }
-
-
-         .filter-buttons {
-            display: flex;
-           
-    gap: 1rem;
-    position: relative;
-    z-index: 10; /* Üste çıkar */
-        }
-
-        .filter-btn {
-            background: white;
-            border: 2px solid #e2e8f0;
-            padding: 0.75rem 1.5rem;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: #022842;
-            color: white;
-            border-color: #022842;
-        }
-
-        /* Dökümanlar Grid */
-            .documents-grid {
-           display: flex;
-            flex-wrap: wrap;
-            gap: 24px;         
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        }
-
-        /* Döküman Kartları */
-        .document-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(226, 232, 240, 0.5);
-            position: relative;
-            overflow: hidden;
-            margin-top: 20px;
-             flex: 0 0 calc((100% - 48px) / 3); /* 3 sütun = iki gap çıkar */
-  max-width: calc((100% - 48px) / 3);
-  display: flex;
-  flex-direction: column;
-  border-radius: 16px;
-        }
-        .document-description { margin-bottom: 12px; }
-.download-section { margin-top: auto; }
-
-/* Yükseklikleri daha eşit tutmak istersen min-height ver */
-.document-card { min-height: 300px; }  /* ihtiyaca göre 280-360px deneyebilirsin */
-
-/* RESPONSIVE: tablet */
-@media (max-width: 992px) {
-  .document-card {
-    flex: 0 0 calc((100% - 24px) / 2);
-    max-width: calc((100% - 24px) / 2);
-  }
-}
-
-/* RESPONSIVE: mobil */
-@media (max-width: 576px) {
-  .document-card {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
-        .document-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background-color: #164e63;
-        }
-
-        .document-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .document-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .document-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #022842, #1e3a8a);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            box-shadow: 0 8px 24px rgba(2, 40, 66, 0.3);
-        }
-
-        .document-icon i {
-            font-size: 1.8rem;
-            color: white;
-        }
-
-        .document-info {
-            flex: 1;
-        }
-
-        .document-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
-
-        .document-category {
-            display: inline-block;
-            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-            color: #475569;
-            padding: 0.25rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .document-description {
-            color: #64748b;
-            line-height: 1.6;
-            margin: 1.5rem 0;
-            font-size: 1rem;
-        }
-
-        .document-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            border-top: 1px solid #f1f5f9;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-            color: #64748b;
-        }
-
-        .document-size {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .document-date {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .download-section {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .download-btn {
-            flex: 1;
-            background-color: #344e75;
-            color: white;
-            border: none;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(2, 40, 66, 0.4);
-        }
-
-        .preview-btn {
-            background: #344e75;
-            color: white;
-            border: 2px solid #344e75;
-            padding: 0.75rem;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .preview-btn:hover {
-            background: white;
-            color: black;
-            border: 2px solid black;
-        }
-/* --- FOOTER LOGO NİHAİ DÜZELTME --- */
-/* Daha güçlü bir seçici kullanarak diğer kuralları eziyoruz */
-footer .footer-content .footer-logo {
-    transform: none !important; /* Eski scale komutunu tamamen sıfırla */
-    height: auto !important;     /* Yüksekliği otomatik yapmaya zorla */
-    width: 100% !important;      /* Genişliğin esnek olmasını sağla */
-    max-width: 250px !important;  /* Ama en fazla 250px genişliğinde olsun */
-    
-    /* Hizalama için ek ayarlar */
-    margin-bottom: 1rem;
-    margin-right: 1rem;
-}
-      
-
 
 /* Footer stilleri */
 footer {
@@ -1127,17 +767,28 @@ footer .container {
     border-bottom: 1px solid white;
     padding-bottom: 10px;
 }
+/* --- FOOTER LOGO NİHAİ DÜZELTME --- */
+/* Daha güçlü bir seçici kullanarak diğer kuralları eziyoruz */
+footer .footer-content .footer-logo {
+    transform: none !important; /* Eski scale komutunu tamamen sıfırla */
+    height: auto !important;     /* Yüksekliği otomatik yapmaya zorla */
+    width: 100% !important;      /* Genişliğin esnek olmasını sağla */
+    max-width: 250px !important;  /* Ama en fazla 250px genişliğinde olsun */
+    
+    /* Hizalama için ek ayarlar */
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
 
-.footer-logo{
-    height: 7px;
-    transform: scale(3);
-    margin-top: 10px;
-    margin-right: 10px;
+.footer-logo {
+    max-width: 280px; /* Logonun maksimum genişliğini sınırlandırır */
+    height: auto;     /* Genişliğe göre yüksekliği otomatik ayarlar */
+    margin-bottom: 1rem; /* Altına biraz boşluk bırakır */
 }
 
 .footer-content p {
     margin: 8px 0;
-    font-size: 14px;
+    font-size: var(--font-size-base); /* YAZIYI AKILLI HALE GETİRDİK */
     color:white;
 }
 
@@ -1176,142 +827,7 @@ footer .container {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
 }
- @media (max-width: 1024px) {
-            .documents-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
 
-        @media (max-width: 768px) {
-            .main-container {
-                padding: 0 12px;
-            }
-
-            .page-header {
-                padding: 1.5rem 0;
-                margin-bottom: 1.5rem;
-            }
-
-            .page-header h1 {
-                font-size: 2rem;
-            }
-
-            .page-header p {
-                font-size: 1rem;
-            }
-
-            .controls-section {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 1rem;
-            }
-
-            .search-box {
-                flex: none;
-                max-width: none;
-            }
-
-            .filter-buttons {
-                justify-content: flex-start;
-                flex-wrap: wrap;
-            }
-
-            .documents-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .document-card {
-                padding: 1rem;
-            }
-
-            .document-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .main-container {
-                padding: 0 8px;
-            }
-
-            .page-header {
-                padding: 1rem 0;
-            }
-
-            .page-header h1 {
-                font-size: 1.75rem;
-            }
-
-            .controls-section {
-                margin-bottom: 1rem;
-            }
-
-            .filter-buttons {
-                overflow-x: auto;
-                padding-bottom: 4px;
-                gap: 0.5rem;
-            }
-
-            .filter-btn {
-                flex-shrink: 0;
-                padding: 6px 12px;
-                font-size: 13px;
-            }
-
-            .document-card {
-                border-radius: 8px;
-            }
-
-            .document-header {
-                gap: 0.75rem;
-            }
-
-            .document-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-
-            .document-title {
-                font-size: 1rem;
-            }
-
-            .document-description {
-                font-size: 0.875rem;
-            }
-
-            .download-section {
-                margin-top: 1rem;
-            }
-        }
-        @media (max-width: 360px) {
-            .page-header h1 {
-                font-size: 1.5rem;
-            }
-
-            .search-input {
-                padding: 0.75rem 1rem;
-            }
-
-            .filter-btn {
-                padding: 6px 10px;
-                font-size: 12px;
-            }
-
-            .document-card {
-                padding: 1rem;
-            }
-
-            .document-title {
-                font-size: 0.9rem;
-            }
-
-            .document-description {
-                font-size: 0.8rem;
-            }
-        }
         /* --- Footer düzeltmeleri --- */
 
 /* Logo: transform yerine net genişlik kullan */
@@ -1335,13 +851,12 @@ footer .container {
 
 /* Küçük ekran düzeni */
 @media (max-width: 768px) {
-
-  .footer-content {
-    flex-direction: column;   /* alt alta */
-    align-items: center;
-    text-align: center;
-    gap: 12px;                /* öğeler arası boşluk */
-  }
+    .footer-content {
+        flex-direction: column; /* Her şeyi alt alta sırala */
+        align-items: center;    /* Yatayda ortala */
+        text-align: center;     /* Metinleri ortala */
+        gap: 20px;              /* Aralarına boşluk koy */
+    }
 
   /* Footer içindeki her parça tam genişlikte satır kaplasın */
   .footer-content > * {
@@ -1370,4 +885,297 @@ footer .container {
     position: static !important;
     top: auto !important;
   }
+}
+
+/* Genel Sayfa Stilleri */
+/* --- ADIM 1: AKIŞKAN YAZI BOYUTU SİSTEMİ (FLUID TYPOGRAPHY) --- */
+/* Burada sayfa için dinamik font boyutları tanımlıyoruz */
+:root {
+    --font-size-base: clamp(0.9rem, 1.5vw, 1.1rem);      /* Normal yazılar için */
+    --font-size-lg:   clamp(1rem, 2vw, 1.25rem);       /* Kart başlıkları gibi */
+    --font-size-xl:   clamp(1.2rem, 3vw, 1.75rem);      /* Orta boy başlıklar için */
+    --font-size-display: clamp(1.8rem, 5vw, 2.8rem); /* Ana, büyük başlıklar için */
+}
+
+/* --- ADIM 2: YENİ SİSTEMİ SAYFAYA UYGULAMA --- */
+
+/* Bütün normal yazıların temel boyutu artık bu olacak */
+body {
+    font-size: var(--font-size-base) !important; 
+}
+
+/* Öne çıkan videonun ana başlığı */
+.featured-video-section h1.display-5 {
+    font-size: var(--font-size-display) !important;
+    line-height: 1.1; /* Satır yüksekliğini ayarlayalım */
+}
+
+/* Öne çıkan videonun açıklama yazısı */
+.featured-video-section p.lead {
+    font-size: var(--font-size-lg) !important;
+}
+
+/* Video kartlarının başlıkları */
+.card-title {
+    font-size: var(--font-size-lg) !important;
+}
+
+/* Kartların altındaki kategori ve süre bilgisi */
+.card-footer small {
+    font-size: var(--font-size-base) !important;
+}
+.card-footer small i {
+    margin-right: 0.3em; /* İkon ve yazı arasındaki boşluğu ayarlar */
+    font-size: 0.9em; /* İkon boyutunu ayarlar */
+    color: #6c757d; /* İkon rengini ayarlar (açık gri) */
+}
+
+.card-footer small {
+    font-size: 0.85em; /* Yazı boyutunu ayarlar */
+}
+
+/* Filtre butonlarının yazıları */
+.nav-pills .nav-link {
+    font-size: var(--font-size-base) !important;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Öne Çıkan Video Alanı */
+.featured-video-placeholder {
+    position: relative;
+    background-color: #e9ecef;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #adb5bd;
+}
+
+/* Filtreleme Butonları */
+.nav-pills .nav-link {
+    font-weight: 500;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: white;
+    background-image: linear-gradient(to right, #00529B, #022842); /* Kurumsal mavi tonlarıyla renk geçişi */
+    background-color: transparent; /* Eski düz rengi iptal ediyoruz */
+    box-shadow: 0 4px 15px rgba(2, 40, 66, 0.4);
+    transform: translateY(-2px);
+}
+
+/* --- Sayfa Geçiş Animasyonu İçin --- */
+
+#video-grid {
+    transition: opacity 0.2s ease-in-out; /* Opaklık değişimini 0.2 saniyede yumuşakça yap */
+}
+
+/* JS tarafından eklenecek olan, soluklaştırma class'ı */
+#video-grid.is-fading {
+    opacity: 0;
+    transform: translateY(15px); /* Kaybolurken hafifçe aşağı kaysın */
+}
+
+/* 1. Video Kartlarının Temel Stili */
+.video-card {
+    border: 1px solid #e9ecef;  /* Çok hafif, silik bir kenarlık */
+    transition: all 0.3s ease; /* Bütün animasyonlar için yumuşak geçiş */
+    cursor: pointer;
+    background-color: #ffffff; /* Kartların beyaz arkaplanı olmasını garantile */
+}
+/* 2. Kartların Üzerine Gelince (Hover) Olacaklar */
+.video-card:hover {
+    transform: translateY(-5px); /* Kartı 5px yukarı kaldır */
+    box-shadow: 0 12px 25px rgba(0, 40, 66, 0.15); /* Modern, yumuşak gölge */
+}
+
+/* 3. Resim Alanı ve Üzerindeki "Play" İkonu */
+.card-thumbnail {
+    position: relative; /* Play ikonunu konumlandırmak için gerekli */
+    overflow: hidden;
+}
+.play-icon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 40, 66, 0.5); /* Kurumsal lacivertin yarı şeffaf hali */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: white;
+    opacity: 0; /* Normalde görünmez */
+    transition: opacity 0.3s ease;
+}
+/* Kartın üzerine gelince "Play" ikonunu görünür yap */
+.video-card:hover .play-icon-overlay {
+    opacity: 1;
+}
+
+/* Kart Başlığı */
+.card-title {
+    font-weight: 600;
+    color: #212529;
+}
+
+/* Kart Footer (Alt Bilgi) */
+.card-footer {
+    background-color: #fff;
+    border-top: 1px solid #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Kartı saran linkin stilini sıfırlama */
+.video-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+.video-card-link:hover {
+    color: inherit;
+}
+
+/* JS Filtreleme için Animasyonlu Geçiş */
+.video-item {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.video-item.hide {
+    transform: scale(0.95);
+    opacity: 0;
+    /* display: none anlık olarak eklenecek, bu animasyonun görünmesini sağlar */
+}
+
+/* Ana Buton Stili (YENİ EKLENDİ) */
+.btn-primary {
+    background-image: linear-gradient(to right, #f39c12, #e67e22); /* Kurumsal turuncu tonları */
+    border: none;
+    transition: all 0.3s ease;
+    font-weight: 600 !important;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(243, 156, 18, 0.5);
+}
+
+/* --- TİPOGRAFİ İYİLEŞTİRMELERİ --- */
+
+/* Öne Çıkan Videonun Ana Başlığı (Daha tok bir görünüm için) */
+.featured-video-section h1.display-5 {
+    letter-spacing: -1px; 
+}
+
+/* Video Kartlarının Başlıkları (Daha okunaklı ve vurgulu) */
+.card-title {
+    font-weight: 600; /* Kalınlığını teyit edelim */
+    color: #2c3e50; /* Saf siyah yerine laciverte yakın, daha yumuşak bir ton */
+    transition: color 0.3s ease; /* Rengin yumuşak değişimi için */
+}
+
+/* Kartın üzerine gelince başlık rengi kurumsal laciverte dönsün */
+.video-card:hover .card-title {
+    color: #022842; 
+}
+
+/* --- MİKRO ANİMASYONLAR --- */
+
+/* Kartın üzerindeki Play İkonu için */
+.play-icon-overlay i {
+    transition: transform 0.3s ease; /* Yumuşak geçiş efekti */
+}
+.video-card:hover .play-icon-overlay i {
+    transform: scale(1.2); /* Üzerine gelince ikon hafifçe büyüsün */
+}
+
+/* Öne çıkan alandaki "Tümünü Gör" butonu için */
+.btn-outline-secondary:hover {
+    transform: translateY(-2px); /* Buton hafifçe yukarı kaysın */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Hafif bir gölge eklensin */
+}
+/* --- GİRİŞ ANİMASYONLARI --- */
+
+/* Aşağıdan yukarı kayarak belirme animasyonu */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animasyonları bölümlere farklı gecikmelerle uygula */
+.featured-video-section {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.filters-and-search-section {
+    animation: fadeInUp 0.6s ease-out 0.2s forwards; /* 0.2s sonra başla */
+    opacity: 0; /* Gecikme sırasında görünmez olmasını garantile */
+}
+
+#video-grid, .pagination {
+    animation: fadeInUp 0.6s ease-out 0.4s forwards; /* 0.4s sonra başla */
+    opacity: 0; /* Gecikme sırasında görünmez olmasını garantile */
+}
+/* --- BUTON TIKLAMA ANİMASYONU --- */
+
+/* :active durumu, bir elemana fare ile basılı tutulduğu anı temsil eder */
+.btn:active, .nav-pills .nav-link:active {
+    transform: translateY(1px) scale(0.98); /* Hafifçe aşağı indir ve küçült */
+    box-shadow: none; /* Tıklama anında gölgeyi kaldırarak içeri gömülme hissi ver */
+}
+
+/* === YENİ VE MODERN SAYFALAMA TASARIMI === */
+
+/* Konteynerin genel stili */
+.custom-pagination {
+  padding: 0;
+  background-color: #ffffff;
+  border-radius: 50px; /* Kenarları tamamen yuvarlak yapıyoruz */
+  box-shadow: 0 5px 20px rgba(0, 40, 66, 0.1); /* Daha belirgin, modern bir gölge */
+  display: inline-flex; /* İçerik kadar yer kaplasın diye */
+}
+
+/* Bütün butonların (linklerin) temel stili */
+.custom-pagination .page-link {
+  border: none; /* Kenarlıkları tamamen kaldırıyoruz */
+  background-color: transparent; /* Arka planı şeffaf yapıyoruz */
+  color: #022842; /* Kurumsal lacivert rengini kullanıyoruz */
+  font-weight: 600; /* Yazılar daha tok dursun */
+  border-radius: 50px; /* Butonlar da yuvarlak olsun */
+  margin: 5px; /* Butonlar arasında boşluk bırakıyoruz */
+  padding: 0.5rem 1rem; /* İç boşluğu ayarlıyoruz */
+  transition: all 0.3s ease; /* Yumuşak geçiş efekti */
+}
+
+/* Butonların üzerine gelince (hover) olacaklar */
+.custom-pagination .page-link:hover {
+  background-color: #f0f5fa; /* Çok hafif bir mavi tonu */
+  color: #00529B; /* Rengi biraz açıyoruz */
+  transform: translateY(-2px); /* Hafif yukarı kalksın */
+}
+
+/* Aktif olan sayfa butonu */
+.custom-pagination .page-item.active .page-link {
+  color: white;
+  /* Filtre butonlarındaki o güzel gradient'ı burada da kullanıyoruz */
+  background-image: linear-gradient(to right, #00529B, #022842); 
+  box-shadow: 0 4px 15px rgba(2, 40, 66, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Pasif (disabled) olan "Önceki" ve "Sonraki" butonları */
+.custom-pagination .page-item.disabled .page-link {
+  color: #adb5bd; /* Soluk bir gri */
+  background-color: transparent;
+  pointer-events: none; /* Tıklamayı engelle */
 }

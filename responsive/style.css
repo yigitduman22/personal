@@ -1,8 +1,12 @@
 /* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-body {
-    font-family: 'Inter', sans-serif;
+html, body {
+    /* Dikeyde taşma olsa bile, içerik ekrandan uzun değilse kaydırma çubuğunu gizle */
+    overflow: hidden;
+    /* Genişliğin her zaman ekran kadar olmasını garantile */
+    width: 100%;
+    /* Yüksekliğin her zaman ekran kadar olmasını garantile */
+    height: 100%;
 }
 
 /* === TEMEL NAVBAR YAPISI === */
@@ -43,9 +47,7 @@ body {
     flex-shrink: 0; /* Profil bölümünün küçülmesini engeller */
 }
 
-.logo-img {
-    height: 40px; /* Logo yüksekliği */
-}
+
 
 /* Masaüstünde mobil menü butonunu gizle */
 .mobile-menu-toggle { display: none; }
@@ -256,17 +258,20 @@ footer .container {
     flex-wrap: wrap;
 }
 
+/* YERİNE GELECEK YENİ KODLAR */
+
 .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
+    width: 310px; /* Değeri buradan büyüttük */
+    transition: width 0.3s ease;
 }
 
 .logo-img {
-    height: 10px;
-    transform: scale(3);
-    transform-origin: left center;
+    width: 100%;
+    height: auto;
+    display: block;
 }
+
+
 
 /* === NAVİGASYON LİNKLERİ === */
 .nav-links {
@@ -723,6 +728,12 @@ footer .container {
     .nav-links {
         display: none;
     }
+
+    @media (max-width: 480px) {
+    .logo-container {
+        width: 160px;
+    }
+}
 
     /* 2. Profil butonunun yanındaki aşağı oku mobilde gizle */
     .profile-arrow {

@@ -2,61 +2,48 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Sayfa yüklendi, JavaScript başlatılıyor...');
 
-    // ========== NAVBAR DROPDOWN SİSTEMİ ==========
-    const navDropdown = document.querySelector('.nav-dropdown');
-    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
-    const dropdownMenu = document.querySelector('.nav-dropdown-menu');
+    // Cihaz hover destekliyor mu? (Masaüstü) -> hover, Aksi (Mobil/Touch) -> click
+    const isHoverable = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
 
-    if (navDropdown && dropdownToggle && dropdownMenu) {
-        console.log('Navbar dropdown elemanları bulundu');
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
 
-        // Dropdown toggle butonuna tıklama
-        dropdownToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            console.log('Navbar dropdown tıklandı');
-            
-            // Profil menüsünü kapat
-            const profileMenu = document.getElementById('profileMenu');
-            const profileBtn = document.getElementById('profileBtn');
-            if (profileMenu && profileBtn) {
-                profileMenu.classList.remove('show');
-                profileBtn.classList.remove('active');
-            }
-            
-            // Dropdown menüyü aç/kapat
-            navDropdown.classList.toggle('active');
-        });
+    dropdowns.forEach(dd => {
+        const toggle = dd.querySelector('.nav-dropdown-toggle');
+        const menu   = dd.querySelector('.nav-dropdown-menu');
+        if(!toggle || !menu) return;
 
-        // Dropdown menü item'larına tıklama
-        const dropdownItems = dropdownMenu.querySelectorAll('.dropdown-item');
-        dropdownItems.forEach(item => {
-            item.addEventListener('click', function(e) {
+        if (isHoverable) {
+            // Masaüstü: hover ile açılacak. Tıklama yeni sayfa açmasın.
+            toggle.addEventListener('click', e => e.preventDefault());
+            // (Hover işi CSS ile; burada ekstra JS şart değil ama tutarlılık için aktif sınıfı yönetebiliriz)
+            dd.addEventListener('mouseenter', () => dd.classList.add('active'));
+            dd.addEventListener('mouseleave', () => dd.classList.remove('active'));
+        } else {
+            // Mobil/Touch: tıklama ile aç/kapat
+            toggle.addEventListener('click', function(e){
                 e.preventDefault();
-                console.log('Dropdown item tıklandı:', this.textContent.trim());
-                
-                // Menüyü kapat
-                navDropdown.classList.remove('active');
+                e.stopPropagation();
+                // Diğer açık menüleri kapat
+                dropdowns.forEach(other => { if (other !== dd) other.classList.remove('active'); });
+                // Bu menüyü aç/kapat
+                dd.classList.toggle('active');
             });
-        });
+        }
+    });
 
-        // Sayfa herhangi bir yerine tıklandığında dropdown'ları kapat
-        document.addEventListener('click', function(e) {
-            if (!navDropdown.contains(e.target)) {
-                navDropdown.classList.remove('active');
-            }
+    // Dışarı tıklamada kapat
+    document.addEventListener('click', function(e){
+        dropdowns.forEach(dd => {
+            if (!dd.contains(e.target)) dd.classList.remove('active');
         });
+    });
 
-        // ESC tuşu ile dropdown'ı kapat
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                navDropdown.classList.remove('active');
-            }
-        });
-    } else {
-        console.log('Navbar dropdown elemanları bulunamadı');
-    }
+    // ESC ile kapat
+    document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape') dropdowns.forEach(dd => dd.classList.remove('active'));
+    });
+
+    /* --- Profil menüsü, arama, filtre vb. mevcut kodların aynen kalabilir --- */
 
     // ========== PROFİL DROPDOWN SİSTEMİ ==========
     const profileBtn = document.getElementById('profileBtn');
@@ -457,3 +444,82 @@ function showToast(message, type = 'info') {
         toastElement.remove();
     });
 }
+document.addEventListener('DOMContentLoaded', function() {
+
+    // --- Gerekli Bütün HTML Elementlerini Seçme ---
+    const profileBtn = document.getElementById('profileBtn');
+    const profileMenu = document.getElementById('profileMenu');
+    const menuToggleBtn = document.querySelector('.mobile-menu-toggle');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeMenuBtn = document.querySelector('.close-menu-btn');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+    const navDropdown = document.querySelector('.nav-dropdown');
+    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+
+    // --- MOBİL YAN MENÜ SİSTEMİ ---
+    if (menuToggleBtn && sideMenu && closeMenuBtn && menuBackdrop) {
+        // Menüyü aç
+        menuToggleBtn.addEventListener('click', function() {
+            sideMenu.classList.add('active');
+            menuBackdrop.classList.add('active');
+        });
+
+        // Menüyü kapat (X butonu ile)
+        closeMenuBtn.addEventListener('click', function() {
+            sideMenu.classList.remove('active');
+            menuBackdrop.classList.remove('active');
+        });
+
+        // Menüyü kapat (arka plana tıklayarak)
+        menuBackdrop.addEventListener('click', function() {
+            sideMenu.classList.remove('active');
+            menuBackdrop.classList.remove('active');
+        });
+    }
+
+    // --- PROFİL AÇILIR MENÜ SİSTEMİ ---
+    if (profileBtn && profileMenu) {
+        profileBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (navDropdown) navDropdown.classList.remove('active'); // Diğer menüyü kapat
+            profileMenu.classList.toggle('show');
+            profileBtn.classList.toggle('active');
+        });
+    }
+
+    // --- MASAÜSTÜ NAVBAR AÇILIR MENÜ SİSTEMİ ---
+    if (navDropdown && dropdownToggle) {
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault(); // Sayfanın en üstüne gitmesini engelle
+            e.stopPropagation();
+            if (profileMenu) profileMenu.classList.remove('show'); // Diğer menüyü kapat
+            navDropdown.classList.toggle('active');
+        });
+    }
+
+    // --- Sayfada Boş Bir Yere veya ESC Tuşuna Basınca Menüleri Kapat ---
+    document.addEventListener('click', function(e) {
+        if (profileMenu && !profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
+            profileMenu.classList.remove('show');
+            profileBtn.classList.remove('active');
+        }
+        if (navDropdown && !navDropdown.contains(e.target)) {
+            navDropdown.classList.remove('active');
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (profileMenu) {
+                profileMenu.classList.remove('show');
+                profileBtn.classList.remove('active');
+            }
+            if (navDropdown) navDropdown.classList.remove('active');
+            if (sideMenu) {
+                sideMenu.classList.remove('active');
+                menuBackdrop.classList.remove('active');
+            }
+        }
+    });
+
+});

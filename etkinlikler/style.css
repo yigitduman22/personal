@@ -10,9 +10,9 @@ body {
 }
 
 .container {
-    width: 100%; /* Bu değeri artırarak genel içeriğin genişliğini artırın */
+    width: 100%;
     margin: 0 auto;
-    max-width: 1700px; /* Bu satırı bulun ve değeri artırın (örneğin 1200px'den 1400px'e) veya tamamen kaldırın */
+    max-width: 1700px;
 }
 
 .card {
@@ -33,10 +33,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%; /* Bu değeri 90% olarak bırakın veya istediğiniz kadar daraltın */
+    width: 90%;
     margin: auto;
     flex-wrap: wrap;
 }
+
 .logo-container {
     display: flex;
     align-items: center;
@@ -57,7 +58,7 @@ body {
     margin: 0;
     padding: 0;
     flex-wrap: wrap;
-    margin-left: 650px; /* Sağa doğru kaydırıldı */
+    margin-left: 650px;
 }
 
 .nav-links li {
@@ -94,8 +95,6 @@ body {
 .nav-dropdown {
     position: relative;
 }
-
-/* Dropdown Toggle (Ana Buton) */
 
 .dropdown-arrow {
     font-size: 0.8rem !important;
@@ -140,7 +139,7 @@ body {
 /* Dropdown Grid Layout - 4 sütun */
 .dropdown-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 3'ten 4'e çıkarıldı */
+    grid-template-columns: repeat(4, 1fr);
     gap: 0;
     row-gap: 20px;
 }
@@ -150,7 +149,7 @@ body {
     display: flex !important;
     align-items: flex-start !important;
     gap: 15px !important;
-    padding: 15px !important; /* Padding biraz azaltıldı */
+    padding: 15px !important;
     text-decoration: none;
     color: #495057 !important;
     transition: all 0.3s ease;
@@ -377,10 +376,81 @@ body {
     font-size: 14px;
 }
 
+/* ===================== BREADCRUMB - HIZALAMA DÜZELTİLDİ ===================== */
+.breadcrumb-section {
+    background-color: #f8f9fa;
+    padding: 15px 0;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: none;
+    font-size: 14px;
+}
+
+.breadcrumb-item a {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color .3s;
+}
+
+.breadcrumb-item a:hover {
+    color: #022842;
+}
+
+.breadcrumb-item.active {
+    color: #022842;
+    font-weight: 500;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    color: #6c757d;
+}
+
+/* ===================== PAGE HEADER - HIZALAMA DÜZELTİLDİ ===================== */
+.page-header {
+    background-color: white;
+    padding: 20px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.page-header h2 {
+    color: #022842;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.page-header h2 i {
+    color: #022842;
+}
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #022842;
+}
+
+.page-subtitle {
+    font-size: 1rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 /* Ana content alanı */
 .content-area {
-    padding: 5px; /* Bu değeri artırın veya 0 olarak ayarlayın */
-    width: 100%; /* Bu değeri 100% olarak bırakın */
+    padding: 0;
+    width: 100%;
 }
 
 /* Social Icons Stilleri */
@@ -411,21 +481,15 @@ body {
 
 /* SİZDEN GELENLER SAYFA STİLLERİ */
 .content-area {
-    padding: 0px 0; /* Eğer sayfanın üst ve alt boşluklarını azaltmak istemiyorsanız bu satırı değiştirmeyin. Yan boşluklar için sadece 0 yapabilirsiniz. */
+    padding: 20px 0;
     min-height: calc(100vh - 200px);
 }
-/* Sade Başlık Bölümü */
-.page-header {
-    background: #fdffff;
-    padding: 15px 0;
-    margin-bottom: 2px;
-    text-align: center;
-}
 
+/* Sade Başlık Bölümü */
 .page-title {
-    font-size: 2.5rem;
+    font-size: 1rem;
     font-weight: 500;
-    margin-bottom: 0.5rem;
+    margin-bottom: 3rem;
     color: #022842;
 }
 
@@ -449,22 +513,35 @@ body {
 
 .search-box {
     position: relative;
+<<<<<<< HEAD
     width: 100%;
+=======
+    width: 1800px;
+>>>>>>> f970bd138bda15677a5760c9d66e54d0ff77f55e
 }
 
 .search-input {
     width: 100%;
     border: 2px solid #e9ecef;
     border-radius: 50px;
+<<<<<<< HEAD
     padding: 15px 70px 15px 25px; 
     font-size: 20px;
+=======
+    padding: 15px 60px 15px 25px;
+    font-size: 16px;
+>>>>>>> f970bd138bda15677a5760c9d66e54d0ff77f55e
     transition: all 0.3s ease;
     box-shadow: none;
 }
 
 .search-btn {
     position: absolute;
+<<<<<<< HEAD
     right: 10px; 
+=======
+    right: 5px;
+>>>>>>> f970bd138bda15677a5760c9d66e54d0ff77f55e
     top: 50%;
     transform: translateY(-50%);
     background: linear-gradient(135deg, #022842 0%, #1e4a6b 100%);
@@ -485,6 +562,7 @@ body {
     background: linear-gradient(135deg, #1e4a6b 0%, #022842 100%);
     transform: translateY(-50%) scale(1.05);
 }
+
 .filter-btn.active {
     background: linear-gradient(135deg, #022842 0%, #1e4a6b 100%);
     border-color: #022842;
@@ -583,10 +661,6 @@ body {
     line-height: 1.4;
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    line-clamp: 2;
-    line-clamp: 2;
-    line-clamp: 2;
-    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     transition: color 0.3s ease;
@@ -621,6 +695,7 @@ body {
     align-items: center;
     gap: 4px;
 }
+
 /* Badge stilleri - mevcut badge stillerini güncelleyin */
 
 /* Event status container - badge'in konumlandırılması için */
@@ -683,8 +758,6 @@ body {
     gap: 8px;
 }
 
-
-
 /* Responsive tasarım için badge düzenlemesi */
 @media (max-width: 768px) {
     .badge {
@@ -699,6 +772,7 @@ body {
         align-items: flex-start;
     }
 }
+
 .news-views {
     color: #6c757d;
     font-size: 12px;
@@ -777,7 +851,6 @@ body {
 }
 
 .stats-number {
-
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 10px;
