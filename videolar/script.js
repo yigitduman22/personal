@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ===================================================================
-    // ADIM 1: "SAHTE VERİ TABANIMIZ" (VİDEO LİSTESİ)
+    // BÖLÜM 1: VİDEO SAYFASI İÇİN GEREKLİ KODLAR
     // ===================================================================
-    const videos = [
+
+    // Video Veri Tabanı
+   const videos = [
         { id: 'qLqYPQgUPEc', title: 'Gebze Offroad Heyecanı', description: 'Nefes kesen anlar...', category: 'etkinlikler', duration: '15:22' },
         { id: 'GWfDmGr6tlg', title: 'Yeni Personel İçin İSG Eğitimi', description: 'İş sağlığı ve güvenliği temelleri.', category: 'egitimler', duration: '45:10' },
         { id: 'eUBQYWMZyH8', title: 'Bayramlaşma Töreni Duyurusu', description: 'Tüm personelimiz davetlidir.', category: 'duyurular', duration: '01:30' },
@@ -29,10 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'D1b-CZYtCTg', title: 'Video Başlığı 23', description: 'Açıklama...', category: 'duyurular', duration: '00:00' }
     ];
 
-    // ===================================================================
-    // ADIM 2: FONKSİYONLAR VE OLAY DİNLEYİCİLER
-    // ===================================================================
 
+    // Gerekli HTML Elementlerini Seçme (Video Bölümü)
     const videoGrid = document.getElementById('video-grid');
     const searchInput = document.getElementById('video-search-input');
     const filterButtons = document.querySelectorAll('.nav-pills .nav-link');
@@ -44,7 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const itemsPerPage = 8;
     let currentPage = 1;
 
+    // Videoları Ekrana Çizen Fonksiyon
     const renderVideos = (items) => {
+        if (!videoGrid) return;
         videoGrid.innerHTML = '';
         if (items.length === 0) return;
         items.forEach(video => {
@@ -52,14 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="col video-item" data-category="${video.category}">
                     <div class="card video-card h-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#videoModal" data-youtube-id="${video.id}">
                         <div class="card-thumbnail">
-                            <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" class="card-img-top" alt="${video.title}">
+                             <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" class="card-img-top" alt="${video.title}">
                             <div class="play-icon-overlay"><i class="fas fa-play"></i></div>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">${video.title}</h5>
                             <p class="card-text small">${video.description}</p>
                         </div>
-                        <div class="card-footer">
+                         <div class="card-footer">
                             <small class="text-muted"><i class="fas fa-tag me-1"></i> ${video.category}</small>
                             <small class="text-muted"><i class="fas fa-clock me-1"></i> ${video.duration}</small>
                         </div>
@@ -69,7 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     
+    // Sayfayı (Filtre, Arama, Sayfalama) Güncelleyen Ana Fonksiyon
     const updateDisplay = () => {
+        if (!searchInput) return; // Sadece video sayfasındaysa çalış
         const selectedCategory = document.querySelector('.nav-pills .nav-link.active').getAttribute('data-category');
         const searchTerm = searchInput.value.toLowerCase();
         const filteredItems = videos.filter(video => {
@@ -77,21 +81,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const searchMatch = video.title.toLowerCase().includes(searchTerm);
             return categoryMatch && searchMatch;
         });
-        
         const paginatedItems = paginate(filteredItems);
         renderVideos(paginatedItems);
         
-        noResultsMessage.style.display = filteredItems.length === 0 ? 'block' : 'none';
+        if (noResultsMessage) noResultsMessage.style.display = filteredItems.length === 0 ? 'block' : 'none';
         setupPagination(filteredItems);
     };
 
+    // Sayfalama Yapan Fonksiyon
     const paginate = (items) => {
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
         return items.slice(startIndex, endIndex);
     }
 
+    // Sayfalama Butonlarını Oluşturan Fonksiyon
     const setupPagination = (items) => {
+        if (!paginationContainer) return;
         const totalPages = Math.ceil(items.length / itemsPerPage);
         paginationContainer.innerHTML = '';
         if (totalPages <= 1) {
@@ -99,136 +105,136 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         paginationContainer.style.display = 'flex';
-        // ... (sayfalama butonlarını oluşturma mantığı)
         paginationContainer.innerHTML += `<li class="page-item ${currentPage === 1 ? 'disabled' : ''}"><a class="page-link" href="#" aria-label="Önceki" data-page="${currentPage - 1}"><i class="fas fa-chevron-left"></i></a></li>`;
-
-        // Sayfa numaraları aynı kalıyor
         for (let i = 1; i <= totalPages; i++) {
             paginationContainer.innerHTML += `<li class="page-item ${i === currentPage ? 'active' : ''}"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
         }
-
-// Sonraki butonu için ikon ekliyoruz
-paginationContainer.innerHTML += `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}"><a class="page-link" href="#" aria-label="Sonraki" data-page="${currentPage + 1}"><i class="fas fa-chevron-right"></i></a></li>`;
-        paginationContainer.innerHTML += `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}"><a class="page-link" href="#" data-page="${currentPage + 1}">Sonraki</a></li>`;
+        paginationContainer.innerHTML += `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}"><a class="page-link" href="#" aria-label="Sonraki" data-page="${currentPage + 1}"><i class="fas fa-chevron-right"></i></a></li>`;
     };
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', (event) => {
-            event.preventDefault();
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
+    // Video Sayfası Olay Dinleyicileri
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                currentPage = 1;
+                updateDisplay();
+            });
+        });
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
             currentPage = 1;
             updateDisplay();
         });
-    });
+    }
 
-    searchInput.addEventListener('input', () => {
-        currentPage = 1;
-        updateDisplay();
-    });
-
-    paginationContainer.addEventListener('click', (event) => {
-        event.preventDefault();
-        const target = event.target;
-        if (target.tagName === 'A' && !target.parentElement.classList.contains('disabled')) {
-            currentPage = parseInt(target.getAttribute('data-page'));
-            updateDisplay();
-        }
-    });
-
-    videoModalEl.addEventListener('show.bs.modal', (event) => {
-        const clickedElement = event.relatedTarget;
-        if (clickedElement) {
-            const youtubeId = clickedElement.getAttribute('data-youtube-id');
-            if (youtubeId) {
-                youtubeIframe.setAttribute('src', `https://www.youtube.com/embed/${youtubeId}?autoplay=1`);
+    if (paginationContainer) {
+        paginationContainer.addEventListener('click', (event) => {
+            event.preventDefault();
+            const target = event.target.closest('a');
+            if (target && !target.parentElement.classList.contains('disabled')) {
+                currentPage = parseInt(target.getAttribute('data-page'));
+                updateDisplay();
             }
-        }
-    });
+        });
+    }
     
-    videoModalEl.addEventListener('hidden.bs.modal', () => {
-        youtubeIframe.setAttribute('src', '');
-    });
+    if (videoModalEl) {
+        videoModalEl.addEventListener('show.bs.modal', (event) => {
+            const card = event.relatedTarget.closest('.card');
+            if (card) {
+                const youtubeId = card.getAttribute('data-youtube-id');
+                if (youtubeId && youtubeIframe) {
+                    youtubeIframe.setAttribute('src', `https://www.youtube.com/embed/${youtubeId}?autoplay=1`);
+                }
+            }
+        });
 
-    updateDisplay();
-});
+        videoModalEl.addEventListener('hidden.bs.modal', () => {
+            if (youtubeIframe) youtubeIframe.setAttribute('src', '');
+        });
+    }
 
-document.addEventListener('DOMContentLoaded', function() {
+    // Video sayfası için ilk yükleme
+    if (window.location.pathname.includes('video')) {
+         updateDisplay();
+    }
 
-    // --- Gerekli Bütün HTML Elementlerini Seçme ---
+
+    // ===================================================================
+    // BÖLÜM 2: BÜTÜN MENÜLERİN ÇALIŞMASINI SAĞLAYAN KOD
+    // ===================================================================
+
+    // Gerekli HTML Elementlerini Seçme (Menü Bölümü)
     const profileBtn = document.getElementById('profileBtn');
     const profileMenu = document.getElementById('profileMenu');
     const menuToggleBtn = document.querySelector('.mobile-menu-toggle');
     const sideMenu = document.getElementById('sideMenu');
     const closeMenuBtn = document.querySelector('.close-menu-btn');
     const menuBackdrop = document.getElementById('menuBackdrop');
-    const navDropdown = document.querySelector('.nav-dropdown');
-    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+    const navDropdowns = document.querySelectorAll('.nav-dropdown');
 
-    // --- MOBİL YAN MENÜ SİSTEMİ ---
+    // Mobil Yan Menü (Hamburger)
     if (menuToggleBtn && sideMenu && closeMenuBtn && menuBackdrop) {
-        // Menüyü aç
-        menuToggleBtn.addEventListener('click', function() {
+        menuToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             sideMenu.classList.add('active');
             menuBackdrop.classList.add('active');
         });
-
-        // Menüyü kapat (X butonu ile)
-        closeMenuBtn.addEventListener('click', function() {
+        closeMenuBtn.addEventListener('click', () => {
             sideMenu.classList.remove('active');
             menuBackdrop.classList.remove('active');
         });
-
-        // Menüyü kapat (arka plana tıklayarak)
-        menuBackdrop.addEventListener('click', function() {
+        menuBackdrop.addEventListener('click', () => {
             sideMenu.classList.remove('active');
             menuBackdrop.classList.remove('active');
         });
     }
 
-    // --- PROFİL AÇILIR MENÜ SİSTEMİ ---
+    // Profil Açılır Menüsü
     if (profileBtn && profileMenu) {
-        profileBtn.addEventListener('click', function(e) {
+        profileBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (navDropdown) navDropdown.classList.remove('active'); // Diğer menüyü kapat
+            navDropdowns.forEach(d => d.classList.remove('active'));
             profileMenu.classList.toggle('show');
-            profileBtn.classList.toggle('active');
         });
     }
-
-    // --- MASAÜSTÜ NAVBAR AÇILIR MENÜ SİSTEMİ ---
-    if (navDropdown && dropdownToggle) {
-        dropdownToggle.addEventListener('click', function(e) {
-            e.preventDefault(); // Sayfanın en üstüne gitmesini engelle
-            e.stopPropagation();
-            if (profileMenu) profileMenu.classList.remove('show'); // Diğer menüyü kapat
-            navDropdown.classList.toggle('active');
-        });
-    }
-
-    // --- Sayfada Boş Bir Yere veya ESC Tuşuna Basınca Menüleri Kapat ---
-    document.addEventListener('click', function(e) {
-        if (profileMenu && !profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
-            profileMenu.classList.remove('show');
-            profileBtn.classList.remove('active');
-        }
-        if (navDropdown && !navDropdown.contains(e.target)) {
-            navDropdown.classList.remove('active');
+    
+    // Masaüstü Açılır Menüler
+    navDropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+        if(toggle){
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (profileMenu) profileMenu.classList.remove('show');
+                
+                let wasActive = dropdown.classList.contains('active');
+                navDropdowns.forEach(d => d.classList.remove('active'));
+                
+                if (!wasActive) {
+                    dropdown.classList.add('active');
+                }
+            });
         }
     });
 
-    document.addEventListener('keydown', function(e) {
+    // Boş Yere veya ESC'ye Basınca Menüleri Kapat
+    document.addEventListener('click', () => {
+        if(profileMenu) profileMenu.classList.remove('show');
+        navDropdowns.forEach(d => d.classList.remove('active'));
+    });
+
+    document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            if (profileMenu) {
-                profileMenu.classList.remove('show');
-                profileBtn.classList.remove('active');
-            }
-            if (navDropdown) navDropdown.classList.remove('active');
-            if (sideMenu) {
-                sideMenu.classList.remove('active');
-                menuBackdrop.classList.remove('active');
-            }
+            if(sideMenu) sideMenu.classList.remove('active');
+            if(menuBackdrop) menuBackdrop.classList.remove('active');
+            if(profileMenu) profileMenu.classList.remove('show');
+            navDropdowns.forEach(d => d.classList.remove('active'));
         }
     });
-
 });
