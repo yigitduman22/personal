@@ -401,6 +401,9 @@ body {
     padding: 15px 0;
 }
 
+.page-header{
+    padding: 20px 0;
+}
 .breadcrumb {
     display: flex;
     align-items: center;
@@ -426,42 +429,6 @@ body {
     color: #022842;
     font-weight: 500;
 }
-<<<<<<< HEAD
-=======
-
-.breadcrumb-item + .breadcrumb-item::before {
-    content: ">";
-    color: #6c757d;
-}
-
-/* Page Header - Navbar ile aynı hizalama */
-.page-header {
-    background-color: #f8f9fa;
-    padding: 20px 0;
-}
-
-.page-header h2 {
-    color: #022842;
-    font-size: 2rem;
-    font-weight: 600;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.page-header h2 i {
-    color: #022842;
-}
-
-/* Ana content alanı - Navbar ile aynı hizalama */
-.content-area {
-    padding: 40px 0;
-    min-height: calc(100vh - 200px);
-}
-
-/* Search Filter Section - Navbar ile aynı hizalama */
->>>>>>> f970bd138bda15677a5760c9d66e54d0ff77f55e
 .search-filter-section {
     background: white;
     border-radius: 40px;
@@ -475,35 +442,22 @@ body {
 
 .search-box {
     position: relative;
-<<<<<<< HEAD
     width: 100%;
-=======
-    width: 1800px;
->>>>>>> f970bd138bda15677a5760c9d66e54d0ff77f55e
 }
 
 .search-input {
     width: 100%;
     border: 2px solid #e9ecef;
     border-radius: 50px;
-<<<<<<< HEAD
     padding: 15px 70px 15px 25px; 
     font-size: 20px;
-=======
-    padding: 15px 60px 15px 25px;
-    font-size: 16px;
->>>>>>> f970bd138bda15677a5760c9d66e54d0ff77f55e
     transition: all 0.3s ease;
     box-shadow: none;
 }
 
 .search-btn {
     position: absolute;
-<<<<<<< HEAD
     right: 10px; 
-=======
-    right: 5px;
->>>>>>> f970bd138bda15677a5760c9d66e54d0ff77f55e
     top: 50%;
     transform: translateY(-50%);
     background: linear-gradient(135deg, #022842 0%, #1e4a6b 100%);
@@ -868,7 +822,6 @@ footer .container {
         align-items: stretch;
     }
 
-<<<<<<< HEAD
     .filter-buttons {
         flex-wrap: wrap;
     }
@@ -885,10 +838,6 @@ footer .container {
         width: 38px;
         height: 38px;
         right: 8px;
-=======
-    .search-filter-section {
-        padding: 20px;
->>>>>>> f970bd138bda15677a5760c9d66e54d0ff77f55e
     }
 
     .page-header h2 {

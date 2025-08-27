@@ -499,7 +499,6 @@ body {
     max-width: 400px;
     margin: 0 auto;
 }
-
 .search-filter-section {
     background: white;
     border-radius: 40px;
@@ -507,61 +506,54 @@ body {
     padding: 20px;
     margin-bottom: 20px;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: center;
+    /* Arama motoru genişliğini ayarla */
+    width: 100%; /* Kapsayıcının tam genişliğini kullan */
+    max-width: 2100px; /* Maksimum genişliğini belirle */
+    margin: 0 auto; /* Sayfanın ortasına hizala */
 }
 
 .search-box {
     position: relative;
-<<<<<<< HEAD
-    width: 100%;
-=======
-    width: 1800px;
->>>>>>> f970bd138bda15677a5760c9d66e54d0ff77f55e
+    /* Sabit genişlik yerine esnek bir genişlik kullan */
+    width: 100%; 
 }
 
 .search-input {
     width: 100%;
     border: 2px solid #e9ecef;
     border-radius: 50px;
-<<<<<<< HEAD
-    padding: 15px 70px 15px 25px; 
-    font-size: 20px;
-=======
     padding: 15px 60px 15px 25px;
     font-size: 16px;
->>>>>>> f970bd138bda15677a5760c9d66e54d0ff77f55e
     transition: all 0.3s ease;
     box-shadow: none;
 }
 
+.search-input:focus {
+    border-color: #022842;
+    box-shadow: 0 0 0 0.2rem rgba(2, 40, 66, 0.1);
+}
+
 .search-btn {
     position: absolute;
-<<<<<<< HEAD
-    right: 10px; 
-=======
     right: 5px;
->>>>>>> f970bd138bda15677a5760c9d66e54d0ff77f55e
     top: 50%;
     transform: translateY(-50%);
     background: linear-gradient(135deg, #022842 0%, #1e4a6b 100%);
     border: none;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
     color: white;
     font-size: 16px;
     transition: all 0.3s ease;
     z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .search-btn:hover {
     background: linear-gradient(135deg, #1e4a6b 0%, #022842 100%);
     transform: translateY(-50%) scale(1.05);
 }
+
 
 .filter-btn.active {
     background: linear-gradient(135deg, #022842 0%, #1e4a6b 100%);
@@ -921,6 +913,31 @@ footer .container {
     .news-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .search-filter-section {
+        /* Yatayda tam genişlik kullan ve kenarlardan boşluk bırak */
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box; /* Padding dahil genişlik hesaplaması */
+    }
+
+    .search-box {
+        /* Sabit genişliği kaldır, esnek olmasını sağla */
+        width: 100%;
+    }
+
+    .search-input {
+        /* Mobil görünüm için iç boşlukları ayarla */
+        padding: 12px 55px 12px 18px;
+        font-size: 14px;
+    }
+
+    .search-btn {
+        /* Butonu küçült ve sağ kenara yaklaştır */
+        width: 38px;
+        height: 38px;
+        right: 8px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -965,21 +982,7 @@ footer .container {
         flex-wrap: wrap;
     }
 
-    .search-filter-section {
-        padding: 15px;
-    }
-
-    .search-input {
-        padding: 12px 55px 12px 18px; 
-        font-size: 14px;
-    }
-
-    .search-btn {
-        width: 38px;
-        height: 38px;
-        right: 8px;
-    }
-
+   
 
     .page-title {
         font-size: 2rem;
@@ -1033,9 +1036,32 @@ footer .container {
     .dropdown-item span {
         font-size: 11px;
     }
+    .results-header {
+        /* Mobil cihazlarda başlık ve sıralama kutusunu alt alta getir */
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
 }
 
 @media (max-width: 480px) {
+     .search-filter-section {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .search-input {
+        /* En küçük ekranlar için iç boşlukları daha da daralt */
+        padding: 10px 50px 10px 15px;
+        font-size: 13px;
+    }
+
+    .search-btn {
+        /* En küçük ekranlar için butonu küçült */
+        width: 34px;
+        height: 34px;
+        right: 4px;
+    }
     .logo-img {
         transform: scale(2.5);
     }
