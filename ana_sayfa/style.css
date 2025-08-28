@@ -1600,5 +1600,5 @@ body {
 } 
 
 .main-content {
-    flex-grow: 1; /* Bu alan, footer'ı aşağı iterek mevcut tüm boş alanı doldursun */
+    flex-grow: 1; /* Bu alan, footer'ı aşağı iterek mevcut tüm boş alanı doldursun */
 }
