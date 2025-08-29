@@ -214,7 +214,7 @@
     padding: 10px 0; /* Padding'i azalttık (15px'ten 10px'e) */
     border-bottom: 1px solid #e9ecef;
     width: 100%;
-    margin-top: -10px; /* Navbar ile arasındaki mesafeyi azaltmak için */
+  
 }
 
 /* Breadcrumb container'ı navbar'ın nav-container ile birebir aynı */
@@ -852,7 +852,6 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ffffff 0%, #e7e7e7 100%);
            
         }
 
@@ -865,6 +864,7 @@
             max-width: 1650px;
             margin: 0 auto;
             padding: 2rem;
+             width: 90%; /* Tutarlılık için ekleyin */
         }
 
         /* Header Bölümü */
