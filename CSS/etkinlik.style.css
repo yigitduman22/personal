@@ -1211,7 +1211,137 @@ footer .container {
 .nav-dropdown.active .dropdown-arrow {
     transform: rotate(180deg);
 }
+/* ===================== RESPONSİVE MEDYA SORGUSU DÜZELTMELERİ ===================== */
 
+/* Tablet görünümü (768px - 992px) */
+@media (max-width: 992px) {
+    .page-header {
+        padding: 15px 0;
+    }
+    
+    .page-header h2 {
+        font-size: 1.75rem;
+        gap: 12px;
+        padding: 0 20px;
+    }
+    
+    .page-header h2 i {
+        font-size: 1.5rem;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+        padding: 0 20px;
+    }
+    
+    .page-subtitle {
+        font-size: 0.95rem;
+        padding: 0 20px;
+    }
+    
+    .breadcrumb {
+        padding: 0 20px;
+        font-size: 13px;
+    }
+}
+
+/* Mobil görünümü (768px ve altı) */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 12px 0;
+    }
+    
+    .page-header h2 {
+        font-size: 1.5rem;
+        gap: 10px;
+        padding: 0 15px;
+        /* Uzun başlıkları alt satıra taşımak için */
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .page-header h2 i {
+        font-size: 1.3rem;
+    }
+    
+    .page-title {
+        font-size: 1.75rem;
+        padding: 0 15px;
+        line-height: 1.3;
+        margin-bottom: 0.75rem;
+    }
+    
+    .page-subtitle {
+        font-size: 0.9rem;
+        padding: 0 15px;
+        line-height: 1.4;
+    }
+    
+    .breadcrumb {
+        padding: 0 15px;
+        font-size: 12px;
+        /* Uzun breadcrumb'ları alt satıra taşı */
+        flex-wrap: wrap;
+    }
+}
+
+/* Küçük mobil görünümü (480px ve altı) */
+@media (max-width: 480px) {
+    .page-header {
+        padding: 10px 0;
+    }
+    
+    .page-header h2 {
+        font-size: 1.3rem;
+        gap: 8px;
+        padding: 0 10px;
+    }
+    
+    .page-header h2 i {
+        font-size: 1.1rem;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+        padding: 0 10px;
+        margin-bottom: 1rem;
+    }
+    
+    .page-subtitle {
+        font-size: 0.85rem;
+        padding: 0 10px;
+    }
+    
+    .breadcrumb {
+        padding: 0 10px;
+        font-size: 11px;
+    }
+}
+
+/* ===================== EK İYİLEŞTİRMELER ===================== */
+
+/* Başlık alanının container'ı için */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1700px;
+    /* Responsive için ek ayarlar */
+    padding: 0 15px;
+}
+
+/* Tablet ve masaüstü için container ayarları */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 30px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        padding: 0;
+    }
+}
 /* === MOBİL İÇİN YENİ STİLLER (992px altı) === */
 @media (max-width: 992px) {
     .navbar { padding: 0.75rem 0; }

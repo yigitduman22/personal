@@ -842,9 +842,97 @@
 }
 
 /* 2) LOGO: scale kaynaklı kaymaları önle (ölçü ile kontrol) */
-.logo-img { height: 30px !important; transform: none !important; }
+/* ETKINLIK DETAY SAYFASI - LOGO RESPONSIVE DÜZELTMELERI */
+
+.logo-container {
+    width: 300px; 
+    transition: width 0.3s ease;
+}
+
+.logo-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Transform ve scale'leri kaldır, doğal boyut kullan */
+}
+
+/* 3. Responsive breakpoint'lerde logo boyutunu ayarla */
 @media (max-width: 480px) {
-  .logo-img { height: 28px !important; }
+    .logo-container {
+        width: 160px; /* Duyurularda kullanılan küçük ekran boyutu */
+    }
+}
+
+/* 4. Footer logosunu da duyurularla aynı şekilde düzelt */
+.footer-logo {
+    width: 140px !important;     /* Duyurularda kullanılan genişlik */
+    height: auto !important;     /* Otomatik yükseklik */
+    transform: none !important;  /* Scale'i kaldır */
+    margin-top: 10px;
+    margin-right: 10px;
+    display: block;
+}
+
+/* 5. Mobil footer logo boyutu */
+@media (max-width: 768px) {
+    .footer-logo {
+        width: 120px !important; /* Duyurularda kullanılan mobil boyut */
+        margin-bottom: 12px;
+    }
+}
+
+/* 6. Çok dar ekranlar için footer logo */
+@media (max-width: 400px) {
+    .footer-logo { 
+        width: 105px !important; /* Duyurularda kullanılan en küçük boyut */
+    }
+}
+
+/* 7. Mevcut hatalı logo stillerini override et */
+.logo-img {
+    height: auto !important;     /* Sabit yükseklik yerine otomatik */
+    transform: none !important;  /* Scale transform'unu kaldır */
+}
+
+/* 8. Navbar logo container'ına max-width ekle */
+.logo-container {
+    max-width: 100%; /* Taşmayı önle */
+}
+
+/* 9. Navbar genişlik ayarlarını duyurularla uyumlu hale getir */
+.nav-container {
+    width: 90%;
+    max-width: 1600px; /* Duyurularda kullanılan değer */
+    margin: auto;
+}
+
+/* 10. Mobil navbar düzenlemesi */
+@media (max-width: 992px) {
+    .nav-container {
+        width: 100%;
+        padding: 0 1rem;
+    }
+    
+    /* Mobil header dizilimi: hamburger - logo - profil */
+    .nav-container {
+        display: grid !important;
+        grid-template-columns: auto 1fr auto;
+        align-items: center !important;
+        gap: 0.5rem;
+        width: 100% !important;
+        padding: 0 12px !important;
+    }
+    
+    .mobile-menu-toggle {
+        grid-column: 1;
+        margin: 0 !important;
+    }
+    
+    .profile-container {
+        grid-column: 3;
+        justify-self: end !important;
+        margin: 0 !important;
+    }
 }
 .footer-logo { height: 30px !important; transform: none !important; }
 
