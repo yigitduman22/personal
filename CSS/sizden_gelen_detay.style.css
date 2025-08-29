@@ -1476,7 +1476,7 @@ body {
 
 @media (max-width: 480px) {
     .article-title {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     } 
 
     .article-header, .article-content {
