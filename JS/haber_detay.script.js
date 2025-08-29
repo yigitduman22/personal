@@ -1,42 +1,32 @@
      // Galeri fotoğrafları array'i - Başlık ve açıklamalarla
 const detayGorseller = [
     {
-        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_120.jpg",
-        
+        resim: "images/off-road-foto/gebze-de-off-road-heyecan_120.jpg",
     },
     {
-        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_2075.jpg",
-        
+        resim: "images/off-road-foto/gebze-de-off-road-heyecan_2075.jpg",        
     },
     {
-        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_2143.jpg",
-        
+        resim: "images/off-road-foto/gebze-de-off-road-heyecan_2143.jpg",        
     },
     {
-        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_3569.jpg",
-        
+        resim: "images/off-road-foto/gebze-de-off-road-heyecan_3569.jpg",        
     },
     {
-        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_3911.jpg",
-        
+        resim: "images/off-road-foto/gebze-de-off-road-heyecan_3911.jpg",        
     },
     {
-        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_4046.jpg",
-        
+        resim: "images/off-road-foto/gebze-de-off-road-heyecan_4046.jpg",       
     },
     {
-        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_4564.jpg",
-       
+        resim: "images/off-road-foto/gebze-de-off-road-heyecan_4564.jpg",       
     },
     {
-        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_4975.jpg",
-       
+        resim: "images/off-road-foto/gebze-de-off-road-heyecan_4975.jpg",       
     },
     {
-        resim: "/images/off-road-foto/gebze-de-off-road-heyecan_5429.jpg",
-       
-    },
-    
+        resim: "images/off-road-foto/gebze-de-off-road-heyecan_5429.jpg",       
+    },    
 ];
    // --- GALERİ SİSTEMİ ---
     const mainImage = document.getElementById('main-haber-gorsel');
