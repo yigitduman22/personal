@@ -187,3 +187,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+
+  const setArrow = (li) => {
+    const toggle = li.querySelector('.nav-dropdown-toggle');
+    const menu   = li.querySelector('.nav-dropdown-menu');
+    if (!toggle || !menu) return;
+
+    // Menü görünmüyorsa ölçüm için anlık görünür yap
+    const cs = getComputedStyle(menu);
+    const hidden = cs.display === 'none' || cs.visibility === 'hidden' || cs.opacity === '0';
+    if (hidden) { menu.style.visibility = 'hidden'; menu.style.display = 'block'; }
+
+    const t = toggle.getBoundingClientRect();
+    const m = menu.getBoundingClientRect();
+    const center = (t.left + t.width / 2) - m.left;   // toggle merkezi → menüye göre
+    menu.style.setProperty('--arrow-left', `${center}px`);
+
+    if (hidden) { menu.style.display = ''; menu.style.visibility = ''; }
+  };
+
+  dropdowns.forEach(li => {
+    li.addEventListener('mouseenter', () => setArrow(li));
+    li.addEventListener('focusin',    () => setArrow(li));
+  });
+
+  // pencere boyutu değişirse yeniden hizala
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.nav-dropdown:hover, .nav-dropdown:focus-within')
+            .forEach(li => setArrow(li));
+  });
+});
