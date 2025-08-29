@@ -8,7 +8,7 @@ const newsData = [
         endDate: "31.12.2025", // Bitiş tarihi eklendi
         views: 91,
         status: "aktif",
-        image: "/images/stajyer-oryantasyon-e-t-m_8697.jpg",
+        image: "images/stajyer-oryantasyon-e-t-m_8697.jpg",
     },
     {
         id: 2,
@@ -18,7 +18,7 @@ const newsData = [
         endDate: "30.06.2025", // Bitiş tarihi eklendi
         views: 145,
         status: "aktif",
-        image: "/images/stajyer-donem-sonu-etk-nl_6028.jpg"
+        image: "images/stajyer-donem-sonu-etk-nl_6028.jpg"
     },
     {
         id: 3,
@@ -28,7 +28,7 @@ const newsData = [
         endDate: "15.04.2024", // Bitiş tarihi eklendi
         views: 78,
         status: "pasif",
-        image: "/images/pesonel-ftar-programi_3732.jpg"
+        image: "images/pesonel-ftar-programi_3732.jpg"
     },
     {
         id: 4,
@@ -38,7 +38,7 @@ const newsData = [
         endDate: "08.03.2024", // Bitiş tarihi eklendi
         views: 234,
         status: "pasif",
-        image: "/images/8-mart-dunya-kadinlar-gunu-programi_8383.jpg"
+        image: "images/8-mart-dunya-kadinlar-gunu-programi_8383.jpg"
     },
     {
         id: 5,
@@ -48,7 +48,7 @@ const newsData = [
         endDate: "31.03.2025", // Bitiş tarihi eklendi
         views: 156,
         status: "pasif",
-        image: "/images/on-odeme-kred-ve-avans-e-t-m_2065.jpeg"
+        image: "images/on-odeme-kred-ve-avans-e-t-m_2065.jpeg"
     },
     {
         id: 6,
@@ -58,7 +58,7 @@ const newsData = [
         endDate: "28.02.2024", // Bitiş tarihi eklendi
         views: 189,
         status: "pasif",
-        image: "/images/marmara-kar-yer-fuari-kocael-2024_9790.jpg"
+        image: "images/marmara-kar-yer-fuari-kocael-2024_9790.jpg"
     },
     {
         id: 7,
@@ -68,7 +68,7 @@ const newsData = [
         endDate: "31.08.2025", // Bitiş tarihi eklendi - devam eden
         views: 267,
         status: "aktif",
-        image: "/images/of-s-programlari-e-t-m_2683.jpeg"
+        image: "images/of-s-programlari-e-t-m_2683.jpeg"
     },
     {
         id: 8,
@@ -78,7 +78,7 @@ const newsData = [
         endDate: "31.12.2025", // Bitiş tarihi eklendi - devam eden
         views: 198,
         status: "aktif",
-        image: "/images/lkyardim-e-t-m_1307.jpeg"
+        image: "images/lkyardim-e-t-m_1307.jpeg"
     },
      {
         id: 9,
@@ -88,7 +88,7 @@ const newsData = [
         endDate: "15.03.2024", // Bitiş tarihi eklendi
         views: 198,
         status: "pasif",
-        image: "/images/lkyardim-e-t-m_1307.jpeg"
+        image: "images/lkyardim-e-t-m_1307.jpeg"
     },
     {
         id: 10,
@@ -98,7 +98,7 @@ const newsData = [
         endDate: "03.12.2023", // Bitiş tarihi eklendi
         views: 312,
         status: "pasif",
-        image: "/images/3-aralik-dunya-engell-ler-gunu-personel-yeme_9554.jpg"
+        image: "images/3-aralik-dunya-engell-ler-gunu-personel-yeme_9554.jpg"
     },
     {
         id: 11,
@@ -108,7 +108,7 @@ const newsData = [
         endDate: "15.12.2025", // Bitiş tarihi eklendi
         views: 423,
         status: "pasif",
-        image: "/images/stajyer-o-renci-oryantasyonu_2177.jpg"
+        image: "images/stajyer-o-renci-oryantasyonu_2177.jpg"
     },
     {
         id: 12,
@@ -118,7 +118,7 @@ const newsData = [
         endDate: "24.11.2023", // Bitiş tarihi eklendi
         views: 186,
         status: "pasif",
-        image: "/images/24-kas-m-o-retmenler-gunu_2947.jpg"
+        image: "images/24-kas-m-o-retmenler-gunu_2947.jpg"
     },
     {
         id: 13,
@@ -128,7 +128,7 @@ const newsData = [
         endDate: "30.09.2023", // Bitiş tarihi eklendi
         views: 278,
         status: "pasif",
-        image: "/images/futbol-turnuvasi_9646.jpg",
+        image: "images/futbol-turnuvasi_9646.jpg",
     },
     {
         id: 14,
@@ -138,7 +138,7 @@ const newsData = [
         endDate: "22.07.2023", // Bitiş tarihi eklendi
         views: 278,
         status: "pasif",
-        image: "/images/personel-p-kn-k-programi_9118.jpg",
+        image: "images/personel-p-kn-k-programi_9118.jpg",
     },
       {
         id: 15,
@@ -148,7 +148,7 @@ const newsData = [
         endDate: "25.06.2023", // Bitiş tarihi eklendi
         views: 278,
         status: "pasif",
-        image: "/images/personel-bayramla-ma-programi_5965.jpg",
+        image: "images/personel-bayramla-ma-programi_5965.jpg",
     },
      {
         id: 16,
@@ -158,7 +158,7 @@ const newsData = [
         endDate: "15.05.2023", // Bitiş tarihi eklendi
         views: 278,
         status: "pasif",
-        image: "/images/personel-ftar-program_109.jpg",
+        image: "images/personel-ftar-program_109.jpg",
     },
 ];
 

@@ -45,7 +45,8 @@
       {
         "aria-progressbar-name": "off"
       }
-    ]
+    ],
+    "meta-viewport": "off"
   },
   "browserslist": [
     "defaults",
