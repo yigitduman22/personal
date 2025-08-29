@@ -1403,7 +1403,7 @@ body {
     width: auto;                 /* sabit genişliği bırak */
   }
   .logo-img{
-    width: 100%;
+    width: 80%;
     height: auto;
     max-height: 36px;            /* yükseklik kontrolü */
   }

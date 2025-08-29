@@ -8,7 +8,7 @@ const newsData = [
         categoryName: "İnsan Kaynakları ve Eğitim Müdürlüğü",
         date: "06.11.2023",
         views: 91,
-        image: "/images/sizden_gelenler/insan_kaynaklari/nsan-kaynaklar-ve-e-itim-mudurlu-u_1547.jpg",
+        image: "images/sizden_gelenler/insan_kaynaklari/nsan-kaynaklar-ve-e-itim-mudurlu-u_1547.jpg",
     },
     {
         id: 2,
@@ -18,7 +18,7 @@ const newsData = [
         categoryName: "Fen İşleri Müdürlüğü",
         date: "19.10.2023",
         views: 145,
-        image: "/images/sizden_gelenler/fen_isleri/fen-leri-mudurlu-u_3604.jpg"
+        image: "images/sizden_gelenler/fen_isleri/fen-leri-mudurlu-u_3604.jpg"
     },
     {
         id: 3,
@@ -28,7 +28,7 @@ const newsData = [
         categoryName: "Temizlik İşleri Müdürlüğü",
         date: "19.10.2023",
         views: 78,
-        image: "/images/sizden_gelenler/temizlik_isleri/temizlik-leri-mudurlu-u_2142.jpg"
+        image: "images/sizden_gelenler/temizlik_isleri/temizlik-leri-mudurlu-u_2142.jpg"
     },
     {
         id: 4,
@@ -38,7 +38,7 @@ const newsData = [
         categoryName: "Veteriner İşleri Müdürlüğü",
         date: "17.10.2023",
         views: 234,
-        image: "/images/sizden_gelenler/veteriner_isleri/veteriner-leri-mudurlu-u_547.jpg"
+        image: "images/sizden_gelenler/veteriner_isleri/veteriner-leri-mudurlu-u_547.jpg"
     },
     {
         id: 5,
@@ -48,7 +48,7 @@ const newsData = [
         categoryName: "Park ve Bahçeler Müdürlüğü",
         date: "17.10.2023",
         views: 156,
-        image: "/images/sizden_gelenler/park_bahce/park-ve-bahceler-mudurlu-u_357.jpg"
+        image: "images/sizden_gelenler/park_bahce/park-ve-bahceler-mudurlu-u_357.jpg"
     },
     {
         id: 6,
@@ -58,7 +58,7 @@ const newsData = [
         categoryName: "İnsan Kaynakları ve Eğitim Müdürlüğü",
         date: "15.10.2023",
         views: 189,
-        image: "/images/sizden_gelenler/insan_kaynaklari/nsan-kaynaklar-ve-e-itim-mudurlu-u_4846.jpg"
+        image: "images/sizden_gelenler/insan_kaynaklari/nsan-kaynaklar-ve-e-itim-mudurlu-u_4846.jpg"
     },
     {
         id: 7,
@@ -68,7 +68,7 @@ const newsData = [
         categoryName: "Fen İşleri Müdürlüğü",
         date: "12.10.2023",
         views: 267,
-        image: "/images/sizden_gelenler/fen_isleri/fen-leri-mudurlu-u_8989.jpg"
+        image: "images/sizden_gelenler/fen_isleri/fen-leri-mudurlu-u_8989.jpg"
     },
     {
         id: 8,
@@ -78,7 +78,7 @@ const newsData = [
         categoryName: "Temizlik İşleri Müdürlüğü",
         date: "10.10.2023",
         views: 198,
-        image: "/images/sizden_gelenler/temizlik_isleri/temizlik-leri-mudurlu-u_6633.jpg"
+        image: "images/sizden_gelenler/temizlik_isleri/temizlik-leri-mudurlu-u_6633.jpg"
     },
     {
         id: 9,
@@ -88,7 +88,7 @@ const newsData = [
         categoryName: "Zabıta Müdürlüğü",
         date: "08.10.2023",
         views: 312,
-        image: "/images/sizden_gelenler/zabıta/zab-ta-mudurlu-u_6319.jpg"
+        image: "images/sizden_gelenler/zabıta/zab-ta-mudurlu-u_6319.jpg"
     },
     {
         id: 10,
@@ -98,7 +98,7 @@ const newsData = [
         categoryName: "Fen İşleri Müdürlüğü",
         date: "05.10.2023",
         views: 423,
-        image: "/images/sizden_gelenler/fen_isleri/fen-leri-mudurlu-u_8989.jpg"
+        image: "images/sizden_gelenler/fen_isleri/fen-leri-mudurlu-u_8989.jpg"
     },
     {
         id: 11,
@@ -108,7 +108,7 @@ const newsData = [
         categoryName: "Veteriner İşleri Müdürlüğü",
         date: "03.10.2023",
         views: 186,
-        image: "/images/sizden_gelenler/veteriner_isleri/veteriner-leri-mudurlu-u_547.jpg"
+        image: "images/sizden_gelenler/veteriner_isleri/veteriner-leri-mudurlu-u_547.jpg"
     },
     {
         id: 12,
@@ -118,7 +118,7 @@ const newsData = [
         categoryName: "Park ve Bahçeler Müdürlüğü",
         date: "01.10.2023",
         views: 278,
-        image: "/images/sizden_gelenler/park_bahce/park-ve-bahceler-mudurlu-u_4188.jpg",
+        image: "images/sizden_gelenler/park_bahce/park-ve-bahceler-mudurlu-u_4188.jpg",
     }
 ];
 
@@ -453,7 +453,7 @@ function changePage(page) {
 function openNewsDetail(id) {
     // Bu fonksiyon gerçek uygulamada detay sayfasına yönlendirme yapacak
     console.log('Haber detayı açılıyor:', id);
-    window.location.href = `/sizden_gelenler/sizden_detay/sizden.html?${id}`;
+    window.location.href = `sizden.html?${id}`;
 }
 
 // Debounce function
