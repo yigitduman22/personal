@@ -231,7 +231,7 @@
 .nav-dropdown-menu {
     position: fixed; /* absolute yerine fixed kullanıyoruz */
     top: 100px; /* Navbar'ın altında konumlandır */
-    left: 70%; /* Sayfanın ortasında konumlandır */
+    left: 50%; /* Sayfanın ortasında konumlandır */
     transform: translateX(-50%); /* Tam ortaya hizala */
     
     background: white;
@@ -327,51 +327,22 @@
         .dropdown-item:hover .dropdown-description {
             color: #666 !important;
         }
+/* toggle::after BLOĞUNU SİL ya da devre dışı bırak */
+.nav-dropdown-toggle::after { content: none; }
 
-/* Dropdown Menu Ok İşareti */
-/* Dropdown Menu Ok İşareti */
+/* Oku MENÜYE bağla: hep dropdown’un tepesine yapışık dursun */
+.nav-dropdown { position: relative; } /* güvenlik için */
 .nav-dropdown-menu::before{
     content: '';
     position: absolute;
-    top: -9px;
-    left: 50%; /* Ok işaretini ortala */
-    transform: translateX(-50%); /* Ok işaretini tam ortaya getir */
-    width: 0;
-    height: 0;
+    top: -9px;                   /* menünün tam tepesine yapışır */
+    left: var(--arrow-left, 50%);/* JS burayı ayarlar */
+    transform: translateX(-50%);
+    width: 0; height: 0;
     border-left: 9px solid transparent;
     border-right: 9px solid transparent;
-    border-bottom: 9px solid white;
-    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
-}
-
-/* Dropdown Menu Ok İşareti */
-.nav-dropdown-menu2::before {
-    content: '';
-    position: absolute;
-    top: -9px;
-    left: 50%; /* Ok işaretini ortala */
-    transform: translateX(-50%); /* Ok işaretini tam ortaya getir */
-    width: 0;
-    height: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-bottom: 9px solid white;
-    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
-}
-
-/* Dropdown Menu Ok İşareti */
-.nav-dropdown-menu3::before {
-    content: '';
-    position: absolute;
-    top: -9px;
-    left: 50%; /* Ok işaretini ortala */
-    transform: translateX(-50%); /* Ok işaretini tam ortaya getir */
-    width: 0;
-    height: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-bottom: 9px solid white;
-    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+    border-bottom: 9px solid #fff; /* AŞAĞI bakan ok */
+    filter: drop-shadow(0 -3px 6px rgba(0,0,0,.1));
 }
 
 .nav-dropdown:hover .nav-dropdown-menu {
@@ -390,8 +361,6 @@
     visibility: visible;
     transform: translateX(-50%); /* Y ekseninde kaydırma kaldırıldı */
 }
-
-/* ========== DROPDOWN STİLLERİ SONU ========== */
 
 /* === PROFİL BÖLÜMÜ === */
 .profile-container {

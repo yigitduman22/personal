@@ -239,8 +239,8 @@ html, body {
     visibility: visible; /* Tıklanabilir yap */
     transform: translateY(0); /* Orijinal pozisyonuna indir */
 }
-
 /* ========== NAVBAR DROPDOWN STİLLERİ ========== */
+
 /* Dropdown Container */
 .nav-dropdown {
     position: relative;
@@ -262,7 +262,7 @@ html, body {
 .nav-dropdown-menu {
     position: fixed; /* absolute yerine fixed kullanıyoruz */
     top: 100px; /* Navbar'ın altında konumlandır */
-    left: 70%; /* Sayfanın ortasında konumlandır */
+    left: 50%; /* Sayfanın ortasında konumlandır */
     transform: translateX(-50%); /* Tam ortaya hizala */
     
     background: white;
@@ -358,51 +358,22 @@ html, body {
         .dropdown-item:hover .dropdown-description {
             color: #666 !important;
         }
+/* toggle::after BLOĞUNU SİL ya da devre dışı bırak */
+.nav-dropdown-toggle::after { content: none; }
 
-/* Dropdown Menu Ok İşareti */
-/* Dropdown Menu Ok İşareti */
+/* Oku MENÜYE bağla: hep dropdown’un tepesine yapışık dursun */
+.nav-dropdown { position: relative; } /* güvenlik için */
 .nav-dropdown-menu::before{
     content: '';
     position: absolute;
-    top: -9px;
-    left: 50%; /* Ok işaretini ortala */
-    transform: translateX(-50%); /* Ok işaretini tam ortaya getir */
-    width: 0;
-    height: 0;
+    top: -9px;                   /* menünün tam tepesine yapışır */
+    left: var(--arrow-left, 50%);/* JS burayı ayarlar */
+    transform: translateX(-50%);
+    width: 0; height: 0;
     border-left: 9px solid transparent;
     border-right: 9px solid transparent;
-    border-bottom: 9px solid white;
-    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
-}
-
-/* Dropdown Menu Ok İşareti */
-.nav-dropdown-menu2::before {
-    content: '';
-    position: absolute;
-    top: -9px;
-    left: 50%; /* Ok işaretini ortala */
-    transform: translateX(-50%); /* Ok işaretini tam ortaya getir */
-    width: 0;
-    height: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-bottom: 9px solid white;
-    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
-}
-
-/* Dropdown Menu Ok İşareti */
-.nav-dropdown-menu3::before {
-    content: '';
-    position: absolute;
-    top: -9px;
-    left: 50%; /* Ok işaretini ortala */
-    transform: translateX(-50%); /* Ok işaretini tam ortaya getir */
-    width: 0;
-    height: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-bottom: 9px solid white;
-    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
+    border-bottom: 9px solid #fff; /* AŞAĞI bakan ok */
+    filter: drop-shadow(0 -3px 6px rgba(0,0,0,.1));
 }
 
 .nav-dropdown:hover .nav-dropdown-menu {
@@ -420,50 +391,6 @@ html, body {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%); /* Y ekseninde kaydırma kaldırıldı */
-}
-/* ========== DROPDOWN STİLLERİ SONU ========== */
-
-/* Dropdown Menu Ok İşareti */
-.nav-dropdown-menu::before {
-  content: '';
-  position: absolute;
-  top: -9px;
-  left: 70%;
-  transform: translateX(-70%);
-  width: 0;
-  height: 0;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-bottom: 9px solid white;
-  filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
-}
-/* Dropdown Menu Ok İşareti */
-.nav-dropdown-menu2::before {
-  content: '';
-  position: absolute;
-  top: -9px;
-  left: 95%;
-  transform: translateX(-95%);
-  width: 0;
-  height: 0;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-bottom: 9px solid white;
-  filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
-}
-/* Dropdown Menu Ok İşareti */
-.nav-dropdown-menu3::before {
-  content: '';
-  position: absolute;
-  top: -9px;
-  left: 98%;
-  transform: translateX(-98%);
-  width: 0;
-  height: 0;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-bottom: 9px solid white;
-  filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
 }
 
 /* ========== PROFİL DROPDOWN STİLLERİ ========== */
@@ -668,18 +595,6 @@ html, body {
     width: 16px;
     font-size: 14px;
 }
-/* Tıklandığında menünün görünmesini sağlayan eksik kural */
-.nav-dropdown.active .nav-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
-
-/* Tıklandığında ok ikonunun dönmesini sağlayan ek kural */
-.nav-dropdown.active .dropdown-arrow {
-    transform: rotate(180deg);
-}
-
 /* === MOBİL İÇİN YENİ STİLLER (992px altı) === */
 @media (max-width: 992px) {
     .navbar { padding: 0.75rem 0; }
@@ -1289,36 +1204,6 @@ footer {
     .footer-content p {
         /* İletişim bilgileri arasında boşluk bırak */
         margin-bottom: 15px;
-        margin: 5px 0; /* İletişim bilgileri arasındaki boşluğu azalt */
-
-    }
-
-    .social-icons {
-        /* Sosyal medya ikonlarının konumunu sıfırla */
-        transform: translateY(0);
-        /* Üstündeki elemanla arasına boşluk koy */
-        margin-top: 0; /* Ekstra boşluğu kaldır, gap yeterli */
-    }
-
-    .footer-logo {
-        /* Logo için alt boşluk ver */
-        margin-bottom: 20px;
-    }
-}/* === FOOTER MOBİL GÖRÜNÜM DÜZENLEMESİ === */
-/* Ekran 768px ve daha dar olduğunda */
-@media (max-width: 768px) {
-    .footer-content {
-        /* Elemanları yan yana yerine alt alta sırala */
-        flex-direction: column;
-        /* Ortala */
-        align-items: center;
-        /* Metinleri de ortala */
-        text-align: center;
-    }
-
-    .footer-content p {
-        /* İletişim bilgileri arasında boşluk bırak */
-        margin-bottom: 15px;
     }
 
     .social-icons {
@@ -1494,6 +1379,17 @@ footer .footer-content .footer-logo {
     position: static !important;
     top: auto !important;
   }
+}
+/* Tıklandığında menünün görünmesini sağlayan eksik kural */
+.nav-dropdown.active .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Tıklandığında ok ikonunun dönmesini sağlayan ek kural */
+.nav-dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
 }
 /* ========== RESPONSİVE TASARIM ========== */
 @media (max-width: 768px) {
