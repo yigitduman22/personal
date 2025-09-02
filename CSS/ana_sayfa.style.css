@@ -87,8 +87,20 @@ body {
 }
 
 /* Galeri Yatay Slider */
+/* Galeri Yatay Slider */
 #gallery-container .gallery-wrapper {
-    overflow: hidden;
+    /* overflow: hidden; yerine bunu ekliyoruz */
+    overflow-x: auto; /* Yatayda taşan içeriği kaydırılabilir yap */
+    
+    /* Bu da bonus: O çirkin kaydırma çubuğunu gizleyelim, 
+       ama kaydırma özelliği kalsın. Mobilde çok daha şık durur. */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Chrome, Safari ve Opera için kaydırma çubuğunu gizle */
+#gallery-container .gallery-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 #gallery-track {
@@ -1056,17 +1068,28 @@ footer .container {
     border-bottom: 1px solid white;
     padding-bottom: 10px;
 }
+/* --- FOOTER LOGO NİHAİ DÜZELTME --- */
+/* Daha güçlü bir seçici kullanarak diğer kuralları eziyoruz */
+footer .footer-content .footer-logo {
+    transform: none !important; /* Eski scale komutunu tamamen sıfırla */
+    height: auto !important;     /* Yüksekliği otomatik yapmaya zorla */
+    width: 100% !important;      /* Genişliğin esnek olmasını sağla */
+    max-width: 250px !important;  /* Ama en fazla 250px genişliğinde olsun */
+    
+    /* Hizalama için ek ayarlar */
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
 
-.footer-logo{
-    height: 7px;
-    transform: scale(3);
-    margin-top: 10px;
-    margin-right: 10px;
+.footer-logo {
+    max-width: 280px; /* Logonun maksimum genişliğini sınırlandırır */
+    height: auto;     /* Genişliğe göre yüksekliği otomatik ayarlar */
+    margin-bottom: 1rem; /* Altına biraz boşluk bırakır */
 }
 
 .footer-content p {
     margin: 8px 0;
-    font-size: 14px;
+    font-size: var(--font-size-base); /* YAZIYI AKILLI HALE GETİRDİK */
     color:white;
 }
 
@@ -1105,7 +1128,6 @@ footer .container {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
 }
-
 /* Navbar stilleri - Genişletilmiş */
 .navbar {
             background-color: #022842;

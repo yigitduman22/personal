@@ -1005,8 +1005,8 @@ footer {
 }
 
 footer .container {
-    width: 100%;
-    max-width: 1850px;
+    width: 90%;
+    max-width: 1200px;
     margin: auto;
 }
 
@@ -1018,19 +1018,29 @@ footer .container {
     border-bottom: 1px solid white;
     padding-bottom: 10px;
 }
+/* --- FOOTER LOGO NİHAİ DÜZELTME --- */
+/* Daha güçlü bir seçici kullanarak diğer kuralları eziyoruz */
+footer .footer-content .footer-logo {
+    transform: none !important; /* Eski scale komutunu tamamen sıfırla */
+    height: auto !important;     /* Yüksekliği otomatik yapmaya zorla */
+    width: 100% !important;      /* Genişliğin esnek olmasını sağla */
+    max-width: 250px !important;  /* Ama en fazla 250px genişliğinde olsun */
+    
+    /* Hizalama için ek ayarlar */
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
 
 .footer-logo {
-    width: 140px;
-    height: auto;
-    margin-top: 10px;
-    margin-right: 10px;
-    display: block;
+    max-width: 280px; /* Logonun maksimum genişliğini sınırlandırır */
+    height: auto;     /* Genişliğe göre yüksekliği otomatik ayarlar */
+    margin-bottom: 1rem; /* Altına biraz boşluk bırakır */
 }
 
 .footer-content p {
     margin: 8px 0;
-    font-size: 14px;
-    color: white;
+    font-size: var(--font-size-base); /* YAZIYI AKILLI HALE GETİRDİK */
+    color:white;
 }
 
 .footer-content i {
@@ -1043,12 +1053,11 @@ footer .container {
     font-size: 13px;
     color: white;
 }
-
 /* Social Icons Stilleri */
 .social-icons {
     display: flex;
     gap: 1rem;
-    margin-top: 0;
+    transform: translateY(-20px);
 }
 
 .social-icons a {
