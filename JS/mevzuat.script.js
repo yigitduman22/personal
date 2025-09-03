@@ -395,3 +395,33 @@ document.addEventListener('DOMContentLoaded', () => {
             .forEach(li => setArrow(li));
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+
+    const alignMenuToCenter = (menuItem) => {
+        const menu = menuItem.querySelector('.nav-dropdown-menu');
+        const toggle = menuItem.querySelector('.nav-dropdown-toggle');
+        if (!menu || !toggle) return;
+
+        // Ekranın ve başlığın merkezini hesapla
+        const screenCenter = window.innerWidth / 2;
+        const toggleRect = toggle.getBoundingClientRect();
+        const toggleCenter = toggleRect.left + toggleRect.width / 2;
+
+        // Başlık ekranın solunda mı sağında mı diye kontrol et
+        if (toggleCenter < screenCenter) {
+            // SOLDA: Menüyü sağa doğru aç
+            menu.classList.add('pull-right');
+            menu.classList.remove('pull-left');
+        } else {
+            // SAĞDA: Menüyü sola doğru aç
+            menu.classList.add('pull-left');
+            menu.classList.remove('pull-right');
+        }
+    };
+
+    // Her menünün üzerine gelince hizalama fonksiyonunu çalıştır
+    dropdowns.forEach(item => {
+        item.addEventListener('mouseenter', () => alignMenuToCenter(item));
+    });
+});

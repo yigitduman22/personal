@@ -327,11 +327,10 @@
 
 /* Dropdown Menu - içerik kadar genişlik */
 .nav-dropdown-menu {
-    position: fixed; /* absolute yerine fixed kullanıyoruz */
-    top: 100px; /* Navbar'ın altında konumlandır */
+    position: absolute; /* 'fixed' yerine 'absolute' yapıyoruz */
+    top: calc(100% + 15px); /* Navbar'ın hemen altına 15px boşlukla yerleştir */
     left: 50%; /* Sayfanın ortasında konumlandır */
     transform: translateX(-50%); /* Tam ortaya hizala */
-    
     background: white;
     border-radius: 16px;
     box-shadow: 0 15px 40px rgba(0,0,0,.15);
@@ -1409,4 +1408,32 @@ footer .container {
     position: static !important;
     top: auto !important;
   }
+}
+/* ---- MENÜ HİZALAMA FİNAL SÜRÜM ---- */
+
+/* ---- MENÜ HİZALAMA (Sadece Sol Menüler Ayarlı) ---- */
+
+/* 1. Sola Doğru Açılan Menüler İçin (SAĞDAKİ BAŞLIKLAR) -> STANDART HİZALAMA */
+.nav-dropdown-menu.pull-left {
+    left: auto !important;
+    right: 0 !important; /* Kenara sıfır hizalı */
+    transform: none !important;
+}
+.nav-dropdown-menu.pull-left::before {
+    left: auto !important;
+    right: 45px !important; /* Orijinal ok konumu */
+    transform: translateX(50%) !important;
+}
+
+/* 2. Sağa Doğru Açılan Menüler İçin (SOLDAKİ BAŞLIKLAR, örn: Kaynaklar) -> İSTEDİĞİN AYAR */
+.nav-dropdown.dd-safe .nav-dropdown-menu.pull-right {
+    left: 12rem !important;
+    right: auto !important;
+    transform: none !important;
+    position: absolute !important;
+}
+.nav-dropdown.dd-safe .nav-dropdown-menu.pull-right::before {
+    left: 25px !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
 }

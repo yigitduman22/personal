@@ -229,11 +229,10 @@
 
 /* Dropdown Menu - içerik kadar genişlik */
 .nav-dropdown-menu {
-    position: fixed; /* absolute yerine fixed kullanıyoruz */
-    top: 100px; /* Navbar'ın altında konumlandır */
+    position: absolute; /* 'fixed' yerine 'absolute' yapıyoruz */
+    top: calc(100% + 20px); /* Navbar'ın hemen altına 15px boşlukla yerleştir */
     left: 50%; /* Sayfanın ortasında konumlandır */
     transform: translateX(-50%); /* Tam ortaya hizala */
-    
     background: white;
     border-radius: 16px;
     box-shadow: 0 15px 40px rgba(0,0,0,.15);
@@ -341,44 +340,8 @@
     width: 0; height: 0;
     border-left: 9px solid transparent;
     border-right: 9px solid transparent;
-<<<<<<< HEAD
     border-bottom: 9px solid #fff; /* AŞAĞI bakan ok */
     filter: drop-shadow(0 -3px 6px rgba(0,0,0,.1));
-=======
-    
-    border-bottom: 9px solid white;
-    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
-}
-
-/* Dropdown Menu Ok İşareti */
-.nav-dropdown-menu2::before {
-    content: '';
-    position: absolute;
-    top: -9px;
-    left: 50%; /* Ok işaretini ortala */
-    transform: translateX(-50%); /* Ok işaretini tam ortaya getir */
-    width: 0;
-    height: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-bottom: 9px solid white;
-    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
-}
-
-/* Dropdown Menu Ok İşareti */
-.nav-dropdown-menu3::before {
-    content: '';
-    position: absolute;
-    top: -9px;
-    left: 50%; /* Ok işaretini ortala */
-    transform: translateX(-50%); /* Ok işaretini tam ortaya getir */
-    width: 0;
-    height: 0;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-bottom: 9px solid white;
-    filter: drop-shadow(0 -3px 6px rgba(0, 0, 0, 0.1));
->>>>>>> 50c8c57b3d5b3d03b4d126e37646efcdb3ea8914
 }
 
 .nav-dropdown:hover .nav-dropdown-menu {
@@ -1234,4 +1197,32 @@ body {
   color: #adb5bd; /* Soluk bir gri */
   background-color: transparent;
   pointer-events: none; /* Tıklamayı engelle */
+}
+/* ---- MENÜ HİZALAMA FİNAL SÜRÜM ---- */
+
+/* ---- MENÜ HİZALAMA (Sadece Sol Menüler Ayarlı) ---- */
+
+/* 1. Sola Doğru Açılan Menüler İçin (SAĞDAKİ BAŞLIKLAR) -> STANDART HİZALAMA */
+.nav-dropdown-menu.pull-left {
+    left: auto !important;
+    right: 0 !important; /* Kenara sıfır hizalı */
+    transform: none !important;
+}
+.nav-dropdown-menu.pull-left::before {
+    left: auto !important;
+    right: 45px !important; /* Orijinal ok konumu */
+    transform: translateX(50%) !important;
+}
+
+/* 2. Sağa Doğru Açılan Menüler İçin (SOLDAKİ BAŞLIKLAR, örn: Kaynaklar) -> İSTEDİĞİN AYAR */
+.nav-dropdown.dd-safe .nav-dropdown-menu.pull-right {
+    left: 18rem !important;
+    right: 50rem !important;
+    transform: none !important;
+    position: absolute !important;
+}
+.nav-dropdown.dd-safe .nav-dropdown-menu.pull-right::before {
+    left: 25px !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
 }

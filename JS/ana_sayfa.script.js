@@ -21,13 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
             sideMenu.classList.add('active');
             menuBackdrop.classList.add('active');
         });
-
         // Menüyü KAPATAN olay 1: 'X' butonuna tıklama
         closeMenuBtn.addEventListener('click', function() {
             sideMenu.classList.remove('active');
             menuBackdrop.classList.remove('active');
         });
-
         // Menüyü KAPATAN olay 2: Arka plandaki gölgeye tıklama
         menuBackdrop.addEventListener('click', function() {
             sideMenu.classList.remove('active');
@@ -55,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
             dropdownToggle.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
+                
                 if (profileMenu) profileMenu.classList.remove('show');
                 if (profileBtn) profileBtn.classList.remove('active');
                 navDropdowns.forEach(d => {
@@ -64,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-
     // --- Sayfada Boş Bir Yere veya ESC Tuşuna Basınca Bütün Menüleri Kapat ---
     function closeAllMenus() {
         if (profileMenu) profileMenu.classList.remove('show');
@@ -85,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (!clickedInsideMenu) closeAllMenus();
     });
-
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeAllMenus();
     });
@@ -112,6 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (mainImage && mainTitle && galleryTrack && detayGorseller.length > 0) {
         let selectedImageIndex = 0;
+        let autoSlideInterval; // Zamanlayıcı değişkenini burada tanımla
+
         detayGorseller.forEach((gorsel, index) => {
             const thumbnail = document.createElement('div');
             thumbnail.className = 'gallery-thumbnail';
@@ -119,7 +118,9 @@ document.addEventListener('DOMContentLoaded', function() {
             thumbnail.dataset.index = index;
             galleryTrack.appendChild(thumbnail);
         });
+
         const thumbnails = galleryTrack.querySelectorAll('.gallery-thumbnail');
+        
         function updateGallery(newIndex) {
             selectedImageIndex = newIndex;
             const selectedItem = detayGorseller[selectedImageIndex];
@@ -135,13 +136,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 thumb.classList.toggle('active', parseInt(thumb.dataset.index) === selectedImageIndex);
             });
         }
+
         galleryTrack.addEventListener('click', (e) => {
             const thumbnail = e.target.closest('.gallery-thumbnail');
             if (thumbnail) {
+                clearInterval(autoSlideInterval); // Mevcut sayacı temizle
                 updateGallery(parseInt(thumbnail.dataset.index));
+                startAutoSlide(); // Sayacı yeniden başlat
             }
         });
-        updateGallery(0);
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                // Mevcut index'i bir artır ve galeri dizisinin sonuna gelince başa dön
+                selectedImageIndex = (selectedImageIndex + 1) % detayGorseller.length;
+                updateGallery(selectedImageIndex);
+            }, 4000); // 4 saniyede bir değiştir
+        }
+
+        updateGallery(0); // Sayfa yüklendiğinde ilk resmi göster
+        startAutoSlide(); // Otomatik geçişi başlat
     }
 
     // --- DUYURULAR VE SAYFALANDIRMA SİSTEMİ ---
@@ -172,7 +186,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let gecerliSayfa = 1;
         const duyuruSayisiSayfaBasi = 5;
         const toplamSayfa = Math.ceil(tumDuyurular.length / duyuruSayisiSayfaBasi);
-
         function renderDuyurular() {
             duyurularListesi.innerHTML = '';
             const baslangic = (gecerliSayfa - 1) * duyuruSayisiSayfaBasi;
@@ -223,34 +236,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 document.addEventListener('DOMContentLoaded', () => {
-  const dropdowns = document.querySelectorAll('.nav-dropdown');
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
 
-  const setArrow = (li) => {
-    const toggle = li.querySelector('.nav-dropdown-toggle');
-    const menu   = li.querySelector('.nav-dropdown-menu');
-    if (!toggle || !menu) return;
+    const alignMenuToCenter = (menuItem) => {
+        const menu = menuItem.querySelector('.nav-dropdown-menu');
+        const toggle = menuItem.querySelector('.nav-dropdown-toggle');
+        if (!menu || !toggle) return;
 
-    // Menü görünmüyorsa ölçüm için anlık görünür yap
-    const cs = getComputedStyle(menu);
-    const hidden = cs.display === 'none' || cs.visibility === 'hidden' || cs.opacity === '0';
-    if (hidden) { menu.style.visibility = 'hidden'; menu.style.display = 'block'; }
+        // Ekranın ve başlığın merkezini hesapla
+        const screenCenter = window.innerWidth / 2;
+        const toggleRect = toggle.getBoundingClientRect();
+        const toggleCenter = toggleRect.left + toggleRect.width / 2;
 
-    const t = toggle.getBoundingClientRect();
-    const m = menu.getBoundingClientRect();
-    const center = (t.left + t.width / 2) - m.left;   // toggle merkezi → menüye göre
-    menu.style.setProperty('--arrow-left', `${center}px`);
+        // Başlık ekranın solunda mı sağında mı diye kontrol et
+        if (toggleCenter < screenCenter) {
+            // SOLDA: Menüyü sağa doğru aç
+            menu.classList.add('pull-right');
+            menu.classList.remove('pull-left');
+        } else {
+            // SAĞDA: Menüyü sola doğru aç
+            menu.classList.add('pull-left');
+            menu.classList.remove('pull-right');
+        }
+    };
 
-    if (hidden) { menu.style.display = ''; menu.style.visibility = ''; }
-  };
-
-  dropdowns.forEach(li => {
-    li.addEventListener('mouseenter', () => setArrow(li));
-    li.addEventListener('focusin',    () => setArrow(li));
-  });
-
-  // pencere boyutu değişirse yeniden hizala
-  window.addEventListener('resize', () => {
-    document.querySelectorAll('.nav-dropdown:hover, .nav-dropdown:focus-within')
-            .forEach(li => setArrow(li));
-  });
+    // Her menünün üzerine gelince hizalama fonksiyonunu çalıştır
+    dropdowns.forEach(item => {
+        item.addEventListener('mouseenter', () => alignMenuToCenter(item));
+    });
 });
