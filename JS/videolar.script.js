@@ -143,16 +143,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    if (videoModalEl) {
-        videoModalEl.addEventListener('show.bs.modal', (event) => {
-            const card = event.relatedTarget.closest('.card');
-            if (card) {
-                const youtubeId = card.getAttribute('data-youtube-id');
-                if (youtubeId && youtubeIframe) {
-                    youtubeIframe.setAttribute('src', `https://www.youtube.com/embed/${youtubeId}?autoplay=1`);
-                }
+   if (videoModalEl) {
+    videoModalEl.addEventListener('show.bs.modal', (event) => {
+        // Tıklanan elementin kendisini alıyoruz, artık .card aramıyoruz.
+        const triggerElement = event.relatedTarget; 
+        if (triggerElement) {
+            // YouTube ID'sini direkt bu elementten alıyoruz.
+            const youtubeId = triggerElement.getAttribute('data-youtube-id'); 
+            if (youtubeId && youtubeIframe) {
+                youtubeIframe.setAttribute('src', `https://www.youtube.com/embed/${youtubeId}?autoplay=1`);
             }
-        });
+        }
+    });
 
         videoModalEl.addEventListener('hidden.bs.modal', () => {
             if (youtubeIframe) youtubeIframe.setAttribute('src', '');
