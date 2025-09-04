@@ -425,3 +425,32 @@ document.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('mouseenter', () => alignMenuToCenter(item));
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const readMoreButtons = document.querySelectorAll('.read-more-btn');
+
+    readMoreButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            // Tıklanan butonun içinde bulunduğu kartı buluyoruz
+            const card = this.closest('.document-card');
+            
+            // Kart içindeki başlık ve açıklama öğelerini seçiyoruz
+            const title = card.querySelector('.document-title');
+            const description = card.querySelector('.document-description');
+
+            // Başlık ve açıklama için metin kesme özelliğini değiştiriyoruz
+            if (description.style.webkitLineClamp === '4' || description.style.webkitLineClamp === '') {
+                // Metinler kesilmişse, tamamını göster
+                title.style.webkitLineClamp = 'unset';
+                description.style.webkitLineClamp = 'unset';
+                this.textContent = 'Daha Az Göster';
+            } else {
+                // Metinler açıksa, tekrar kes
+                title.style.webkitLineClamp = '2';
+                description.style.webkitLineClamp = '2';
+                this.textContent = 'Devamını Oku';
+            }
+        });
+    });
+});

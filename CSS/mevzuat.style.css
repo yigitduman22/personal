@@ -1458,3 +1458,72 @@ footer .container {
     right: auto !important;
     transform: translateX(-50%) !important;
 }
+/* Ana kart ızgarası (önceki gibi) */
+.documents-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* Her bir kartın iç düzeni (önceki gibi) */
+.document-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 300px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Başlıkları 2 satırla sınırlıyoruz */
+.document-card .document-title {
+    min-height: 48px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Metni 2 satırda keser */
+    -webkit-box-orient: vertical;
+}
+
+/* Açıklamaları 2 satırla sınırlıyoruz */
+.document-card .document-description {
+    min-height: 40px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Metni 2 satırda keser */
+    -webkit-box-orient: vertical;
+}
+
+/* Butonları içeren bölümü en alta itiyoruz (önceki gibi) */
+.document-card .download-section {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Butonların kendileri (önceki gibi) */
+.document-card .download-section .preview-btn {
+    flex: 1 1 0;
+    white-space: nowrap;
+    text-align: center;
+}
+/* Açıklama metninin 2 satırda kesilmesi */
+.document-description {
+    min-height: 40px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* "Devamını Oku" butonunun stilini belirliyoruz */
+.read-more-btn {
+    display: block; /* Butonun blok seviyesinde olmasını sağlar */
+    text-align: right; /* Sağa hizalar */
+    color: #007bff; /* Mavi renk (örnek) */
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+    margin-top: 5px;
+    font-size: 14px;
+}

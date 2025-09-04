@@ -1786,3 +1786,88 @@ footer {
     right: auto !important;
     transform: translateX(-50%) !important;
 }
+/* 1. Tüm kartları kapsayan ızgara (grid) yapısını Flexbox olarak tanımlıyoruz */
+.documents-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Kartlar arasındaki boşluk */
+    align-items: stretch; /* En önemli adım: Tüm kartları en uzun kartın yüksekliğine uzatır */
+}
+
+/* 2. Her bir kartın kendi içindeki öğeleri dikeyde sıralamasını sağlıyoruz */
+.document-card {
+    display: flex; /* Kartın kendisini bir esnek kutu haline getiririz */
+    flex-direction: column; /* İçeriğin dikey olarak, yukarıdan aşağıya doğru sıralanmasını sağlarız */
+    flex: 1 1 300px; /* Kartların büyüme/küçülme yeteneğini ve temel genişliğini ayarlarız */
+    padding: 20px; /* İç boşluk ekleyebiliriz */
+    box-sizing: border-box; /* Padding ve border'ı genişliğe dahil eder */
+}
+
+/* 3. Butonları içeren bölümü her zaman kartın en altına itiyoruz */
+.document-card .download-section {
+    margin-top: auto; /* Otomatik üst boşluk vererek butonu en alt noktaya taşır */
+}
+
+/* 4. Başlıklar için minimum yükseklik belirleyebiliriz (isteğe bağlı) */
+.document-card .document-title {
+    min-height: 48px; /* Örneğin, 2 satırlık bir başlık için yeterli bir yükseklik */
+}
+/* 4. Açıklama metni için minimum yükseklik belirliyoruz */
+.document-card .document-description {
+    min-height: 50px; /* Bu değer, metnin iki satırlık boşluğunu korur */
+    margin-bottom: 10px; /* Metin ile altındaki öğe arasına boşluk ekler */
+}
+/* Ana kart ızgarası (önceki gibi) */
+.documents-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* Her bir kartın iç düzeni (önceki gibi) */
+.document-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 300px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Başlık ve açıklama için min-height (önceki gibi) */
+.document-card .document-title {
+    min-height: 48px;
+}
+.document-card .document-description {
+    min-height: 40px;
+    margin-bottom: 10px;
+}
+
+/* Butonları içeren bölüm için Flexbox düzeni */
+.document-card .download-section {
+    margin-top: auto; /* Buton bölümünü kartın en altına iter */
+    display: flex; /* İçindeki butonları yatayda düzenlemek için Flexbox kullanıyoruz */
+    flex-wrap: wrap; /* Butonlar sığmazsa alt satıra geçmelerini sağlar */
+    gap: 8px; /* Butonlar arasındaki boşluğu ayarlar */
+    justify-content: center; /* Butonları ortalar (isteğe bağlı, sola da hizalayabilirsiniz) */
+}
+
+/* Her bir butonun kendisi */
+.document-card .download-section .preview-btn {
+    flex: 1 1 auto; /* Butonların esnek olmasını ve içeriğine göre genişlemesini/daralmasını sağlar */
+    min-width: 80px; /* Butonların minimum genişliğini ayarlar */
+    padding: 8px 12px; /* İç boşlukları ayarlar */
+    font-size: 14px; /* Metin boyutunu biraz küçülterek daha fazla yer açar */
+    white-space: nowrap; /* Metinlerin tek satırda kalmasını sağlar */
+    text-align: center; /* Metni buton içinde ortalar */
+    /* Diğer stil özellikleriniz (background, border, color vb.) */
+}
+
+/* Çok küçük ekranlar için özel ayarlamalar (örneğin, 480px altı) */
+@media (max-width: 480px) {
+    .document-card .download-section .preview-btn {
+        flex: 1 1 100%; /* Çok küçük ekranlarda butonları tam genişlikte yapar (alt alta sıralanır) */
+        font-size: 13px; /* Daha küçük ekranlar için font boyutunu biraz daha azaltabiliriz */
+        padding: 10px 8px;
+    }
+}
