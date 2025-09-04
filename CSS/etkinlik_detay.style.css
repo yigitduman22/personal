@@ -1,4 +1,5 @@
 /* HABER DETAY SAYFASI STİLLERİ */
+
 /* Breadcrumb Stilleri */
 .breadcrumb-section {
     background: #f8f9fa;
@@ -94,7 +95,6 @@
     font-size: 14px;
     justify-content: flex-start;
 }
-
 .breadcrumb {
     background: none;
     padding: 0;
@@ -309,7 +309,7 @@
 
 /* Makale İçeriği */
 .article-content {
-    padding: 0 70px 40px 70px;
+    padding: 0 40px 10px 40px;
 } 
 
 .article-excerpt {
@@ -507,7 +507,6 @@
     line-clamp: 2;
     line-clamp: 2;
     line-clamp: 2;
-    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -611,417 +610,6 @@
     background-color: #022842;
     transform: scale(1.2);
 }
-/* Responsive tasarım */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        align-items: flex-start; 
-        gap: 1rem;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 0.75rem; 
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .nav-links a {
-        justify-content: center;
-    } 
-
-    .profile-container {
-        align-self: flex-end;
-        margin-top: -40px;
-    } 
-
-    .content-area {
-        padding: 15px;
-    } 
-
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .article-title {
-        font-size: 1.8rem;
-    } 
-
-    .article-header, .article-content {
-        padding: 20px;
-    } 
-
-    .article-image-section {
-        margin: 15px 20px;
-    }
-
-    .article-image {
-        height: auto;
-        min-height: 200px;
-    } 
-
-    /* Gallery responsive */
-    .gallery-item {
-        width: 80px;
-        height: 55px;
-    }
-
-    .gallery-btn {
-        width: 30px;
-        height: 30px;
-        font-size: 12px;
-    }
-
-    .article-actions {
-        flex-direction: column;
-        align-items: center; 
-        gap: 15px; 
-        padding: 20px; 
-    } 
-
-    .article-meta {
-        flex-direction: column;
-        gap: 10px; 
-    }
-    
-    .departments-slider {
-        height: 350px;
-    }
-    
-    .departments-pagination {
-        padding: 20px 30px;
-        gap: 10px;
-    }
-    
-    .pagination-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 12px;
-    }
-    
-    .pagination-dot {
-        width: 10px;
-        height: 10px;
-    }
-    
-    .pagination-dots {
-        gap: 6px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo-img {
-        transform: scale(2.5);
-    } 
-
-    .footer-content p {
-        font-size: 13px;
-    } 
-
-    .profile-menu {
-        min-width: 250px;
-        right: -20px;
-    } 
-
-    .nav-dropdown-menu {
-        min-width: 320px;
-        max-width: 350px;
-    } 
-
-    .dropdown-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 4px;
-    }
-    
-    .article-title {
-        font-size: 1.5rem;
-    } 
-
-    .article-header, .article-content {
-        padding: 15px;
-    } 
-
-    .article-image-section {
-        margin: 10px 15px;
-    }
-
-    /* Gallery mobile responsive */
-    .gallery-item {
-        width: 60px;
-        height: 45px;
-    }
-
-    .gallery-btn {
-        width: 25px;
-        height: 25px;
-        font-size: 10px;
-    }
-
-    .article-actions {
-        padding: 15px;
-    } 
-
-    .btn-back {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-    
-    .departments-slider {
-        height: 300px;
-    }
-    
-    .other-news-img {
-        width: 70px;
-        height: 55px;
-    }
-    
-    .other-news-title {
-        font-size: 0.9rem;
-    }
-    
-    .other-news-description {
-        font-size: 0.8rem;
-    }
-    
-    .departments-pagination {
-        padding: 15px 20px;
-        gap: 8px;
-    }
-    
-    .pagination-btn {
-        width: 30px;
-        height: 30px;
-        font-size: 10px;
-    }
-    
-    .pagination-dot {
-        width: 8px;
-        height: 8px;
-    }
-    
-    .pagination-dots {
-        gap: 4px;
-    }
-}
-
-/* Print Stilleri */
-@media print {
-    .navbar, .breadcrumb-section, footer {
-        display: none;
-    } 
-
-    .news-detail-card {
-        box-shadow: none;
-        border: 1px solid #ddd;
-    } 
-
-    .article-title {
-        color: #000;
-    } 
-
-    .article-category {
-        background: #000;
-        color: white;
-    }
-}
-/* ========== RESPONSIVE HOTFIX (EKLE-SONA) ========== */
-
-/* 1) NAV: sabit margin-left yerine esnek hizalama */
-@media (min-width: 1201px) {
-  .nav-links { margin-left: auto !important; } /* sağa yaslanır */
-}
-@media (max-width: 1200px) {
-  .nav-container { width: 92% !important; }
-  .nav-links {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    gap: 1rem !important;
-    flex-wrap: wrap !important;
-  }
-}
-
-/* 2) LOGO: scale kaynaklı kaymaları önle (ölçü ile kontrol) */
-/* ETKINLIK DETAY SAYFASI - LOGO RESPONSIVE DÜZELTMELERI */
-
-.logo-container {
-    width: 300px; 
-    transition: width 0.3s ease;
-}
-
-.logo-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    /* Transform ve scale'leri kaldır, doğal boyut kullan */
-}
-
-/* 3. Responsive breakpoint'lerde logo boyutunu ayarla */
-@media (max-width: 480px) {
-    .logo-container {
-        width: 160px; /* Duyurularda kullanılan küçük ekran boyutu */
-    }
-}
-
-/* 4. Footer logosunu da duyurularla aynı şekilde düzelt */
-.footer-logo {
-    width: 140px !important;     /* Duyurularda kullanılan genişlik */
-    height: auto !important;     /* Otomatik yükseklik */
-    transform: none !important;  /* Scale'i kaldır */
-    margin-top: 10px;
-    margin-right: 10px;
-    display: block;
-}
-
-/* 5. Mobil footer logo boyutu */
-@media (max-width: 768px) {
-    .footer-logo {
-        width: 120px !important; /* Duyurularda kullanılan mobil boyut */
-        margin-bottom: 12px;
-    }
-}
-
-/* 6. Çok dar ekranlar için footer logo */
-@media (max-width: 400px) {
-    .footer-logo { 
-        width: 105px !important; /* Duyurularda kullanılan en küçük boyut */
-    }
-}
-
-/* 7. Mevcut hatalı logo stillerini override et */
-.logo-img {
-    height: auto !important;     /* Sabit yükseklik yerine otomatik */
-    transform: none !important;  /* Scale transform'unu kaldır */
-}
-
-/* 8. Navbar logo container'ına max-width ekle */
-.logo-container {
-    max-width: 100%; /* Taşmayı önle */
-}
-
-/* 9. Navbar genişlik ayarlarını duyurularla uyumlu hale getir */
-.nav-container {
-    width: 90%;
-    max-width: 1600px; /* Duyurularda kullanılan değer */
-    margin: auto;
-}
-
-/* 10. Mobil navbar düzenlemesi */
-@media (max-width: 992px) {
-    .nav-container {
-        width: 100%;
-        padding: 0 1rem;
-    }
-    
-    /* Mobil header dizilimi: hamburger - logo - profil */
-    .nav-container {
-        display: grid !important;
-        grid-template-columns: auto 1fr auto;
-        align-items: center !important;
-        gap: 0.5rem;
-        width: 100% !important;
-        padding: 0 12px !important;
-    }
-    
-    .mobile-menu-toggle {
-        grid-column: 1;
-        margin: 0 !important;
-    }
-    
-    .profile-container {
-        grid-column: 3;
-        justify-self: end !important;
-        margin: 0 !important;
-    }
-}
-.footer-logo { height: 30px !important; transform: none !important; }
-
-/* 3) CONTAINER: mobilde soldaki büyük padding overflow yapıyordu */
-@media (max-width: 1200px) {
-  .container { padding-left: 30px !important; padding-right: 15px !important; }
-}
-@media (max-width: 768px) {
-  .container { padding-left: 15px !important; padding-right: 15px !important; }
-}
-
-/* 4) DROPDOWN: 1500px sabit genişlik küçük ekranlarda taşıyordu */
-.nav-dropdown-menu {
-  max-width: min(100vw - 32px, 1200px) !important;
-  width: auto !important;
-  left: 50% !important;
-  transform: translateX(-50%) translateY(-10px) !important;
-}
-@media (max-width: 992px) {
-  .nav-dropdown-menu {
-    top: calc(100% + 10px) !important;
-    max-width: calc(100vw - 24px) !important;
-    width: calc(100vw - 24px) !important;
-    margin-left: 0 !important;
-    border-radius: 12px !important;
-  }
-  /* ok işaretleri mobilde ortalanır */
-  .nav-dropdown-menu::before,
-  .nav-dropdown-menu2::before,
-  .nav-dropdown-menu3::before {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-  }
-  /* grid daha kısa sütunlar */
-  .dropdown-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
-}
-
-/* 5) MAKALE GÖRSEL: sabit 500px yükseklik yerine esnek */
-.article-image { height: clamp(220px, 45vw, 500px) !important; }
-
-/* 6) SOL/SAĞ kolon oranları: tablet sınırında daha ferah */
-@media (max-width: 1200px) and (min-width: 993px) {
-  .col-lg-8 { flex: 0 0 63% !important; max-width: 63% !important; }
-  .col-lg-4 { flex: 0 0 35% !important; max-width: 35% !important; }
-}
-
-/* 7) ROW iç boşluklar: taşmayı azalt */
-@media (max-width: 768px) {
-  .row > * { padding-left: 8px !important; padding-right: 8px !important; }
-}
-
-/* 8) DİĞER MÜDÜRLÜKLER: sabit yükseklikleri küçük ekranda rahatlat */
-@media (max-width: 768px) {
-  .departments-slider { height: auto !important; }
-  .department-item { gap: 6px !important; }
-  .other-news-item {
-    padding: 12px 10px !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,.06) !important;
-  }
-  .other-news-img { width: 90px !important; height: 64px !important; }
-}
-
-/* 9) GALERİ butonlarının taşmasını engelle */
-@media (max-width: 576px) {
-  .gallery-btn.prev { margin-left: -8px !important; }
-  .gallery-btn.next { margin-right: -8px !important; }
-}
-
-/* 10) BREADCRUMB ve içerik padding’leri: küçük ekranda hizalama */
-@media (max-width: 576px) {
-  .breadcrumb-section { padding: 8px 0 !important; }
-  .article-header, .article-content { padding: 16px !important; }
-  .article-image-section { margin: 10px 12px !important; }
-}
-
-/* 11) Profil menüsü: dar ekranda taşmayı önle */
-@media (max-width: 480px) {
-  .profile-menu { right: 0 !important; left: auto !important; max-width: calc(100vw - 16px) !important; }
-}
-
-/* 12) Yatay taşmayı kesin olarak kapat (body seviyesinde) */
-html, body { overflow-x: hidden; }
-
-/* 13) .content-area .container: %98 → tam genişlik yaklaşımı küçük ekranda */
-@media (max-width: 768px) {
-  .content-area .container { width: 100% !important; }
-}
-
 /* === TEMEL NAVBAR YAPISI === */
 .navbar {
     background-color: #022842;
@@ -1178,54 +766,6 @@ html, body { overflow-x: hidden; }
     transform: translateY(0); /* Orijinal pozisyonuna indir */
 }
 
-/* Footer stilleri */
-footer {
-    background-color: #022842;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
-    padding: 40px 0 20px 0;
-    font-family: 'Inter', sans-serif;
-    color: #333;
-    margin-top: 50px;
-}
-
-footer .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    border-bottom: 1px solid white;
-    padding-bottom: 10px;
-}
-
-.footer-logo{
-    height: 7px;
-    transform: scale(3);
-    margin-top: 10px;
-    margin-right: 10px;
-}
-
-.footer-content p {
-    margin: 8px 0;
-    font-size: 14px;
-    color:white;
-}
-
-.footer-content i {
-    margin-right: 8px;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 13px;
-    color: white;
-}
 /* Social Icons Stilleri */
 .social-icons {
     display: flex;
@@ -1481,9 +1021,6 @@ footer .container {
     visibility: visible;
     transform: translateX(-50%); /* Y ekseninde kaydırma kaldırıldı */
 }
-
-
-/* ========== DROPDOWN STİLLERİ SONU ========== */
 
 /* === PROFİL BÖLÜMÜ === */
 .profile-container {
@@ -1816,35 +1353,7 @@ footer .container {
     }
 }
 
-/* === FOOTER MOBİL GÖRÜNÜM DÜZENLEMESİ === */
-/* Ekran 768px ve daha dar olduğunda */
-@media (max-width: 768px) {
-    .footer-content {
-        /* Elemanları yan yana yerine alt alta sırala */
-        flex-direction: column;
-        /* Ortala */
-        align-items: center;
-        /* Metinleri de ortala */
-        text-align: center;
-    }
 
-    .footer-content p {
-        /* İletişim bilgileri arasında boşluk bırak */
-        margin-bottom: 15px;
-    }
-
-    .social-icons {
-        /* Sosyal medya ikonlarının konumunu sıfırla */
-        transform: translateY(0);
-        /* Üstündeki elemanla arasına boşluk koy */
-        margin-top: 15px;
-    }
-
-    .footer-logo {
-        /* Logo için alt boşluk ver */
-        margin-bottom: 20px;
-    }
-}
 
 /* === FOOTER'I SAYFA ALTINA SABİTLEME === */
 
@@ -1863,6 +1372,190 @@ body {
 .main-content {
     flex-grow: 1; /* Bu alan, footer'ı aşağı iterek mevcut tüm boş alanı doldursun */
 }
+/* Responsive tasarım */
+@media (max-width: 768px) {
+
+    .content-area {
+        padding: 15px;
+    } 
+    .article-title {
+        font-size: 1.8rem;
+    } 
+
+    .article-header, .article-content {
+        padding: 20px;
+    } 
+
+    .article-image-section {
+        margin: 15px 20px;
+    }
+
+    .article-image {
+        height: auto;
+        min-height: 200px;
+    } 
+
+    /* Gallery responsive */
+    .gallery-item {
+        width: 80px;
+        height: 55px;
+    }
+
+    .gallery-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .article-actions {
+        flex-direction: column;
+        align-items: center; 
+        gap: 15px; 
+        padding: 20px; 
+    } 
+
+    .article-meta {
+        flex-direction: column;
+        gap: 10px; 
+    }
+    
+    .departments-slider {
+        height: 350px;
+    }
+    
+    .departments-pagination {
+        padding: 20px 30px;
+        gap: 10px;
+    }
+    
+    .pagination-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 12px;
+    }
+    
+    .pagination-dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .pagination-dots {
+        gap: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-title {
+        font-size: 1.2rem;
+    } 
+
+    .article-header, .article-content {
+        padding: 15px;
+    } 
+
+    .article-image-section {
+        margin: 10px 15px;
+    }
+
+    /* Gallery mobile responsive */
+    .gallery-item {
+        width: 60px;
+        height: 45px;
+    }
+
+    .gallery-btn {
+        width: 25px;
+        height: 25px;
+        font-size: 10px;
+    }
+
+    .article-actions {
+        padding: 15px;
+    } 
+
+    .btn-back {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .departments-slider {
+        height: 300px;
+    }
+    
+    .other-news-img {
+        width: 70px;
+        height: 55px;
+    }
+    
+    .other-news-title {
+        font-size: 0.9rem;
+    }
+    
+    .other-news-description {
+        font-size: 0.8rem;
+    }
+    
+    .departments-pagination {
+        padding: 15px 20px;
+        gap: 8px;
+    }
+    
+    .pagination-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+    }
+    
+    .pagination-dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .pagination-dots {
+        gap: 4px;
+    }
+}
+
+/* Print Stilleri */
+@media print {
+    .breadcrumb-section {
+        display: none;
+    } 
+
+    .news-detail-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    } 
+
+    .article-title {
+        color: #000;
+    } 
+
+    .article-category {
+        background: #000;
+        color: white;
+    }
+}
+/* ========== RESPONSIVE HOTFIX v2 (EN SONA EKLE) ========== */
+
+/* 0) Genel: yatay taşmaları kesin kapat */
+html, body { overflow-x: hidden; }
+/* 3) .container: soldaki 100px padding mobilde küçült */
+@media (max-width: 1200px) {
+  .container { padding-left: 30px !important; padding-right: 15px !important; }
+}
+@media (max-width: 768px) {
+  .container { padding-left: 15px !important; padding-right: 15px !important; }
+}
+
+/* 4) DROPDOWN: 1500px sabit genişlik ve ok konumları */
+.nav-dropdown-menu {
+  width: auto !important;
+  max-width: min(100vw - 32px, 1200px) !important;
+  left: 50% !important;
+  margin-left: 0 !important;
+  transform: translateX(-50%) translateY(-10px) !important;
+}
 /* --- FOOTER LOGO NİHAİ DÜZELTME --- */
 /* Daha güçlü bir seçici kullanarak diğer kuralları eziyoruz */
 footer .footer-content .footer-logo {
@@ -1875,33 +1568,207 @@ footer .footer-content .footer-logo {
     margin-bottom: 1rem;
     margin-right: 1rem;
 }
-/* === MOBİL HEADER DİZİLİMİ: profil logonun sağında, aynı satırda === */
+@media (max-width: 992px) {
+  .nav-dropdown-menu {
+    max-width: calc(100vw - 24px) !important;
+    width: calc(100vw - 24px) !important;
+    border-radius: 12px !important;
+  }
+  /* ok’ları ortala */
+  .nav-dropdown-menu::before,
+  .nav-dropdown-menu2::before,
+  .nav-dropdown-menu3::before {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  .dropdown-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+}
+
+/* 5) MAKALE ANA GÖRSEL: 500px sabit yerine akışkan yükseklik */
+.article-image { height: clamp(220px, 45vw, 500px) !important; }
+
+/* 6) İçerik padding: dar ekranda sıkıştır */
 @media (max-width: 768px) {
-  /* Üst şerit: [hamburger] [logo] [profil] */
-  .nav-container {
-    display: grid !important;
-    grid-template-columns: auto 1fr auto; /* sol - orta - sağ */
-    align-items: center !important;
-    gap: .5rem;
-    width: 100% !important;
-    padding: 0 12px !important;
+  .article-header, .article-content { padding: 16px !important; }
+  .article-image-section { margin: 10px 12px !important; }
+}
+
+/* 7) Grid kolon oranları: 1200–993 aralığında daha dengeli */
+@media (max-width: 1200px) and (min-width: 993px) {
+  .col-lg-8 { flex: 0 0 63% !important; max-width: 63% !important; }
+  .col-lg-4 { flex: 0 0 35% !important; max-width: 35% !important; }
+}
+
+/* 8) Row iç boşluk: küçük ekranda daha dar */
+@media (max-width: 768px) {
+  .row > * { padding-left: 8px !important; padding-right: 8px !important; }
+}
+
+/* 9) Galeri butonları: kenar taşmasını önle */
+@media (max-width: 576px) {
+  .gallery-btn.prev { margin-left: -8px !important; }
+  .gallery-btn.next { margin-right: -8px !important; }
+}
+
+/* 10) Profil menüsü: ekrana sığdır */
+@media (max-width: 480px) {
+  .profile-menu {
+    right: 0 !important; left: auto !important;
+    max-width: calc(100vw - 16px) !important;
+  }
+}
+
+/* 11) “Diğer Müdürlükler” listesi: mobilde daha esnek */
+@media (max-width: 768px) {
+  .departments-slider { height: auto !important; }
+  .department-item { gap: 6px !important; }
+  .other-news-item { padding: 12px 10px !important; }
+  .other-news-img { width: 90px !important; height: 64px !important; }
+}
+
+/* 12) İçerik konteyneri: %98 → tam genişliğe yaklaştır (mobil) */
+@media (max-width: 768px) {
+  .content-area .container { width: 100% !important; }
+}
+
+/* === FOOTER MOBİL GÖRÜNÜM DÜZENLEMESİ === */
+/* Ekran 768px ve daha dar olduğunda */
+@media (max-width: 768px) {
+    .footer-content {
+        /* Elemanları yan yana yerine alt alta sırala */
+        flex-direction: column;
+        /* Ortala */
+        align-items: center;
+        /* Metinleri de ortala */
+        text-align: center;
+    }
+
+    .footer-content p {
+        /* İletişim bilgileri arasında boşluk bırak */
+        margin-bottom: 15px;
+        margin: 5px 0; /* İletişim bilgileri arasındaki boşluğu azalt */
+
+    }
+
+    .social-icons {
+        /* Sosyal medya ikonlarının konumunu sıfırla */
+        transform: translateY(0);
+        /* Üstündeki elemanla arasına boşluk koy */
+        margin-top: 0; /* Ekstra boşluğu kaldır, gap yeterli */
+    }
+
+    .footer-logo {
+        /* Logo için alt boşluk ver */
+        margin-bottom: 20px;
+    }
+}
+
+footer {
+    background-color: #022842;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+    padding: 40px 0 20px 0;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    margin-top: 50px;
+}
+
+footer .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+}
+/* --- FOOTER LOGO NİHAİ DÜZELTME --- */
+/* Daha güçlü bir seçici kullanarak diğer kuralları eziyoruz */
+footer .footer-content .footer-logo {
+    transform: none !important; /* Eski scale komutunu tamamen sıfırla */
+    height: auto !important;     /* Yüksekliği otomatik yapmaya zorla */
+    width: 100% !important;      /* Genişliğin esnek olmasını sağla */
+    max-width: 250px !important;  /* Ama en fazla 250px genişliğinde olsun */
+    
+    /* Hizalama için ek ayarlar */
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+.footer-logo {
+    max-width: 280px; /* Logonun maksimum genişliğini sınırlandırır */
+    height: auto;     /* Genişliğe göre yüksekliği otomatik ayarlar */
+    margin-bottom: 1rem; /* Altına biraz boşluk bırakır */
+}
+
+.footer-content p {
+    margin: 8px 0;
+    font-size: var(--font-size-base); /* YAZIYI AKILLI HALE GETİRDİK */
+    color:white;
+}
+
+.footer-content i {
+    margin-right: 8px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+    color: white;
+}
+/* Social Icons Stilleri */
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    transform: translateY(-20px);
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    color: #1b3f8b;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #d2d2d2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
+}
+/* Küçük ekran düzeni */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Her şeyi alt alta sırala */
+        align-items: center;    /* Yatayda ortala */
+        text-align: center;     /* Metinleri ortala */
+        gap: 20px;              /* Aralarına boşluk koy */
+    }
+
+  /* Footer içindeki her parça tam genişlikte satır kaplasın */
+  .footer-content > * {
+    flex: 1 1 100%;
   }
 
-  /* Sol: hamburger */
-  .mobile-menu-toggle {
-    display: block !important;
-    grid-column: 1;
-    margin: 0 !important;
+  /* Sosyal ikonları aşağı kaydırmayı margin ile yap */
+  .social-icons {
+    margin-top: 15px;
   }
 
-  /* Sağ: profil butonu */
-  .profile-container {
-    grid-column: 3;
-    justify-self: end !important;
-    align-self: center !important;
-    margin: 0 !important;          /* eski -40px düzeltmesini sıfırla */
-    position: relative !important;  /* menü için referans */
-    z-index: 1100;
+  /* Logo çok büyükse küçült */
+  .footer-logo {
+    width: 120px;
+    margin-bottom: 12px;
   }
 }
 /* ---- MENÜ HİZALAMA FİNAL SÜRÜM ---- */

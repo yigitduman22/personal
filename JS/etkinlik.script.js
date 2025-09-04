@@ -161,10 +161,9 @@ const newsData = [
         image: "images/personel-ftar-program_109.jpg",
     },
 ];
-
 let filteredData = [...newsData];
 let currentPage = 1;
-const itemsPerPage = 12; // 4'lü grid için 8 kart gösteriyoruz
+const itemsPerPage = 12; // 4'lü grid için 12 kart gösteriyoruz
 
 // DOM Elements
 const searchInput = document.getElementById('searchInput');
@@ -199,81 +198,83 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Event Listeners
 function setupEventListeners() {
-    // Navbar dropdown functionality from your existing code
-    const navDropdown = document.querySelector('.nav-dropdown');
-    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
-    const dropdownMenu = document.querySelector('.nav-dropdown-menu');
+    // ---- Mobil Menü ----
+    const menuToggleBtn = document.querySelector('.mobile-menu-toggle');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeMenuBtn = document.querySelector('.close-menu-btn');
+    const menuBackdrop = document.getElementById('menuBackdrop');
 
-    if (navDropdown && dropdownToggle && dropdownMenu) {
-        dropdownToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const profileMenu = document.getElementById('profileMenu');
-            const profileBtn = document.getElementById('profileBtn');
-            if (profileMenu && profileBtn) {
-                profileMenu.classList.remove('show');
-                profileBtn.classList.remove('active');
-            }
-            
-            navDropdown.classList.toggle('active');
+    if (menuToggleBtn && sideMenu && closeMenuBtn && menuBackdrop) {
+        menuToggleBtn.addEventListener('click', function() {
+            sideMenu.classList.add('active');
+            menuBackdrop.classList.add('active');
         });
-
-        document.addEventListener('click', function(e) {
-            if (!navDropdown.contains(e.target)) {
-                navDropdown.classList.remove('active');
-            }
+        closeMenuBtn.addEventListener('click', function() {
+            sideMenu.classList.remove('active');
+            menuBackdrop.classList.remove('active');
         });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                navDropdown.classList.remove('active');
-            }
+        menuBackdrop.addEventListener('click', function() {
+            sideMenu.classList.remove('active');
+            menuBackdrop.classList.remove('active');
         });
     }
 
-    // Profile dropdown functionality
+    // ---- Masaüstü Dropdown Menüler ----
+    const navDropdowns = document.querySelectorAll('.nav-dropdown');
+    navDropdowns.forEach(navDropdown => {
+        const dropdownToggle = navDropdown.querySelector('.nav-dropdown-toggle');
+        if (dropdownToggle) {
+            dropdownToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                // Diğer açık menüleri kapat
+                document.querySelectorAll('.nav-dropdown.active, .profile-menu.show').forEach(openMenu => {
+                    if (openMenu !== navDropdown) {
+                        openMenu.classList.remove('active', 'show');
+                    }
+                });
+                navDropdown.classList.toggle('active');
+            });
+        }
+    });
+
+    // ---- Profil Dropdown Menüsü ----
     const profileBtn = document.getElementById('profileBtn');
     const profileMenu = document.getElementById('profileMenu');
-
     if (profileBtn && profileMenu) {
         profileBtn.addEventListener('click', function(e) {
             e.stopPropagation();
-            
-            if (navDropdown) {
-                navDropdown.classList.remove('active');
-            }
-            
+            // Diğer açık menüleri kapat
+             document.querySelectorAll('.nav-dropdown.active').forEach(openMenu => {
+                openMenu.classList.remove('active');
+            });
             profileMenu.classList.toggle('show');
             profileBtn.classList.toggle('active');
         });
-
-        document.addEventListener('click', function(e) {
-            if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
-                profileMenu.classList.remove('show');
-                profileBtn.classList.remove('active');
-            }
-        });
-
-        const logoutBtn = profileMenu.querySelector('.logout');
-        if (logoutBtn) {
-            logoutBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (confirm('Çıkış yapmak istediğinizden emin misiniz?')) {
-                    console.log('Çıkış yapılıyor...');
-                }
-            });
-        }
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                profileMenu.classList.remove('show');
-                profileBtn.classList.remove('active');
-            }
-        });
     }
+    
+    // ---- Sayfaya Tıklayınca veya ESC basınca menüleri kapatma ----
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-dropdown')) {
+            document.querySelectorAll('.nav-dropdown.active').forEach(dd => dd.classList.remove('active'));
+        }
+        if (!e.target.closest('.profile-dropdown')) {
+            if(profileMenu) profileMenu.classList.remove('show');
+            if(profileBtn) profileBtn.classList.remove('active');
+        }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.nav-dropdown.active, .side-menu.active, .profile-menu.show').forEach(el => {
+                el.classList.remove('active', 'show');
+            });
+            if(profileBtn) profileBtn.classList.remove('active');
+            if(menuBackdrop) menuBackdrop.classList.remove('active');
+        }
+    });
 
-    // Search functionality
+    // ---- Arama Fonksiyonları ----
     if (searchInput && searchBtn) {
         searchInput.addEventListener('input', debounce(handleSearch, 300));
         searchBtn.addEventListener('click', handleSearch);
@@ -284,16 +285,7 @@ function setupEventListeners() {
         });
     }
 
-    // Filter buttons
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            handleFilter(this.dataset.category);
-        });
-    });
-
-    // Sort functionality
+    // ---- Filtreleme ve Sıralama ----
     if (sortSelect) {
         sortSelect.addEventListener('change', handleSort);
     }
@@ -302,7 +294,6 @@ function setupEventListeners() {
 // Search function
 function handleSearch() {
     const query = searchInput.value.toLowerCase().trim();
-    
     if (query === '') {
         filteredData = [...newsData];
     } else {
@@ -311,34 +302,20 @@ function handleSearch() {
             item.excerpt.toLowerCase().includes(query)
         );
     }
-    
     currentPage = 1;
     renderNews();
 }
 
 // Filter function - Sort dropdown'a göre filtreleme
-function handleFilter(category) {
+function handleFilter() {
     const sortType = sortSelect.value;
-    
     if (sortType === 'active') {
-        // Devam eden etkinlikler
-        filteredData = newsData.filter(item => {
-            const eventStatus = getEventStatus(item.endDate);
-            return eventStatus.status === 'active';
-        });
+        filteredData = newsData.filter(item => getEventStatus(item.endDate).status === 'active');
     } else if (sortType === 'completed') {
-        // Sonlandırılmış etkinlikler
-        filteredData = newsData.filter(item => {
-            const eventStatus = getEventStatus(item.endDate);
-            return eventStatus.status === 'expired';
-        });
-    } else if (sortType === 'all') {
-        // Tüm etkinlikler
-        filteredData = [...newsData];
+        filteredData = newsData.filter(item => getEventStatus(item.endDate).status === 'expired');
     } else {
         filteredData = [...newsData];
     }
-    
     currentPage = 1;
     renderNews();
 }
@@ -351,7 +328,6 @@ function handleSort() {
 // Render news function
 function renderNews() {
     showLoading();
-    
     setTimeout(() => {
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
@@ -440,14 +416,12 @@ function renderPagination() {
     if (!pagination) return;
     
     const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-    
     if (totalPages <= 1) {
         pagination.innerHTML = '';
         return;
     }
     
     let paginationHTML = '';
-    
     // Previous button
     if (currentPage > 1) {
         paginationHTML += `
@@ -462,23 +436,11 @@ function renderPagination() {
     // Page numbers
     for (let i = 1; i <= totalPages; i++) {
         if (i === currentPage) {
-            paginationHTML += `
-                <li class="page-item active">
-                    <span class="page-link">${i}</span>
-                </li>
-            `;
+            paginationHTML += `<li class="page-item active"><span class="page-link">${i}</span></li>`;
         } else if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
-            paginationHTML += `
-                <li class="page-item">
-                    <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
-                </li>
-            `;
+            paginationHTML += `<li class="page-item"><a class="page-link" href="#" onclick="changePage(${i})">${i}</a></li>`;
         } else if (i === currentPage - 3 || i === currentPage + 3) {
-            paginationHTML += `
-                <li class="page-item disabled">
-                    <span class="page-link">...</span>
-                </li>
-            `;
+            paginationHTML += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
         }
     }
     
@@ -505,9 +467,8 @@ function changePage(page) {
 
 // Open news detail (placeholder)
 function openNewsDetail(id) {
-    // Bu fonksiyon gerçek uygulamada detay sayfasına yönlendirme yapacak
     console.log('Haber detayı açılıyor:', id);
-    window.location.href = `etkinlikd.html?${id}`;
+    window.location.href = `etkinlikd.html?id=${id}`;
 }
 
 // Debounce function
@@ -522,101 +483,23 @@ function debounce(func, wait) {
         timeout = setTimeout(later, wait);
     };
 }
-document.addEventListener('DOMContentLoaded', function() {
 
-    // --- Gerekli Bütün HTML Elementlerini Seçme ---
-    const profileBtn = document.getElementById('profileBtn');
-    const profileMenu = document.getElementById('profileMenu');
-    const menuToggleBtn = document.querySelector('.mobile-menu-toggle');
-    const sideMenu = document.getElementById('sideMenu');
-    const closeMenuBtn = document.querySelector('.close-menu-btn');
-    const menuBackdrop = document.getElementById('menuBackdrop');
-    const navDropdown = document.querySelector('.nav-dropdown');
-    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
-
-    // --- MOBİL YAN MENÜ SİSTEMİ ---
-    if (menuToggleBtn && sideMenu && closeMenuBtn && menuBackdrop) {
-        // Menüyü aç
-        menuToggleBtn.addEventListener('click', function() {
-            sideMenu.classList.add('active');
-            menuBackdrop.classList.add('active');
-        });
-
-        // Menüyü kapat (X butonu ile)
-        closeMenuBtn.addEventListener('click', function() {
-            sideMenu.classList.remove('active');
-            menuBackdrop.classList.remove('active');
-        });
-
-        // Menüyü kapat (arka plana tıklayarak)
-        menuBackdrop.addEventListener('click', function() {
-            sideMenu.classList.remove('active');
-            menuBackdrop.classList.remove('active');
-        });
-    }
-
-    // --- PROFİL AÇILIR MENÜ SİSTEMİ ---
-    if (profileBtn && profileMenu) {
-        profileBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (navDropdown) navDropdown.classList.remove('active'); // Diğer menüyü kapat
-            profileMenu.classList.toggle('show');
-            profileBtn.classList.toggle('active');
-        });
-    }
-
-    // --- MASAÜSTÜ NAVBAR AÇILIR MENÜ SİSTEMİ ---
-    if (navDropdown && dropdownToggle) {
-        dropdownToggle.addEventListener('click', function(e) {
-            e.preventDefault(); // Sayfanın en üstüne gitmesini engelle
-            e.stopPropagation();
-            if (profileMenu) profileMenu.classList.remove('show'); // Diğer menüyü kapat
-            navDropdown.classList.toggle('active');
-        });
-    }
-
-    // --- Sayfada Boş Bir Yere veya ESC Tuşuna Basınca Menüleri Kapat ---
-    document.addEventListener('click', function(e) {
-        if (profileMenu && !profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
-            profileMenu.classList.remove('show');
-            profileBtn.classList.remove('active');
-        }
-        if (navDropdown && !navDropdown.contains(e.target)) {
-            navDropdown.classList.remove('active');
-        }
-    });
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            if (profileMenu) {
-                profileMenu.classList.remove('show');
-                profileBtn.classList.remove('active');
-            }
-            if (navDropdown) navDropdown.classList.remove('active');
-            if (sideMenu) {
-                sideMenu.classList.remove('active');
-                menuBackdrop.classList.remove('active');
-            }
-        }
-    });
-
-});
+// Dropdown arrow alignment logic
 document.addEventListener('DOMContentLoaded', () => {
   const dropdowns = document.querySelectorAll('.nav-dropdown');
 
   const setArrow = (li) => {
     const toggle = li.querySelector('.nav-dropdown-toggle');
-    const menu   = li.querySelector('.nav-dropdown-menu');
+    const menu = li.querySelector('.nav-dropdown-menu');
     if (!toggle || !menu) return;
 
-    // Menü görünmüyorsa ölçüm için anlık görünür yap
     const cs = getComputedStyle(menu);
     const hidden = cs.display === 'none' || cs.visibility === 'hidden' || cs.opacity === '0';
     if (hidden) { menu.style.visibility = 'hidden'; menu.style.display = 'block'; }
 
     const t = toggle.getBoundingClientRect();
     const m = menu.getBoundingClientRect();
-    const center = (t.left + t.width / 2) - m.left;   // toggle merkezi → menüye göre
+    const center = (t.left + t.width / 2) - m.left;
     menu.style.setProperty('--arrow-left', `${center}px`);
 
     if (hidden) { menu.style.display = ''; menu.style.visibility = ''; }
@@ -624,15 +507,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   dropdowns.forEach(li => {
     li.addEventListener('mouseenter', () => setArrow(li));
-    li.addEventListener('focusin',    () => setArrow(li));
+    li.addEventListener('focusin', () => setArrow(li));
   });
 
-  // pencere boyutu değişirse yeniden hizala
   window.addEventListener('resize', () => {
     document.querySelectorAll('.nav-dropdown:hover, .nav-dropdown:focus-within')
             .forEach(li => setArrow(li));
   });
 });
+
+// Dropdown menu alignment logic
 document.addEventListener('DOMContentLoaded', () => {
     const dropdowns = document.querySelectorAll('.nav-dropdown');
 
@@ -641,24 +525,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const toggle = menuItem.querySelector('.nav-dropdown-toggle');
         if (!menu || !toggle) return;
 
-        // Ekranın ve başlığın merkezini hesapla
         const screenCenter = window.innerWidth / 2;
         const toggleRect = toggle.getBoundingClientRect();
         const toggleCenter = toggleRect.left + toggleRect.width / 2;
 
-        // Başlık ekranın solunda mı sağında mı diye kontrol et
         if (toggleCenter < screenCenter) {
-            // SOLDA: Menüyü sağa doğru aç
             menu.classList.add('pull-right');
             menu.classList.remove('pull-left');
         } else {
-            // SAĞDA: Menüyü sola doğru aç
             menu.classList.add('pull-left');
             menu.classList.remove('pull-right');
         }
     };
 
-    // Her menünün üzerine gelince hizalama fonksiyonunu çalıştır
     dropdowns.forEach(item => {
         item.addEventListener('mouseenter', () => alignMenuToCenter(item));
     });
