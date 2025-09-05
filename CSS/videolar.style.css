@@ -1,3 +1,5 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 /* === TEMEL NAVBAR YAPISI === */
 .navbar {
     background-color: #022842;
@@ -36,19 +38,11 @@
     flex-shrink: 0; /* Profil bölümünün küçülmesini engeller */
 }
 
-
-.logo-container {
-    width: 300px; /* Değeri buradan büyüttük */
-    transition: width 0.3s ease;
-}
-
 .logo-img {
     width: 100%;
     height: auto;
     display: block;
 }
-
-
 
 /* === NAVİGASYON LİNKLERİ === */
 .nav-links {
@@ -266,7 +260,6 @@
     gap: 15px;               /* item arası boşluk */
 }
 
-/* Dropdown Items */
 .dropdown-item {
     display: flex !important;
     align-items: flex-start !important;

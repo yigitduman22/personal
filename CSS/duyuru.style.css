@@ -1,3 +1,6 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 /* ===================== NAVBAR ===================== */
 /* === TEMEL NAVBAR YAPISI === */
 .navbar {
@@ -37,10 +40,7 @@
     flex-shrink: 0; /* Profil bölümünün küçülmesini engeller */
 }
 
-.logo-container {
-    width: 300px; /* Değeri buradan büyüttük */
-    transition: width 0.3s ease;
-}
+
 
 .logo-img {
     width: 100%;
@@ -182,11 +182,6 @@
     flex-wrap: wrap;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-}
 
 
 /* === NAVİGASYON LİNKLERİ === */

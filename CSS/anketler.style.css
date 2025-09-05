@@ -70,12 +70,6 @@ html, body {
     flex-shrink: 0; /* Profil bölümünün küçülmesini engeller */
 }
 
-
-.logo-container {
-    width: 300px; /* Değeri buradan büyüttük */
-    transition: width 0.3s ease;
-}
-
 .logo-img {
     width: 100%;
     height: auto;
