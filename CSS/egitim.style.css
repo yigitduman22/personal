@@ -1879,3 +1879,20 @@ footer {
   gap: 20px; /* Kartlar arasındaki boşluk */
   /* Diğer stil özellikleriniz */
 }
+@media (max-width: 768px) {
+  /* Kartları alt alta sıralıyoruz ve tam genişlikte gösteriyoruz */
+  .document-card {
+    flex: 1 1 100%; /* Kartın tam genişlikte büyümesini sağlar */
+    max-width: 100%; /* Maksimum genişliği kaldırırız */
+  }
+
+  /* Butonları alt alta sıralayabiliriz */
+  .download-section {
+    flex-direction: column; /* Butonların yatay yerine dikey dizilmesini sağlarız */
+  }
+
+  .download-section .preview-btn {
+    width: 100%; /* Her bir butonun tam genişlikte olmasını sağlarız */
+    margin-bottom: 8px; /* Butonlar arasına boşluk ekleriz */
+  }
+}
