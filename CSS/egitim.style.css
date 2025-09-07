@@ -1864,3 +1864,18 @@ footer {
         padding: 10px 8px;
     }
 }
+.document-card {
+  /* Diğer stil özellikleriniz */
+  flex: 0 0 calc(33.333% - 14px);
+  /* flex-grow: 0 (büyüme yok), flex-shrink: 0 (küçülme yok), flex-basis: %33.333 - boşluk */
+  max-width: calc(33.333% - 14px);
+  /* Kartın maksimum genişliğini ayarlayarak yan yana durmasını garanti ederiz */
+}
+
+/* Kartlar arasındaki boşluğu (gap) düzeltmek için */
+.documents-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Kartlar arasındaki boşluk */
+  /* Diğer stil özellikleriniz */
+}
