@@ -1013,6 +1013,7 @@
     visibility: visible;
     transform: translateX(-50%); /* Y ekseninde kaydırma kaldırıldı */
 }
+/* ========== DROPDOWN STİLLERİ SONU ========== */
 
 /* === PROFİL BÖLÜMÜ === */
 .profile-container {
@@ -1655,6 +1656,7 @@ footer .footer-content .footer-logo {
     }
 }
 
+/* Footer stilleri */
 footer {
     background-color: #022842;
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
@@ -1738,6 +1740,7 @@ footer .footer-content .footer-logo {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
 }
+
 /* Küçük ekran düzeni */
 @media (max-width: 768px) {
     .footer-content {

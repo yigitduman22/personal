@@ -216,17 +216,7 @@ body {
     gap: 15px;
 }
 
-.news-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    position: relative;
-    cursor: pointer;
-    height: fit-content;
-}
+
 
 .news-card:hover {
     transform: translateY(-8px);
@@ -244,20 +234,24 @@ body {
     transform: scale(1.05);
 }
 
-.news-content {
-    padding: 20px;
+.news-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.3s ease;
 }
 
-.news-category {
-    display: inline-block;
-    color: white;
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 12px;
+/* Mouse ile üzerine gelindiğinde (hover) olacak stil */
+.news-department-name:hover {
+    background: linear-gradient(135deg, #022842 0%, #1e4a6b 100%); /* Geçişli arka plan [cite: 173] */
+    color: #ffffff; /* Yazı rengi beyaza dönsün */
+    border-color: transparent; /* Çerçeveyi gizleyebiliriz, renk dolduğu için gerek kalmaz */
 }
 
 .news-title {
@@ -286,14 +280,81 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+/* ================= KART DÜZENLEME KODLARI ================= */
+/* BU BLOKTAKİ 4 KURALI KENDİ DOSYANDAKİLERLE DEĞİŞTİR */
 
+/* 1. KARTIN ANA YAPISI */
+/* Kartların eşit boyda olması ve içindekileri hizalaması için */
+.news-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; 
+}
+
+/* 2. KART İÇERİK ALANI */
+/* Yazıların olduğu alanın esneyip boşlukları doldurması için */
+.news-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+}
+
+/* 3. MÜDÜRLÜK ETİKETİ */
+/* Genişlemesini önlemek ve hover efekti vermek için */
+.news-department-name {
+    display: inline-block;
+    background-color: transparent;
+    color: #022842;
+    border: 1px solid #022842;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 11px;
+    border-radius: 50px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start; /* EN ÖNEMLİSİ: Genişlemesini önleyen kod */
+}
+
+/* 3. MÜDÜRLÜK ETİKETİ (SON HALİ) */
+.news-department-name {
+    display: inline-block;
+    background: linear-gradient(135deg, #022842 0%, #1e4a6b 100%); /* Her zaman geçişli arka plan */
+    color: #ffffff; /* Her zaman beyaz yazı */
+    border: 1px solid transparent; /* Çerçeveye artık gerek yok */
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 12px; /* İçi dolu olduğu için iç boşluğu biraz daha ferah yaptım */
+    border-radius: 50px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    align-self: flex-start; /* Genişlemesini önleyen kod */
+}
+
+
+/* 4. TARİH/GÖRÜNTÜLENME ALANI */
+/* Kendisini her zaman kartın en altına sabitlemesi için */
 .news-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 12px;
     border-top: 1px solid #e9ecef;
+    margin-top: auto; /* Kendini en dibe iten sihirli kod */
 }
+
+/* ========================================================== */
 
 .news-date {
     color: #6c757d;
@@ -1025,6 +1086,7 @@ footer .container {
     visibility: visible;
     transform: translateX(-50%); /* Y ekseninde kaydırma kaldırıldı */
 }
+/* ========== DROPDOWN STİLLERİ SONU ========== */
 
 /* === PROFİL BÖLÜMÜ === */
 .profile-container {

@@ -360,12 +360,12 @@ function showNewsGrid(items) {
         if (noResults) noResults.classList.add('d-none');
         
         newsGrid.innerHTML = items.map(item => `
-            <div class="news-card" onclick="openNewsDetail(${item.id})">
-                <img src="${item.image}" alt="${item.title}" class="news-image" loading="lazy">
-                <div class="news-content">
-                    <span class="news-category">${item.categoryName}</span>
-                    <h3 class="news-title">${item.title}</h3>
-                    <p class="news-excerpt">${item.excerpt}</p>
+    <div class="news-card" onclick="openNewsDetail(${item.id})">
+        <img src="${item.image}" alt="${item.title}" class="news-image" loading="lazy">
+        <div class="news-content">
+            <h4 class="news-department-name">${item.categoryName}</h4>
+            <h3 class="news-title">${item.title}</h3>
+            <p class="news-excerpt">${item.excerpt}</p>
                     <div class="news-meta">
                         <span class="news-date">
                             <i class="fas fa-calendar-alt"></i>

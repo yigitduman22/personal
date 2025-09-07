@@ -393,6 +393,7 @@
     visibility: visible;
     transform: translateX(-50%); /* Y ekseninde kaydırma kaldırıldı */
 }
+/* ========== DROPDOWN STİLLERİ SONU ========== */
 /* === PROFİL BÖLÜMÜ === */
 .profile-container {
     position: relative;

@@ -224,7 +224,7 @@
 /* Dropdown Menu - içerik kadar genişlik */
 .nav-dropdown-menu {
     position: absolute; /* 'fixed' yerine 'absolute' yapıyoruz */
-    top: calc(100% + 20px); /* Navbar'ın hemen altına 15px boşlukla yerleştir */
+    top: calc(100% + 15px); /* Navbar'ın hemen altına 15px boşlukla yerleştir */
     left: 50%; /* Sayfanın ortasında konumlandır */
     transform: translateX(-50%); /* Tam ortaya hizala */
     background: white;
@@ -260,6 +260,7 @@
     gap: 15px;               /* item arası boşluk */
 }
 
+/* Dropdown Items */
 .dropdown-item {
     display: flex !important;
     align-items: flex-start !important;
@@ -353,7 +354,7 @@
     visibility: visible;
     transform: translateX(-50%); /* Y ekseninde kaydırma kaldırıldı */
 }
-
+/* ========== DROPDOWN STİLLERİ SONU ========== */
 /* === PROFİL BÖLÜMÜ === */
 .profile-container {
     position: relative;

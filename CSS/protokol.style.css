@@ -36,19 +36,11 @@
     flex-shrink: 0; /* Profil bölümünün küçülmesini engeller */
 }
 
-
-.logo-container {
-    width: 300px; /* Değeri buradan büyüttük */
-    transition: width 0.3s ease;
-}
-
 .logo-img {
     width: 100%;
     height: auto;
     display: block;
 }
-
-
 
 /* === NAVİGASYON LİNKLERİ === */
 .nav-links {
@@ -458,6 +450,7 @@
     visibility: visible;
     transform: translateX(-50%); /* Y ekseninde kaydırma kaldırıldı */
 }
+/* ========== DROPDOWN STİLLERİ SONU ========== */
 
 /* === PROFİL BÖLÜMÜ === */
 .profile-container {

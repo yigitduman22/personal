@@ -225,7 +225,8 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.05);
     position: relative;
     cursor: pointer;
-    height: fit-content;
+    display: flex;
+    flex-direction: column;
 }
 
 .news-card:hover {
@@ -246,8 +247,10 @@ body {
 
 .news-content {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
-
 .news-category {
     display: inline-block;
     color: white;
@@ -293,6 +296,7 @@ body {
     align-items: center;
     padding-top: 12px;
     border-top: 1px solid #e9ecef;
+    margin-top: auto;
 }
 
 .news-date {
@@ -990,7 +994,6 @@ footer .container {
         .dropdown-item:hover .dropdown-description {
             color: #666 !important;
         }
-
 /* toggle::after BLOĞUNU SİL ya da devre dışı bırak */
 .nav-dropdown-toggle::after { content: none; }
 

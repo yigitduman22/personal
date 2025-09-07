@@ -1248,7 +1248,6 @@ footer .container {
     filter: drop-shadow(0 -3px 6px rgba(0,0,0,.1));
 }
 
-
 .nav-dropdown:hover .nav-dropdown-menu {
     opacity: 1;
     visibility: visible;
@@ -1265,7 +1264,6 @@ footer .container {
     visibility: visible;
     transform: translateX(-50%); /* Y ekseninde kaydırma kaldırıldı */
 }
-
 /* ========== DROPDOWN STİLLERİ SONU ========== */
 
 /* === PROFİL BÖLÜMÜ === */
