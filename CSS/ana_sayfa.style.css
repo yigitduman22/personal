@@ -343,16 +343,28 @@ body {
     transform: none;
     opacity: 0.6;
 }
+.title-v1 {
+    width: 100%;
+    max-width: 1600px; /* Ana container'ı da genişletin */
+    margin: 0 auto; /* Ortalamak için */
+    
+}
 .title-v2{
-  position:relative; display:inline-flex; align-items:center; gap:10px;
-  background:#fff; color:#344e75; 
-  padding:16px ; 
-  border-radius:10px;
-  font-weight:700; font-size:28px;
-  box-shadow:0 8px 24px rgba(0,0,0,.12);
-  border-left: 4px solid #344e75;
+position: relative;
+display: inline-flex;
+align-items: center;
+gap: 10px;
+background: #fff;
+color: #344e75;
+padding: 16px;
+border-radius: 10px;
+font-weight: 700;
+font-size: 28px;
+box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+border-left: 4px solid #344e75;
 width: 100%;
-max-width: 1160px;
+max-width: 1600px; /* ya da none */
+
 }
 /* Tablet boyutu için (768px - 991px) */
 @media (max-width: 991px) {
@@ -442,7 +454,8 @@ max-width: 1160px;
     background: #ffffff;
     border-radius: 12px;
     padding: 20px 25px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+
     border: 1px solid #e9ecef;
     margin-bottom: 2.5rem; /* Kartlarla arasındaki boşluğu ayarlar */
 }
