@@ -1849,7 +1849,7 @@ footer {
 .document-card .download-section .preview-btn {
     flex: 1 1 auto; /* Butonların esnek olmasını ve içeriğine göre genişlemesini/daralmasını sağlar */
     min-width: 80px; /* Butonların minimum genişliğini ayarlar */
-    padding: 8px 12px; /* İç boşlukları ayarlar */
+    padding: 6px 10px; /* İç boşlukları ayarlar */
     font-size: 14px; /* Metin boyutunu biraz küçülterek daha fazla yer açar */
     white-space: nowrap; /* Metinlerin tek satırda kalmasını sağlar */
     text-align: center; /* Metni buton içinde ortalar */
