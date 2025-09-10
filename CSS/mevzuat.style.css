@@ -939,7 +939,7 @@
 
         /* Dökümanlar Grid */
             .documents-grid {
-           display: grid;
+           display: flex;
             flex-wrap: wrap;
             gap: 24px;         
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -1286,6 +1286,7 @@ footer .footer-content .footer-logo {
                 font-size: 13px;
             }
 
+           
             .document-card {
                 border-radius: 8px;
             }
@@ -1438,22 +1439,6 @@ footer .footer-content .footer-logo {
     left: 25px !important;
     right: auto !important;
     transform: translateX(-50%) !important;
-}
-/* Ana kart ızgarası (önceki gibi) */
-.documents-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: stretch;
-}
-
-/* Her bir kartın iç düzeni (önceki gibi) */
-.document-card {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 300px;
-    padding: 20px;
-    box-sizing: border-box;
 }
 
 /* Başlıkları 2 satırla sınırlıyoruz */
