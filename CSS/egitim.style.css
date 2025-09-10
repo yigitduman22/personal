@@ -1134,32 +1134,30 @@ footer .container {
     }
 }
 
-/* Butonları içeren bölüm için Flexbox düzeni */
-.document-card .download-section {
-    margin-top: auto; /* Buton bölümünü kartın en altına iter */
-    display: flex; /* İçindeki butonları yatayda düzenlemek için Flexbox kullanıyoruz */
-    flex-wrap: wrap; /* Butonlar sığmazsa alt satıra geçmelerini sağlar */
-    gap: 8px; /* Butonlar arasındaki boşluğu ayarlar */
-    justify-content: center; /* Butonları ortalar (isteğe bağlı, sola da hizalayabilirsiniz) */
-}
-
-/* Her bir butonun kendisi */
-.document-card .download-section .preview-btn {
-    flex: 1 1 auto; /* Butonların esnek olmasını ve içeriğine göre genişlemesini/daralmasını sağlar */
-    min-width: 80px; /* Butonların minimum genişliğini ayarlar */
-    padding: 8px 12px; /* İç boşlukları ayarlar */
-    font-size: 14px; /* Metin boyutunu biraz küçülterek daha fazla yer açar */
-    white-space: nowrap; /* Metinlerin tek satırda kalmasını sağlar */
-    text-align: center; /* Metni buton içinde ortalar */
-    /* Diğer stil özellikleriniz (background, border, color vb.) */
-}
-
-/* Çok küçük ekranlar için özel ayarlamalar (örneğin, 480px altı) */
+/* === KÜÇÜK MOBİL (480px) === */
 @media (max-width: 480px) {
-    .document-card .download-section .preview-btn {
-        flex: 1 1 100%; /* Çok küçük ekranlarda butonları tam genişlikte yapar (alt alta sıralanır) */
-        font-size: 13px; /* Daha küçük ekranlar için font boyutunu biraz daha azaltabiliriz */
-        padding: 10px 8px;
+    /* Kartların min genişliğini düşürerek daha erken tek sütuna geçmesini sağla */
+    .documents-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .main-container, .breadcrumb-container {
+        padding: 0 8px;
+    }
+    .logo-container {
+        width: 160px;
+    }
+    .page-header {
+        padding: 1rem 0;
+    }
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .filter-buttons {
+        overflow-x: auto;
+        padding-bottom: 4px;
+        gap: 0.5rem;
     }
     .filter-btn {
         flex-shrink: 0;

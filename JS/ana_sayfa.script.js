@@ -106,6 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainTitle = document.getElementById('ana-haber-baslik');
     const galleryTrack = document.getElementById('gallery-track');
     const galleryDotsContainer = document.getElementById('gallery-dots');
+    const galleryWrapper = document.querySelector('.gallery-wrapper');
+
 
     if (mainImage && mainTitle && galleryTrack && detayGorseller.length > 0) {
         let selectedImageIndex = 0;
@@ -122,20 +124,46 @@ document.addEventListener('DOMContentLoaded', function() {
         const thumbnails = galleryTrack.querySelectorAll('.gallery-thumbnail');
         
         function updateGallery(newIndex) {
-            selectedImageIndex = newIndex;
-            const selectedItem = detayGorseller[selectedImageIndex];
-            mainImage.style.opacity = '0';
-            mainTitle.style.opacity = '0';
-            setTimeout(() => {
-                mainImage.src = selectedItem.resim;
-                mainTitle.textContent = selectedItem.baslik;
-                mainImage.style.opacity = '1';
-                mainTitle.style.opacity = '1';
-            }, 250);
-            thumbnails.forEach(thumb => {
-                thumb.classList.toggle('active', parseInt(thumb.dataset.index) === selectedImageIndex);
-            });
-        }
+    selectedImageIndex = newIndex; 
+    const selectedItem = detayGorseller[selectedImageIndex];
+    mainImage.style.opacity = '0';
+    mainTitle.style.opacity = '0'; 
+    setTimeout(() => {
+        mainImage.src = selectedItem.resim;
+        mainTitle.textContent = selectedItem.baslik;
+        mainImage.style.opacity = '1';
+        mainTitle.style.opacity = '1';
+    }, 250); 
+    
+    thumbnails.forEach(thumb => {
+        thumb.classList.toggle('active', parseInt(thumb.dataset.index) === selectedImageIndex);
+    }); 
+
+    // YENİ EKLENEN KOD BAŞLANGICI
+    const activeThumbnail = galleryTrack.querySelector('.gallery-thumbnail.active');
+    if (activeThumbnail && galleryWrapper) {
+        const scrollAmount = activeThumbnail.offsetLeft + (activeThumbnail.offsetWidth / 2) - (galleryWrapper.offsetWidth / 2);
+        galleryWrapper.scrollTo({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+    // YENİ EKLENEN KOD BİTİŞİ
+}
+        // Aktif olan küçük resmi bul
+const activeThumbnail = galleryTrack.querySelector('.gallery-thumbnail.active');
+
+// Eğer aktif küçük resim varsa ve wrapper'ımız da mevcutsa...
+if (activeThumbnail && galleryWrapper) {
+    // Aktif resmin ortalanması için gereken kaydırma miktarını hesapla
+    const scrollAmount = activeThumbnail.offsetLeft + (activeThumbnail.offsetWidth / 2) - (galleryWrapper.offsetWidth / 2);
+
+    // Wrapper'ı (yani o kayan şeridi) yumuşak bir animasyonla yeni pozisyonuna kaydır
+    galleryWrapper.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+    });
+}
 
         galleryTrack.addEventListener('click', (e) => {
             const thumbnail = e.target.closest('.gallery-thumbnail');
