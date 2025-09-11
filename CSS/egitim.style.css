@@ -546,13 +546,12 @@ body {
     border-color: #022842;
 }
 
- /* Dökümanlar Grid */
-            .documents-grid {
-           display: flex;
-            flex-wrap: wrap;
-            gap: 24px;         
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        }
+.documents-grid {
+    display: grid;
+    /* auto-fit ile sığdığı kadar sütun oluştur, her biri en az 300px olsun */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
 
 .document-card {
     background: white;
@@ -564,9 +563,29 @@ body {
     position: relative;
     overflow: hidden;
     display: flex;
-     flex: 0 0 calc((100% - 48px) / 3); /* 3 sütun = iki gap çıkar */
-  max-width: calc((100% - 48px) / 3);
     flex-direction: column;
+    /* Artık flex-basis ve flex-grow'a ihtiyacımız yok, grid hallediyor */
+}
+/* Masaüstü için (örneğin 1200px ve üzeri) 4'lü sabit grid */
+@media (min-width: 1200px) {
+    .documents-grid {
+        /* Sadece 4 sütun oluştur ve her biri eşit genişlikte (1fr) olsun */
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Tabletler için (örneğin 900px ve üzeri) 3'lü sabit grid */
+@media (min-width: 900px) and (max-width: 1199px) {
+    .documents-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Dikey tabletler için 2'li grid */
+@media (min-width: 600px) and (max-width: 899px) {
+    .documents-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .document-card:hover {
