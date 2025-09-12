@@ -159,7 +159,71 @@ body {
     background-color: #6c757d;
     transform: scale(1.2);
 }
+/* ana_sayfa.style.css dosyasının sonuna bu kodları ekleyin: */
 
+/* Galeri Container'a göreceli pozisyon */
+#gallery-container {
+    position: relative;
+}
+
+/* Galeri navigasyon butonları */
+.gallery-nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(52, 78, 117, 0.8);
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-nav-arrow:hover {
+    background: rgba(52, 78, 117, 1);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-nav-arrow:disabled {
+    background: rgba(108, 117, 125, 0.5);
+    cursor: not-allowed;
+    transform: translateY(-50%);
+    opacity: 0.5;
+}
+
+.gallery-nav-arrow.prev {
+    left: -15px;
+}
+
+.gallery-nav-arrow.next {
+    right: -15px;
+}
+
+/* Mobil görünümde buton ayarları */
+@media (max-width: 768px) {
+    .gallery-nav-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+    
+    .gallery-nav-arrow.prev {
+        left: -10px;
+    }
+    
+    .gallery-nav-arrow.next {
+        right: -10px;
+    }
+}
 /* Ana görsel */
 #main-haber-gorsel {
     transition: opacity 0.5s ease;

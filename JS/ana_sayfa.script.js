@@ -107,6 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const galleryTrack = document.getElementById('gallery-track');
     const galleryDotsContainer = document.getElementById('gallery-dots');
     const galleryWrapper = document.querySelector('.gallery-wrapper');
+    const galleryPrevBtn = document.getElementById('gallery-prev-btn');
+    const galleryNextBtn = document.getElementById('gallery-next-btn');
 
 
     if (mainImage && mainTitle && galleryTrack && detayGorseller.length > 0) {
@@ -148,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     }
+    
     // YENİ EKLENEN KOD BİTİŞİ
 }
         // Aktif olan küçük resmi bul
@@ -164,7 +167,13 @@ if (activeThumbnail && galleryWrapper) {
         behavior: 'smooth'
     });
 }
-
+updateGalleryButtons();
+function updateGalleryButtons() {
+    if (galleryPrevBtn && galleryNextBtn) {
+        galleryPrevBtn.disabled = selectedImageIndex === 0;
+        galleryNextBtn.disabled = selectedImageIndex === detayGorseller.length - 1;
+    }
+}
         galleryTrack.addEventListener('click', (e) => {
             const thumbnail = e.target.closest('.gallery-thumbnail');
             if (thumbnail) {
@@ -173,6 +182,25 @@ if (activeThumbnail && galleryWrapper) {
                 startAutoSlide(); // Sayacı yeniden başlat
             }
         });
+        if (galleryPrevBtn && galleryNextBtn) {
+    galleryPrevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (selectedImageIndex > 0) {
+            clearInterval(autoSlideInterval);
+            updateGallery(selectedImageIndex - 1);
+            startAutoSlide();
+        }
+    });
+
+    galleryNextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (selectedImageIndex < detayGorseller.length - 1) {
+            clearInterval(autoSlideInterval);
+            updateGallery(selectedImageIndex + 1);
+            startAutoSlide();
+        }
+    });
+}
 
         function startAutoSlide() {
             autoSlideInterval = setInterval(() => {
