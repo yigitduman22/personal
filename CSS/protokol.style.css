@@ -1430,3 +1430,32 @@ footer .container {
     right: auto !important;
     transform: translateX(-50%) !important;
 }
+/* === TABLET VE ALTI (992px) === */
+@media (max-width: 992px) {
+    .filter-buttons {
+        display: flex;
+        flex-wrap: nowrap;              /* Satır kırılmasını engelle */
+        gap: 0.5rem;                    /* Buton aralığı */
+        justify-content: space-between; /* Tüm satıra yayılsın */
+    }
+
+    .filter-btn {
+        flex: 1;             /* Hepsi eşit genişlik alsın */
+        min-width: 0;        /* Taşmayı engelle */
+        text-align: center;  /* Yazılar ortalansın */
+        font-size: 14px;     /* Mobilde biraz küçült */
+        padding: 6px 8px;    /* Daha kompakt görünüm */
+    }
+}
+
+/* === KÜÇÜK MOBİL (480px) === */
+@media (max-width: 480px) {
+    .filter-buttons {
+        gap: 0.4rem; /* Daha az boşluk bırak */
+    }
+
+    .filter-btn {
+        font-size: 13px;
+        padding: 5px 6px;
+    }
+}
