@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const CARD_SEL = '.document-card';
   const SEARCH_SEL = '#searchInput';
   const FILTER_BTNS_SEL = '.filter-btn';
-  const DEFAULT_PAGE_SIZE = 6;
+  const DEFAULT_PAGE_SIZE = 4;
 
   const grid = document.querySelector(GRID_SEL);
   if(!grid) return;
@@ -199,13 +199,13 @@ document.addEventListener('DOMContentLoaded', function() {
   bar.className = 'pagination-bar';
   bar.innerHTML = `
     <div class="page-size">
-      <label for="pageSizeSel">Sayfa başı:</label>
+      <label for="pageSizeSel"></label>
       <select id="pageSizeSel">
-        <option>6</option>
-        <option>9</option>
-        <option selected>12</option>
-        <option>15</option>
-        <option>18</option>
+        <option selected>4</option>
+        <option>8</option>
+        <option >12</option>
+        <option>16</option>
+        <option>20</option>
       </select>
     </div>
     <div class="pagination" id="paginationBtns"></div>
@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     renderButtons();
-    pageInfo.textContent = `${vis.length === 0 ? 'Kayıt yok' : `${start+1}-${Math.min(end, vis.length)} / ${vis.length}`} (Sayfa ${currentPage}/${lastPage})`;
+   
   }
 
   function renderButtons(){
