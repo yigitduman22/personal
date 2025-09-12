@@ -1514,3 +1514,27 @@ footer .footer-content .footer-logo {
         padding: 5px 6px;
     }
 }
+.document-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  transition: all 0.3s ease;
+}
+
+.document-description.expanded {
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+.document-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  transition: all 0.3s ease;
+}
+
+.document-title.expanded {
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
