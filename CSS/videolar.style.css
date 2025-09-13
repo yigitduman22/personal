@@ -970,17 +970,56 @@ body {
 }
 
 /* Filtreleme Butonları */
-.nav-pills .nav-link {
-    font-weight: 500;
-}
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    color: white;
-    background-image: linear-gradient(to right, #00529B, #022842); /* Kurumsal mavi tonlarıyla renk geçişi */
-    background-color: transparent; /* Eski düz rengi iptal ediyoruz */
-    box-shadow: 0 4px 15px rgba(2, 40, 66, 0.4);
-    transform: translateY(-2px);
+/* --- FİLTRELEME BUTONLARI - DİNAMİK VURGU STİLİ --- */
+
+.nav-pills {
+    gap: 1.5rem; /* Yazıların arası açık olsun */
 }
 
+.nav-pills .nav-link {
+    font-weight: 600;
+    color: #6c757d; /* Pasif renk */
+    background: transparent !important; /* Arka planı tamamen kaldır */
+    border-radius: 0; /* Kenar yuvarlaklığına gerek yok */
+    padding: 0.5rem 0.1rem; /* Sadece alt-üst boşluk */
+    position: relative; /* Sahte element (:after) için gerekli */
+    transition: color 0.3s ease;
+    /* Eski stilleri sıfırla */
+    border: none;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Fareyle üzerine gelince yazı rengini canlandır */
+.nav-pills .nav-link:hover {
+    color: #022842;
+}
+
+/* Aktif butonun yazı rengi */
+.nav-pills .nav-link.active {
+    color: #022842;
+}
+
+/* Vurgu çizgisi için sahte element (:after) */
+.nav-pills .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Çizgi kalınlığı */
+    border-radius: 2px;
+    /* Bu sefer kurumsal turuncu tonlarını kullanalım, farklılık olsun */
+    background-image: linear-gradient(to right, #f39c12, #e67e22);
+    transform: scaleX(0); /* Başlangıçta genişliği sıfır (gizli) */
+    transform-origin: left; /* Genişleme soldan başlasın */
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Yumuşak ve havalı bir animasyon */
+}
+
+/* Aktif olan butonun altındaki çizgiyi görünür yap */
+.nav-pills .nav-link.active::after {
+    transform: scaleX(1); /* Genişliği %100 yap */
+}
 /* --- Sayfa Geçiş Animasyonu İçin --- */
 
 #video-grid {
