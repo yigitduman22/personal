@@ -82,22 +82,42 @@ body {
     font-style: italic;
 }
 /* ===================== BREADCRUMB ===================== */
- /* Breadcrumb Stilleri */
-.breadcrumb {
-    display: flex;           /* Yanyana dizmek için */
-    align-items: center;      /* Dikey ortalama */
-    gap: 5px;                 /* Araya biraz boşluk koymak için */
-    padding: 0;
-    margin: 0;
-    list-style: none;         /* Numara veya madde işaretini kaldırmak için */
-   
+/* ===================== BREADCRUMB - HIZALAMA DÜZELTİLDİ ===================== */
+.breadcrumb-section {
+    background-color: #f8f9fa;
+    padding: 15px 0;
 }
 
-.breadcrumb{ background:none; padding:0; margin:0; font-size:14px; }
-.breadcrumb-item a{ color:#6c757d; text-decoration:none; transition:color .3s; }
-.breadcrumb-item a:hover{ color:#022842; }
-.breadcrumb-item.active{ color:#022842; font-weight:500; }
-.breadcrumb-item + .breadcrumb-item::before{ content:">"; color:#6c757d; }
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: none;
+    font-size: 14px;
+}
+
+.breadcrumb-item a {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color .3s;
+}
+
+.breadcrumb-item a:hover {
+    color: #022842;
+}
+
+.breadcrumb-item.active {
+    color: #022842;
+    font-weight: 500;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    color: #6c757d;
+}
 
 /* ===================== VEFAT GRID YENİ DÜZENLEME ===================== */
 /* Vefat Kartları Grid - 4 sütun sabit, genişlik artırıldı */
