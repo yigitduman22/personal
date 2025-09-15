@@ -5,32 +5,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===================================================================
 
     // Video Veri Tabanı
-   const videos = [
-        { id: 'qLqYPQgUPEc', title: 'Gebze Offroad Heyecanı', description: 'Nefes kesen anlar...', category: 'etkinlikler', duration: '15:22' },
-        { id: 'GWfDmGr6tlg', title: 'Yeni Personel İçin İSG Eğitimi', description: 'İş sağlığı ve güvenliği temelleri.', category: 'egitimler', duration: '45:10' },
-        { id: 'eUBQYWMZyH8', title: 'Bayramlaşma Töreni Duyurusu', description: 'Tüm personelimiz davetlidir.', category: 'duyurular', duration: '01:30' },
-        { id: 'pAHStsCd9jo', title: 'Belediye Pikniği 2025', description: 'Geçtiğimiz haftadan kalanlar...', category: 'etkinlikler', duration: '05:48' },
-        { id: 'psmlNSPRDsM', title: 'Video Başlığı 5', description: 'Açıklama...', category: 'duyurular', duration: '00:00' },
-        { id: 'ABIqjRnV5dU', title: 'Video Başlığı 6', description: 'Açıklama...', category: 'egitimler', duration: '00:00' },
-        { id: 'xot-DBvkkq4', title: 'Video Başlığı 7', description: 'Açıklama...', category: 'etkinlikler', duration: '00:00' },
-        { id: 'BiY2WK24UHY', title: 'Video Başlığı 8', description: 'Açıklama...', category: 'duyurular', duration: '00:00' },
-        { id: 'uUFZvM9kqf4', title: 'Video Başlığı 9', description: 'Açıklama...', category: 'egitimler', duration: '00:00' },
-        { id: 'qdPXmtKXXc4', title: 'Video Başlığı 10', description: 'Açıklama...', category: 'etkinlikler', duration: '00:00' },
-        { id: '3ePuzpC2S0Q', title: 'Video Başlığı 11', description: 'Açıklama...', category: 'duyurular', duration: '00:00' },
-        { id: 'IEc5W0JyADU', title: 'Video Başlığı 12', description: 'Açıklama...', category: 'egitimler', duration: '00:00' },
-        { id: 'RhD1ArYsuKo', title: 'Video Başlığı 13', description: 'Açıklama...', category: 'etkinlikler', duration: '00:00' },
-        { id: 'G2KNC3OAnjE', title: 'Video Başlığı 14', description: 'Açıklama...', category: 'duyurular', duration: '00:00' },
-        { id: 'Z2dH2UIXb8Y', title: 'Video Başlığı 15', description: 'Açıklama...', category: 'egitimler', duration: '00:00' },
-        { id: 'QRizu8RhGnU', title: 'Video Başlığı 16', description: 'Açıklama...', category: 'etkinlikler', duration: '00:00' },
-        { id: 'YXat3fIWc7w', title: 'Video Başlığı 17', description: 'Açıklama...', category: 'duyurular', duration: '00:00' },
-        { id: 'e65zC48s8Wc', title: 'Video Başlığı 18', description: 'Açıklama...', category: 'egitimler', duration: '00:00' },
-        { id: '-0Wxna6PjqQ', title: 'Video Başlığı 19', description: 'Açıklama...', category: 'etkinlikler', duration: '00:00' },
-        { id: 'c0vbYSFwMzU', title: 'Video Başlığı 20', description: 'Açıklama...', category: 'duyurular', duration: '00:00' },
-        { id: 'RhVDYrAb0xQ', title: 'Video Başlığı 21', description: 'Açıklama...', category: 'egitimler', duration: '00:00' },
-        { id: 'aUQ3uIAfL-k', title: 'Video Başlığı 22', description: 'Açıklama...', category: 'etkinlikler', duration: '00:00' },
-        { id: 'D1b-CZYtCTg', title: 'Video Başlığı 23', description: 'Açıklama...', category: 'duyurular', duration: '00:00' }
-    ];
+ // ===================================================================
+// BÖLÜM 1: VİDEO SAYFASI İÇİN GEREKLİ KODLAR
+// ===================================================================
 
+// Video Veri Tabanı
+const videos = [
+    { id: 'qLqYPQgUPEc', title: 'Gebze Offroad Heyecanı', description: 'Nefes kesen anlar ve çamurlu yollar... Offroad tutkunları bu etkinlikte buluştu.', category: 'etkinlikler', duration: '15:22' },
+    { id: 'GWfDmGr6tlg', title: 'Yeni Personel İçin İSG Eğitimi', description: 'İş sağlığı ve güvenliği temelleri, tüm yeni personelimiz için önemli bir başlangıç.', category: 'egitimler', duration: '45:10' },
+    { id: 'eUBQYWMZyH8', title: 'Bayramlaşma Töreni Duyurusu', description: 'Geleneksel bayramlaşma törenimiz hakkında bilgilendirme. Tüm personelimiz davetlidir.', category: 'duyurular', duration: '01:30' },
+    { id: 'pAHStsCd9jo', title: 'Belediye Pikniği 2025', description: 'Geçtiğimiz hafta sonu düzenlediğimiz personel pikniğinden renkli anlar.', category: 'etkinlikler', duration: '05:48' },
+    { id: 'psmlNSPRDsM', title: 'Önemli Sistem Güncellemesi', description: 'Bilgi İşlem Daire Başkanlığından önemli duyuru.', category: 'duyurular', duration: '02:15' },
+    { id: 'ABIqjRnV5dU', title: 'Etkili İletişim Teknikleri Semineri', description: 'Kurum içi iletişimimizi güçlendirmek için düzenlenen eğitim.', category: 'egitimler', duration: '33:40' },
+    { id: 'xot-DBvkkq4', title: 'Gebze Kitap Fuarı Başladı', description: 'Belediyemizin düzenlediği kitap fuarından ilk görüntüler.', category: 'etkinlikler', duration: '08:12' },
+    { id: 'BiY2WK24UHY', title: 'Maaş Avansı Kullanım Bilgilendirmesi', description: 'İnsan kaynaklarından personelimize duyuru.', category: 'duyurular', duration: '03:05' },
+    { id: 'uUFZvM9kqf4', title: 'Temel Ofis Programları Eğitimi', description: 'Word, Excel ve PowerPoint kullanımı üzerine temel eğitim serisi.', category: 'egitimler', duration: '55:20' },
+    { id: 'qdPXmtKXXc4', title: 'Spor Turnuvası Kura Çekimi', description: 'Birimler arası spor turnuvası için kura çekimi heyecanı.', category: 'etkinlikler', duration: '12:50' },
+    { id: '3ePuzpC2S0Q', title: 'Yeni Servis Güzergahları Hk.', description: 'Personel servis güzergahlarındaki değişiklikler hakkında duyuru.', category: 'duyurular', duration: '04:18' },
+    { id: 'IEc5W0JyADU', title: 'Zaman Yönetimi ve Verimlilik', description: 'Daha verimli çalışmanın ipuçları bu eğitimde.', category: 'egitimler', duration: '28:30' },
+    { id: 'RhD1ArYsuKo', title: 'Huzurevi Ziyareti', description: 'Sosyal sorumluluk projemiz kapsamında gerçekleştirdiğimiz ziyaret.', category: 'etkinlikler', duration: '07:25' },
+    { id: 'G2KNC3OAnjE', title: 'Yıllık İzin Kullanımı Hakkında', description: 'İnsan kaynaklarından izin kullanımı ile ilgili önemli duyuru.', category: 'duyurular', duration: '02:55' },
+    { id: 'Z2dH2UIXb8Y', title: 'Kişisel Verilerin Korunması (KVKK)', description: 'KVKK kanunu kapsamında personelimiz için zorunlu eğitim.', category: 'egitimler', duration: '38:00' },
+    { id: 'QRizu8RhGnU', title: 'Fidan Dikme Etkinliği', description: 'Daha yeşil bir Gebze için personelimizle birlikte fidan diktik.', category: 'etkinlikler', duration: '09:45' },
+    { id: 'YXat3fIWc7w', title: 'Kantin Fiyat Düzenlemesi', description: 'Yemekhane ve kantin fiyatları hakkındaki yeni düzenleme.', category: 'duyurular', duration: '01:10' },
+    { id: 'e65zC48s8Wc', title: 'Stresle Başa Çıkma Yöntemleri', description: 'İş hayatında stresi yönetmek için pratik bilgiler.', category: 'egitimler', duration: '41:12' },
+    { id: '-0Wxna6PjqQ', title: 'Sokak Hayvanları Besleme Etkinliği', description: 'Patili dostlarımızı unutmadık, onlarla bir gün geçirdik.', category: 'etkinlikler', duration: '06:33' },
+    { id: 'c0vbYSFwMzU', title: 'İş Elbiseleri Dağıtımı', description: 'Yeni dönem iş elbiselerinin dağıtımıyla ilgili duyuru.', category: 'duyurular', duration: '01:45' },
+    { id: 'RhVDYrAb0xQ', title: 'Yangın Tatbikatı Eğitimi', description: 'Acil durumlara hazırlık kapsamında düzenlenen eğitim videosu.', category: 'egitimler', duration: '18:55' },
+    { id: 'aUQ3uIAfL-k', title: 'Geleneksel Aşure Günü', description: 'Aşure gününde personelimizle bir araya geldik.', category: 'etkinlikler', duration: '04:20' },
+    { id: 'D1b-CZYtCTg', title: 'Portal Kullanım Kılavuzu', description: 'Personel portalının nasıl daha etkin kullanılacağına dair video.', category: 'duyurular', duration: '11:30' }
+];
 
     // Gerekli HTML Elementlerini Seçme (Video Bölümü)
     const videoGrid = document.getElementById('video-grid');

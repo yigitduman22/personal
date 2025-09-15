@@ -970,6 +970,8 @@ body {
 }
 
 /* Filtreleme Butonları */
+/* --- FİLTRELEME BUTONLARI - MİNİMALİST "ALT ÇİZGİ" STİLİ --- */
+
 /* --- FİLTRELEME BUTONLARI - DİNAMİK VURGU STİLİ --- */
 
 .nav-pills {
@@ -1010,7 +1012,7 @@ body {
     height: 4px; /* Çizgi kalınlığı */
     border-radius: 2px;
     /* Bu sefer kurumsal turuncu tonlarını kullanalım, farklılık olsun */
-    background-image: linear-gradient(to right, #f39c12, #e67e22);
+    background-image: linear-gradient(to right, #00529B);
     transform: scaleX(0); /* Başlangıçta genişliği sıfır (gizli) */
     transform-origin: left; /* Genişleme soldan başlasın */
     transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Yumuşak ve havalı bir animasyon */
@@ -1019,17 +1021,6 @@ body {
 /* Aktif olan butonun altındaki çizgiyi görünür yap */
 .nav-pills .nav-link.active::after {
     transform: scaleX(1); /* Genişliği %100 yap */
-}
-/* --- Sayfa Geçiş Animasyonu İçin --- */
-
-#video-grid {
-    transition: opacity 0.2s ease-in-out; /* Opaklık değişimini 0.2 saniyede yumuşakça yap */
-}
-
-/* JS tarafından eklenecek olan, soluklaştırma class'ı */
-#video-grid.is-fading {
-    opacity: 0;
-    transform: translateY(15px); /* Kaybolurken hafifçe aşağı kaysın */
 }
 
 /* 1. Video Kartlarının Temel Stili */
